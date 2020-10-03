@@ -15,12 +15,17 @@
 
       <div class="top-nav">
         <div class="top-nav-item logo">
-          <img src="img/Logo.svg" alt="Logo image">
+          <img src="img/Education_Nation_Logo.svg" alt="Logo image">
         </div>
 
-        <div class="top-nav-item ">
-          <img src="img/Logo.svg" alt="Logo image">
+        <div class="top-nav-item">
+          <div class="searchbar flex-spaceholder-min">
+              <button type="submit" name="search" aria-label="search-button"></button>
+              <input type="text" name="search" aria-label="search" placeholder="Search...">
+          </div>
         </div>
+
+
       </div>
 
 

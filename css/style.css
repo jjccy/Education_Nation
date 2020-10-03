@@ -31,4 +31,50 @@ img{
   width: 5em;
 }
 
+.searchbar {
+	text-align: center;
+
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+
+	align-items: center;
+
+}
+
+.searchbar input[type=text] {
+	flex: 99 1 auto;
+	padding: 0.5rem;
+	font-size: 1rem;
+
+	color: #efefef;
+}
+
+
+.searchbar input[type=text]:focus {
+    outline-width: 1px;
+}
+
+.searchbar button {
+	flex: 1 1 auto;
+	width: 2em;
+	height: 2em;
+	padding: 0.25rem;
+	background-color: rgba(0,0,0,0);
+	background-image: url("../img/search-icon-darker.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	border: none;
+
+	transition-duration: .5s;
+  	transition-property: opacity;
+
+	opacity: 0.6;
+}
+
+.searchbar button:hover, .searchbar button:focus {
+    opacity: 1.0;
+}
+
 /* end top nav bar */
