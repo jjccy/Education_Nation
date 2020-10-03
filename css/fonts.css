@@ -1,0 +1,16 @@
+@font-face {
+  font-family: Poppins;
+  src: url(Fonts/Poppins-SemiBold.otf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: SF Pro Display;
+  src: url(Fonts/SF-Pro-Display-Regular.otf);
+}
+
+@font-face {
+  font-family: SF Pro Display;
+  src: url(Fonts/SF-Pro-Display-Semibold.otf);
+  font-weight: 600;
+}
