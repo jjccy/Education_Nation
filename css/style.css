@@ -1,34 +1,46 @@
 /* basic styling */
+* {
+  box-sizing: border-box !important;
+}
+
 img{
   width: auto;
   height: auto;
   object-fit: cover;
 }
 
+
+.max-flex-box-item {
+  flex: 99 1 auto;
+}
 /* end basic styling */
 
 
 
 /* top nav bar */
 .top-nav {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  margin: 1em 5em 1.5em;
+  margin: 2.2em 7em 1.5em;
 
+  display: -webkit-flex;
+  display: -ms-flex;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: Poppins;
+  font-family: SF Pro Display;
 }
 
 .top-nav-item {
   flex: 1 1 auto;
-
-  border: solid 1px black;
 }
 
-.top-nav > .logo > img {
-  width: 5em;
+.top-nav > .logo {
+  margin-right: 7em;
+}
+
+.top-nav > .logo img {
+  width: 5.8em;
 }
 
 .searchbar {
@@ -45,9 +57,32 @@ img{
 .searchbar input[type=text] {
 	flex: 99 1 auto;
 	padding: 0.5rem;
-	font-size: 1rem;
+	font-size: .8rem;
+  min-width: 12rem;
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,0);
 
-	color: #efefef;
+  transition-duration: .2s;
+  transition-property: border-bottom;
+
+	color: #C4CAD5;
+}
+
+.searchbar ::placeholder {
+  color: #C4CAD5;
+  opacity: 1; /* Firefox */
+}
+
+.searchbar :-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #C4CAD5;
+}
+
+.searchbar ::-ms-input-placeholder { /* Microsoft Edge */
+ color: #C4CAD5;
+}
+
+.searchbar input[type=text]:hover {
+    border-bottom: 2px solid #C4CAD5;
 }
 
 
@@ -57,9 +92,8 @@ img{
 
 .searchbar button {
 	flex: 1 1 auto;
-	width: 2em;
-	height: 2em;
-	padding: 0.25rem;
+	width: 1.8em;
+	height: 1.3em;
 	background-color: rgba(0,0,0,0);
 	background-image: url("../img/search-icon-darker.png");
 	background-repeat: no-repeat;
@@ -68,13 +102,33 @@ img{
 	border: none;
 
 	transition-duration: .5s;
-  	transition-property: opacity;
+  transition-property: opacity;
 
-	opacity: 0.6;
+	opacity: 0.3;
 }
 
 .searchbar button:hover, .searchbar button:focus {
-    opacity: 1.0;
+    opacity: .7;
+}
+
+.account-section {
+  display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+
+	align-items: center;
+  justify-content: space-between;
+}
+
+.account-section > .top-nav-item {
+  margin-left: 4.5em;
+}
+
+.account-section a{
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+  font-size: .9rem;
 }
 
 /* end top nav bar */

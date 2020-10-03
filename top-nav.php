@@ -11,25 +11,35 @@
   </head>
 
   <body>
-    <div style="width: 100vw;">
 
-      <div class="top-nav">
-        <div class="top-nav-item logo">
-          <img src="img/Education_Nation_Logo.svg" alt="Logo image">
+    <!-- start top nav -->
+    <div class="top-nav">
+
+      <div class="top-nav-item logo">
+        <a href="index.php"><img src="img/Logo.svg" alt="Logo image"></a>
+      </div>
+
+      <div class="top-nav-item">
+        <div class="searchbar">
+            <button type="submit" name="search" aria-label="search-button"></button>
+            <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
         </div>
+      </div>
 
+      <div class="max-flex-box-item"></div>
+
+      <div class="top-nav-item account-section">
         <div class="top-nav-item">
-          <div class="searchbar flex-spaceholder-min">
-              <button type="submit" name="search" aria-label="search-button"></button>
-              <input type="text" name="search" aria-label="search" placeholder="Search...">
-          </div>
+          <a href="#">Sign up</a>
         </div>
-
-
+        <div class="top-nav-item">
+          <a href="#">Login</a>
+        </div>
       </div>
 
 
     </div>
+    <!-- ends top nav -->
 
 
 
