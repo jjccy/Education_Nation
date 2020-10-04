@@ -150,4 +150,92 @@ img {
   font-size: .9rem;
 }
 
-/* end top nav bar */
+/* end top nav bar */
+/* start side nav bar*/
+.side-nav {
+  height: 100%;
+  width: auto;
+  position: fixed;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+.side-nav a {
+  font-family: SF Pro Display;
+  padding: 0.5em 3em;
+  margin-bottom: 2em;
+  text-decoration: none;
+  font-size: 1em;
+  color: #000000;
+  display: block;
+}
+
+.side-nav a:hover {
+  color: #776FC4;
+}
+
+.main-menu {
+  margin-top: 7em;
+}
+
+.help-button a {
+  padding: 1em 4em;
+}
+
+.side-nav-item {
+  margin-left: 6em;
+}
+
+.icon-home {
+  /*Home icon to home menu button*/
+  background-image: url("../img/Home.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
+.icon-tutors {
+  /*Tutors icon to tutors menu button*/
+  background-image: url("../img/Tutor.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
+.icon-about {
+  /*About icon to about menu button*/
+  background-image: url("../img/About.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
+.icon-contact {
+  /*Contact icon to contact menu button*/
+  background-image: url("../img/Contact.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
+.icon-help {
+  /*Help icon to help menu button*/
+  background-image: url("../img/Help.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
+/* end side nav bar */
