@@ -252,3 +252,94 @@ img {
 
 
 /* end side nav bar */
+
+
+/* start of card */
+
+
+/* demo wrapper to show the interation of scaling */
+
+.demo-container {
+    margin: 5em
+}
+
+
+/* card container; contains all elements of the card */
+
+.card-container {
+    position: relative;
+    width: 20em;
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+}
+
+.btn {
+    display: block;
+    padding: 0.75em 1.5em;
+    background: white;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #776FC4;
+    font-family: SF Pro Display;
+    font-size: 1em;
+}
+
+.card-container img {
+    width: 100%;
+}
+
+.card-container img {
+    border-radius: 10px;
+}
+
+.card-container:hover img {
+    box-shadow: 0px 3px 6px rgba(125, 125, 125, 0.8);
+}
+
+
+/* used https://stackoverflow.com/questions/32285150/image-overlay-with-padding-and-text-centered */
+
+
+/* card info spacing and positioningwrapper */
+
+.info-wrapper {
+    position: absolute;
+    bottom: 1em;
+    left: 0.5em;
+    width: calc(100% - 1em);
+}
+
+.card-info {
+    background: #EEE8F6;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-direction: column;
+    padding: 1.25em;
+    border-radius: 10px;
+}
+
+.card-info>p {
+    margin: 0;
+    flex: 99 1 auto;
+}
+
+.tutor-spec {
+    color: #776FC4;
+    padding-top: 0.5em;
+}
+
+.card-info .btn {
+    align-self: flex-end;
+    box-shadow: 0px 3px 6px rgba(125, 125, 125, 0.8);
+}
+
+.card-info .btn:hover {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.8);
+    text-decoration: underline;
+}
+
+
+/* end of card */
