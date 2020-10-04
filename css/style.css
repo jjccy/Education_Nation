@@ -7,31 +7,31 @@
 .heading-1 {
     font-family: Poppins;
     color: #000000;
-    font-size: 3em;
+    font-size: 3rem;
 }
 
 .heading-2 {
     font-family: Poppins;
     color: #000000;
-    font-size: 1.5em;
+    font-size: 1.2rem;
 }
 
 .heading-3 {
     font-family: SF Pro Display SemiBold;
     color: #776FC4;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .heading-4 {
     font-family: Poppins;
     color: #776FC4;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .body-text {
     font-family: SF Pro Display;
     color: #000000;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 img {
@@ -53,13 +53,15 @@ img {
 .top-nav {
   width: 100vw;
   height: auto;
-  padding: 2.2em 7em 1.5em;
+  padding: 2.2em 6em 1.5em;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: SF Pro Display;
+
+  z-index: 99;
 
   position: fixed;
 }
@@ -179,12 +181,16 @@ img {
     overflow-x: hidden;
 }
 
+.side-nav .heading-2 {
+  margin-bottom: 2em;
+}
+
 .side-nav a {
     font-family: SF Pro Display;
     padding: 0.5em 3em;
     margin-bottom: 2em;
     text-decoration: none;
-    font-size: 1em;
+    font-size: .8em;
     color: #000000;
     display: block;
 }
@@ -195,6 +201,10 @@ img {
 
 .main-menu {
     margin-top: 7em;
+}
+
+.help-button {
+    margin-bottom: 5vh;
 }
 
 .help-button a {
