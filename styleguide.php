@@ -19,6 +19,7 @@
       <li>
         <div class="">
           <p>Tutor cards</p>
+          <a href="card.php" target="_blank">Card Template</a>
         </div>
       </li>
       <li>
