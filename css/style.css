@@ -51,9 +51,9 @@ img {
 /* top nav bar */
 
 .top-nav {
-  max-width: 100%;
+  width: 100vw;
   height: auto;
-  margin: 2.2em 7em 1.5em;
+  padding: 2.2em 7em 1.5em;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;

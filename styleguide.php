@@ -24,13 +24,14 @@
       </li>
       <li>
         <div class="">
-          <p>Top nav</p><br>
+          <p>Top nav</p>
           <a href="top-nav.php" target="_blank">Top nav template</a>
         </div>
       </li>
       <li>
         <div class="">
           <p>Side nav</p>
+          <a href="side-nav.php" target="_blank">Side nav template</a>
         </div>
       </li>
       <li>
