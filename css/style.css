@@ -3,26 +3,52 @@
   box-sizing: border-box !important;
 }
 
-img{
+.heading-1 {
+  font-family: Poppins;
+  color: #000000;
+  font-size: 3em;
+}
+
+.heading-2 {
+  font-family: Poppins;
+  color: #000000;
+  font-size: 1.5em;
+}
+
+.heading-3 {
+  font-family: SF Pro Display SemiBold;
+  color: #776FC4;
+  font-size: 1em;
+}
+
+.heading-4 {
+  font-family: Poppins;
+  color: #776FC4;
+  font-size: 1em;
+}
+
+.body-text {
+  font-family: SF Pro Display;
+  color: #000000;
+  font-size: 1em;
+}
+
+img {
   width: auto;
   height: auto;
   object-fit: cover;
 }
 
-
 .max-flex-box-item {
   flex: 99 1 auto;
 }
+
 /* end basic styling */
-
-
-
 /* top nav bar */
 .top-nav {
   max-width: 100%;
   height: auto;
   margin: 2.2em 7em 1.5em;
-
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
@@ -35,100 +61,93 @@ img{
   flex: 1 1 auto;
 }
 
-.top-nav > .logo {
+.top-nav>.logo {
   margin-right: 7em;
 }
 
-.top-nav > .logo img {
+.top-nav>.logo img {
   width: 5.8em;
 }
 
 .searchbar {
-	text-align: center;
-
-	display: -webkit-flex;
-	display: -ms-flex;
-	display: flex;
-
-	align-items: center;
-
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
 }
 
 .searchbar input[type=text] {
-	flex: 99 1 auto;
-	padding: 0.5rem;
-	font-size: .8rem;
+  flex: 99 1 auto;
+  padding: 0.5rem;
+  font-size: .8rem;
   min-width: 12rem;
   border: none;
-  border-bottom: 2px solid rgba(0,0,0,0);
-
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
   transition-duration: .2s;
   transition-property: border-bottom;
-
-	color: #C4CAD5;
+  color: #C4CAD5;
 }
 
 .searchbar ::placeholder {
   color: #C4CAD5;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
 
-.searchbar :-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: #C4CAD5;
+.searchbar :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #C4CAD5;
 }
 
-.searchbar ::-ms-input-placeholder { /* Microsoft Edge */
- color: #C4CAD5;
+.searchbar ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #C4CAD5;
 }
 
 .searchbar input[type=text]:hover {
-    border-bottom: 2px solid #C4CAD5;
+  border-bottom: 2px solid #C4CAD5;
 }
 
-
 .searchbar input[type=text]:focus {
-    outline-width: 1px;
+  outline-width: 1px;
 }
 
 .searchbar button {
-	flex: 1 1 auto;
-	width: 1.8em;
-	height: 1.3em;
-	background-color: rgba(0,0,0,0);
-	background-image: url("../img/search-icon-darker.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-
-	border: none;
-
-	transition-duration: .5s;
+  flex: 1 1 auto;
+  width: 1.8em;
+  height: 1.3em;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("../img/search-icon-darker.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  transition-duration: .5s;
   transition-property: opacity;
-
-	opacity: 0.3;
+  opacity: 0.3;
 }
 
 .searchbar button:hover, .searchbar button:focus {
-    opacity: .7;
+  opacity: .7;
 }
 
 .account-section {
   display: -webkit-flex;
-	display: -ms-flex;
-	display: flex;
-
-	align-items: center;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-.account-section > .top-nav-item {
+.account-section>.top-nav-item {
   margin-left: 4.5em;
 }
 
-.account-section a{
+.account-section a {
   text-decoration: none;
   color: #000000;
   font-weight: 600;
   font-size: .9rem;
 }
 
-/* end top nav bar */
+/* end top nav bar */
