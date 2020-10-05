@@ -68,6 +68,8 @@
 
       <!-- start tutor list -->
       <div class="tutor-list">
+
+        <!-- list title section -->
         <div class="list-title">
 
           <div class="list-title-item">
@@ -103,49 +105,164 @@
           </div>
 
         </div>
+        <!-- end list title -->
+
+
+        <!-- cards wrapper -->
+        <div class="cards-wrapper">
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+          <div class="card-container">
+              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <div class="info-wrapper">
+                  <div class="card-info">
+                      <p class="heading-4">Susan White</p>
+                      <p class="body-text tutor-spec">Grade 9 - Math</p>
+                      <a href="#" class="btn">See More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="max-flex-box-item"></div>
+
+
+        </div>
+        <!-- end cards wrapper -->
 
 
 
-        <div class="card-container">
-            <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-            <div class="info-wrapper">
-                <div class="card-info">
-                    <p class="heading-4">Susan White</p>
-                    <p class="body-text tutor-spec">Grade 9 - Math</p>
-                    <a href="#" class="btn">See More</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-container">
-            <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-            <div class="info-wrapper">
-                <div class="card-info">
-                    <p class="heading-4">Susan White</p>
-                    <p class="body-text tutor-spec">Grade 9 - Math</p>
-                    <a href="#" class="btn">See More</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-container">
-            <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-            <div class="info-wrapper">
-                <div class="card-info">
-                    <p class="heading-4">Susan White</p>
-                    <p class="body-text tutor-spec">Grade 9 - Math</p>
-                    <a href="#" class="btn">See More</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-container">
-            <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-            <div class="info-wrapper">
-                <div class="card-info">
-                    <p class="heading-4">Susan White</p>
-                    <p class="body-text tutor-spec">Grade 9 - Math</p>
-                    <a href="#" class="btn">See More</a>
-                </div>
-            </div>
-        </div>
+
+
       </div>
       <!-- end tutor list -->
 

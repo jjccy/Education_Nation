@@ -12,8 +12,6 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-
-  border: 1px solid pink;
 }
 
 .list-title-item {
@@ -88,3 +86,20 @@
 }
 
 /* end title section for tutor listing  */
+
+/* cards */
+.cards-wrapper {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  flex-wrap: wrap;
+}
+
+.cards-wrapper > .card-container {
+  flex: 1 1 auto;
+  margin-bottom: 5em;
+
+  max-width: 15em;
+}
+/* cards end here */
