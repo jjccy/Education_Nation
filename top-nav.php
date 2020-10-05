@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Style guide</title>
+    <title>top nav template</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -30,10 +30,10 @@
 
       <div class="top-nav-item account-section">
         <div class="top-nav-item">
-          <a href="#">Sign up</a>
+          <a href="sign-up.php">Sign up</a>
         </div>
         <div class="top-nav-item">
-          <a href="#">Login</a>
+          <a href="login.php">Login</a>
         </div>
       </div>
 

@@ -72,6 +72,15 @@
     </ul>
 
 
+    <h1>Page</h1>
+    <ul>
+      <li>
+        <div class="">
+          <a href="searching.php" target="_blank">Searching page</a>
+        </div>
+      </li>
+    </ul>
+
 
 
 
