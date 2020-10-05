@@ -48,6 +48,19 @@
   border-radius: .3em;
 }
 
+.dropbtn > img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+
+  height: .7em;
+
+  margin-left: .5em;
+
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -135,6 +148,8 @@
 .arrow-btn {
   position: relative;
 
+  cursor: default;
+
   width: 2em;
   height: 2em;
 
@@ -163,6 +178,8 @@
 .arrow-btn.active{
   color: #776FC4;
   border-color: rgba(119, 111, 196, .5);
+
+  cursor: pointer;
 
   transition-property: all;
   transition-duration: .2s;

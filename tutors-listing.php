@@ -79,7 +79,11 @@
           <div class="list-title-item">
 
             <div class="dropdown">
-              <button class="dropbtn">Sort</button>
+              <button class="dropbtn">
+                <img src="img/Tutors_Sort.svg" alt="sort icon">
+                Sort
+              </button>
+
               <div class="dropdown-content">
                 <a href="#">Rate</a>
                 <a href="#">Subject</a>
@@ -90,7 +94,11 @@
             </div>
 
             <div class="dropdown">
-              <button class="dropbtn">Filter</button>
+              <button class="dropbtn">
+                <img src="img/Tutors_Filter.svg" alt="filter icon">
+                Filter
+              </button>
+
               <div class="dropdown-content">
                 <a href="#">Should</a>
                 <a href="#">filter</a>

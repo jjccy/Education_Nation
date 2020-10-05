@@ -8,6 +8,7 @@
 
 img {
     width: auto;
+    max-width: 100%;
     height: auto;
     object-fit: cover;
 }
@@ -159,7 +160,7 @@ img {
     height: 1.3em;
 
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("../img/search-icon-darker.png");
+    background-image: url("../img/Search.svg");
     background-repeat: no-repeat;
     background-size: contain;
     border: none;

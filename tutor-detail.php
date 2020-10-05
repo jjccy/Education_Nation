@@ -76,16 +76,16 @@
 
             <div class="info-btns">
               <a href="#" class="info-btn">
-                <img src="img/About.svg" alt="About image">
-                About Us
+                <img src="img/Tutor_About.svg" alt="About image">
+                <p>About Us</p>
               </a>
               <a href="#" class="info-btn">
-                <img src="img/About.svg" alt="temp image">
-                Review
+                <img src="img/Tutor_Reviews.svg" alt="temp image">  
+                <p>Review</p>
               </a>
               <a href="#" class="info-btn">
-                <img src="img/Calendar.svg" alt="Calendar image">
-                Availability
+                <img src="img/Tutor_Availability.svg" alt="Calendar image">
+                <p>Availability</p>
               </a>
             </div>
 
