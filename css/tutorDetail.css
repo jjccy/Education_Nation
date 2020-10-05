@@ -1,0 +1,63 @@
+.tutor-detail {
+  padding-left: 18.8em;
+  padding-top: 8.5em;
+  padding-right: 9.5em;
+}
+
+.detail-info {
+  width: 100%;
+
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+.detail-info > div {
+  flex: 1 1 auto;
+}
+
+.detail-info .card-container {
+  max-width: 15em;
+}
+
+.actual-info {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  flex-direction: column;
+
+  margin-right: 3em;
+}
+
+.info-btns {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  margin-bottom: 3.5em;
+}
+
+.info-btn {
+  width: 12em;
+  height: 13.2em;
+
+  text-decoration: none;
+  text-align: center;
+  color: #776FC4;
+  font-family: SF Pro Display;
+  font-size: .9rem;
+
+  padding: 3.8em 3.2em 0;
+  margin-right: 1.5em;
+  background: #EEE8F6;
+  border-radius: 1em;
+}
+
+.info-btn > img {
+  margin-bottom: .5em;
+}
+
+.text-area {
+  max-width: 42em;
+}

@@ -76,7 +76,12 @@
     <ul>
       <li>
         <div class="">
-          <a href="searching.php" target="_blank">Searching page</a>
+          <a href="tutors-listing.php" target="_blank">Tutor listing / Searching / Filter page</a>
+        </div>
+      </li>
+      <li>
+        <div class="">
+          <a href="tutor-detail.php" target="_blank">Tutor Detail page</a>
         </div>
       </li>
     </ul>

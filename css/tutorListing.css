@@ -11,7 +11,7 @@
   display: -ms-flex;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
 }
 
 .list-title-item {
@@ -45,6 +45,7 @@
   padding: .65em 2.5em ;
   border: none;
   cursor: pointer;
+  border-radius: .3em;
 }
 
 .dropdown-content {
@@ -98,8 +99,12 @@
 
 .cards-wrapper > .card-container {
   flex: 1 1 auto;
-  margin-bottom: 5em;
+  margin-bottom: 3.5em;
 
-  max-width: 15em;
+  max-width: 16.5em;
+}
+
+.cards-wrapper .btn {
+    font-size: .8rem;
 }
 /* cards end here */

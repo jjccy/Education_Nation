@@ -12,42 +12,40 @@
   </head>
 
   <body>
-    <div class="background">
-
-    </div>
-
-    <!-- start top nav -->
-    <div class="top-nav">
-
-      <div class="top-nav-item logo">
-        <a href="index.php"><img src="img/Logo.svg" alt="Logo image"></a>
-      </div>
-
-      <div class="top-nav-item">
-        <div class="searchbar">
-            <button type="submit" name="search" aria-label="search-button"></button>
-            <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
-        </div>
-      </div>
-
-      <div class="max-flex-box-item"></div>
-
-      <div class="top-nav-item account-section">
-        <div class="top-nav-item">
-          <a href="sign-up.php">Sign up</a>
-        </div>
-        <div class="top-nav-item">
-          <a href="login.php">Login</a>
-        </div>
-      </div>
-
-
-    </div>
-    <!-- ends top nav -->
-
+    <!-- background -->
+    <div class="background"></div>
 
     <!-- start body wrapper -->
     <div class="body-wrapper">
+
+      <!-- start top nav -->
+      <div class="top-nav">
+
+        <div class="top-nav-item logo">
+          <a href="index.php"><img src="img/Logo.svg" alt="Logo image"></a>
+        </div>
+
+        <div class="top-nav-item">
+          <div class="searchbar">
+              <button type="submit" name="search" aria-label="search-button"></button>
+              <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
+          </div>
+        </div>
+
+        <div class="max-flex-box-item"></div>
+
+        <div class="top-nav-item account-section">
+          <div class="top-nav-item">
+            <a href="sign-up.php">Sign up</a>
+          </div>
+          <div class="top-nav-item">
+            <a href="login.php">Login</a>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- ends top nav -->
 
       <!-- start side nav -->
       <div class="side-nav">
@@ -117,7 +115,7 @@
                   <div class="card-info">
                       <p class="heading-4">Susan White</p>
                       <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
+                      <a href="tutor-detail.php" class="btn">See More</a>
                   </div>
               </div>
           </div>
@@ -129,7 +127,7 @@
                   <div class="card-info">
                       <p class="heading-4">Susan White</p>
                       <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
+                      <a href="tutor-detail.php" class="btn">See More</a>
                   </div>
               </div>
           </div>
@@ -141,7 +139,7 @@
                   <div class="card-info">
                       <p class="heading-4">Susan White</p>
                       <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
+                      <a href="tutor-detail.php" class="btn">See More</a>
                   </div>
               </div>
           </div>
@@ -153,7 +151,7 @@
                   <div class="card-info">
                       <p class="heading-4">Susan White</p>
                       <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
+                      <a href="tutor-detail.php" class="btn">See More</a>
                   </div>
               </div>
           </div>
@@ -165,7 +163,7 @@
                   <div class="card-info">
                       <p class="heading-4">Susan White</p>
                       <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
+                      <a href="tutor-detail.php" class="btn">See More</a>
                   </div>
               </div>
           </div>
@@ -177,7 +175,7 @@
                   <div class="card-info">
                       <p class="heading-4">Susan White</p>
                       <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
+                      <a href="tutor-detail.php" class="btn">See More</a>
                   </div>
               </div>
           </div>
@@ -189,7 +187,7 @@
                   <div class="card-info">
                       <p class="heading-4">Susan White</p>
                       <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
+                      <a href="tutor-detail.php" class="btn">See More</a>
                   </div>
               </div>
           </div>
@@ -201,59 +199,13 @@
                   <div class="card-info">
                       <p class="heading-4">Susan White</p>
                       <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
+                      <a href="tutor-detail.php" class="btn">See More</a>
                   </div>
               </div>
           </div>
           <div class="max-flex-box-item"></div>
 
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-          <div class="max-flex-box-item"></div>
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-          <div class="max-flex-box-item"></div>
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-          <div class="max-flex-box-item"></div>
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="#" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-          <div class="max-flex-box-item"></div>
+          
 
 
         </div>
