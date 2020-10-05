@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="75.512" height="77.499" viewBox="0 0 75.512 77.499">
+  <g id="Calendar" transform="translate(-5 -3)">
+    <path id="Path_2095" data-name="Path 2095" d="M5,61.692V14H80.512V61.692a7.972,7.972,0,0,1-7.949,7.949H12.949A7.972,7.972,0,0,1,5,61.692Z" transform="translate(0 10.859)" fill="#f6f7f9"/>
+    <path id="Path_2096" data-name="Path 2096" d="M80.512,13.949V25.872H5V13.949A7.972,7.972,0,0,1,12.949,6H72.563A7.972,7.972,0,0,1,80.512,13.949Z" transform="translate(0 2.961)" fill="#776fc4"/>
+    <g id="Group_25" data-name="Group 25" transform="translate(18.91 10.949)">
+      <circle id="Ellipse_5" data-name="Ellipse 5" cx="6" cy="6" r="6" transform="translate(36.09 0.051)" fill="#6054d5"/>
+      <circle id="Ellipse_6" data-name="Ellipse 6" cx="6" cy="6" r="6" transform="translate(0.09 0.051)" fill="#6054d5"/>
+    </g>
+    <g id="Group_26" data-name="Group 26" transform="translate(20.897 3)">
+      <path id="Path_2097" data-name="Path 2097" d="M34.974,3A3.986,3.986,0,0,0,31,6.974V16.91a3.974,3.974,0,0,0,7.949,0V6.974A3.986,3.986,0,0,0,34.974,3Z" transform="translate(4.769 -3)" fill="#c4cad5"/>
+      <path id="Path_2098" data-name="Path 2098" d="M16.974,3A3.986,3.986,0,0,0,13,6.974V16.91a3.974,3.974,0,0,0,7.949,0V6.974A3.986,3.986,0,0,0,16.974,3Z" transform="translate(-13 -3)" fill="#c4cad5"/>
+    </g>
+    <g id="Group_27" data-name="Group 27" transform="translate(20.897 36.782)">
+      <rect id="Rectangle_15" data-name="Rectangle 15" width="8" height="8" transform="translate(0.103 0.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_16" data-name="Rectangle 16" width="8" height="8" transform="translate(12.103 0.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_17" data-name="Rectangle 17" width="8" height="8" transform="translate(24.103 0.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_18" data-name="Rectangle 18" width="8" height="8" transform="translate(36.103 0.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_19" data-name="Rectangle 19" width="8" height="8" transform="translate(0.103 12.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_20" data-name="Rectangle 20" width="8" height="8" transform="translate(12.103 12.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_21" data-name="Rectangle 21" width="8" height="8" transform="translate(24.103 12.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_22" data-name="Rectangle 22" width="8" height="8" transform="translate(36.103 12.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_23" data-name="Rectangle 23" width="8" height="8" transform="translate(0.103 24.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_24" data-name="Rectangle 24" width="8" height="8" transform="translate(12.103 24.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_25" data-name="Rectangle 25" width="8" height="8" transform="translate(24.103 24.218)" fill="#c4cad5"/>
+      <rect id="Rectangle_26" data-name="Rectangle 26" width="8" height="8" transform="translate(36.103 24.218)" fill="#c4cad5"/>
+    </g>
+  </g>
+</svg>
