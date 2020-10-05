@@ -4,16 +4,26 @@
     box-sizing: border-box !important;
 }
 
+img {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
 .heading-1 {
     font-family: Poppins;
     color: #000000;
-    font-size: 3rem;
+    font-size: 1.9rem;
+
+    margin-block-start: 0;
 }
 
 .heading-2 {
     font-family: Poppins;
     color: #000000;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+
+    margin-block-start: 0;
 }
 
 .heading-3 {
@@ -34,14 +44,31 @@
     font-size: 1rem;
 }
 
-img {
-    width: auto;
-    height: auto;
-    object-fit: cover;
-}
-
 .max-flex-box-item {
     flex: 99 1 auto;
+}
+
+.body-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.title-with-icon {
+  padding-left: 1.5em;
+}
+
+.background {
+  top: -382.2995910644531px;
+  left: 1057px;
+  width: 1646px;
+  height: 1892px;
+  transform: matrix(0.88, -0.47, 0.47, 0.88, 0, 0);
+
+  background: #E5F8FF 0% 0% no-repeat padding-box;
+  border-radius: 82px;
+  opacity: 1;
+
+  position: fixed;
 }
 
 
@@ -64,6 +91,8 @@ img {
   z-index: 99;
 
   position: fixed;
+
+  background: linear-gradient(180deg, white 80%, rgba(0,0,0,0));
 }
 
 .top-nav-item {
@@ -126,14 +155,17 @@ img {
     flex: 1 1 auto;
     width: 1.8em;
     height: 1.3em;
+
     background-color: rgba(0, 0, 0, 0);
     background-image: url("../img/search-icon-darker.png");
     background-repeat: no-repeat;
     background-size: contain;
     border: none;
+
+    opacity: 0.3;
+
     transition-duration: .5s;
     transition-property: opacity;
-    opacity: 0.3;
 }
 
 .searchbar button:hover,
@@ -158,6 +190,14 @@ img {
     color: #000000;
     font-weight: 600;
     font-size: .9rem;
+
+    transition-duration: .2s;
+    transition-property: color;
+}
+
+.account-section a:hover,
+.account-section a:focus {
+  color: #776FC4;
 }
 
 
@@ -200,7 +240,7 @@ img {
 }
 
 .main-menu {
-    margin-top: 7em;
+    margin-top: 9em;
 }
 
 .help-button {

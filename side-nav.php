@@ -24,7 +24,7 @@
       </div>
       <div class="max-flex-box-item"></div>
       <div class="side-nav-item help-button">
-          <a href="help.php" class="icon-help">Help</a>
+          <a href="help.php" class="icon-help">Help Center</a>
       </div>
 
     </div>
