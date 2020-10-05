@@ -2,6 +2,8 @@
 
 * {
     box-sizing: border-box !important;
+
+    font-size: 11pt;
 }
 
 img {
@@ -35,13 +37,13 @@ img {
 .heading-4 {
     font-family: Poppins;
     color: #776FC4;
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 .body-text {
     font-family: SF Pro Display;
     color: #000000;
-    font-size: 1rem;
+    font-size: .95rem;
 }
 
 .max-flex-box-item {
@@ -228,7 +230,7 @@ img {
 .side-nav a {
     font-family: SF Pro Display;
     padding: 0.5em 3em;
-    margin-bottom: 2em;
+    margin-bottom: 2.5em;
     text-decoration: none;
     font-size: .8em;
     color: #000000;
@@ -319,6 +321,10 @@ img {
 .card-container {
     position: relative;
     width: 20em;
+
+    transition-duration: .2s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
 }
 
 .card-container:hover {
@@ -367,7 +373,7 @@ img {
     display: -webkit-flex;
     display: -ms-flex;
     flex-direction: column;
-    padding: 1.25em;
+    padding: 1.25em .75em .75em 1.25em;
     border-radius: 10px;
 }
 
@@ -383,7 +389,7 @@ img {
 
 .card-info .btn {
     align-self: flex-end;
-    box-shadow: 0px 3px 6px rgba(125, 125, 125, 0.8);
+    box-shadow: 0px 3px 6px rgba(125, 125, 125, 0.5);
 }
 
 .card-info .btn:hover {
