@@ -205,13 +205,30 @@
           </div>
           <div class="max-flex-box-item"></div>
 
-          
-
-
         </div>
         <!-- end cards wrapper -->
 
+        <!-- list buttons -->
 
+        <div class="list-buttons">
+          <div class="max-flex-box-item"></div>
+
+          <a href="#" class="arrow-btn" id="left">
+            <p>&#8592;</p>
+          </a>
+          <div class="page-number">
+            <p class="body-text" id="currentPage">01</p>
+            <p class="body-text"> / </p>
+            <p class="body-text" id="totalPage">04</p>
+          </div>
+          <a href="#" class="arrow-btn active" id="right">
+            <p>&#8594;</p>
+          </a>
+
+          <div class="max-flex-box-item"></div>
+        </div>
+
+        <!-- end list buttons -->
 
 
 

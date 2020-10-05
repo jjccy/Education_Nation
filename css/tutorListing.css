@@ -108,3 +108,70 @@
     font-size: .8rem;
 }
 /* cards end here */
+
+/* list buttons */
+.list-buttons {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  align-items: center;
+
+  margin-top: 2.5em;
+  margin-bottom: 3em;
+}
+
+.page-number {
+  flex: 1 1 auto;
+  margin: 0 1.5em;
+
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  align-items: center;
+}
+
+.arrow-btn {
+  position: relative;
+
+  width: 2em;
+  height: 2em;
+
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: black;
+
+  border-radius: 1em;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.arrow-btn > p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.arrow-btn.active{
+  color: #776FC4;
+  border-color: rgba(119, 111, 196, .5);
+
+  transition-property: all;
+  transition-duration: .2s;
+}
+
+.arrow-btn.active:hover,
+.arrow-btn.active:focus
+{
+  color: white;
+  background-color: rgba(119, 111, 196, 1);
+}
+/* list buttons ends */
