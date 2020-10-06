@@ -205,7 +205,26 @@
     }
     
     @media only screen and (max-width: 1350px) {
-        .cart-detail {
-            margin-right: 1.5rem;
+        .cart-content {
+            margin-right: 1rem;
+        }
+    }
+    
+    @media only screen and (max-width: 1250px) {
+        /* .cart-detail-top {
+            flex-direction: column-reverse;
+            align-items: flex-end;
+        } */
+        .cart-quantity-top {
+            display: none;
+        }
+    }
+    
+    @media only screen and (max-width: 1000px) {
+        .cart-detail-top {
+            padding-right: 1.5em;
+        }
+        .cart-section {
+            padding-right: 1.5em;
         }
     }
