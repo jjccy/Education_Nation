@@ -80,7 +80,7 @@
                 <p>About Us</p>
               </a>
               <a href="#" class="info-btn">
-                <img src="img/Tutor_Reviews.svg" alt="temp image">  
+                <img src="img/Tutor_Reviews.svg" alt="temp image">
                 <p>Review</p>
               </a>
               <a href="#" class="info-btn">
@@ -89,7 +89,7 @@
               </a>
             </div>
 
-            <div class="text-area">
+            <div class="text-area" id="about">
               <p class="heading-2">About Me</p>
               <p class="body-text">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr,

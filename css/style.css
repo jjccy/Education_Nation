@@ -149,20 +149,20 @@ img {
 .searchbar button {
     flex: 1 1 auto;
     width: 1.8em;
-    height: 1.3em;
+    height: 1.5em;
     background-color: rgba(0, 0, 0, 0);
     background-image: url("../img/Search.svg");
     background-repeat: no-repeat;
     background-size: contain;
     border: none;
-    opacity: 0.3;
+    opacity: 0.5;
     transition-duration: .5s;
     transition-property: opacity;
 }
 
 .searchbar button:hover,
 .searchbar button:focus {
-    opacity: .7;
+    opacity: 1;
 }
 
 .account-section {

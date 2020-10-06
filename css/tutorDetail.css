@@ -53,6 +53,17 @@
   margin-right: 1.5em;
   background: #EEE8F6;
   border-radius: 1em;
+
+  transition-property: all;
+  transition-duration: .1s;
+}
+
+.info-btn:hover {
+  transform: scale(1.05);
+}
+
+.info-btn.active {
+
 }
 
 .info-btn > img {
