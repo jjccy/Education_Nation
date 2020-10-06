@@ -31,6 +31,7 @@
       <li>
         <div class="">
           <p>Side nav</p>
+          <a href="side-nav.php" target="_blank">Side nav template</a>
         </div>
       </li>
       <li>
@@ -41,8 +42,9 @@
       <li>
         <div class="">
           <p>Tutor listing module</p>
+          <a href="tutors-listing.php" target="_blank">Tutor listing / Searching / Filter page</a>
         </div>
-      </li>  <a href="side-nav.php" target="_blank">Side nav template</a>
+      </li>
       <li>
         <div class="">
           <p>Best tutor of the month</p>
@@ -61,6 +63,7 @@
       <li>
         <div class="">
           <p>Tutor detail</p>
+          <a href="tutor-detail.php" target="_blank">Tutor Detail page</a>
         </div>
       </li>
       <li>
