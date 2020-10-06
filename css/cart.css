@@ -54,9 +54,17 @@
     }
     
     .profile-picture {
-        height: 3rem;
+        min-height: 1.75rem;
+        max-height: 3rem;
         padding-left: 3rem;
         align-items: center;
+    }
+    
+    @media only screen and (max-width: 1800px) {
+        .login-wrapper .heading-3 {
+            padding-left: 0;
+            padding-right: 0.75em;
+        }
     }
     
     .icon-caret {
@@ -98,6 +106,7 @@
     
     .cart-content {
         flex: 1 1 auto;
+        /* margin-right: 2em; */
     }
     
     .cart-content .cart-quantity {
@@ -110,7 +119,7 @@
         flex: 0 0 25%;
         position: relative;
         z-index: 4;
-        padding-left: 5em;
+        padding-left: 1.5em;
     }
     
     .cart-info {
@@ -175,4 +184,28 @@
     .place-order:hover {
         box-shadow: 0px 3px 6px rgba(125, 125, 125, 0.8);
         text-decoration: underline;
+    }
+    
+    @media only screen and (max-width: 2045px) {
+        .cart-detail-top {
+            padding-right: 2em;
+        }
+        .cart-section {
+            padding-right: 2em;
+        }
+    }
+    
+    @media only screen and (max-width: 1440px) {
+        .login-wrapper .hello {
+            display: none;
+        }
+        .profile-picture {
+            padding-left: 2.5rem;
+        }
+    }
+    
+    @media only screen and (max-width: 1350px) {
+        .cart-detail {
+            margin-right: 1.5rem;
+        }
     }

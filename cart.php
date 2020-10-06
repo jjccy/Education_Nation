@@ -21,7 +21,7 @@
         </div>
         <a href="#"class="login-wrapper">
           <div class="icon-pic profile-picture"></div>
-          <p class="heading-3"> Hello Jennifer</p>
+          <p class="heading-3"> <span class="hello"> Hello </span> Jennifer</p>
           <div class="icon-caret"></div>
         </a>
       </div>
