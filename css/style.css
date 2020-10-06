@@ -345,6 +345,15 @@ img {
   width: auto;
 }
 
+.icon-enter {
+  /*Award icon on Home Page*/
+  background-image: url("../img/Login.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
 /* end side nav bar */
 /* start of card */
 /* demo wrapper to show the interation of scaling */
