@@ -65,7 +65,7 @@
       <!-- end side nav -->
 
       <!-- start tutor detail section -->
-      <div class="tutor-detail">
+      <section class="tutor-detail">
         <p class="title-with-icon heading-1 icon-tutors">Susan White</p>
 
         <!-- start detail info -->
@@ -132,7 +132,7 @@
         </div>
         <!-- end detail info -->
 
-      </div>
+      </section>
       <!-- end tutro detail section -->
 
 

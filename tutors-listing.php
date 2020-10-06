@@ -65,7 +65,7 @@
       <!-- end side nav -->
 
       <!-- start tutor list -->
-      <div class="tutor-list">
+      <section class="tutor-list">
 
         <!-- list title section -->
         <div class="list-title">
@@ -218,7 +218,7 @@
         <!-- list buttons -->
 
         <div class="list-buttons">
-
+          <div class="max-flex-box-item"></div>
 
           <a href="#" class="arrow-btn" id="left">
             <p>&#8592;</p>
@@ -232,14 +232,14 @@
             <p>&#8594;</p>
           </a>
 
-
+          <div class="max-flex-box-item"></div>
         </div>
 
         <!-- end list buttons -->
 
 
 
-      </div>
+      </section>
       <!-- end tutor list -->
 
     </div>
