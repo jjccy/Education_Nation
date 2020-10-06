@@ -2,7 +2,6 @@
 
 * {
     box-sizing: border-box !important;
-
     font-size: 11pt;
 }
 
@@ -17,7 +16,6 @@ img {
     font-family: Poppins;
     color: #000000;
     font-size: 1.9rem;
-
     margin-block-start: 0;
 }
 
@@ -25,7 +23,6 @@ img {
     font-family: Poppins;
     color: #000000;
     font-size: 1.1rem;
-
     margin-block-start: 0;
 }
 
@@ -52,26 +49,24 @@ img {
 }
 
 .body-wrapper {
-  width: 100%;
-  position: relative;
+    width: 100%;
+    position: relative;
 }
 
 .title-with-icon {
-  padding-left: 1.5em;
+    padding-left: 1.5em;
 }
 
 .background {
-  top: -382.2995910644531px;
-  left: 1057px;
-  width: 1646px;
-  height: 1892px;
-  transform: matrix(0.88, -0.47, 0.47, 0.88, 0, 0);
-
-  background: #E5F8FF 0% 0% no-repeat padding-box;
-  border-radius: 82px;
-  opacity: 1;
-
-  position: fixed;
+    top: -382.2995910644531px;
+    left: 1057px;
+    width: 1646px;
+    height: 1892px;
+    transform: matrix(0.88, -0.47, 0.47, 0.88, 0, 0);
+    background: #E5F8FF 0% 0% no-repeat padding-box;
+    border-radius: 82px;
+    opacity: 1;
+    position: fixed;
 }
 
 
@@ -81,21 +76,18 @@ img {
 /* top nav bar */
 
 .top-nav {
-  width: 100vw;
-  height: auto;
-  padding: 2.2em 6em 1.5em;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: SF Pro Display;
-
-  z-index: 99;
-
-  position: fixed;
-
-  background: linear-gradient(180deg, white 80%, rgba(0,0,0,0));
+    width: 100vw;
+    height: auto;
+    padding: 2.2em 6em 1.5em;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: SF Pro Display;
+    z-index: 99;
+    position: fixed;
+    background: linear-gradient(180deg, white 80%, rgba(0, 0, 0, 0));
 }
 
 .top-nav-item {
@@ -158,15 +150,12 @@ img {
     flex: 1 1 auto;
     width: 1.8em;
     height: 1.3em;
-
     background-color: rgba(0, 0, 0, 0);
     background-image: url("../img/Search.svg");
     background-repeat: no-repeat;
     background-size: contain;
     border: none;
-
     opacity: 0.3;
-
     transition-duration: .5s;
     transition-property: opacity;
 }
@@ -193,14 +182,13 @@ img {
     color: #000000;
     font-weight: 600;
     font-size: .9rem;
-
     transition-duration: .2s;
     transition-property: color;
 }
 
 .account-section a:hover,
 .account-section a:focus {
-  color: #776FC4;
+    color: #776FC4;
 }
 
 
@@ -225,7 +213,7 @@ img {
 }
 
 .side-nav .heading-2 {
-  margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 .side-nav a {
@@ -303,6 +291,51 @@ img {
     width: auto;
 }
 
+.icon-briefcase {
+    /*Briefcase icon*/
+    background-image: url("../img/Briefcase.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
+.icon-cart {
+    /*cart icon*/
+    background-image: url("../img/Cart.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
+.icon-edit {
+    /*Edit icon*/
+    background-image: url("../img/edit.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 3rem;
+    width: 3rem;
+}
+
+.icon-pic {
+    /*Profile Picture*/
+    background-image: url("../img/Jennifer_PFP.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
+.icon-caret {
+    /*Caret Icon*/
+    background-image: url("../img/caret.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1em;
+    width: 1em;
+}
+
 
 /* end side nav bar */
 
@@ -322,7 +355,6 @@ img {
 .card-container {
     position: relative;
     width: 20em;
-
     transition-duration: .2s;
     transition-property: all;
     transition-timing-function: ease-in-out;
@@ -341,6 +373,7 @@ img {
     color: #776FC4;
     font-family: SF Pro Display;
     font-size: 1em;
+    text-align: center;
 }
 
 .card-container img {
@@ -391,6 +424,11 @@ img {
 .card-info .btn {
     align-self: flex-end;
     box-shadow: 0px 3px 6px rgba(125, 125, 125, 0.5);
+}
+
+.card-info .tutor-price {
+    text-align: right;
+    font-size: 1.5rem;
 }
 
 .card-info .btn:hover {
