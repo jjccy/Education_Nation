@@ -113,8 +113,9 @@
 .cards-wrapper > .card-container {
   flex: 1 1 auto;
   margin-bottom: 3.5em;
+  margin-right: 2.5vw;
 
-  max-width: 16.5em;
+  max-width: 17em;
 }
 
 .cards-wrapper .btn {

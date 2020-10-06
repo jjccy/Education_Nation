@@ -127,7 +127,6 @@
                   </div>
               </div>
           </div>
-          <div class="max-flex-box-item"></div>
 
           <div class="card-container">
               <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
@@ -139,7 +138,7 @@
                   </div>
               </div>
           </div>
-          <div class="max-flex-box-item"></div>
+
 
           <div class="card-container">
               <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
@@ -151,7 +150,7 @@
                   </div>
               </div>
           </div>
-          <div class="max-flex-box-item"></div>
+
 
           <div class="card-container">
               <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
@@ -163,7 +162,7 @@
                   </div>
               </div>
           </div>
-          <div class="max-flex-box-item"></div>
+
 
           <div class="card-container">
               <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
@@ -175,7 +174,7 @@
                   </div>
               </div>
           </div>
-          <div class="max-flex-box-item"></div>
+
 
           <div class="card-container">
               <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
@@ -187,7 +186,7 @@
                   </div>
               </div>
           </div>
-          <div class="max-flex-box-item"></div>
+
 
           <div class="card-container">
               <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
@@ -199,7 +198,7 @@
                   </div>
               </div>
           </div>
-          <div class="max-flex-box-item"></div>
+
 
           <div class="card-container">
               <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
@@ -211,7 +210,7 @@
                   </div>
               </div>
           </div>
-          <div class="max-flex-box-item"></div>
+
 
         </div>
         <!-- end cards wrapper -->
@@ -219,7 +218,7 @@
         <!-- list buttons -->
 
         <div class="list-buttons">
-          <div class="max-flex-box-item"></div>
+
 
           <a href="#" class="arrow-btn" id="left">
             <p>&#8592;</p>
@@ -233,7 +232,7 @@
             <p>&#8594;</p>
           </a>
 
-          <div class="max-flex-box-item"></div>
+
         </div>
 
         <!-- end list buttons -->
