@@ -3,13 +3,161 @@
   <head>
     <meta charset="utf-8">
 
-    <title>About</title>
-    
+    <title>Home</title>
+
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/homePage.css">
 
   </head>
 
   <body>
+    <div class="background"></div>
+
+    <!-- start body wrapper -->
+    <div class="body-wrapper">
+
+      <!-- start top nav -->
+      <div class="top-nav">
+
+        <div class="top-nav-item logo">
+          <a href="index.php"><img src="img/Logo.svg" alt="Logo image"></a>
+        </div>
+
+        <div class="top-nav-item">
+          <div class="searchbar">
+              <button type="submit" name="search" aria-label="search-button"></button>
+              <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
+          </div>
+        </div>
+
+        <div class="max-flex-box-item"></div>
+
+        <div class="top-nav-item account-section">
+          <div class="top-nav-item">
+            <a href="sign-up.php">Sign up</a>
+          </div>
+          <div class="top-nav-item">
+            <a href="login.php">Login</a>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- ends top nav -->
+
+      <!-- start side nav -->
+      <div class="side-nav">
+        <div class="side-nav-item main-menu">
+          <p class="heading-2">Explore</p>
+          <a href="index.php" class="icon-home">Home</a>
+          <a href="tutors-listing.php" class="icon-tutors">Tutors</a>
+          <a href="about.php" class="icon-about">About</a>
+          <a href="contact.php" class="icon-contact">Contact</a>
+        </div>
+        <div class="max-flex-box-item"></div>
+        <div class="side-nav-item help-button">
+            <a href="help.php" class="icon-help">Help Center</a>
+        </div>
+
+      </div>
+      <!-- end side nav -->
+
+      <!-- start home page -->
+      <div class="home-page">
+
+        <!-- home title section -->
+        <div class="home-title">
+
+          <div class="home-title-item">
+            <p class="title-with-icon heading-1 icon-announcement">Announcements</p>
+            <img src="img/Announcement_Banner.svg" alt="Announcements">
+          </div>
+
+          <div class="max-flex-box-item"></div>
+
+        </div>
+        <!-- end home title section -->
+
+        <!-- home best tutors section -->
+        <div class="home-slider">
+            <p class="title-with-icon heading-1 icon-award">Best Tutors Of The Month</p>
+            <!-- slider buttons -->
+            <!-- <div class="list-buttons">
+              <a href="#" class="arrow-btn" id="left">
+                <p>&#8592;</p>
+              </a>
+              <div class="page-number">
+                <p class="body-text" id="currentPage">01</p>
+                <p class="body-text"> / </p>
+                <p class="body-text" id="totalPage">04</p>
+              </div>
+              <a href="#" class="arrow-btn active" id="right">
+                <p>&#8594;</p>
+              </a>
+
+            </div> -->
+            <!-- end slider buttons -->
+            <!-- slider section-->
+            <section class="slider">
+                <div class="card-container slide">
+                    <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                    <div class="info-wrapper">
+                        <div class="card-info">
+                            <p class="heading-4">Susan White</p>
+                            <p class="body-text tutor-spec">Grade 9 - Math</p>
+                            <a href="#" class="btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container slide">
+                    <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                    <div class="info-wrapper">
+                        <div class="card-info">
+                            <p class="heading-4">Susan White</p>
+                            <p class="body-text tutor-spec">Grade 9 - Math</p>
+                            <a href="#" class="btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container slide">
+                    <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                    <div class="info-wrapper">
+                        <div class="card-info">
+                            <p class="heading-4">Susan White</p>
+                            <p class="body-text tutor-spec">Grade 9 - Math</p>
+                            <a href="#" class="btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container slide">
+                    <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                    <div class="info-wrapper">
+                        <div class="card-info">
+                            <p class="heading-4">Susan White</p>
+                            <p class="body-text tutor-spec">Grade 9 - Math</p>
+                            <a href="#" class="btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    <!-- End of Slider Section-->
+          <!-- <div class="max-flex-box-item"></div> -->
+
+        </div>
+        <!-- end home best tutors section -->
+
+
+
+      </div>
+      <!-- end home page content -->
+
+    </div>
+    <!-- end body wrapper -->
+
 
 
     <!-- footer starts here -->
@@ -20,6 +168,11 @@
     </footer>
 
     <!-- end of footer section -->
+    <!-- Script for Slider-->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/slider.js"></script>
+    <!-- End of Script for Slider-->
 
   </body>
 </html>

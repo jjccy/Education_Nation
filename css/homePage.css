@@ -1,0 +1,122 @@
+.home-page {
+  padding-left: 18.8em;
+  padding-top: 8.5em;
+  padding-right: 5em;
+}
+
+/* title section for home page */
+.home-title {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.home-title-item {
+  flex: 1 1 auto;
+}
+
+.home-title-item:last-child {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* end title section for home page  */
+/* Best tutors section for home page*/
+.home-slider {
+  margin-top: 6em;
+  /* display: -webkit-flex;
+  display: -ms-flex;
+  display: flex; */
+  /* justify-content: space-between;
+  align-items: flex-start; */
+}
+
+.slide:first-child {
+  margin-left: 0;
+}
+
+/* end Best tutors section for home page  */
+/* cards */
+.cards-wrapper {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards-wrapper>.card-container {
+  flex: 1 1 auto;
+  margin-bottom: 3.5em;
+  margin-right: 2.5vw;
+  max-width: 17em;
+}
+
+.cards-wrapper .btn {
+  font-size: .8rem;
+}
+
+/* cards end here */
+/* list buttons */
+.list-buttons {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  margin-top: 2.5em;
+  margin-bottom: 3em;
+}
+
+.page-number {
+  flex: 1 1 auto;
+  margin: 0 1.5em;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-btn {
+  position: relative;
+  cursor: default;
+  width: 2em;
+  height: 2em;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: black;
+  border-radius: 1em;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.arrow-btn>p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.arrow-btn.active {
+  color: #776FC4;
+  border-color: rgba(119, 111, 196, .5);
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: .2s;
+}
+
+.arrow-btn.active:hover,
+.arrow-btn.active:focus {
+  color: white;
+  background-color: rgba(119, 111, 196, 1);
+}
+
+/* list buttons ends */
