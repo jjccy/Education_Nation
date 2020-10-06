@@ -72,6 +72,12 @@
           <a href="cart.php">Cart page</a>
         </div>
       </li>
+      <li>
+        <div class="">
+          <p>Help Module</p>
+          <a href="help-overlay.php">Help Module</a>
+        </div>
+      </li>
     </ul>
 
 
