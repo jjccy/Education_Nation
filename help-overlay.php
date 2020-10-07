@@ -13,71 +13,19 @@
 </head>
 
 <body>
-    <!-- background -->
-    <div class="background"></div>
-
-    <!-- start body wrapper -->
-    <div class="body-wrapper">
-
-        <!-- start top nav -->
-        <div class="top-nav">
-
-            <div class="top-nav-item logo">
-                <a href="index.php"><img src="img/Logo.svg" alt="Logo image"></a>
+    <div class="help-module">
+        <div class="module-header" id="chat-header">
+            <p class="heading-4">Ask Us Anything!</p>
+            <div class="module-header-icons">
+                <a href="#">
+                    <div class="icon-more"></div>
+                </a>
+                <a href="#">
+                    <div id="chat-module-caret" class="icon-caret icon-caret-flip"></div>
+                </a>
             </div>
-
-            <div class="top-nav-item">
-                <div class="searchbar">
-                    <button type="submit" name="search" aria-label="search-button"></button>
-                    <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
-                </div>
-            </div>
-
-            <div class="max-flex-box-item"></div>
-
-            <div class="top-nav-item account-section">
-                <div class="top-nav-item">
-                    <a href="sign-up.php">Sign up</a>
-                </div>
-                <div class="top-nav-item">
-                    <a href="login.php">Login</a>
-                </div>
-            </div>
-
-
         </div>
-        <!-- ends top nav -->
-
-        <!-- start side nav -->
-        <div class="side-nav">
-            <div class="side-nav-item main-menu">
-                <p class="heading-2">Explore</p>
-                <a href="index.php" class="icon-home">Home</a>
-                <a href="tutors-listing.php" class="icon-tutors">Tutors</a>
-                <a href="about.php" class="icon-about">About</a>
-                <a href="contact.php" class="icon-contact">Contact</a>
-            </div>
-            <div class="max-flex-box-item"></div>
-            <div class="side-nav-item help-button">
-                <a href="help.php" class="icon-help">Help Center</a>
-            </div>
-
-        </div>
-        <!-- end side nav -->
-
-        <!-- start of chat module -->
-        <div class="help-module">
-            <div class="module-header">
-                <p class="heading-4">Ask Us Anything!</p>
-                <div class="module-header-icons">
-                    <a href="#">
-                        <div class="icon-more"></div>
-                    </a>
-                    <a href="#">
-                        <div class="icon-close"></div>
-                    </a>
-                </div>
-            </div>
+        <div class="module-body-hide" id="chat-content">
             <div class="module-content">
                 <div class="chat">
                     <div class="chat-icon">
@@ -113,19 +61,10 @@
                 </form>
             </div>
         </div>
-
-        <!-- end of chat module -->
     </div>
-    <!-- end body wrapper -->
-
-    <!-- footer starts here -->
-
-    <footer>
 
 
-    </footer>
-
-    <!-- end of footer section -->
+    <script src="js/script.js"></script>
 
 </body>
 

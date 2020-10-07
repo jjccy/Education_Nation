@@ -1,13 +1,14 @@
 .help-module {
     position: fixed;
     bottom: 0;
+    right: 0;
     z-index: 998;
-    margin-left: 3em;
+    /* margin-right: 6em; */
     background: white;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: 0px 3px 6px rgba(125, 125, 125, 0.5);
-    max-width: 25em;
+    max-width: 20em;
 }
 
 .module-header {
@@ -22,27 +23,19 @@
     border-top-right-radius: 20px;
 }
 
-.module-header-icons a {
-    display: inline-block;
+.module-header .icon-caret {
+    height: 1.25em;
+    width: 1.25em;
+    background-image: url("../img/caret_white.svg");
 }
 
-.module-header .icon-more,
-.module-header .icon-close {
-    margin-left: 1em;
+.icon-caret-flip {
+    transform: rotate(180deg);
 }
 
 .icon-close {
     /*Close icon to close the help module*/
     background-image: url("../img/close.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 1.25rem;
-    width: 1.25rem;
-}
-
-.icon-more {
-    /*More icon to show more options*/
-    background-image: url("../img/more.svg");
     background-repeat: no-repeat;
     background-size: contain;
     height: 1.25rem;
@@ -59,6 +52,16 @@
     padding-right: 1em;
     height: 25em;
     overflow-y: auto;
+}
+
+.module-body {
+    visibility: visible;
+    height: 100%;
+}
+
+.module-body-hide {
+    visibility: hidden;
+    height: 0;
 }
 
 .chat {
@@ -94,9 +97,12 @@
 }
 
 .chat-icon .icon-tutors:hover,
-.icon-close:hover,
-.icon-more:hover {
+.icon-caret:hover {
     transform: scale(1.2);
+}
+
+.icon-caret-flip:hover {
+    transform: rotate(180deg) scale(1.2);
 }
 
 .sender-text {

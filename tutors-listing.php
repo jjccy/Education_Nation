@@ -24,6 +24,10 @@
     <!-- background -->
     <div class="background"></div>
 
+    <!-- start of chat module -->
+    <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    <!-- end of chat module -->
+
     <!-- start body wrapper -->
     <div class="body-wrapper">
 
@@ -67,7 +71,7 @@
         </div>
         <div class="max-flex-box-item"></div>
         <div class="side-nav-item help-button">
-            <a href="help.php" class="icon-help">Help Center</a>
+          <a href="#" class="icon-help" id="help-center" onclick="chatModuleUp()">Help Center</a>
         </div>
 
       </div>
