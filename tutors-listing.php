@@ -120,13 +120,34 @@
         <!-- start list contents -->
         <div class="list-contents">
 
-          <div class="filter-popout">
+          <div class="filter-popout hide">
             <div class="group">
-              <button type="button" name="button">Math</button>
+              <!-- <button type="button" name="button">Math</button>
               <button type="button" name="button">English</button>
               <button type="button" name="button">French</button>
               <button type="button" name="button">Science</button>
-              <button type="button" name="button">History</button>
+              <button type="button" name="button">History</button> -->
+
+              <label class="container">Math
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">English
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">French
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Science
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">History
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
             </div>
 
             <div class="group">
@@ -236,6 +257,12 @@
                 </div>
             </div>
 
+            <div class="max-flex-box-item"></div>
+            <div class="max-flex-box-item"></div>
+            <div class="max-flex-box-item"></div>
+            <div class="max-flex-box-item"></div>
+            <div class="max-flex-box-item"></div>
+            <div class="max-flex-box-item"></div>
             <div class="max-flex-box-item"></div>
 
 
