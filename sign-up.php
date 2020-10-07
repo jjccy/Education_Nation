@@ -28,7 +28,7 @@
         <div class="top-nav-item">
           <div class="searchbar">
               <button type="submit" name="search" aria-label="search-button"></button>
-              <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
+              <input type="search" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
           </div>
         </div>
 
@@ -54,18 +54,18 @@
           <div class="signup-page-item signup-form">
           <p class="title-with-icon heading-1 icon-enter">Sign up</p>
 
-            <form id="register-form" action="#" method="post">
+            <form id="register-form" action="new-member.php" method="post">
               <div class="form-group">
                 <label for="name-input" class="form-label"> Full Name </label>
                 <input type="text" name="name-input" id="name-input" class="text-box" placeholder="John Doe" required>
                 <label for="email-input" class="form-label"> Email </label>
-                <input type="text" name="email-input" id="email-input" class="text-box" placeholder="Enter your email"required>
+                <input type="email" name="email-input" id="email-input" class="text-box" placeholder="Enter your email"required>
                 <label for="password-input" class="form-label"> Password </label>
                 <a class="form-reveal" href="#"> Show </a>
-                <input type="text" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
-                <label for="password-input" class="form-label"> Confirm Password </label>
+                <input type="password" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
+                <label for="confirm_password" class="form-label"> Confirm Password </label>
                 <a class="form-reveal" href="#"> Show </a>
-                <input type="text" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
+                <input type="password" name="confirm_password" id="confirm_password" class="text-box" placeholder="Enter your password" required >
                 <input type="checkbox" id="signed-in" name="signed-in" value="true">
                 <label for="signed-in" class="link-default"> Keep me signed in </label>
 
@@ -108,6 +108,27 @@
     <script src="js/slick.js"></script>
     <script src="js/slider.js"></script>
     <!-- End of Script for Slider-->
+
+    <!-- script for form -->
+    <script type="text/javascript">
+      var password = document.getElementById("password-input"),
+          confirm_password = document.getElementById("confirm_password");
+
+      password.onchange = function() {validatePassword();};
+      confirm_password.onkeyup = function() {validatePassword();};
+
+      function validatePassword(){
+        if(password.value != confirm_password.value) {
+          confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+          confirm_password.setCustomValidity('');
+        }
+      }
+
+
+    </script>
+    <!-- end script for form -->
+
 
   </body>
 </html>

@@ -12,11 +12,6 @@
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script src="js/tutorListing.js"></script>
   </head>
 
   <body>
@@ -40,7 +35,7 @@
         <div class="top-nav-item">
           <div class="searchbar">
               <button type="submit" name="search" aria-label="search-button"></button>
-              <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
+              <input type="search" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
           </div>
         </div>
 
@@ -317,6 +312,13 @@
     </footer>
 
     <!-- end of footer section -->
+
+    <!-- script for slider -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="js/tutorListing.js"></script>
+    <!-- end script for slider -->
 
   </body>
 </html>

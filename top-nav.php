@@ -22,7 +22,8 @@
       <div class="top-nav-item">
         <div class="searchbar">
             <button type="submit" name="search" aria-label="search-button"></button>
-            <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
+            <input type="search" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
+
         </div>
       </div>
 
