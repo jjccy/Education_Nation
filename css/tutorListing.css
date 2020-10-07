@@ -1,3 +1,7 @@
+html, body {
+  overflow-x:hidden;
+}
+
 .tutor-list {
   padding-left: 18.8em;
   padding-top: 8.5em;
@@ -71,16 +75,12 @@
   z-index: 1;
 }
 
-.dropdown:last-child > .dropdown-content {
-
-}
-
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
+  text-align: right;
 
   transition-duration: .2s;
   transition-property: background-color;
@@ -102,6 +102,41 @@
 
 /* end title section for tutor listing  */
 
+/* list contents */
+.list-contents {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+.list-contents > div {
+  flex: 1 1 auto;
+}
+
+.filter-popout {
+  position: relative;
+
+  right: 0;
+  order: 2;
+
+  width: 50em;
+
+  transition-property: all;;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out;
+
+  background-color: white;
+
+  border: 1px solid pink;
+}
+
+.filter-popout.hide {
+  right: -60em !important;
+  width: 0;
+}
+/* end list contents */
+
+
 /* cards */
 .cards-wrapper {
   display: -webkit-flex;
@@ -115,6 +150,10 @@
   flex: 1 1 17em;
   margin-bottom: 3.5em;
   margin-right: 2em;
+
+  /* transition-property: all;;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out; */
 }
 
 .cards-wrapper .btn {

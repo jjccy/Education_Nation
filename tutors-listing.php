@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/tutorListing.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script> -->
+    <script src="script/tutorListing.js"></script>
   </head>
 
   <body>
@@ -85,27 +94,19 @@
               </button>
 
               <div class="dropdown-content">
-                <a href="#">Rate</a>
-                <a href="#">Subject</a>
-                <a href="#">Price</a>
-                <a href="#">Age</a>
-                <a href="#">Alphabetical</a>
+                <a href="#" id="top-rate">Top Rated</a>
+                <a href="#" id="a-z">A - Z</a>
+                <a href="#" id="z-a">Z - A</a>
+                <a href="#" id="price-high">Price: High - Low</a>
+                <a href="#" id="price-low">Price: Low - High</a>
               </div>
             </div>
 
             <div class="dropdown">
-              <button class="dropbtn">
+              <button class="dropbtn" id="adjust-filter">
                 <img src="img/Tutors_Filter.svg" alt="filter icon">
                 Filter
               </button>
-
-              <div class="dropdown-content">
-                <a href="#">Should</a>
-                <a href="#">filter</a>
-                <a href="#">be</a>
-                <a href="#">check</a>
-                <a href="#">box</a>
-              </div>
             </div>
 
           </div>
@@ -113,109 +114,134 @@
         </div>
         <!-- end list title -->
 
+        <!-- start list contents -->
+        <div class="list-contents">
 
-        <!-- cards wrapper -->
-        <div class="cards-wrapper">
+          <div class="filter-popout">
+            <div class="group">
+              <button type="button" name="button">Math</button>
+              <button type="button" name="button">English</button>
+              <button type="button" name="button">French</button>
+              <button type="button" name="button">Science</button>
+              <button type="button" name="button">History</button>
+            </div>
 
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="tutor-detail.php" class="btn">See More</a>
-                  </div>
-              </div>
+            <div class="group">
+              <p class="heading-2">
+                <label for="amount">Grade:</label>
+                <input type="text" id="amount" readonly>
+              </p>
+
+              <div id="slider-range"></div>
+            </div>
           </div>
 
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="tutor-detail.php" class="btn">See More</a>
-                  </div>
-              </div>
+          <!-- cards wrapper -->
+          <div class="cards-wrapper">
+
+            <div class="card-container">
+                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                <div class="info-wrapper">
+                    <div class="card-info">
+                        <p class="heading-4">Susan White</p>
+                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <a href="tutor-detail.php" class="btn">See More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                <div class="info-wrapper">
+                    <div class="card-info">
+                        <p class="heading-4">Susan White</p>
+                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <a href="tutor-detail.php" class="btn">See More</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-container">
+                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                <div class="info-wrapper">
+                    <div class="card-info">
+                        <p class="heading-4">Susan White</p>
+                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <a href="tutor-detail.php" class="btn">See More</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-container">
+                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                <div class="info-wrapper">
+                    <div class="card-info">
+                        <p class="heading-4">Susan White</p>
+                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <a href="tutor-detail.php" class="btn">See More</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-container">
+                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                <div class="info-wrapper">
+                    <div class="card-info">
+                        <p class="heading-4">Susan White</p>
+                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <a href="tutor-detail.php" class="btn">See More</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-container">
+                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                <div class="info-wrapper">
+                    <div class="card-info">
+                        <p class="heading-4">Susan White</p>
+                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <a href="tutor-detail.php" class="btn">See More</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-container">
+                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                <div class="info-wrapper">
+                    <div class="card-info">
+                        <p class="heading-4">Susan White</p>
+                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <a href="tutor-detail.php" class="btn">See More</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-container">
+                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+                <div class="info-wrapper">
+                    <div class="card-info">
+                        <p class="heading-4">Susan White</p>
+                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <a href="tutor-detail.php" class="btn">See More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-flex-box-item"></div>
+
+
           </div>
-
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="tutor-detail.php" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="tutor-detail.php" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="tutor-detail.php" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="tutor-detail.php" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="tutor-detail.php" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="card-container">
-              <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-              <div class="info-wrapper">
-                  <div class="card-info">
-                      <p class="heading-4">Susan White</p>
-                      <p class="body-text tutor-spec">Grade 9 - Math</p>
-                      <a href="tutor-detail.php" class="btn">See More</a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="max-flex-box-item"></div>
-
-
+          <!-- end cards wrapper -->
         </div>
-        <!-- end cards wrapper -->
+        <!-- end list contents -->
+
+
 
         <!-- list buttons -->
 
