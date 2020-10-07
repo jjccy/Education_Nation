@@ -1,4 +1,4 @@
-.signup-page {
+.contact-page {
   padding-left: 18.8em;
   padding-top: 8.5em;
   padding-right: 5em;
@@ -10,7 +10,7 @@
 }
 
 /* signup page form layout */
-.signup-page-item {
+.contact-page-item {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
@@ -22,24 +22,24 @@
 }
 
 /* signup page empty space on right*/
-.signup-page-filler {
+.contact-page-filler {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  flex: 1 1 auto;
+  flex: 1.5 1 auto;
 }
 
-.signup-form {
+.contact-form {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   flex-direction: column;
 }
 
-#register-form {
+#contact-form {
   width: 90%;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -97,6 +97,29 @@
   outline-width: 0;
 }
 
+/*Text area styling*/
+.text-area {
+  font-family: 'SF Pro Display', sans-serif;
+  background-color: transparent;
+  display: block;
+  font-size: 1.4rem;
+  color: #000000;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 1px solid #C4CAD5;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+  outline-width: 0;
+  width: 100%;
+  min-height: 8em;
+  resize: vertical;
+  clear: both;
+}
+
+.text-area:focus {
+  border-bottom: 1px solid #776FC4;
+}
+
 /*input text-box styling*/
 ::placeholder {
   color: #C4CAD5;
@@ -124,24 +147,43 @@
   margin-bottom: 0;
 }
 
-/*Checkbox styling*/
-input[type='checkbox'] {
-  cursor: pointer;
-  margin-right: 0.5em;
-  width: 1em;
-  height: 1em;
+/*Contact info background*/
+.contact-info {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  flex: 1 1 auto;
+  background: #E5F8FF;
+  padding: 10em 6em 4em 6em;
+  border-top-left-radius: 82px;
+  border-bottom-left-radius: 82px;
+  z-index: 3;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
 }
 
-input[type='checkbox']:before {
-  border: 1px solid #C4CAD5;
-  border-radius: 5px;
-  background-color: transparent;
+.contact-info .title-with-icon {
+  padding: 1em 0 1em 5em;
+  margin: 1em 0;
 }
 
-input[type='checkbox']:checked:after {
-  border: 1px solid #C4CAD5;
-  border-radius: 5px;
-  background-color: #776FC4;
+.social-media {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+}
+
+.social-media a {
+  margin-right: 4em;
+}
+
+.social-media img {
+  width: 75%;
+  height: auto;
 }
 
 /* End of Form Styling*/

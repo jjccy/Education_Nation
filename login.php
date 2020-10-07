@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Sign Up Now</title>
+    <title>Log in</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/login.css">
 
   </head>
 
@@ -47,48 +47,41 @@
       </div>
       <!-- ends top nav -->
 
-      <!-- start sign up page -->
-      <div class="signup-page">
+      <!-- start login page -->
+      <div class="login-page">
 
-        <!-- sign up form section -->
-          <div class="signup-page-item signup-form">
-          <p class="title-with-icon heading-1 icon-enter">Sign up</p>
+        <!-- login form section -->
+          <div class="login-page-item login-form">
+          <p class="title-with-icon heading-1 icon-enter">Log in</p>
 
-            <form id="register-form" action="#" method="post">
+            <form id="login-form" action="#" method="post">
               <div class="form-group">
-                <label for="name-input" class="form-label"> Full Name </label>
-                <input type="text" name="name-input" id="name-input" class="text-box" placeholder="John Doe" required>
                 <label for="email-input" class="form-label"> Email </label>
-                <input type="text" name="email-input" id="email-input" class="text-box" placeholder="Enter your email"required>
+                <input type="text" name="email-input" id="email-input" class="text-box" placeholder="you@example.com"required>
                 <label for="password-input" class="form-label"> Password </label>
-                <a class="form-reveal" href="#"> Show </a>
-                <input type="text" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
-                <label for="password-input" class="form-label"> Confirm Password </label>
-                <a class="form-reveal" href="#"> Show </a>
+                <a class="form-reveal" href="#"> Forgot Password? </a>
                 <input type="text" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
                 <input type="checkbox" id="signed-in" name="signed-in" value="true">
                 <label for="signed-in" class="link-default"> Keep me signed in </label>
 
                 <div class="form-submit">
-                  <input type="submit" name="form-submit" id="form-submit" value="Sign up" class="button-default">
+                  <input type="submit" name="form-submit" id="form-submit" value="Log in" class="button-default">
                 </div>
               </div>
             </form>
-            <p class="body-text">By signing up you agree to our <a class="link-default"> Terms & Conditions</a></p>
-            <p class="body-text">Already have an account? <a class="link-default"> Log in</a></p>
           </div>
-          <div class="signup-page-filler"></div>
+          <div class="login-page-filler"></div>
 
-        <!-- end sign up form section -->
-        <div class="signup-message">
+        <!-- end login form section -->
+        <div class="login-message">
           <img class="hand-img" src="img/Hand.svg" alt="Waving Hand">
-          <p class="heading-1">Welcome! Join now to begin <br> making appointments <br> with tutors.</p>
+          <p class="heading-1">Welcome Back!</p>
         </div>
 
-        <div class="signup-page-filler"></div>
+        <div class="login-page-filler"></div>
 
       </div>
-      <!-- end sign up page content -->
+      <!-- end login page content -->
 
     </div>
     <!-- end body wrapper -->

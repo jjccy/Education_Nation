@@ -354,6 +354,33 @@ img {
   width: auto;
 }
 
+.icon-phone {
+  /*Award icon on Home Page*/
+  background-image: url("../img/Phone_Number.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
+.icon-email {
+  /*Award icon on Home Page*/
+  background-image: url("../img/Email_Address.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
+.icon-location {
+  /*Award icon on Home Page*/
+  background-image: url("../img/Office_Address.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: auto;
+}
+
 /* end side nav bar */
 /* start of card */
 /* demo wrapper to show the interation of scaling */
