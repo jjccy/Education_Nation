@@ -63,6 +63,9 @@
                 <label for="password-input" class="form-label"> Password </label>
                 <a class="form-reveal" href="#"> Show </a>
                 <input type="text" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
+                <label for="password-input" class="form-label"> Confirm Password </label>
+                <a class="form-reveal" href="#"> Show </a>
+                <input type="text" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
                 <input type="checkbox" id="signed-in" name="signed-in" value="true">
                 <label for="signed-in" class="link-default"> Keep me signed in </label>
 
