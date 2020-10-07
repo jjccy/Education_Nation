@@ -1,0 +1,189 @@
+.contact-page {
+  padding-left: 18.8em;
+  padding-top: 8.5em;
+  padding-right: 5em;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* signup page form layout */
+.contact-page-item {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  min-height: 75vh;
+}
+
+/* signup page empty space on right*/
+.contact-page-filler {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1.5 1 auto;
+}
+
+.contact-form {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact-form {
+  width: 90%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* Waving Image CSS*/
+.hand-img {
+  width: 25%;
+  height: auto;
+  margin-top: -10em;
+  margin-bottom: 3em;
+}
+
+/* Form Styling*/
+.form-label {
+  font-family: SF Pro Display SemiBold;
+  display: inline-block;
+  color: #776FC4;
+  width: 50%;
+  float: left;
+}
+
+.form-reveal {
+  font-family: SF Pro Display SemiBold;
+  display: inline-block;
+  text-decoration: none;
+  text-align: right;
+  float: right;
+  color: #776FC4;
+  width: 50%;
+}
+
+/*input text-box styling*/
+.text-box[type=text] {
+  font-family: 'SF Pro Display', sans-serif;
+  background-color: transparent;
+  color: #000000;
+  border: none;
+  border-bottom: 1px solid #C4CAD5;
+  outline-width: 0;
+  padding: 0.75rem 0;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+  display: block;
+  width: 100%;
+  clear: both;
+  font-size: 1.4rem;
+}
+
+/*input text-box styling*/
+.text-box[type=text]:focus {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #776FC4;
+  outline-width: 0;
+}
+
+/*Text area styling*/
+.text-area {
+  font-family: 'SF Pro Display', sans-serif;
+  background-color: transparent;
+  display: block;
+  font-size: 1.4rem;
+  color: #000000;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 1px solid #C4CAD5;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+  outline-width: 0;
+  width: 100%;
+  min-height: 8em;
+  resize: vertical;
+  clear: both;
+}
+
+.text-area:focus {
+  border-bottom: 1px solid #776FC4;
+}
+
+/*input text-box styling*/
+::placeholder {
+  color: #C4CAD5;
+}
+
+/*Submit button styling*/
+.button-default {
+  margin-top: 2em;
+  background-color: #673AB7;
+  width: 100%;
+  border-radius: 6px;
+  padding: 0.75em;
+  border: none;
+  color: #FFFFFF;
+  font-family: SF Pro Display;
+  font-size: 1em;
+}
+
+/*Link styling*/
+.link-default {
+  font-family: SF Pro Display SemiBold;
+  text-decoration: none;
+  color: #776FC4;
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+/*Contact info background*/
+.contact-info {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  flex: 1 1 auto;
+  background: #E5F8FF;
+  padding: 10em 6em 4em 6em;
+  border-top-left-radius: 82px;
+  border-bottom-left-radius: 82px;
+  z-index: 3;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info .title-with-icon {
+  padding: 1em 0 1em 5em;
+  margin: 1em 0;
+}
+
+.social-media {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+}
+
+.social-media a {
+  margin-right: 4em;
+}
+
+.social-media img {
+  width: 75%;
+  height: auto;
+}
+
+/* End of Form Styling*/

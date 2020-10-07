@@ -65,7 +65,7 @@
                 <label for="signed-in" class="link-default"> Keep me signed in </label>
 
                 <div class="form-submit">
-                  <input type="submit" name="form-submit" id="form-submit" value="Login" class="button-default">
+                  <input type="submit" name="form-submit" id="form-submit" value="Log in" class="button-default">
                 </div>
               </div>
             </form>

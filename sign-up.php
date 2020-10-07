@@ -70,7 +70,7 @@
                 <label for="signed-in" class="link-default"> Keep me signed in </label>
 
                 <div class="form-submit">
-                  <input type="submit" name="form-submit" id="form-submit" value="Sign-Up" class="button-default">
+                  <input type="submit" name="form-submit" id="form-submit" value="Sign up" class="button-default">
                 </div>
               </div>
             </form>
