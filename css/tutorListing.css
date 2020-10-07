@@ -119,21 +119,55 @@ html, body {
   right: 0;
   order: 2;
 
-  width: 50em;
+  width: 15.5em;
+  padding-left: 3em;
+
+  font-family: SF Pro Display;
 
   transition-property: all;;
   transition-duration: .5s;
   transition-timing-function: ease-in-out;
 
-  background-color: white;
+  /* background-color: white;
 
-  border: 1px solid pink;
+  border: 1px solid pink; */
 }
 
 .filter-popout.hide {
   right: -60em !important;
   width: 0;
+  padding-left: 0;
 }
+
+.group {
+  padding-bottom: 3em;
+  border-bottom: 1px solid #C4CAD5;
+  margin-bottom: 1.5em;
+}
+
+.group > button {
+  width: 100%;
+  padding: .5em .1em;
+
+  color: #333;
+  font-size: 1.1rem;
+  text-align: left;
+  letter-spacing: .15em;
+
+  cursor: pointer;
+  background-color: rgba(0,0,0,0);
+  border: none;
+
+  transition-property: all;;
+  transition-duration: .1s;
+  transition-timing-function: ease-in-out;
+}
+
+.group > button:hover {
+  color: #776FC4;
+}
+
+
 /* end list contents */
 
 

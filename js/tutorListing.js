@@ -1,8 +1,8 @@
-var appear = true;
+
+
 $(document).ready(function() {
   $("#adjust-filter").click(function(event) {
     event.preventDefault();
-    appear = !appear;
     changeFilter();
 
     return false;
@@ -12,18 +12,14 @@ $(document).ready(function() {
 
 function changeFilter() {
 
-  if (!appear) {
     if(!$('.filter-popout').hasClass('hide'))
     {
       $('.filter-popout').addClass('hide');
     }
-  }
-  else {
-    if($('.filter-popout').hasClass('hide'))
+    else if($('.filter-popout').hasClass('hide'))
     {
       $('.filter-popout').removeClass('hide');
     }
-  }
 };
 
 $( function() {
