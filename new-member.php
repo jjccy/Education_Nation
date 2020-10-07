@@ -31,7 +31,7 @@
       }
     }
 
-    // if there is not existing email
+    // if there is no existing email
     if (!$duplicated) {
       // format: email + devider + password + name[0] + devider + name[1] + devider + name[3] + ...
       $txt = $email . $devider . $password;
