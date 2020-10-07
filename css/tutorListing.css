@@ -67,11 +67,12 @@
   min-width: 10em;
   background-color: #f9f9f9;
   box-shadow: 0 .8em 1.5em 0 rgba(0,0,0,0.2);
+  right: 0;
   z-index: 1;
 }
 
 .dropdown:last-child > .dropdown-content {
-  right: 0;
+
 }
 
 .dropdown-content a {
@@ -79,7 +80,7 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: center;
+  text-align: left;
 
   transition-duration: .2s;
   transition-property: background-color;
@@ -111,15 +112,18 @@
 }
 
 .cards-wrapper > .card-container {
-  flex: 1 1 auto;
+  flex: 1 1 17em;
   margin-bottom: 3.5em;
-  margin-right: 2.5vw;
-
-  max-width: 17em;
+  margin-right: 2em;
 }
 
 .cards-wrapper .btn {
     font-size: .8rem;
+}
+
+.cards-wrapper .max-flex-box-item {
+  flex: 1 1 17em;
+  margin-right: 2em;
 }
 /* cards end here */
 

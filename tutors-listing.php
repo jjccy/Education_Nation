@@ -211,6 +211,8 @@
               </div>
           </div>
 
+          <div class="max-flex-box-item"></div>
+
 
         </div>
         <!-- end cards wrapper -->

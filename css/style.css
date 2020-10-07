@@ -449,6 +449,12 @@ img {
   }
 }
 
+@media screen and (min-width: 1990px) {
+  * {
+    font-size: 13pt;
+  }
+}
+
 
 
 /* responsive */
