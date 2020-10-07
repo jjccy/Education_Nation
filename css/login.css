@@ -1,4 +1,4 @@
-.signup-page {
+.login-page {
   padding-left: 18.8em;
   padding-top: 8.5em;
   padding-right: 5em;
@@ -9,8 +9,8 @@
   align-items: center;
 }
 
-/* signup page form layout */
-.signup-page-item {
+/* login page form layout */
+.login-page-item {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
@@ -21,8 +21,8 @@
   min-height: 75vh;
 }
 
-/* signup page empty space on right*/
-.signup-page-filler {
+/* login page empty space on right*/
+.login-page-filler {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
@@ -32,14 +32,14 @@
   flex: 1 1 auto;
 }
 
-.signup-form {
+.login-form {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   flex-direction: column;
 }
 
-#register-form {
+#login-form {
   width: 90%;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -51,6 +51,11 @@
   height: auto;
   margin-top: -10em;
   margin-bottom: 3em;
+}
+
+/*Welcome message CSS*/
+.login-message {
+  min-width: 28em;
 }
 
 /* Form Styling*/
