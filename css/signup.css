@@ -1,3 +1,7 @@
+.top-nav {
+  background: none;
+}
+
 .signup-page {
   padding-left: 18.8em;
   padding-top: 8.5em;
@@ -73,7 +77,7 @@
 }
 
 /*input text-box styling*/
-.text-box[type=text] {
+.text-box {
   font-family: 'SF Pro Display', sans-serif;
   background-color: transparent;
   color: #000000;
@@ -90,7 +94,7 @@
 }
 
 /*input text-box styling*/
-.text-box[type=text]:focus {
+.text-box:focus {
   width: 100%;
   border: none;
   border-bottom: 1px solid #776FC4;

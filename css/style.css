@@ -105,7 +105,7 @@ img {
   align-items: center;
 }
 
-.searchbar input[type=text] {
+.searchbar input[type=search] {
   flex: 99 1 auto;
   padding: 0.5rem;
   font-size: .8rem;
@@ -133,11 +133,11 @@ img {
   color: #C4CAD5;
 }
 
-.searchbar input[type=text]:hover {
+.searchbar input[type=search]:hover {
   border-bottom: 2px solid #C4CAD5;
 }
 
-.searchbar input[type=text]:focus {
+.searchbar input[type=search]:focus {
   outline-width: 1px;
 }
 
