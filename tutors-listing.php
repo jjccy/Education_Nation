@@ -24,7 +24,7 @@
     <div class="background"></div>
 
     <!-- start of chat module -->
-    <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    <!-- <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe> -->
     <!-- end of chat module -->
 
     <!-- start body wrapper -->

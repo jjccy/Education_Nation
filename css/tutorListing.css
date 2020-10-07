@@ -167,6 +167,23 @@ html, body {
   color: #776FC4;
 }
 
+.group input[type=text] {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  margin-top: .1em;
+  color: #777;
+  font-size: 1rem;
+}
+
+.group #slider-range {
+  margin-left: .5em;
+  margin-right: .5em;
+}
+
+.group #slider-range .ui-slider-handle:active{
+  background-color: #776FC4;
+}
+
 
 /* end list contents */
 
