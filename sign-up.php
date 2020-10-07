@@ -61,10 +61,10 @@
                 <label for="email-input" class="form-label"> Email </label>
                 <input type="email" name="email-input" id="email-input" class="text-box" placeholder="Enter your email"required>
                 <label for="password-input" class="form-label"> Password </label>
-                <a class="form-reveal" href="#"> Show </a>
+                <a class="form-reveal" href="#" onclick="show('password-input')"> Show </a>
                 <input type="password" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
                 <label for="confirm_password" class="form-label"> Confirm Password </label>
-                <a class="form-reveal" href="#"> Show </a>
+                <a class="form-reveal" href="#" onclick="show('confirm_password')"> Show </a>
                 <input type="password" name="confirm_password" id="confirm_password" class="text-box" placeholder="Enter your password" required >
                 <input type="checkbox" id="signed-in" name="signed-in" value="true">
                 <label for="signed-in" class="link-default"> Keep me signed in </label>
@@ -123,6 +123,20 @@
         } else {
           confirm_password.setCustomValidity('');
         }
+      }
+
+      function show(id) {
+        event.preventDefault();
+
+        var x = document.getElementById(id);
+
+        if (x.type == "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+
+        return false;
       }
 
 
