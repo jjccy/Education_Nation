@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Home</title>
+    <title>Sign Up Now</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -51,31 +51,38 @@
       <div class="signup-page">
 
         <!-- sign up form section -->
-        <div class="signup-page-item">
-          <div class="signup-form">
+          <div class="signup-page-item signup-form">
           <p class="title-with-icon heading-1 icon-enter">Sign up</p>
-          <img src="img/Announcement_Banner.svg" alt="Announcements">
-            <form id="contactForm" action="#" method="post">
-              <div class="form-group">
-                <label for="name-input" class="form-label"> Name </label>
-                <input type="text" name="name-input" id="name-input" class="text-box" required>
-                <label for="email-input" class="form-label"> Email </label>
-                <input type="text" name="email-input" id="email-input" class="text-box" required>
-                <div>
-                  <label for="message-input" class="form-label">Message</label>
-                  <textarea name="message-input" id="message-input" class="text-area" required></textarea>
-                </div>
 
-                <div class="g-recaptcha" data-sitekey="6Ld3Pr0UAAAAAJjAs5i5AZxv--FwfLyeb4RLngkY"></div>
+            <form id="register-form" action="#" method="post">
+              <div class="form-group">
+                <label for="name-input" class="form-label"> Full Name </label>
+                <input type="text" name="name-input" id="name-input" class="text-box" placeholder="John Doe" required>
+                <label for="email-input" class="form-label"> Email </label>
+                <input type="text" name="email-input" id="email-input" class="text-box" placeholder="Enter your email"required>
+                <label for="password-input" class="form-label"> Password </label>
+                <a class="form-reveal" href="#"> Show </a>
+                <input type="text" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
+                <input type="checkbox" id="signed-in" name="signed-in" value="true">
+                <label for="signed-in" class="link-default"> Keep me signed in </label>
 
                 <div class="form-submit">
-                  <input type="submit" name="form-submit" id="form-submit" value="Send" class="button-default">
+                  <input type="submit" name="form-submit" id="form-submit" value="Sign-Up" class="button-default">
                 </div>
               </div>
             </form>
+            <p class="body-text">By signing up you agree to our <a class="link-default"> Terms & Conditions</a></p>
+            <p class="body-text">Already have an account? <a class="link-default"> Log in</a></p>
           </div>
-        </div>
+          <div class="signup-page-filler"></div>
+
         <!-- end sign up form section -->
+        <div class="signup-message">
+          <img class="hand-img" src="img/Hand.svg" alt="Waving Hand">
+          <p class="heading-1">Welcome! Join now to begin <br> making appointments <br> with tutors.</p>
+        </div>
+
+        <div class="signup-page-filler"></div>
 
       </div>
       <!-- end sign up page content -->
