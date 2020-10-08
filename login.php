@@ -28,7 +28,7 @@
         <div class="top-nav-item">
           <div class="searchbar">
               <button type="submit" name="search" aria-label="search-button"></button>
-              <input type="text" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
+              <input type="search" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
           </div>
         </div>
 
@@ -60,7 +60,7 @@
                 <input type="text" name="email-input" id="email-input" class="text-box" placeholder="you@example.com"required>
                 <label for="password-input" class="form-label"> Password </label>
                 <a class="form-reveal" href="#"> Forgot Password? </a>
-                <input type="text" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
+                <input type="password" name="password-input" id="password-input" class="text-box" placeholder="Enter your password" required>
                 <input type="checkbox" id="signed-in" name="signed-in" value="true">
                 <label for="signed-in" class="link-default"> Keep me signed in </label>
 
