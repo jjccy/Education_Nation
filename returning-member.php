@@ -6,86 +6,56 @@
   </head>
   <body>
     <?php
-    $usersFile = 'userInfo.txt';
-    $usersList = file_get_contents($usersFile);
+    //get the userinfo text file
+    $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
     // get the devider word between info
     $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
     $devider = fgets($deviderFile);
     $devider = strtok($devider, "\n"); // remove new line from fgets
     fclose($deviderFile);
-    $usersList = explode($devider, $usersList);
     $name = "";
     $email = "";
     $password= "";
-    $length = count($usersList);
 
-//     foreach($usersList as &$user){
-//       echo $user;
-//       echo "<br>";
-// }
+    while (!feof($handle)) {
+          $currentLine = fgets($handle);
 
-    // for ($i=0; $i<$length-3;$i=$i+4){
-    foreach($usersList as &$user){
-     $loginInfo = $user;
-     echo $loginInfo;
-        // $email = $loginInfo[$i];
-        // $password = $loginInfo[$i+1];
-        // $name = $loginInfo[$i+2];
+          $user_data = explode($devider, strval($currentLine));
+          $email = $user_data[0];
+          $password = $user_data[1];
+          $name = $user_data[2];
 
-        // if($email==$_POST['email-input']){
-        //   if($password == $_POST['password-input']){
-        //       //Login
-        //       $login = true;
-        //       // alert box welcome
-        //       echo '<script language="javascript">';
-        //       $welcome = "alert('Welcome, " . $name . "');";
-        //       echo $welcome;
-        //       echo "window.location.href='index.php';";
-        //       echo '</script>';
-        //     }
-        //     elseif ($password != $_POST['password-input']) {
-        //       // alert box reject
-        //       echo '<script language="javascript">';
-        //       echo 'alert("Incorrect Password and/or Email");';
-        //       echo "window.location.href='login.php';";
-        //       echo '</script>';
-        //     }
-        //   }
-        //   else{
-        //     // alert box reject
-        //     echo '<script language="javascript">';
-        //     echo 'alert("Account Not Found");';
-        //     echo "window.location.href='login.php';";
-        //     echo '</script>';
-        //   }
-    }
+          if($email==$_POST['email-input']){
+            if($password == $_POST['password-input']){
+                //Login
+                $login = true;
+                // alert box welcome
+                echo '<script language="javascript">';
+                $welcome = "alert('Welcome, " . $name . "');";
+                echo $welcome;
+                echo "window.location.href='index.php';";
+                echo '</script>';
+                break;
+              }
+              else {
+                // alert box reject
+                echo '<script language="javascript">';
+                echo 'alert("Incorrect Password and/or Email");';
+                echo "window.location.href='login.php';";
+                echo '</script>';
+                break;
+              }
+            }
+      }
+        // alert box reject
+        echo '<script language="javascript">';
+        echo 'alert("Account Not Found");';
+        echo "window.location.href='login.php';";
+        echo '</script>';
 
-
-
+      fclose($handle);
 
       ?>
-      <?php
-    //     $handle = fopen("theo-testing.txt", "r") or die("Unable to open file!");
-    //     $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
-    //     $currentUser = "Terence";
-    //
-    //     while (!feof($devider_file)) {
-    //         $d = fgets($devider_file);
-    //     }
-    //
-    //     while (!feof($handle)) {
-    //         // echo fgets($handle) . "<br>";
-    //         $currentLine = fgets($handle);
-    //         // echo $currentLine . "<br>";
-    //
-    //         // echo $d;
-    //
-    //         $user_data = explode(strval($d), strval($currentLine));
-    //         echo $user_data[0] . "<br>";
-    //     }
-    //
-    //     fclose($handle);
-    //     fclose($devider_file);
-    // ?>
+
   </body>
 </html>
