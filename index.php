@@ -161,7 +161,7 @@
                         <div class="card-info">
                             <p class="heading-4">Susan White</p>
                             <p class="body-text tutor-spec">Grade 9 - Math</p>
-                            <a href="#" class="btn">See More</a>
+                            <a href="tutor-detail.php" class="btn">See More</a>
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                         <div class="card-info">
                             <p class="heading-4">Susan White</p>
                             <p class="body-text tutor-spec">Grade 9 - Math</p>
-                            <a href="#" class="btn">See More</a>
+                            <a href="tutor-detail.php" class="btn">See More</a>
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                         <div class="card-info">
                             <p class="heading-4">Susan White</p>
                             <p class="body-text tutor-spec">Grade 9 - Math</p>
-                            <a href="#" class="btn">See More</a>
+                            <a href="tutor-detail.php" class="btn">See More</a>
                         </div>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
                         <div class="card-info">
                             <p class="heading-4">Susan White</p>
                             <p class="body-text tutor-spec">Grade 9 - Math</p>
-                            <a href="#" class="btn">See More</a>
+                            <a href="tutor-detail.php" class="btn">See More</a>
                         </div>
                     </div>
                 </div>
