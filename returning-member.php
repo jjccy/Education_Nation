@@ -6,21 +6,22 @@
   </head>
   <body>
     <?php
+    session_start();
     //get the userinfo text file
     $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
     // get the devider word between info
     $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
     $devider = fgets($deviderFile);
-    $devider = strtok($devider, "\n"); // remove new line from fgets
+    $devider = str_replace("\r\n","",$devider); // remove new line from fgets
     fclose($deviderFile);
-    $name = "";
-    $email = "";
-    $password= "";
+
 
     while (!feof($handle)) {
           $currentLine = fgets($handle);
 
-          $user_data = explode($devider, strval($currentLine));
+          echo $currentLine;
+
+          $user_data = explode($devider, $currentLine);
           $email = $user_data[0];
           $password = $user_data[1];
           $name = $user_data[2];
@@ -28,6 +29,12 @@
           if($email==$_POST['email-input']){
             if($password == $_POST['password-input']){
                 //Login
+
+                $_SESSION['loggedin'] = true;
+                $_SESSION['email'] = $email;
+                $_SESSION['name'] = $name;
+
+                fclose($handle);
                 // alert box welcome
                 echo '<script language="javascript">';
                 $welcome = "alert('Welcome, " . $name . "');";
@@ -36,12 +43,13 @@
                 echo '</script>';
 
                 // saving logged in user to .txt
-                $currentUser = fopen("currentUser.txt", "w") or die("Unable to open file!");
-                fwrite($currentUser, $name);
-                fclose($currentUser);
+                // $currentUser = fopen("currentUser.txt", "w") or die("Unable to open file!");
+                // fwrite($currentUser, $name);
+                // fclose($currentUser);
                 break;
               }
               else {
+                fclose($handle);
                 // alert box reject
                 echo '<script language="javascript">';
                 echo 'alert("Incorrect Password and/or Email");';

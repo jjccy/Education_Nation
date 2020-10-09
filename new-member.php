@@ -2,10 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Submit</title>
+    <title>Sign up</title>
   </head>
   <body>
     <?php
+    session_start();
     $name = explode(" ", $_POST['name-input']);
     $email = $_POST['email-input'];
     $password = $_POST['password-input'];
@@ -15,7 +16,7 @@
     // get the devider word between info
     $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
     $devider = fgets($deviderFile);
-    $devider = strtok($devider, "\n"); // remove new line from fgets
+    $devider = str_replace("\r\n","",$devider);  // remove new line from fgets
     fclose($deviderFile);
 
     // file stores all user info
@@ -44,6 +45,10 @@
 
       fwrite($userfile, $txt);
       fclose($userfile);
+
+      $_SESSION['loggedin'] = true;
+      $_SESSION['email'] = $email;
+      $_SESSION['name'] = $name[0];
 
       // alert box welcome
       echo '<script language="javascript">';

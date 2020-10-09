@@ -12,18 +12,24 @@
   </head>
 
   <body>
-    <?php 
+    <?php
+        session_start();
+
         $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
         $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
         $d = strtok(fgets($devider_file), "\n");
+        $d = str_replace("\r\n","",$d);  // remove new line from fgets
 
-        // retrieve approved logged in user first name
-        $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
-        // $currentUser = "First1";
-        $currentUser = strtok(fgets($current_file), "\n");
-        echo $currentUser . "<br>";
+        // // retrieve approved logged in user first name
+        // $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
+        // // $currentUser = "First1";
+        // $currentUser = strtok(fgets($current_file), "\n");
+        // echo $currentUser . "<br>";
 
-        $user_data = array("");
+        // change above step to session
+        $currentUser = $_SESSION['name'];
+
+        $user_data = array();
 
         $userFound = "false";
 
@@ -51,6 +57,9 @@
         $lastName = $user_data[3];
         $email = $user_data[0];
         $password = $user_data[1];
+
+        $_SESSION['name'] = $firstName;
+        $_SESSION['email'] = $email;
 
         // echo $firstName . "<br>";
         // echo $lastName . "<br>";
@@ -135,6 +144,6 @@
     </script>
     <!-- end script for form -->
 
-    
+
   </body>
 </html>
