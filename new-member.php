@@ -14,10 +14,11 @@
     $duplicated = false;
 
     // get the devider word between info
-    $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
-    $devider = fgets($deviderFile);
-    $devider = str_replace("\r\n","",$devider);  // remove new line from fgets
-    fclose($deviderFile);
+    // $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
+    // $devider = fgets($deviderFile);
+    // $devider = str_replace("\r\n","",$devider);  // remove new line from fgets
+    // fclose($deviderFile);
+    $devider ='#KR#%5>DSG<)(E667)F?';
 
     // file stores all user info
     $userfile = fopen("userInfo.txt", "a+") or die("Unable to open file!");
@@ -54,13 +55,13 @@
       echo '<script language="javascript">';
       $welcome = "alert('Welcome, " . $name[0] . "');";
       echo $welcome;
-      echo "window.location.href='index.php';";
+      // echo "window.location.href='index.php';";
       echo '</script>';
     } else {
       // alert box reject
       echo '<script language="javascript">';
       echo 'alert("this email has already existed");';
-      echo "window.location.href='sign-up.php';";
+      // echo "window.location.href='sign-up.php';";
       echo '</script>';
     }
 

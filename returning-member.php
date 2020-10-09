@@ -10,10 +10,11 @@
     //get the userinfo text file
     $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
     // get the devider word between info
-    $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
-    $devider = fgets($deviderFile);
-    $devider = str_replace("\r\n","",$devider); // remove new line from fgets
-    fclose($deviderFile);
+    // $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
+    // $devider = fgets($deviderFile);
+    // $devider = str_replace("\r\n","",$devider); // remove new line from fgets
+    // fclose($deviderFile);
+    $devider ='#KR#%5>DSG<)(E667)F?';
 
 
     while (!feof($handle)) {

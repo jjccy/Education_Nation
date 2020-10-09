@@ -125,9 +125,10 @@
               <p class="heading-1 tutor-name">
                 <?php
                   $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
-                  $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
-                  $d = fgets($devider_file);
-                  $d = str_replace("\r\n","",$d);  // remove new line from fgets
+                  // $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
+                  // $d = fgets($devider_file);
+                  // $d = str_replace("\r\n","",$d);  // remove new line from fgets
+                  $d ='#KR#%5>DSG<)(E667)F?';
 
                   // // retrieve approved logged in user first name
                   // $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
@@ -182,7 +183,7 @@
 
                   // closing .txt files
                   fclose($handle);
-                  fclose($devider_file);
+                  //fclose($devider_file);
                 ?>
               </p>
               <p class="body-tex tutor-spec">Math Tutor (K-12)</p>
