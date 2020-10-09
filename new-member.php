@@ -55,13 +55,13 @@
       echo '<script language="javascript">';
       $welcome = "alert('Welcome, " . $name[0] . "');";
       echo $welcome;
-      // echo "window.location.href='index.php';";
+      echo "window.location.href='index.php';";
       echo '</script>';
     } else {
       // alert box reject
       echo '<script language="javascript">';
       echo 'alert("this email has already existed");';
-      // echo "window.location.href='sign-up.php';";
+      echo "window.location.href='sign-up.php';";
       echo '</script>';
     }
 
