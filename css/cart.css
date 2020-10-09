@@ -11,7 +11,7 @@
       z-index: 3;
     }
 
-    .cart-detail-top {
+    /* .cart-detail-top {
       display: flex;
       display: -webkit-flex;
       display: -ms-flex;
@@ -30,7 +30,6 @@
     }
 
     .login-wrapper {
-      /* doesn't span the entire 100% */
       display: inline-flex;
       display: -webkit-inline-flex;
       display: -ms-inline-flex;
@@ -58,7 +57,7 @@
       max-height: 3rem;
       padding-left: 3rem;
       align-items: center;
-    }
+    } */
 
     @media only screen and (max-width: 1800px) {
       .login-wrapper .heading-3 {
@@ -69,10 +68,6 @@
 
     .icon-caret {
       margin-right: 0.75rem;
-    }
-
-    .top-nav {
-      z-index: 2;
     }
 
     .cart-section {
