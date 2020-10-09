@@ -52,7 +52,7 @@
 
         <div class="top-nav-item account-section" id='logined'>
           <div class="cart-quantity-top">
-            <p class="title-with-icon heading-3 icon-cart">Cart: 3</p>
+            <a href="cart.php" class="title-with-icon heading-3 icon-cart">Cart: 3</a>
           </div>
 
           <div class="dropDown">
