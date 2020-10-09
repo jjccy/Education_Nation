@@ -96,11 +96,7 @@
     </footer>
 
     <!-- end of footer section -->
-    <!-- Script for Slider-->
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script src="js/slick.js"></script>
-    <script src="js/slider.js"></script>
-    <!-- End of Script for Slider-->
+
     <!-- script for form -->
     <script type="text/javascript">
       var password = document.getElementById("password-input"),

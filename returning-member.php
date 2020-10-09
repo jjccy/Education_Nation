@@ -28,13 +28,17 @@
           if($email==$_POST['email-input']){
             if($password == $_POST['password-input']){
                 //Login
-                $login = true;
                 // alert box welcome
                 echo '<script language="javascript">';
                 $welcome = "alert('Welcome, " . $name . "');";
                 echo $welcome;
                 echo "window.location.href='index.php';";
                 echo '</script>';
+
+                // saving logged in user to .txt
+                $currentUser = fopen("currentUser.txt", "w") or die("Unable to open file!");
+                fwrite($currentUser, $name);
+                fclose($currentUser);
                 break;
               }
               else {
