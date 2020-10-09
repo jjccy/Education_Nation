@@ -54,7 +54,7 @@
           <div class="login-page-item login-form">
           <p class="title-with-icon heading-1 icon-enter">Log in</p>
 
-            <form id="login-form" action="#" method="post">
+            <form id="login-form" action="returning-member.php" method="post">
               <div class="form-group">
                 <label for="email-input" class="form-label"> Email </label>
                 <input type="text" name="email-input" id="email-input" class="text-box" placeholder="you@example.com"required>
@@ -101,6 +101,38 @@
     <script src="js/slick.js"></script>
     <script src="js/slider.js"></script>
     <!-- End of Script for Slider-->
+    <!-- script for form -->
+    <script type="text/javascript">
+      var password = document.getElementById("password-input"),
+          confirm_password = document.getElementById("confirm_password");
 
+      password.onchange = function() {validatePassword();};
+      confirm_password.onkeyup = function() {validatePassword();};
+
+      function validatePassword(){
+        if(password.value != confirm_password.value) {
+          confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+          confirm_password.setCustomValidity('');
+        }
+      }
+
+      function show(id) {
+        event.preventDefault();
+
+        var x = document.getElementById(id);
+
+        if (x.type == "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+
+        return false;
+      }
+
+
+    </script>
+    <!-- end script for form -->
   </body>
 </html>
