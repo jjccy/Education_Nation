@@ -15,13 +15,16 @@
     // get the devider word between info
     $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
     $devider = fgets($deviderFile);
-    $devider=str_replace("\r\n","",$devider); // remove new line from fgets
-
+    $devider = strtok($devider, "\n"); // remove new line from fgets
     fclose($deviderFile);
 
     // file stores all user info
     $userfile = fopen("userInfo.txt", "a+") or die("Unable to open file!");
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     // check if email is duplicated
     while(!feof($userfile)) {
       $user = explode($devider, fgets($userfile));
