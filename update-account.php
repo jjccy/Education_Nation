@@ -20,7 +20,7 @@
         $password= "";
 
         // retrieve approved logged in user first name
-        $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
+        //$current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
 
         $userFound = "false";
 
