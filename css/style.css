@@ -252,7 +252,7 @@ img {
 }
 
 .dropbtn {
-  background-color: white;
+  background-color: rgba(0,0,0,0);
   color: black;
   border: none;
   cursor: pointer;

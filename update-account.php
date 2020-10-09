@@ -6,12 +6,13 @@
   </head>
   <body>
     <?php
+        session_start();
         //get the userinfo text file
         $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
         // get the devider word between info
         $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
         $devider = fgets($deviderFile);
-        $devider = strtok($devider, "\n"); // remove new line from fgets
+        $devider = str_replace("\r\n","",$devider);  // remove new line from fgets
         fclose($deviderFile);
         $name = "";
         $email = "";
@@ -19,8 +20,6 @@
 
         // retrieve approved logged in user first name
         $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
-        // $currentUser = "First1";
-        $currentUser = strtok(fgets($current_file), "\n");
 
         $userFound = "false";
 
@@ -29,10 +28,10 @@
             $currentLine = fgets($handle);
 
             // removing the line break that fgets() creates
-            $user_data = explode($devider, strval($currentLine));
+            $user_data = explode($devider, $currentLine);
 
             // checking if first name is the user we're looking for
-            if ($user_data[2] == $currentUser) {
+            if ($user_data[2] == $_SESSION['name']) {
                 $userFound = "true";
                 break;
             }
@@ -100,16 +99,24 @@
             $currentLine = fgets($update);
 
             // removing the line break that fgets() creates
-            $user_data = explode($devider, strval($currentLine));
+            $user_data = explode($devider, $currentLine);
 
             // checking if first name is the user we're looking for
-            if ($user_data[2] == $currentUser) {
+            if ($user_data[2] == $_SESSION['name']) {
                 $updatedLine = file_get_contents($userInfo);
                 echo $updatedLine . "<br>";
                 $updatedLine = str_replace($currentLine, $updatedUserInfo, $updatedLine);
                 echo $updatedLine . "<br>";
                 file_put_contents($userInfo, $updatedLine);
                 $userFound = "true";
+
+                $_SESSION['name'] = $newFirstName;
+                $_SESSION['email'] = $newEmail;
+
+                // alert box reject
+                echo '<script language="javascript">';
+                echo 'alert("Succefully update infromation");';
+                echo '</script>';
                 break;
             }
 
@@ -120,6 +127,11 @@
         }
 
         fclose($update);
+
+        // alert box reject
+        echo '<script language="javascript">';
+        echo "window.location.href='index.php';";
+        echo '</script>';
       ?>
 
   </body>

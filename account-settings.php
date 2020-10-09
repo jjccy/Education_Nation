@@ -40,7 +40,7 @@
 
         <div class="max-flex-box-item"></div>
 
-        <div class="top-nav-item account-section">
+        <div class="top-nav-item account-section" id='not-login'>
           <div class="top-nav-item">
             <a href="sign-up.php">Sign up</a>
           </div>
@@ -48,6 +48,51 @@
             <a href="login.php">Login</a>
           </div>
         </div>
+
+        <div class="top-nav-item account-section" id='logined'>
+          <div class="cart-quantity-top">
+            <p class="title-with-icon heading-3 icon-cart">Cart: 3</p>
+          </div>
+
+          <div class="dropDown">
+
+            <button class="dropbtn">
+              <div class="login-wrapper">
+                <div class="icon-pic profile-picture"></div>
+                <p class="heading-3"> <span class="hello"> Hello </span>
+                  <?php
+                    session_start();
+
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                        echo "<script language='javascript'>
+                                document.getElementById('logined').classList.add('display');
+                              </script>";
+
+                        echo $_SESSION['name'];
+                    } else {
+                      echo "<script language='javascript'>
+                              document.getElementById('not-login').classList.add('display');
+                            </script>";
+                    }
+                  ?>
+                 </p>
+                <div class="icon-caret"></div>
+              </div>
+
+            </button>
+
+            <div class="dropdown-content">
+
+              <a href="logOut.php">Log out</a>
+              <a href="account-settings.php">Account Setting</a>
+            </div>
+
+          </div>
+          <!-- end login-wrapper -->
+
+        </div>
+        <!-- end  logined section-->
+
 
 
       </div>
@@ -78,18 +123,24 @@
             <div class="space-filler"></div>
             <div class="user-info">
               <p class="heading-1 tutor-name">
-                <?php 
+                <?php
                   $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
                   $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
-                  $d = strtok(fgets($devider_file), "\n");
+                  $d = fgets($devider_file);
+                  $d = str_replace("\r\n","",$d);  // remove new line from fgets
 
-                  // retrieve approved logged in user first name
-                  $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
-                  $currentUser = strtok(fgets($current_file), "\n");
+                  // // retrieve approved logged in user first name
+                  // $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
+                  // // $currentUser = "First1";
+                  // $currentUser = strtok(fgets($current_file), "\n");
+                  // echo $currentUser . "<br>";
+
+                  // change above step to session
+                  $currentUser = $_SESSION['name'];
 
                   // echo $currentUser . "<br>";
 
-                  $user_data = array("", "", "");
+                  //$user_data = array("", "", "");
 
                   $userFound = "false";
 
@@ -98,10 +149,10 @@
                     $currentLine = fgets($handle);
 
                     // removing the line break that fgets() creates
-                    $user_data = explode($d, strval($currentLine));
+                    $user_data = explode($d, $currentLine);
 
                     // checking if first name is the user we're looking for
-                    if ($user_data[2] == $currentUser) {
+                    if ($user_data[2] == $_SESSION['name']) {
                         $userFound = "true";
                         echo $user_data[2] . " " . $user_data[3];
                         break;
@@ -137,25 +188,17 @@
               <p class="body-tex tutor-spec">Math Tutor (K-12)</p>
             </div>
           </div>
-          
+
         </div>
 
         <p class="title-with-icon heading-1 icon-setting">Account Settings</p>
 
         <div class="account-content">
           <div class="account-content-split">
-            <?php 
+            <?php
               $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
-              $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
-              $d = strtok(fgets($devider_file), "\n");
-
-              // retrieve approved logged in user first name
-              $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
-              $currentUser = strtok(fgets($current_file), "\n");
 
               // echo $currentUser . "<br>";
-
-              $user_data = array("", "", "");
 
               $userFound = "false";
 
@@ -164,10 +207,10 @@
                 $currentLine = fgets($handle);
 
                 // removing the line break that fgets() creates
-                $user_data = explode($d, strval($currentLine));
+                $user_data = explode($d, $currentLine);
 
                 // checking if first name is the user we're looking for
-                if ($user_data[2] == $currentUser) {
+                if ($user_data[2] == $_SESSION['name']) {
                     $userFound = "true";
 
                     echo '<div class="info-element-container">';
@@ -183,7 +226,7 @@
                     echo '<div class="info-element-container">';
                     echo '<p class="heading-3">Current Password</p>';
                     echo '<p class="body-text">';
-                    
+
                     $passwordLength = strlen($user_data[1]);
 
                     for ($i = 0; $i < $passwordLength; $i++) {
@@ -219,7 +262,6 @@
 
               // closing .txt files
               fclose($handle);
-              fclose($devider_file);
             ?>
           </div>
 
