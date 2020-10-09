@@ -1,0 +1,35 @@
+.about-page {
+  padding-left: 18.8em;
+  padding-top: 8.5em;
+  padding-right: 5em;
+}
+
+/* title section for about page */
+.about-title {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* width: 70%; */
+}
+
+.about-title-item {
+  flex: 1 1 auto;
+  height: 85vh;
+}
+
+.about-title-item img {
+  margin-bottom: 1em;
+}
+
+.about-title-item:last-child {
+  margin-top: 0.6em;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* end title section for about page  */
