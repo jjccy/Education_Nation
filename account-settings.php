@@ -8,101 +8,270 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/account-settings.css">
+    <link rel="stylesheet" href="css/signup.css">
 
   </head>
 
   <body>
-    <?php
-        session_start();
+    <div class="background"></div>
 
-        $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
-        $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
-        $d = strtok(fgets($devider_file), "\n");
-        $d = str_replace("\r\n","",$d);  // remove new line from fgets
+    <!-- start of chat module -->
+    <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    <!-- end of chat module -->
 
-        // // retrieve approved logged in user first name
-        // $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
-        // // $currentUser = "First1";
-        // $currentUser = strtok(fgets($current_file), "\n");
-        // echo $currentUser . "<br>";
+    <!-- start body wrapper -->
+    <div class="body-wrapper">
 
-        // change above step to session
-        $currentUser = $_SESSION['name'];
+      <!-- start top nav -->
+      <div class="top-nav">
 
-        $user_data = array();
+        <div class="top-nav-item logo">
+          <a href="index.php"><img src="img/Logo.svg" alt="Logo image"></a>
+        </div>
 
-        $userFound = "false";
+        <div class="top-nav-item">
+          <div class="searchbar">
+              <button type="submit" name="search" aria-label="search-button"></button>
+              <input type="search" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
 
-        while (!feof($handle)) {
-            // gets the current line of the .txt file
-            $currentLine = fgets($handle);
+          </div>
+        </div>
 
-            // removing the line break that fgets() creates
-            $user_data = explode($d, strval($currentLine));
+        <div class="max-flex-box-item"></div>
 
-            // checking if first name is the user we're looking for
-            if ($user_data[2] == $currentUser) {
-                $userFound = "true";
-                break;
-            }
+        <div class="top-nav-item account-section">
+          <div class="top-nav-item">
+            <a href="sign-up.php">Sign up</a>
+          </div>
+          <div class="top-nav-item">
+            <a href="login.php">Login</a>
+          </div>
+        </div>
 
-            // checking if user has been found; if true it will leave the while loop
-            if ($userFound == "true") {
-                break;
-            }
-        }
 
-        // storing user data as variables
-        $firstName = $user_data[2];
-        $lastName = $user_data[3];
-        $email = $user_data[0];
-        $password = $user_data[1];
+      </div>
+      <!-- ends top nav -->
 
-        $_SESSION['name'] = $firstName;
-        $_SESSION['email'] = $email;
+      <!-- start side nav -->
+      <div class="side-nav">
+        <div class="side-nav-item main-menu">
+          <p class="heading-2">Explore</p>
+          <a href="index.php" class="icon-home">Home</a>
+          <a href="tutors-listing.php" class="icon-tutors">Tutors</a>
+          <a href="about.php" class="icon-about">About</a>
+          <a href="contact.php" class="icon-contact">Contact</a>
+        </div>
+        <div class="max-flex-box-item"></div>
+        <div class="side-nav-item help-button">
+            <a href="#" class="icon-help" id="help-center" onclick="chatModuleUp()">Help Center</a>
+        </div>
 
-        // echo $firstName . "<br>";
-        // echo $lastName . "<br>";
-        // echo $email . "<br>";
-        // echo $password . "<br>";
+      </div>
+      <!-- end side nav -->
 
-        // letting system know no user has been found
-        if ($userFound != "true") {
-            echo "User has not been found" . "<br>";
-        }
+      <!-- start account setting content -->
+      <div class="account-settings">
+        <div class="user-overlay">
+          <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+          <div class="user-info-wrapper">
+            <div class="space-filler"></div>
+            <div class="user-info">
+              <p class="heading-1 tutor-name">
+                <?php 
+                  $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
+                  $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
+                  $d = strtok(fgets($devider_file), "\n");
 
-        // closing .txt files
-        fclose($handle);
-        fclose($devider_file);
-    ?>
+                  // retrieve approved logged in user first name
+                  $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
+                  $currentUser = strtok(fgets($current_file), "\n");
 
-    <form id="edit-account-form" action="update-account.php" method="post">
-      <div class="form-group">
-        <label for="fname-edit" class="form-label"> First Name </label>
-        <input type="text" name="fname-edit" id="fname-edit" class="text-box" placeholder="John">
+                  // echo $currentUser . "<br>";
 
-        <label for="lname-edit" class="form-label"> Last Name </label>
-        <input type="text" name="lname-edit" id="lname-edit" class="text-box" placeholder="Doe">
+                  $user_data = array("", "", "");
 
-        <label for="email-edit" class="form-label"> Email </label>
-        <input type="text" name="email-edit" id="email-edit" class="text-box" placeholder="you@example.com">
+                  $userFound = "false";
 
-        <label for="current-password-input" class="form-label"> Current Password </label>
-        <a class="form-reveal" href="#" onclick="show('current-password-input')"> Show </a>
-        <input type="password" name="current-password-input" id="current-password-input" class="text-box" placeholder="Enter your new password" required>
+                  while (!feof($handle)) {
+                    // gets the current line of the .txt file
+                    $currentLine = fgets($handle);
 
-        <label for="password-edit-input" class="form-label"> New Password </label>
-        <a class="form-reveal" href="#" onclick="show('password-edit-input'), show('password-confirm-input')"> Show </a>
-        <input type="password" name="password-edit-input" id="password-edit-input" class="text-box" placeholder="Enter your new password" required>
+                    // removing the line break that fgets() creates
+                    $user_data = explode($d, strval($currentLine));
 
-        <label for="password-confirm-input" class="form-label"> Confirm Password </label>
-        <input type="password" name="password-confirm-input" id="password-confirm-input" class="text-box" placeholder="Enter your new password" required>
+                    // checking if first name is the user we're looking for
+                    if ($user_data[2] == $currentUser) {
+                        $userFound = "true";
+                        echo $user_data[2] . " " . $user_data[3];
+                        break;
+                    }
 
-        <div class="form-submit">
-          <input type="submit" name="edit-account-submit" id="edit-account-submit" value="Update" class="button-default">
+                    // checking if user has been found; if true it will leave the while loop
+                    if ($userFound == "true") {
+                        break;
+                    }
+
+                    // storing user data as variables
+                    $firstName = $user_data[2];
+                    $lastName = $user_data[3];
+                    $email = $user_data[0];
+                    $password = $user_data[1];
+
+                    // echo $firstName . "<br>";
+                    // echo $lastName . "<br>";
+                    // echo $email . "<br>";
+                    // echo $password . "<br>";
+
+                    // letting system know no user has been found
+                    if ($userFound != "true") {
+                        // echo "User has not been found" . "<br>";
+                    }
+                  }
+
+                  // closing .txt files
+                  fclose($handle);
+                  fclose($devider_file);
+                ?>
+              </p>
+              <p class="body-tex tutor-spec">Math Tutor (K-12)</p>
+            </div>
+          </div>
+          
+        </div>
+
+        <p class="title-with-icon heading-1 icon-setting">Account Settings</p>
+
+        <div class="account-content">
+          <div class="account-content-split">
+            <?php 
+              $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
+              $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
+              $d = strtok(fgets($devider_file), "\n");
+
+              // retrieve approved logged in user first name
+              $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
+              $currentUser = strtok(fgets($current_file), "\n");
+
+              // echo $currentUser . "<br>";
+
+              $user_data = array("", "", "");
+
+              $userFound = "false";
+
+              while (!feof($handle)) {
+                // gets the current line of the .txt file
+                $currentLine = fgets($handle);
+
+                // removing the line break that fgets() creates
+                $user_data = explode($d, strval($currentLine));
+
+                // checking if first name is the user we're looking for
+                if ($user_data[2] == $currentUser) {
+                    $userFound = "true";
+
+                    echo '<div class="info-element-container">';
+                    echo '<p class="heading-3">Current Name</p>';
+                    echo '<p class="body-text">' . $user_data[2] . ' ' . $user_data[3] . '</p>';
+                    echo '</div>';
+
+                    echo '<div class="info-element-container">';
+                    echo '<p class="heading-3">Current Email</p>';
+                    echo '<p class="body-text">' . $user_data[0] . '</p>';
+                    echo '</div>';
+
+                    echo '<div class="info-element-container">';
+                    echo '<p class="heading-3">Current Password</p>';
+                    echo '<p class="body-text">';
+                    
+                    $passwordLength = strlen($user_data[1]);
+
+                    for ($i = 0; $i < $passwordLength; $i++) {
+                      echo '*';
+                    }
+
+                    echo '</p>';
+                    echo '</div>';
+                    break;
+                }
+
+                // checking if user has been found; if true it will leave the while loop
+                if ($userFound == "true") {
+                    break;
+                }
+
+                // storing user data as variables
+                $firstName = $user_data[2];
+                $lastName = $user_data[3];
+                $email = $user_data[0];
+                $password = $user_data[1];
+
+                // echo $firstName . "<br>";
+                // echo $lastName . "<br>";
+                // echo $email . "<br>";
+                // echo $password . "<br>";
+
+                // letting system know no user has been found
+                if ($userFound != "true") {
+                    // echo "User has not been found" . "<br>";
+                }
+              }
+
+              // closing .txt files
+              fclose($handle);
+              fclose($devider_file);
+            ?>
+          </div>
+
+          <div class="account-content-split">
+            <form id="edit-account-form" action="update-account.php" method="post">
+              <div class="form-group">
+                <label for="fname-edit" class="form-label"> First Name </label>
+                <input type="text" name="fname-edit" id="fname-edit" class="text-box" placeholder="John">
+
+                <label for="lname-edit" class="form-label"> Last Name </label>
+                <input type="text" name="lname-edit" id="lname-edit" class="text-box" placeholder="Doe">
+
+                <label for="email-edit" class="form-label"> Email </label>
+                <input type="text" name="email-edit" id="email-edit" class="text-box" placeholder="you@example.com">
+
+                <label for="current-password-input" class="form-label"> Current Password </label>
+                <a class="form-reveal" href="#" onclick="show('current-password-input')"> Show </a>
+                <input type="password" name="current-password-input" id="current-password-input" class="text-box" placeholder="Enter your new password" required>
+
+                <label for="password-edit-input" class="form-label"> New Password </label>
+                <a class="form-reveal" href="#" onclick="show('password-edit-input'), show('password-confirm-input')"> Show </a>
+                <input type="password" name="password-edit-input" id="password-edit-input" class="text-box" placeholder="Enter your new password" required>
+
+                <label for="password-confirm-input" class="form-label"> Confirm Password </label>
+                <input type="password" name="password-confirm-input" id="password-confirm-input" class="text-box" placeholder="Enter your new password" required>
+
+                <div class="form-submit">
+                  <input type="submit" name="edit-account-submit" id="edit-account-submit" value="Update" class="button-default">
+                </div>
+              </div>
+            </form>
+          </div>
+
+
         </div>
       </div>
-    </form>
+
+      <!-- end account setting  content -->
+
+    </div>
+    <!-- end body wrapper -->
+
+
+
+    <!-- footer starts here -->
+
+    <footer>
+
+
+    </footer>
+
+    <!-- end of footer section -->
 
     <!-- Script for Slider-->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
