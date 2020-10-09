@@ -28,9 +28,16 @@
     while(!feof($userfile)) {
       $user = explode($devider, fgets($userfile));
 
-      if ($user[0] == $email) {
-        $duplicated = true;
-        break;
+      // if ($user[0] == $email) {
+      //   $duplicated = true;
+      //   break;
+      // }
+
+      foreach ($user as &$val) {
+        if ($val == $email) {
+          $duplicated = true;
+          break;
+        }
       }
     }
 
