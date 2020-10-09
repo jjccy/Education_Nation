@@ -21,9 +21,7 @@
 
     // file stores all user info
     $userfile = fopen("userInfo.txt", "a+") or die("Unable to open file!");
-
-    fwrite($userfile, $devider);fwrite($userfile, $devider);fwrite($userfile, $devider);fwrite($userfile, $devider);fwrite($userfile, $devider);fwrite($userfile, $devider);
-
+    
     // check if email is duplicated
     while(!feof($userfile)) {
       $user = explode($devider, fgets($userfile));
@@ -43,7 +41,7 @@
         $txt .= $devider . $val;
       }
 
-      //$txt .= "\n";
+      $txt .= "\n";
 
       fwrite($userfile, $txt);
       fclose($userfile);
