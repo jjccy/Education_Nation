@@ -43,7 +43,7 @@
         $txt .= $devider . $val;
       }
 
-      $txt .= "\n";
+      //$txt .= "\n";
 
       fwrite($userfile, $txt);
       fclose($userfile);
