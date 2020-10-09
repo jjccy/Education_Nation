@@ -20,11 +20,7 @@
 
     // file stores all user info
     $userfile = fopen("userInfo.txt", "a+") or die("Unable to open file!");
-<<<<<<< Updated upstream
-    
-=======
 
->>>>>>> Stashed changes
     // check if email is duplicated
     while(!feof($userfile)) {
       $user = explode($devider, fgets($userfile));
