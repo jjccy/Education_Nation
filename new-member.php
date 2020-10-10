@@ -7,17 +7,15 @@
   <body>
     <?php
     session_start();
+
+    // get user input
     $name = explode(" ", $_POST['name-input']);
     $email = $_POST['email-input'];
     $password = $_POST['password-input'];
 
     $duplicated = false;
 
-    // get the devider word between info
-    // $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
-    // $devider = fgets($deviderFile);
-    // $devider = str_replace("\r\n","",$devider);  // remove new line from fgets
-    // fclose($deviderFile);
+    // hardcode devider, will remove once use database
     $devider ='#KR#%5>DSG<)(E667)F?';
 
     // file stores all user info
@@ -42,11 +40,12 @@
         $txt .= $devider . $val;
       }
 
-      $txt .= "\n";
+      $txt .= "\n"; // add line break at the end
 
       fwrite($userfile, $txt);
       fclose($userfile);
 
+      // store user information in session
       $_SESSION['loggedin'] = true;
       $_SESSION['email'] = $email;
       $_SESSION['name'] = $name[0];

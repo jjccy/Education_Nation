@@ -53,6 +53,7 @@
               <div class="login-wrapper">
                 <div class="icon-pic profile-picture"></div>
                 <p class="heading-3"> <span class="hello"> Hello </span>
+                  <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
                   <?php
                     session_start();
 

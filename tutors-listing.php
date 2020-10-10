@@ -19,7 +19,7 @@
     <div class="background"></div>
 
     <!-- start of chat module -->
-    <!-- <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe> -->
+    <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
@@ -131,6 +131,8 @@
 
           <div class="list-title-item">
 
+            <!-- starting sort and filter -->
+
             <div class="dropdown">
               <button class="dropbtn">
                 <img src="img/Tutors_Sort.svg" alt="sort icon">
@@ -153,6 +155,8 @@
               </button>
             </div>
 
+            <!-- end sort and filter -->
+
           </div>
 
         </div>
@@ -163,11 +167,6 @@
 
           <div class="filter-popout hide">
             <div class="group">
-              <!-- <button type="button" name="button">Math</button>
-              <button type="button" name="button">English</button>
-              <button type="button" name="button">French</button>
-              <button type="button" name="button">Science</button>
-              <button type="button" name="button">History</button> -->
 
               <label class="container">Math
                 <input type="checkbox" checked="checked">
@@ -190,6 +189,8 @@
                 <span class="checkmark"></span>
               </label>
             </div>
+
+            <!-- two side slide bar -->
 
             <div class="group">
               <p class="heading-2">
@@ -297,6 +298,9 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- many max flex box make sure all cards are same width -->
 
             <div class="max-flex-box-item"></div>
             <div class="max-flex-box-item"></div>
