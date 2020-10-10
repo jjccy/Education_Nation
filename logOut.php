@@ -8,6 +8,7 @@
     <?php
     session_start();
 
+    // change login status to false;
     $_SESSION['loggedin'] = false;
 
 

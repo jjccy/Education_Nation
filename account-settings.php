@@ -60,6 +60,7 @@
               <div class="login-wrapper">
                 <div class="icon-pic profile-picture"></div>
                 <p class="heading-3"> <span class="hello"> Hello </span>
+                  <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
                   <?php
                     session_start();
 
@@ -222,7 +223,7 @@
                     echo '<p class="heading-3">Current Password</p>';
                     echo '<p class="body-text">';
 
-                    // getting password length and displaying it's length in '*'s 
+                    // getting password length and displaying it's length in '*'s
                     $passwordLength = strlen($user_data[1]);
 
                     for ($i = 0; $i < $passwordLength; $i++) {
