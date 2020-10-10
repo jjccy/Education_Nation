@@ -38,7 +38,7 @@
         </div>
 
         <div class="max-flex-box-item"></div>
-
+        <!-- Nav Bar When Not Logged in-->
         <div class="top-nav-item account-section" id='not-login'>
           <div class="top-nav-item">
             <a href="sign-up.php">Sign up</a>
@@ -47,7 +47,7 @@
             <a href="login.php">Login</a>
           </div>
         </div>
-
+        <!-- Nav Bar When Logged in-->
         <div class="top-nav-item account-section" id='logined'>
           <div class="cart-quantity-top">
             <a href="cart.php" class="title-with-icon heading-3 icon-cart">Cart: 3</a>
@@ -141,6 +141,7 @@
           <div class="contact-page-filler"></div>
 
         <!-- end contact form section -->
+        <!-- contact info and social media links-->
         <div class="contact-info">
           <p class="heading-2">Contact information</p>
           <p class="body-text">Fill up the form and our Team will get back to you within 2 business days.</p>

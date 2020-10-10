@@ -40,7 +40,7 @@
         </div>
 
         <div class="max-flex-box-item"></div>
-
+        <!-- Nav Bar When Not Logged in-->
         <div class="top-nav-item account-section" id='not-login'>
           <div class="top-nav-item">
             <a href="sign-up.php">Sign up</a>
@@ -49,7 +49,7 @@
             <a href="login.php">Login</a>
           </div>
         </div>
-
+        <!-- Nav Bar When Logged in-->
         <div class="top-nav-item account-section" id='logined'>
           <div class="cart-quantity-top">
             <a href="cart.php" class="title-with-icon heading-3 icon-cart">Cart: 3</a>
@@ -133,6 +133,7 @@
           <div class="signup-page-filler"></div>
 
         <!-- end sign up form section -->
+        <!--Welcome message to new users-->
         <div class="signup-message">
           <img class="hand-img" src="img/Hand.svg" alt="Waving Hand">
           <p class="heading-1">Welcome! Join now to begin <br> making appointments <br> with tutors.</p>
@@ -162,7 +163,7 @@
     <script src="js/slider.js"></script>
     <!-- End of Script for Slider-->
 
-    <!-- script for form -->
+    <!-- script for sign up form -->
     <script type="text/javascript">
       var password = document.getElementById("password-input"),
           confirm_password = document.getElementById("confirm_password");

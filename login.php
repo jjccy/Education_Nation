@@ -40,7 +40,7 @@
         </div>
 
         <div class="max-flex-box-item"></div>
-
+        <!-- Nav Bar When Not Logged in-->
         <div class="top-nav-item account-section" id='not-login'>
           <div class="top-nav-item">
             <a href="sign-up.php">Sign up</a>
@@ -49,7 +49,7 @@
             <a href="login.php">Login</a>
           </div>
         </div>
-
+        <!-- Nav Bar When Logged in-->
         <div class="top-nav-item account-section" id='logined'>
           <div class="cart-quantity-top">
             <a href="cart.php" class="title-with-icon heading-3 icon-cart">Cart: 3</a>
@@ -126,6 +126,7 @@
           <div class="login-page-filler"></div>
 
         <!-- end login form section -->
+        <!-- Welcome back message to users when they log in-->
         <div class="login-message">
           <img class="hand-img" src="img/Hand.svg" alt="Waving Hand">
           <p class="heading-1">Welcome Back!</p>
@@ -150,7 +151,7 @@
 
     <!-- end of footer section -->
 
-    <!-- script for form -->
+    <!-- script for log in form -->
     <script type="text/javascript">
       var password = document.getElementById("password-input"),
           confirm_password = document.getElementById("confirm_password");
