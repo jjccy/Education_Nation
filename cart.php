@@ -20,6 +20,7 @@
     <!-- end of background -->
 
     <!-- start of chat module -->
+    <!-- using iframe to embed help module, hence only needing to mod this from one file -->
     <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
     <!-- end of chat module -->
 
@@ -121,9 +122,11 @@
       <div class="cart-section">
         <div class="cart-container">
           <div class="cart-content">
+            <!-- Cart with icon header  -->
             <p class="title-with-icon heading-1 icon-briefcase">Cart</p>
             <!-- <p class="cart-quantity">3 Items</p> -->
 
+            <!-- Cart items container  -->
             <div class="cart-item-container">
               <div class="cart-item">
                 <div class="card-container">
@@ -163,6 +166,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Billing, payment total and checkout summary -->
           <div class="cart-detail">
             <div class="cart-info">
               <div class="billing-info">

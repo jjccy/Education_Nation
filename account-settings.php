@@ -124,25 +124,16 @@
             <div class="user-info">
               <p class="heading-1 tutor-name">
                 <?php
+                  // opening stored user info .txt file
                   $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
-                  // $devider_file = fopen("devider.txt", "r") or die("Unable to open file!");
-                  // $d = fgets($devider_file);
-                  // $d = str_replace("\r\n","",$d);  // remove new line from fgets
-                  $d ='#KR#%5>DSG<)(E667)F?';
 
-                  // // retrieve approved logged in user first name
-                  // $current_file = fopen("currentUser.txt", "r") or die("Unable to open file!");
-                  // // $currentUser = "First1";
-                  // $currentUser = strtok(fgets($current_file), "\n");
-                  // echo $currentUser . "<br>";
+                  // stating the deliminator
+                  $d ='#KR#%5>DSG<)(E667)F?';
 
                   // change above step to session
                   $currentUser = $_SESSION['name'];
 
-                  // echo $currentUser . "<br>";
-
-                  //$user_data = array("", "", "");
-
+                  // to break out of loop if user is found
                   $userFound = "false";
 
                   while (!feof($handle)) {
@@ -214,6 +205,7 @@
                 if ($user_data[2] == $_SESSION['name']) {
                     $userFound = "true";
 
+                    // current user data; being retried and displayed
                     echo '<div class="info-element-container">';
                     echo '<p class="heading-3">Current Name</p>';
                     echo '<p class="body-text">' . $user_data[2] . ' ' . $user_data[3] . '</p>';
@@ -228,6 +220,7 @@
                     echo '<p class="heading-3">Current Password</p>';
                     echo '<p class="body-text">';
 
+                    // getting password length and displaying it's length in '*'s 
                     $passwordLength = strlen($user_data[1]);
 
                     for ($i = 0; $i < $passwordLength; $i++) {
