@@ -14,6 +14,7 @@
 
 <body>
     <div class="help-module">
+        <!-- help module header -->
         <div class="module-header" id="chat-header">
             <p class="heading-4">Ask Us Anything!</p>
             <div class="module-header-icons">
@@ -25,6 +26,8 @@
                 </a>
             </div>
         </div>
+
+        <!-- chat content; initially is hidden; when header is clicked on a js script will remove the current class and replace it with a visiblity class -->
         <div class="module-body-hide" id="chat-content">
             <div class="module-content">
                 <div class="chat">
@@ -55,6 +58,7 @@
                 </div>
             </div>
 
+            <!-- user input for question; currently just a front end placeholder -->
             <div class="module-input">
                 <form action="" class="chat-input">
                     <textarea placeholder="Type in a question" name="chat-input" id="chat-input" rows="3"></textarea>

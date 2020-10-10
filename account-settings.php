@@ -186,6 +186,8 @@
         <p class="title-with-icon heading-1 icon-setting">Account Settings</p>
 
         <div class="account-content">
+
+          <!-- left side of account settings page -->
           <div class="account-content-split">
             <?php
               $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
@@ -259,7 +261,11 @@
             ?>
           </div>
 
+          <!-- right side of account settings page -->
           <div class="account-content-split">
+
+            <!-- form allows for user to update the account info -->
+            <!-- current password and new password is required to update any information -->
             <form id="edit-account-form" action="update-account.php" method="post">
               <div class="form-group">
                 <label for="fname-edit" class="form-label"> First Name </label>
@@ -282,6 +288,7 @@
                 <label for="password-confirm-input" class="form-label"> Confirm Password </label>
                 <input type="password" name="password-confirm-input" id="password-confirm-input" class="text-box" placeholder="Enter your new password" required>
 
+                <!-- on submit sends runs update-account.php -->
                 <div class="form-submit">
                   <input type="submit" name="edit-account-submit" id="edit-account-submit" value="Update" class="button-default">
                 </div>

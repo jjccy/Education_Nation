@@ -9,11 +9,7 @@
         session_start();
         //get the userinfo text file
         $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
-        // get the devider word between info
-        // $deviderFile = fopen("devider.txt", "r") or die("Unable to open file!");
-        // $devider = fgets($deviderFile);
-        // $devider = str_replace("\r\n","",$devider);  // remove new line from fgets
-        // fclose($deviderFile);
+
         $devider ='#KR#%5>DSG<)(E667)F?';
         $name = "";
         $email = "";
@@ -50,6 +46,7 @@
         $password = $user_data[1];
 
         // retrieving updated user info and storing them as new variables;
+        // checking if the input field is empty; if empty then use previous data; else use the updated info
         if($_POST['fname-edit'] != NULL && $firstName != $_POST['fname-edit']){
             $newFirstName = $_POST['fname-edit'];
         }
@@ -85,12 +82,14 @@
         // echo $newEmail . "<br>";
         // echo $newPassword . "<br>";
 
+        // creating the new updated line for the user info .txt file
         $updatedUserInfo = $newEmail . $devider . $newPassword . $devider . $newFirstName . $devider . $newLastName;
 
         fclose($handle);
 
         echo $updatedUserInfo;
 
+        // combing through userInfo.txt for the line that the user is wanting to replace
         $update = fopen("userInfo.txt", "r+") or die("Unable to open file!");
         $userInfo = "userInfo.txt";
         $userFound = "false";
