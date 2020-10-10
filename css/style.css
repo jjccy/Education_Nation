@@ -166,15 +166,15 @@ img {
 }
 
 .account-section {
-  display: none;
-  align-items: center;
-  justify-content: space-between;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .account-section.display {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
 }
 
 .account-section>.top-nav-item {
@@ -195,110 +195,108 @@ img {
     color: #776FC4;
 }
 
+
 /* need to work from here */
 
 .account-section .cart-detail-top {
-  display: flex;
-  display: -webkit-flex;
-  display: -ms-flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 5em;
-  padding-top: 2.2em;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5em;
+    padding-top: 2.2em;
 }
 
 .account-section .cart-quantity-top {
-  padding-right: 2em;
+    padding-right: 2em;
 }
 
 .account-section .cart-quantity-top .heading-3 {
-  margin: 0;
+    margin: 0;
 }
 
 .account-section .login-wrapper {
-  /* doesn't span the entire 100% */
-  display: inline-flex;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flex;
-  align-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 0.7em 0.75em;
-  border-radius: 10em;
-  text-decoration: none;
-
-  box-shadow: 0px 2px 3px rgba(125, 125, 125, 0.2);
+    /* doesn't span the entire 100% */
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    align-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 0.7em 0.75em;
+    border-radius: 10em;
+    text-decoration: none;
+    box-shadow: 0px 2px 3px rgba(125, 125, 125, 0.2);
 }
 
 .account-section .login-wrapper:hover {
-  box-shadow: 0px 1px 2px rgba(125, 125, 125, 0.1);
-  border-bottom: 1px solid rgba(177, 171, 235, 0.3);
+    box-shadow: 0px 1px 2px rgba(125, 125, 125, 0.1);
+    border-bottom: 1px solid rgba(177, 171, 235, 0.3);
 }
 
 .account-section .login-wrapper .heading-3 {
-  margin: 0;
-  padding-left: 1em;
-  padding-right: 2em;
+    margin: 0;
+    padding-left: 1em;
+    padding-right: 2em;
 }
 
 .account-section .profile-picture {
-  min-height: 1.75rem;
-  max-height: 3rem;
-  padding-left: 3rem;
-  align-items: center;
+    min-height: 1.75rem;
+    max-height: 3rem;
+    padding-left: 3rem;
+    align-items: center;
 }
 
 .account-section .dropDown {
-  position: relative;
+    position: relative;
 }
 
 .account-section .dropbtn {
-  background-color: rgba(0,0,0,0);
-  color: black;
-  border: none;
-  cursor: pointer;
-  border-radius: .3em;
-  padding: 0 !important;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: .3em;
+    padding: 0 !important;
 }
 
 .account-section .dropdown-content {
-  display: none;
-  position: absolute;
-  min-width: 10em;
-  background-color: white;
-  box-shadow: 0 .1em .2em 0 rgba(0,0,0,0.1);
-  top: 0;
-  right: 0;
-
-  width: 100%;
-
-  border-radius: 1em;
-
-  padding-top: 3.2em;
-
-  z-index: -10;
+    display: none;
+    position: absolute;
+    min-width: 10em;
+    background-color: white;
+    box-shadow: 0 .1em .2em 0 rgba(0, 0, 0, 0.1);
+    top: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 1em;
+    padding-top: 3.2em;
+    z-index: -10;
 }
 
 .account-section .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: right;
-
-  transition-duration: .2s;
-  transition-property: background-color;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+    transition-duration: .2s;
+    transition-property: background-color;
 }
 
-.account-section .dropdown-content a:hover {background-color: #f1f1f1}
+.account-section .dropdown-content a:hover {
+    background-color: #f1f1f1
+}
 
 .account-section .dropDown:hover .dropdown-content {
-  display: block;
+    display: block;
 }
 
 .account-section .dropDown:hover .login-wrapper {
-  border-radius: 1em 1em 0 0;
+    border-radius: 1em 1em 0 0;
 }
+
 
 /* end top nav bar */
 
@@ -625,12 +623,16 @@ img {
 
 /* responsive */
 
-.help-iframe {
+.iframe-wrapper {
     position: fixed;
     bottom: 0;
     right: 0;
     z-index: 98;
-    width: 25em;
-    height: 75%;
     margin-right: 1em;
+    margin-bottom: -5px;
+}
+
+.help-iframe {
+    width: 100%;
+    height: 100%;
 }

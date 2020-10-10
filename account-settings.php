@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/account-settings.css">
     <link rel="stylesheet" href="css/signup.css">
-
   </head>
 
   <body>
     <div class="background"></div>
 
     <!-- start of chat module -->
-    <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    <div class="iframe-wrapper">
+      <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    </div>
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
@@ -357,6 +358,8 @@
     </script>
     <!-- end script for form -->
 
+
+    <script src="js/script.js"></script>
 
   </body>
 </html>

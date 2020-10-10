@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/homePage.css">
-
-    <script src="js/script.js"></script>
-
   </head>
 
   <body>
@@ -228,6 +225,8 @@
     <script src="js/slick.js"></script>
     <script src="js/slider.js"></script>
     <!-- End of Script for Slider-->
+
+    <script src="js/script.js"></script>
 
   </body>
 </html>

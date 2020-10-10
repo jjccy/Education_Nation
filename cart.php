@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/cart.css">
-
-    <script src="js/script.js"></script>
   </head>
 
   <body>
@@ -21,7 +19,9 @@
 
     <!-- start of chat module -->
     <!-- using iframe to embed help module, hence only needing to mod this from one file -->
-    <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    <div class="iframe-wrapper">
+      <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    </div>
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
@@ -234,6 +234,8 @@
     </footer>
 
     <!-- end of footer section -->
+
+    <script src="js/script.js"></script>
 
   </body>
 </html>

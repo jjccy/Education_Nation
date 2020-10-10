@@ -16,6 +16,12 @@
     <!-- start body wrapper -->
     <div class="body-wrapper">
 
+    <!-- start of chat module -->
+    <div class="iframe-wrapper">
+      <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    </div>
+    <!-- end of chat module -->
+
       <!-- start top nav -->
       <div class="top-nav">
 
@@ -171,6 +177,8 @@
     <script src="js/slick.js"></script>
     <script src="js/slider.js"></script>
     <!-- End of Script for Slider-->
+
+    <script src="js/script.js"></script>
 
   </body>
 </html>
