@@ -11,16 +11,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/about.css">
-
-    <script src="js/script.js"></script>
-
   </head>
 
   <body>
     <div class="background"></div>
 
     <!-- start of chat module -->
-    <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    <div class="iframe-wrapper">
+      <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    </div>
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
@@ -162,6 +161,8 @@
     <script src="js/slick.js"></script>
     <script src="js/slider.js"></script>
     <!-- End of Script for Slider-->
+
+    <script src="js/script.js"></script>
 
   </body>
 </html>

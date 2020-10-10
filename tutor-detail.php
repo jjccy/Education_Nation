@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/tutorDetail.css">
-
-    <script src="js/script"></script>
   </head>
 
   <body>
@@ -18,7 +16,9 @@
     <div class="background"></div>
 
     <!-- start of chat module -->
-    <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    <div class="iframe-wrapper">
+      <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    </div>
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
@@ -207,6 +207,8 @@
     </footer>
 
     <!-- end of footer section -->
+
+    <script src="js/script"></script>
 
   </body>
 </html>

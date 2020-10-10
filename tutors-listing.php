@@ -19,7 +19,9 @@
     <div class="background"></div>
 
     <!-- start of chat module -->
-    <!-- <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe> -->
+    <div class="iframe-wrapper">
+      <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    </div>
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
@@ -365,6 +367,8 @@
 
     <script src="js/tutorListing.js"></script>
     <!-- end script for slider -->
+
+    <script src="js/script"></script>
 
   </body>
 </html>

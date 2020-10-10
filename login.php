@@ -15,6 +15,12 @@
   <body>
     <div class="background"></div>
 
+    <!-- start of chat module -->
+    <div class="iframe-wrapper">
+      <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
+    </div>
+    <!-- end of chat module -->
+
     <!-- start body wrapper -->
     <div class="body-wrapper">
 
@@ -176,5 +182,7 @@
 
     </script>
     <!-- end script for form -->
+
+    <script src="js/script.js"></script>
   </body>
 </html>

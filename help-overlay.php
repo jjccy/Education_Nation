@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="help-module">
+    <div class="help-module" id="help-module">
         <!-- help module header -->
         <div class="module-header" id="chat-header">
             <p class="heading-4">Ask Us Anything!</p>
