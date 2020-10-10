@@ -1,3 +1,5 @@
+/* help module container */
+
 .help-module {
     position: fixed;
     bottom: 0;
@@ -11,6 +13,9 @@
     max-width: 20em;
 }
 
+
+/* module header */
+
 .module-header {
     display: flex;
     display: -webkit-flex;
@@ -23,11 +28,17 @@
     border-top-right-radius: 20px;
 }
 
+
+/* caret icon in header */
+
 .module-header .icon-caret {
     height: 1.25em;
     width: 1.25em;
     background-image: url("../img/caret_white.svg");
 }
+
+
+/* when applied caret is flipped */
 
 .icon-caret-flip {
     transform: rotate(180deg);
@@ -42,10 +53,16 @@
     width: 1.25rem;
 }
 
+
+/* styling header */
+
 .module-header .heading-4 {
     color: white;
     margin-right: 5em;
 }
+
+
+/* container for chat messages */
 
 .module-content {
     padding: 0.5em;
@@ -54,15 +71,24 @@
     overflow-y: auto;
 }
 
+
+/* to show the chat message */
+
 .module-body {
     visibility: visible;
     height: 100%;
 }
 
+
+/* to hide chat message */
+
 .module-body-hide {
     visibility: hidden;
     height: 0;
 }
+
+
+/* messages container*/
 
 .chat {
     display: flex;
@@ -75,6 +101,9 @@
     margin-bottom: 0.75em;
 }
 
+
+/* message content  */
+
 .chat-content {
     display: flex;
     display: -webkit-flex;
@@ -84,10 +113,16 @@
     flex-direction: column;
 }
 
+
+/* AI profile picture container */
+
 .chat-icon {
     padding-right: 0.5em;
     align-self: flex-end;
 }
+
+
+/* AI profile picture */
 
 .chat-icon .icon-tutors {
     height: 2.5rem;
@@ -96,14 +131,23 @@
     border: solid 1px #C4CAD5;
 }
 
+
+/* icon animation */
+
 .chat-icon .icon-tutors:hover,
 .icon-caret:hover {
     transform: scale(1.2);
 }
 
+
+/* caret animation */
+
 .icon-caret-flip:hover {
     transform: rotate(180deg) scale(1.2);
 }
+
+
+/* sender text */
 
 .sender-text {
     /* font-style: italic; */
@@ -111,15 +155,24 @@
     margin-bottom: 0;
 }
 
+
+/* container for sent messages */
+
 .chat-message {
     background: #C4CAD5;
     border-radius: 5px;
     padding: 0 0.5em;
 }
 
+
+/* defining max width for messages */
+
 .chat-message>p {
     max-width: 20em;
 }
+
+
+/* auto generated text styling */
 
 .chat-question-text {
     color: #776FC4;
@@ -132,10 +185,16 @@
     display: block;
 }
 
+
+/* animation for auto generated text */
+
 .chat-question-text:hover {
     background: #776FC4;
     color: white;
 }
+
+
+/* user text input  */
 
 .module-input .chat-input textarea {
     width: 100%;

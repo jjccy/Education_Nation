@@ -1,3 +1,5 @@
+/* general account settings container */
+
 .account-settings {
     padding-left: 18.8em;
     padding-top: 8.5em;
@@ -8,6 +10,9 @@
     display: -ms-flex; */
 }
 
+
+/* profile picture and name container */
+
 .user-overlay {
     display: flex;
     display: -webkit-flex;
@@ -16,6 +21,9 @@
     margin-bottom: 2em;
 }
 
+
+/* name wrapper */
+
 .user-info-wrapper {
     display: flex;
     display: -webkit-flex;
@@ -23,12 +31,18 @@
     flex-direction: column;
 }
 
+
+/* name and specs */
+
 .user-info {
     padding: 1em 2em;
     border-radius: 10px;
     background: #EEE8F6;
     margin-left: 1em;
 }
+
+
+/* to shift user-info down */
 
 .space-filler {
     flex: 99 1 auto;
@@ -42,12 +56,18 @@
     margin-bottom: 0;
 }
 
+
+/* settings container */
+
 .account-content {
     margin-top: 2em;
     display: flex;
     display: -webkit-flex;
     display: -ms-flex;
 }
+
+
+/* splitting the content in half */
 
 .account-content-split {
     flex: 1;

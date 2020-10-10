@@ -103,11 +103,16 @@
 
             // checking if first name is the user we're looking for
             if ($user_data[2] == $_SESSION['name']) {
+                // storing the found line
                 $updatedLine = file_get_contents($userInfo);
-                echo $updatedLine . "<br>";
+
+                // replacing the line
                 $updatedLine = str_replace($currentLine, $updatedUserInfo, $updatedLine);
-                echo $updatedLine . "<br>";
+
+                //updating the line
                 file_put_contents($userInfo, $updatedLine);
+
+                //breaking out
                 $userFound = "true";
 
                 $_SESSION['name'] = $newFirstName;
