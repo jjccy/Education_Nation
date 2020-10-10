@@ -41,7 +41,7 @@
         </div>
 
         <div class="max-flex-box-item"></div>
-
+        <!-- Nav Bar When Not Logged in-->
         <div class="top-nav-item account-section" id='not-login'>
           <div class="top-nav-item">
             <a href="sign-up.php">Sign up</a>
@@ -50,7 +50,7 @@
             <a href="login.php">Login</a>
           </div>
         </div>
-
+        <!-- Nav Bar When Logged in-->
         <div class="top-nav-item account-section" id='logined'>
           <div class="cart-quantity-top">
             <a href="cart.php" class="title-with-icon heading-3 icon-cart">Cart: 3</a>
@@ -134,7 +134,7 @@
         </div>
         <!-- end home title section -->
 
-        <!-- home best tutors section -->
+        <!-- home best tutors section Slider carousel-->
         <div class="home-slider">
             <p class="title-with-icon heading-1 icon-award">Best Tutors Of The Month</p>
             <!-- slider buttons -->

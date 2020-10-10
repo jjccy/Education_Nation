@@ -16,7 +16,7 @@
     // fclose($deviderFile);
     $devider ='#KR#%5>DSG<)(E667)F?';
 
-
+    //Loop through text file lines
     while (!feof($handle)) {
           $currentLine = fgets($handle);
 
@@ -26,7 +26,7 @@
           $email = $user_data[0];
           $password = $user_data[1];
           $name = $user_data[2];
-
+          //Check if email and password match
           if($email==$_POST['email-input']){
             if($password == $_POST['password-input']){
                 //Login
