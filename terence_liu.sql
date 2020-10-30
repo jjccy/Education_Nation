@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2020 at 10:31 PM
+-- Generation Time: Oct 30, 2020 at 11:34 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -31,9 +31,9 @@ USE `terence_liu`;
 
 DROP TABLE IF EXISTS `hasbooking`;
 CREATE TABLE IF NOT EXISTS `hasbooking` (
-  `b_id` INT NOT NULL AUTO_INCREMENT,
-  `tutor_id` INT NOT NULL,
-  `s_id` INT NOT NULL,
+  `b_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tutor_id` int(11) NOT NULL,
+  `s_id` int(11) NOT NULL,
   `time_start` datetime NOT NULL,
   `time_end` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `price` decimal(6,2) DEFAULT NULL,
@@ -50,11 +50,12 @@ CREATE TABLE IF NOT EXISTS `hasbooking` (
 
 DROP TABLE IF EXISTS `member`;
 CREATE TABLE IF NOT EXISTS `member` (
-  `m_id` INT NOT NULL AUTO_INCREMENT,
-  `name` char(30) DEFAULT NULL,
+  `m_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fname` char(30) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` char(128) DEFAULT NULL,
   `profile_address` varchar(260) DEFAULT NULL,
+  `lname` char(30) DEFAULT NULL,
   PRIMARY KEY (`m_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -66,9 +67,9 @@ CREATE TABLE IF NOT EXISTS `member` (
 
 DROP TABLE IF EXISTS `review`;
 CREATE TABLE IF NOT EXISTS `review` (
-  `r_id` INT NOT NULL AUTO_INCREMENT,
-  `student_id` INT NOT NULL,
-  `tutor_id` INT NOT NULL,
+  `r_id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) NOT NULL,
+  `tutor_id` int(11) NOT NULL,
   `data_posted` timestamp NOT NULL DEFAULT current_timestamp(),
   `rating` decimal(1,0) DEFAULT NULL,
   `comments` mediumtext DEFAULT NULL,
@@ -85,8 +86,8 @@ CREATE TABLE IF NOT EXISTS `review` (
 
 DROP TABLE IF EXISTS `signsup`;
 CREATE TABLE IF NOT EXISTS `signsup` (
-  `b_id` INT NOT NULL,
-  `student_id` INT NOT NULL,
+  `b_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
   PRIMARY KEY (`b_id`,`student_id`),
   KEY `student_id` (`student_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -99,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `signsup` (
 
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
-  `student_id` INT NOT NULL,
+  `student_id` int(11) NOT NULL,
   `cur_grade` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`student_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -112,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 
 DROP TABLE IF EXISTS `subject`;
 CREATE TABLE IF NOT EXISTS `subject` (
-  `s_id` INT NOT NULL AUTO_INCREMENT,
+  `s_id` int(11) NOT NULL AUTO_INCREMENT,
   `min_grade` decimal(2,0) DEFAULT NULL,
   `max_grade` decimal(2,0) DEFAULT NULL,
   `subject_name` char(30) DEFAULT NULL,
@@ -127,8 +128,8 @@ CREATE TABLE IF NOT EXISTS `subject` (
 
 DROP TABLE IF EXISTS `teaches`;
 CREATE TABLE IF NOT EXISTS `teaches` (
-  `m_id` INT NOT NULL,
-  `s_id` INT NOT NULL,
+  `m_id` int(11) NOT NULL,
+  `s_id` int(11) NOT NULL,
   PRIMARY KEY (`s_id`,`m_id`),
   KEY `m_id` (`m_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -141,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `teaches` (
 
 DROP TABLE IF EXISTS `tutor`;
 CREATE TABLE IF NOT EXISTS `tutor` (
-  `tutor_id` INT NOT NULL,
+  `tutor_id` int(11) NOT NULL,
   `balance` decimal(8,2) DEFAULT NULL,
   PRIMARY KEY (`tutor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
