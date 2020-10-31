@@ -18,7 +18,7 @@
       echo "window.location.href='index.php';";
       echo '</script>';
 
-
+      session_destroy();
      ?>
   </body>
 </html>

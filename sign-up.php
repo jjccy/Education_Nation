@@ -109,8 +109,10 @@
 
             <form id="register-form" action="new-member.php" method="post">
               <div class="form-group">
-                <label for="name-input" class="form-label"> Full Name </label>
-                <input type="text" name="name-input" id="name-input" class="text-box" placeholder="John Doe" required>
+                <label for="fname-input" class="form-label"> First Name </label>
+                <input type="text" name="fname-input" id="fname-input" class="text-box" placeholder="John" required>
+                <label for="lname-input" class="form-label"> Last Name </label>
+                <input type="text" name="lname-input" id="lname-input" class="text-box" placeholder="Doe" required>
                 <label for="email-input" class="form-label"> Email </label>
                 <input type="email" name="email-input" id="email-input" class="text-box" placeholder="Enter your email"required>
                 <label for="password-input" class="form-label"> Password </label>
@@ -119,6 +121,10 @@
                 <label for="confirm_password" class="form-label"> Confirm Password </label>
                 <a class="form-reveal" href="#" onclick="show('confirm_password')"> Show </a>
                 <input type="password" name="confirm_password" id="confirm_password" class="text-box" placeholder="Enter your password" required >
+                <input type="radio" id="is-tutor" name="role" value="tutor" required>
+                <label for="role" class="link-default"> tutor </label>
+                <input type="radio" id="is-student" name="role" value="student">
+                <label for="role" class="link-default"> student </label> <br>
                 <input type="checkbox" id="signed-in" name="signed-in" value="true">
                 <label for="signed-in" class="link-default"> Keep me signed in </label>
 
@@ -128,7 +134,7 @@
               </div>
             </form>
             <p class="body-text">By signing up you agree to our <a class="link-default"> Terms & Conditions</a></p>
-            <p class="body-text">Already have an account? <a class="link-default"> Log in</a></p>
+            <p class="body-text">Already have an account? <a class="link-default" href="login.php"> Log in</a></p>
           </div>
           <div class="signup-page-filler"></div>
 

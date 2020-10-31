@@ -9,60 +9,140 @@
     session_start();
 
     // get user input
-    $name = explode(" ", $_POST['name-input']);
+    $fname = $_POST['fname-input'];
+    $lname = $_POST['lname-input'];
     $email = $_POST['email-input'];
     $password = $_POST['password-input'];
+    $role = $_POST['role'];
 
     $duplicated = false;
 
-    // hardcode devider, will remove once use database
-    $devider ='#KR#%5>DSG<)(E667)F?';
+    // get database
+    $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
-    // file stores all user info
-    $userfile = fopen("userInfo.txt", "a+") or die("Unable to open file!");
+    if(mysqli_connect_errno()) {
+      // if fail, skip all php and print errors
 
-    // check if email is duplicated
-    while(!feof($userfile)) {
-      $user = explode($devider, fgets($userfile));
+      die("Database connet failed: " .
+        mysqli_connect_error() .
+        " (" . mysqli_connect_errno(). ")"
+      );
+    }
 
-      if ($user[0] == $email) {
+    $query = "SELECT member.email FROM member";
+
+    // get result from database;
+    $result = mysqli_query($connection, $query);
+
+    if (!$result) {
+      die('database query failed');
+    }
+
+
+    // check if email is duplicate
+    while ($row = mysqli_fetch_array($result))
+    {
+      if (password_verify($email, $row[0])) { // password verify the email
         $duplicated = true;
+        echo '<script language="javascript">';
+        echo 'alert("duplicate email");';
+        echo '</script>';
         break;
       }
     }
 
+
+
     // if there is no existing email
     if (!$duplicated) {
-      // format: email + devider + password + name[0] + devider + name[1] + devider + name[3] + ...
-      $txt = $email . $devider . $password;
 
-      foreach ($name as &$val) {
-        $txt .= $devider . $val;
+      // hash email and password
+      $hashedEmail = password_hash($email, PASSWORD_DEFAULT);
+      $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+      // create query for new user
+      $newUser = "INSERT INTO member (email, fname, lname, password)
+      VALUES ('" . $hashedEmail . "', '" . $fname . "', '" . $lname . "', '".  $hashedPassword . "')";
+
+      $forForeignKey = "";
+
+      // create new user and give them privilege
+      $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
+      if (!mysqli_query($connection, $sql)) {
+        die ("create new user failed: " . mysqli_error($connection));
+      }
+      $sql = "GRANT ALL
+      ON terence_liu.member
+      TO '" . $email . "'@'localhost';";
+
+      if (!mysqli_query($connection, $sql)) {
+        die ("grant privilege failed: " . mysqli_error($connection));
       }
 
-      $txt .= "\n"; // add line break at the end
 
-      fwrite($userfile, $txt);
-      fclose($userfile);
+      // check if is a tutor or student
+      if ($role === "tutor") {
+        // add access to tutor table
+        $sql = "GRANT ALL
+        ON terence_liu.tutor
+        TO '" . $email . "'@'localhost';";
+        if (!mysqli_query($connection, $sql)) {
+          die ("Connection failed: " . mysqli_error($connection));
+        }
 
-      // store user information in session
-      $_SESSION['loggedin'] = true;
-      $_SESSION['email'] = $email;
-      $_SESSION['name'] = $name[0];
+        $forForeignKey = "INSERT INTO tutor (tutor_id) VALUES(last_insert_id())";
+      }
+      else {
+        // add access to student table
+        $sql = "GRANT ALL
+        ON terence_liu.student
+        TO '" . $email . "'@'localhost';";
+        if (!mysqli_query($connection, $sql)) {
+          die ("Connection failed: " . mysqli_error($connection));
+        }
 
-      // alert box welcome
-      echo '<script language="javascript">';
-      $welcome = "alert('Welcome, " . $name[0] . "');";
-      echo $welcome;
-      echo "window.location.href='index.php';";
-      echo '</script>';
-    } else {
-      // alert box reject
-      echo '<script language="javascript">';
-      echo 'alert("this email has already existed");';
-      echo "window.location.href='sign-up.php';";
-      echo '</script>';
+        // add access to review table
+        $sql = "GRANT SELECT, UPDATE, INSERT
+        ON terence_liu.review
+        TO '" . $email . "'@'localhost';";
+        if (!mysqli_query($connection, $sql)) {
+          die ("Connection failed: " . mysqli_error($connection));
+        }
+
+        $forForeignKey = "INSERT INTO student (student_id) VALUES(last_insert_id())";
+      }
+
+      // insert new user info into database
+      if (mysqli_query($connection, $newUser) && mysqli_query($connection, $forForeignKey)) {
+        // alert box welcome
+        echo '<script language="javascript">';
+        $welcome = "alert('Welcome, " . $fname . "');";
+        echo $welcome;
+        echo '</script>';
+
+        // store user information in session
+        $_SESSION['loggedin'] = true;
+        $_SESSION['email'] = $email;
+        $_SESSION['name'] = $fname;
+      }
+      else {
+        // alert box reject
+        echo '<script language="javascript">';
+        echo 'alert("fail to create new user");';
+        echo '</script>';
+        die("Connection failed: " . mysqli_error($connection));
+      }
+
     }
+
+    // release returned data
+    mysqli_free_result($result);
+    mysqli_close($connection);
+
+
+    echo '<script language="javascript">';
+    echo "window.location.href='index.php';";
+    echo '</script>';
 
      ?>
   </body>

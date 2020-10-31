@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2020 at 11:34 PM
+-- Generation Time: Oct 31, 2020 at 08:02 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   `profile_address` varchar(260) DEFAULT NULL,
   `lname` char(30) DEFAULT NULL,
   PRIMARY KEY (`m_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -144,6 +144,7 @@ DROP TABLE IF EXISTS `tutor`;
 CREATE TABLE IF NOT EXISTS `tutor` (
   `tutor_id` int(11) NOT NULL,
   `balance` decimal(8,2) DEFAULT NULL,
+  `bio` mediumtext DEFAULT NULL,
   PRIMARY KEY (`tutor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
