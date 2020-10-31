@@ -128,21 +128,21 @@
           <div class="actual-info">
 
             <div class="info-btns">
-              <a href="#" class="info-btn">
+              <a href="#" class="info-btn" onclick="displayContent(about)">
                 <img src="img/Tutor_About.svg" alt="About image">
                 <p>About Us</p>
               </a>
-              <a href="#" class="info-btn">
+              <a href="#" class="info-btn" onclick="displayContent(review)">
                 <img src="img/Tutor_Reviews.svg" alt="temp image">
                 <p>Review</p>
               </a>
-              <a href="#" class="info-btn">
+              <a href="#" class="info-btn" onclick="displayContent(availability)">
                 <img src="img/Tutor_Availability.svg" alt="Calendar image">
                 <p>Availability</p>
               </a>
             </div>
 
-            <div class="text-area" id="about">
+            <section class="text-area display" id="about">
               <p class="heading-2">About Me</p>
               <p class="body-text">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
@@ -155,16 +155,92 @@
 
               </p>
               <p class="body-text">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-              sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-              sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-              Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-              ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-              consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-              invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-              At vero eos et accusam et justo duo dolores et ea rebum.
-            </p>
-            </div>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                At vero eos et accusam et justo duo dolores et ea rebum.
+              </p>
+            </section>
+
+            <section class="text-area" id="review">
+              <!-- overall review -->
+              <p class="heading-2">Reviews</p>
+              <div class="overall-review">
+                <p class="body-text">2.5</p>
+                <!-- ther star div -->
+                <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                <p class="body-text">2 reviews</p>
+                <div class="max-flex-box-item"></div>
+              </div>
+
+              <!-- for each post -->
+              <div class="posts">
+                <p class="body-text">Jenniffer Lee</p>
+                <div>
+                  <!-- ther star div -->
+                  <div class="Stars post" style="--rating: 5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                  <p class="body-text">5 days ago</p>
+                </div>
+                <p class="body-text">
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                  sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                  Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                  ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                  consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                  invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                  At vero eos et accusam et justo duo dolores et ea rebum.
+                </p>
+              </div>
+
+              <!-- for each post -->
+              <div class="posts">
+                <p class="body-text">Jenniffer Lee</p>
+                <div>
+                  <!-- ther star div -->
+                  <div class="Stars post" style="--rating: 0;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                  <p class="body-text">5 days ago</p>
+                </div>
+                <p class="body-text">
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                  sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                  Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                  ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                  consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                  invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                  At vero eos et accusam et justo duo dolores et ea rebum.
+                </p>
+              </div>
+            </section>
+
+            <section class="text-area" id="availability">
+              <p class="heading-2">Availability</p>
+              <p class="body-text">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est
+                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+
+              </p>
+              <p class="body-text">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                At vero eos et accusam et justo duo dolores et ea rebum.
+              </p>
+            </section>
           </div>
           <!-- end actual info -->
 
@@ -209,7 +285,8 @@
 
     <!-- end of footer section -->
 
-    <script src="js/script"></script>
+    <script src="js/script.js"></script>
+    <script src="js/tutorDetail.js"></script>
 
   </body>
 </html>

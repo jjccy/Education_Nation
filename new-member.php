@@ -42,7 +42,7 @@
     // check if email is duplicate
     while ($row = mysqli_fetch_array($result))
     {
-      if (password_verify($email, $row[0])) { // password verify the email
+      if (password_verify($email, $row[0])) { // password_verify the email
         $duplicated = true;
         echo '<script language="javascript">';
         echo 'alert("duplicate email");';
@@ -102,7 +102,7 @@
         }
 
         // add access to review table
-        $sql = "GRANT SELECT, UPDATE, INSERT
+        $sql = "GRANT ALL
         ON terence_liu.review
         TO '" . $email . "'@'localhost';";
         if (!mysqli_query($connection, $sql)) {

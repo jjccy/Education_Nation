@@ -372,7 +372,7 @@
     <script src="js/tutorListing.js"></script>
     <!-- end script for slider -->
 
-    <script src="js/script"></script>
+    <script src="js/script.js"></script>
 
   </body>
 </html>
