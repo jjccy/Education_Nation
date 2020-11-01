@@ -45,26 +45,37 @@
 
         <div class="dropDown">
 
+          <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
+          <?php
+            session_start();
+
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+                $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
+                                                                              WHERE member.m_id = " .  $_SESSION['m_id']))[0];
+
+                mysqli_close($connection);
+
+                if ($profileImage == null) {
+                  $profileImage = "img/member/default.jpg";
+                }
+
+                echo "<script language='javascript'>
+                        document.getElementById('logined').classList.add('display');
+                      </script>";
+
+            } else {
+              echo "<script language='javascript'>
+                      document.getElementById('not-login').classList.add('display');
+                    </script>";
+            }
+          ?>
+
           <button class="dropbtn">
             <div class="login-wrapper">
-              <div class="icon-pic profile-picture"></div>
-              <p class="heading-3"> <span class="hello"> Hello </span>
-                <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
-                <?php
-                  session_start();
-
-                  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                      echo "<script language='javascript'>
-                              document.getElementById('logined').classList.add('display');
-                            </script>";
-
-                      echo $_SESSION['name'];
-                  } else {
-                    echo "<script language='javascript'>
-                            document.getElementById('not-login').classList.add('display');
-                          </script>";
-                  }
-                ?>
+              <div class="icon-pic profile-picture" style="background-image:url(<?php echo $profileImage?>)"></div>
+                <p class="heading-3"> <span class="hello"> Hello </span>
+                <?php echo $_SESSION['name']?>
                </p>
               <div class="icon-caret"></div>
             </div>

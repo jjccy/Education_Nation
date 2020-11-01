@@ -42,7 +42,7 @@
     // check if email is duplicate
     while ($row = mysqli_fetch_array($result))
     {
-      if (password_verify($email, $row[0])) { // password_verify the email
+      if ($email === $row[0]) { // password_verify the email
         $duplicated = true;
         echo '<script language="javascript">';
         echo 'alert("duplicate email");';
@@ -57,12 +57,11 @@
     if (!$duplicated) {
 
       // hash email and password
-      $hashedEmail = password_hash($email, PASSWORD_DEFAULT);
       $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
       // create query for new user
       $newUser = "INSERT INTO member (email, fname, lname, password)
-      VALUES ('" . $hashedEmail . "', '" . $fname . "', '" . $lname . "', '".  $hashedPassword . "')";
+      VALUES ('" . $email . "', '" . $fname . "', '" . $lname . "', '".  $hashedPassword . "')";
 
       $forForeignKey = "";
 
@@ -124,6 +123,30 @@
         $_SESSION['loggedin'] = true;
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $fname;
+        // $getId = "SELECT member.m_id FROM member WHERE member.email=" . $email;
+        // echo $getId ."<br>";
+        // // $_SESSION['m_id'] = mysqli_fetch_array(mysqli_query($connection, $getId));
+        // $getId = mysqli_query($connection, $getId);
+        // if (!$getId) {
+        //   die('getID failed: ' . mysqli_error($connection));
+        // }
+
+        // get result from database;
+        $getId = mysqli_query($connection, "SELECT member.email, member.m_id FROM member");
+
+        if (!$getId) {
+          die('database query failed');
+        }
+
+        // check if email is duplicate
+        while ($row = mysqli_fetch_array($getId))
+        {
+          if ($email === $row['email']) { // password_verify the email
+            $_SESSION['m_id'] = $row['m_id'];
+            break;
+          }
+        }
+
       }
       else {
         // alert box reject
