@@ -148,4 +148,27 @@ input[type='checkbox']:checked:after {
   background-color: #776FC4;
 }
 
+/* flex box for name input and radio button */
+.register-flex-box {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  flex-direction: row;
+  width: 100%;
+
+}
+
+.register-flex-child {
+  flex: 1 1 auto;
+}
+
+.register-flex-box > div {
+  margin-right: 2em;
+}
+
+.register-flex-box > div:last-child {
+  margin-right: 0;
+}
+
 /* End of Form Styling*/

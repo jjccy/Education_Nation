@@ -120,10 +120,18 @@
 
             <form id="register-form" action="new-member.php" method="post">
               <div class="form-group">
-                <label for="fname-input" class="form-label"> First Name </label>
-                <input type="text" name="fname-input" id="fname-input" class="text-box" placeholder="John" required>
-                <label for="lname-input" class="form-label"> Last Name </label>
-                <input type="text" name="lname-input" id="lname-input" class="text-box" placeholder="Doe" required>
+
+                <div class="register-flex-box">
+                  <div class="register-flex-child">
+                    <label for="fname-input" class="form-label"> First Name </label>
+                    <input type="text" name="fname-input" id="fname-input" class="text-box" placeholder="John" required>
+                  </div>
+                  <div class="register-flex-child">
+                    <label for="lname-input" class="form-label"> Last Name </label>
+                    <input type="text" name="lname-input" id="lname-input" class="text-box" placeholder="Doe" required>
+                  </div>
+                </div>
+
                 <label for="email-input" class="form-label"> Email </label>
                 <input type="email" name="email-input" id="email-input" class="text-box" placeholder="Enter your email"required>
                 <label for="password-input" class="form-label"> Password </label>
@@ -132,12 +140,17 @@
                 <label for="confirm_password" class="form-label"> Confirm Password </label>
                 <a class="form-reveal" href="#" onclick="show('confirm_password')"> Show </a>
                 <input type="password" name="confirm_password" id="confirm_password" class="text-box" placeholder="Enter your password" required >
-                <input type="radio" id="is-tutor" name="role" value="tutor" required>
-                <label for="role" class="link-default"> tutor </label>
-                <input type="radio" id="is-student" name="role" value="student">
-                <label for="role" class="link-default"> student </label> <br>
-                <input type="checkbox" id="signed-in" name="signed-in" value="true">
-                <label for="signed-in" class="link-default"> Keep me signed in </label>
+
+                <div class="register-flex-box">
+                  <div>
+                    <input type="radio" id="is-tutor" name="role" value="tutor" required>
+                    <label for="role" class="link-default"> tutor </label>
+                  </div>
+                  <div>
+                    <input type="radio" id="is-student" name="role" value="student">
+                    <label for="role" class="link-default"> student </label>
+                  </div>
+                </div>
 
                 <div class="form-submit">
                   <input type="submit" name="form-submit" id="form-submit" value="Sign up" class="button-default">
