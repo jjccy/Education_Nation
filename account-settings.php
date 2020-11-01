@@ -126,8 +126,17 @@
             <div class="user-info">
               <p class="heading-1 tutor-name">
                 <?php
-                  // opening stored user info .txt file
-                  $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
+                  // get database
+                  $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+
+                  if(mysqli_connect_errno()) {
+                    // if fail, skip all php and print errors
+
+                    die("Database connet failed: " .
+                      mysqli_connect_error() .
+                      " (" . mysqli_connect_errno(). ")"
+                    );
+                  }
 
                   // stating the deliminator
                   $d ='#KR#%5>DSG<)(E667)F?';
@@ -135,51 +144,25 @@
                   // change above step to session
                   $currentUser = $_SESSION['name'];
 
-                  // to break out of loop if user is found
-                  $userFound = "false";
+                  $query = "SELECT * FROM member WHERE member.fname = '$currentUser'";
 
-                  while (!feof($handle)) {
-                    // gets the current line of the .txt file
-                    $currentLine = fgets($handle);
+                  // get result from database;
+                  $result = mysqli_query($connection, $query);
 
-                    // removing the line break that fgets() creates
-                    $user_data = explode($d, $currentLine);
-
-                    // checking if first name is the user we're looking for
-                    if ($user_data[2] == $_SESSION['name']) {
-                        $userFound = "true";
-                        echo $user_data[2] . " " . $user_data[3];
-                        break;
-                    }
-
-                    // checking if user has been found; if true it will leave the while loop
-                    if ($userFound == "true") {
-                        break;
-                    }
-
-                    // storing user data as variables
-                    $firstName = $user_data[2];
-                    $lastName = $user_data[3];
-                    $email = $user_data[0];
-                    $password = $user_data[1];
-
-                    // echo $firstName . "<br>";
-                    // echo $lastName . "<br>";
-                    // echo $email . "<br>";
-                    // echo $password . "<br>";
-
-                    // letting system know no user has been found
-                    if ($userFound != "true") {
-                        // echo "User has not been found" . "<br>";
-                    }
+                  if (!$result) {
+                    die('database query failed');
                   }
 
-                  // closing .txt files
-                  fclose($handle);
-                  //fclose($devider_file);
+                  while ($row = $result -> fetch_assoc()) {
+                    echo $row['fname'] . " " . $row['lname'] . "<br>";
+                  }
+
+                  mysqli_free_result($result);
+                  mysqli_close($connection);
+
                 ?>
               </p>
-              <p class="body-tex tutor-spec">Math Tutor (K-12)</p>
+              <p class="tutor-spec">Math Tutor (K-12)</p>
             </div>
           </div>
 
@@ -192,74 +175,49 @@
           <!-- left side of account settings page -->
           <div class="account-content-split">
             <?php
-              $handle = fopen("userInfo.txt", "r") or die("Unable to open file!");
+              // get database
+              $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
-              // echo $currentUser . "<br>";
+              if(mysqli_connect_errno()) {
+                // if fail, skip all php and print errors
 
-              $userFound = "false";
-
-              while (!feof($handle)) {
-                // gets the current line of the .txt file
-                $currentLine = fgets($handle);
-
-                // removing the line break that fgets() creates
-                $user_data = explode($d, $currentLine);
-
-                // checking if first name is the user we're looking for
-                if ($user_data[2] == $_SESSION['name']) {
-                    $userFound = "true";
-
-                    // current user data; being retried and displayed
-                    echo '<div class="info-element-container">';
-                    echo '<p class="heading-3">Current Name</p>';
-                    echo '<p class="body-text">' . $user_data[2] . ' ' . $user_data[3] . '</p>';
-                    echo '</div>';
-
-                    echo '<div class="info-element-container">';
-                    echo '<p class="heading-3">Current Email</p>';
-                    echo '<p class="body-text">' . $user_data[0] . '</p>';
-                    echo '</div>';
-
-                    echo '<div class="info-element-container">';
-                    echo '<p class="heading-3">Current Password</p>';
-                    echo '<p class="body-text">';
-
-                    // getting password length and displaying it's length in '*'s
-                    $passwordLength = strlen($user_data[1]);
-
-                    for ($i = 0; $i < $passwordLength; $i++) {
-                      echo '*';
-                    }
-
-                    echo '</p>';
-                    echo '</div>';
-                    break;
-                }
-
-                // checking if user has been found; if true it will leave the while loop
-                if ($userFound == "true") {
-                    break;
-                }
-
-                // storing user data as variables
-                $firstName = $user_data[2];
-                $lastName = $user_data[3];
-                $email = $user_data[0];
-                $password = $user_data[1];
-
-                // echo $firstName . "<br>";
-                // echo $lastName . "<br>";
-                // echo $email . "<br>";
-                // echo $password . "<br>";
-
-                // letting system know no user has been found
-                if ($userFound != "true") {
-                    // echo "User has not been found" . "<br>";
-                }
+                die("Database connet failed: " .
+                  mysqli_connect_error() .
+                  " (" . mysqli_connect_errno(). ")"
+                );
               }
 
-              // closing .txt files
-              fclose($handle);
+              $query = "SELECT * FROM member WHERE member.fname = '$currentUser'";
+
+              // get result from database;
+              $result = mysqli_query($connection, $query);
+
+              while ($row = $result -> fetch_assoc()) {
+                // current user data; being retried and displayed
+                echo '<div class="info-element-container">';
+                echo '<p class="heading-3">Current Name</p>';
+                echo '<p class="body-text">' . $row['fname'] . " " . $row['lname'] . '</p>';
+                echo '</div>';
+
+                echo '<div class="info-element-container">';
+                echo '<p class="heading-3">Current Email</p>';
+                echo '<p class="body-text">' . $row['email'] . '</p>';
+                echo '</div>';
+
+                echo '<div class="info-element-container">';
+                echo '<p class="heading-3">Current Password</p>';
+                echo '<p class="body-text">';
+
+                // getting password length and displaying it's length in '*'s
+                // $passwordLength = strlen($row['password']);
+
+                for ($i = 0; $i < 10; $i++) {
+                  echo '*';
+                }
+
+                echo '</p>';
+                echo '</div>';
+              }
             ?>
           </div>
 
