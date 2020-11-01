@@ -29,6 +29,7 @@
 /* Best tutors section for home page*/
 .home-slider {
   margin-top: 6em;
+  margin-bottom: 6em;
   /* display: -webkit-flex;
   display: -ms-flex;
   display: flex; */
@@ -38,6 +39,28 @@
 
 .slide:first-child {
   margin-left: 0;
+}
+
+#outer {
+  width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+#inner:first-child > .flex-box{
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#inner {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.card-container {
+  display: inline-block;
+  margin-right: 2em;
 }
 
 /* end Best tutors section for home page  */
@@ -62,13 +85,23 @@
 
 /* cards end here */
 /* list buttons */
-.list-buttons {
+.slider-title-section{
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   margin-top: 2.5em;
   margin-bottom: 3em;
+}
+
+.slider-title-section > * {
+  flex: 1 1 auto;
+}
+
+.slider-button {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
 }
 
 .page-number {
