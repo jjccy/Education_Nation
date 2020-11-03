@@ -72,6 +72,7 @@
 
 .account-content-split {
     flex: 1;
+    padding-left: 2em;
 }
 
 .info-element-container {
@@ -85,4 +86,30 @@
 
 .info-element-container .body-text {
     padding-top: 0.5em;
+}
+
+.account-menu {
+    border-right: 1px solid #F6F7F9;
+    flex: 0 0 15%;
+}
+
+.account-setting-menu {
+    margin-bottom: 2em;
+    padding-left: 2.5em;
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.account-setting-menu:nth-child(1) {
+    margin-top: 0;
+}
+
+.title-active {
+    font-family: SF Pro Display SemiBold;
+    color: #776FC4;
+}
+
+.tutor-balance-amount {
+    /* font-size: 2rem; */
 }
