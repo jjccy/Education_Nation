@@ -10,6 +10,7 @@
     // get user input
     $email = $_POST['email-input'];
     $password = $_POST['password-input'];
+    $keepMeSignedIn = $_POST['signed-in'];
 
     // get database
     $connection = mysqli_connect("localhost", "root", "", "terence_liu");
@@ -31,23 +32,45 @@
       die('database query failed');
     }
     else{
-      while ($row = $result -> fetch_assoc()) {
-        echo $email;
-        //if email exists but password is incorrect
-        if($row['email']==$email && !password_verify($password, $row['password'])){
-          //alert box reject
+    while ($row = $result -> fetch_assoc()) {
+      //if email exists but password is incorrect
+      if($row['email']==$email && !password_verify($password, $row['password'])){
+        //alert box reject
+        echo '<script language="javascript">';
+        echo 'alert("Email and/or Password is incorrect");';
+        echo "window.location.href='login.php';";
+        echo '</script>';
+      }
+      //if email exists and password is correct
+      elseif ($row['email']==$email && password_verify($password, $row['password'])) {
+        //save logged in status, email, name, and id to session
+        //checkbox for keep me signed in is selected
+        if(isset($keepMeSignedIn)){
+          //do not delete cookies, and sign out only when logout is clicked
+          setcookie('loggedin', true);
+          setcookie('email', $email);
+          setcookie('name', $row['fname']);
+          setcookie('m_id', $row['m_id']);
+
+          // $_SESSION['loggedin'] = true;
+          // $_SESSION['email'] = $email;
+          // $_SESSION['name'] = $row['fname'];
+          // $_SESSION['m_id'] = $row['m_id'];
+          //provide alert that log in was successful
           echo '<script language="javascript">';
-          echo 'alert("Email and/or Password is incorrect");';
-          echo "window.location.href='login.php';";
+          $welcome = "alert('Welcome, " . $row['fname'] . "');";
+          echo $welcome;
+          echo "window.location.href='index.php';";
           echo '</script>';
         }
-        //if email exists and password is correct
-        elseif ($row['email']==$email && password_verify($password, $row['password'])) {
-          //save logged in status, email, name, and id to session
-          $_SESSION['loggedin'] = true;
-          $_SESSION['email'] = $email;
-          $_SESSION['name'] = $row['fname'];
-          $_SESSION['m_id'] = $row['m_id'];
+        //checkbox for keep me signed in is not selected
+        else{
+          //delete cookies after 90 minutes, therefore signing out
+          setcookie('loggedin', true, 5400);
+          setcookie('email', $email, 5400);
+          setcookie('name', $row['fname'], 5400);
+          setcookie('m_id', $row['m_id'], 5400);
+
           //provide alert that log in was successful
           echo '<script language="javascript">';
           $welcome = "alert('Welcome, " . $row['fname'] . "');";
