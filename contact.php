@@ -59,10 +59,10 @@
           <?php
             session_start();
 
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
+                $connection = mysqli_connect("localhost", "login", "", "terence_liu");
                 $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
-                                                                              WHERE member.m_id = " .  $_SESSION['m_id']))[0];
+                                                                              WHERE member.m_id = " .  $_COOKIE['m_id']))[0];
 
                 mysqli_close($connection);
 

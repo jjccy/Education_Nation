@@ -18,7 +18,7 @@
     $duplicated = false;
 
     // get database
-    $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+    $connection = mysqli_connect("localhost", "login", "", "terence_liu");
 
     if(mysqli_connect_errno()) {
       // if fail, skip all php and print errors
