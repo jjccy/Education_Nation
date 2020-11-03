@@ -144,11 +144,11 @@
                 <div class="register-flex-box">
                   <div>
                     <input type="radio" id="is-tutor" name="role" value="tutor" required>
-                    <label for="role" class="link-default"> tutor </label>
+                    <label for="role" class="link-default"> Tutor </label>
                   </div>
                   <div>
                     <input type="radio" id="is-student" name="role" value="student">
-                    <label for="role" class="link-default"> student </label>
+                    <label for="role" class="link-default"> Student </label>
                   </div>
                 </div>
 

@@ -162,7 +162,7 @@
               <div class="page-number">
                 <p class="body-text" id="currentPage">01</p>
                 <p class="body-text"> / </p>
-                <p class="body-text" id="totalPage">04</p>
+                <p class="body-text" id="totalPage">03</p>
               </div>
               <a href="#" class="arrow-btn active" id="right-button">
                 <p>&#8594;</p>

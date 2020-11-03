@@ -164,7 +164,7 @@ input[type='checkbox']:checked:after {
 }
 
 .register-flex-box > div {
-  margin-right: 2em;
+  margin-right: 3em;
 }
 
 .register-flex-box > div:last-child {

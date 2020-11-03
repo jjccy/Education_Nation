@@ -1,3 +1,5 @@
+var width;
+
 $(function() {
   var print = function(msg) {
     alert(msg);
@@ -21,12 +23,12 @@ $(function() {
   var actualWidth = 0;
 
   var updateUI = function() {
-    var maxWidth = outer.outerWidth(true);
+    width = outer.outerWidth(true);
     $.each($('#inner >'), function(i, item) {
       actualWidth += $(item).outerWidth(true);
     });
 
-    if (actualWidth <= maxWidth) {
+    if (actualWidth <= width) {
       setInvisible($('#right-button'));
     }
   };
@@ -38,7 +40,7 @@ $(function() {
     setVisible($('#right-button'));
     var leftPos = outer.scrollLeft();
     outer.animate({
-      scrollLeft: leftPos - 450
+      scrollLeft: leftPos - (width / 1.5)
     }, 800, function() {
       if ($('#outer').scrollLeft() <= 0) {
         setInvisible($('#left-button'));
@@ -52,7 +54,7 @@ $(function() {
     setVisible($('#left-button'));
     var leftPos = outer.scrollLeft();
     outer.animate({
-      scrollLeft: leftPos + 450
+      scrollLeft: leftPos + (width / 1.5)
     }, 800, function() {
       console.log("leftPos: " + leftPos);
       if ($('#outer').scrollLeft() >= (actualWidth - outer.outerWidth(true)) * 0.95) {
