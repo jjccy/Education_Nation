@@ -59,7 +59,7 @@
 
             <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
             <?php
-              session_start();
+              
 
               if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
                   $connection = mysqli_connect("localhost", "login", "", "terence_liu");
@@ -87,7 +87,7 @@
               <div class="login-wrapper">
                 <div class="icon-pic profile-picture" style="background-image:url(<?php echo $profileImage?>)"></div>
                   <p class="heading-3"> <span class="hello"> Hello </span>
-                  <?php echo $_SESSION['name']?>
+                  <?php echo $_COOKIE['name']?>
                  </p>
                 <div class="icon-caret"></div>
               </div>
@@ -153,7 +153,7 @@
                   $d ='#KR#%5>DSG<)(E667)F?';
 
                   // change above step to session
-                  $currentUser = $_SESSION['m_id'];
+                  $currentUser = $_COOKIE['m_id'];
 
                   $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
 

@@ -6,7 +6,7 @@
   </head>
   <body>
     <?php
-        session_start();
+        
 
         $updatefname = "false";
         $updatelname = "false";
@@ -14,7 +14,7 @@
         $updatepassword = "false";
 
         // change above step to session
-        $currentUser = $_SESSION['m_id'];
+        $currentUser = $_COOKIE['m_id'];
 
         $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
@@ -43,7 +43,7 @@
         }
 
         mysqli_free_result($result);
-            
+
         echo $firstName . "<br>" . $lastName . "<br>" . $email . "<br>";
 
         // retrieving updated user info and storing them as new variables;
@@ -74,10 +74,11 @@
           if (!$result) {
               die('database query failed');
           }
-  
+
           // updating session name
           else {
-            $_SESSION['name'] = $newFirstName; 
+            setcookie('name', $newFirstName);
+            // $_SESSION['name'] = $newFirstName;
           }
         }
 

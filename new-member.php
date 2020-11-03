@@ -6,7 +6,7 @@
   </head>
   <body>
     <?php
-    session_start();
+    
 
     // get user input
     $fname = $_POST['fname-input'];
@@ -120,9 +120,13 @@
         echo '</script>';
 
         // store user information in session
-        $_SESSION['loggedin'] = true;
-        $_SESSION['email'] = $email;
-        $_SESSION['name'] = $fname;
+        setcookie('loggedin', true, time() + 5400, "/");
+        setcookie('email', $email, time() + 5400, "/");
+        setcookie('name', $fname, time() + 5400, "/");
+
+        // $_SESSION['loggedin'] = true;
+        // $_SESSION['email'] = $email;
+        // $_SESSION['name'] = $fname;
         // $getId = "SELECT member.m_id FROM member WHERE member.email=" . $email;
         // echo $getId ."<br>";
         // // $_SESSION['m_id'] = mysqli_fetch_array(mysqli_query($connection, $getId));
@@ -142,7 +146,7 @@
         while ($row = mysqli_fetch_array($getId))
         {
           if ($email === $row['email']) { // password_verify the email
-            $_SESSION['m_id'] = $row['m_id'];
+            setcookie('m_id', $row['m_id'], time() + 5400, "/");
             break;
           }
         }
@@ -162,10 +166,10 @@
     mysqli_free_result($result);
     mysqli_close($connection);
 
-
-    echo '<script language="javascript">';
-    echo "window.location.href='index.php';";
-    echo '</script>';
+    //
+    // echo '<script language="javascript">';
+    // echo "window.location.href='index.php';";
+    // echo '</script>';
 
      ?>
   </body>

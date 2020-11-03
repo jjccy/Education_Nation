@@ -59,12 +59,12 @@
 
             <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
             <?php
-              session_start();
+              
 
-              if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+              if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
                   $connection = mysqli_connect("localhost", "root", "", "terence_liu");
                   $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
-                                                                                WHERE member.m_id = " .  $_SESSION['m_id']))[0];
+                                                                                WHERE member.m_id = " .  $_COOKIE['m_id']))[0];
 
                   mysqli_close($connection);
 
@@ -87,7 +87,7 @@
               <div class="login-wrapper">
                 <div class="icon-pic profile-picture" style="background-image:url(<?php echo $profileImage?>)"></div>
                   <p class="heading-3"> <span class="hello"> Hello </span>
-                  <?php echo $_SESSION['name']?>
+                  <?php echo $_COOKIE['name']?>
                  </p>
                 <div class="icon-caret"></div>
               </div>
@@ -153,7 +153,7 @@
                   $d ='#KR#%5>DSG<)(E667)F?';
 
                   // change above step to session
-                  $currentUser = $_SESSION['name'];
+                  $currentUser = $_COOKIE['name'];
 
                   $query = "SELECT * FROM member WHERE member.fname = '$currentUser'";
 

@@ -6,10 +6,10 @@
   </head>
   <body>
     <?php
-    session_start();
 
     // change login status to false;
-    $_SESSION['loggedin'] = false;
+    // $_COOKIE['loggedin'] = false;
+    setcookie('loggedin', false, time() - 3600, "/");
 
 
       // alert box exit
@@ -18,7 +18,6 @@
       echo "window.location.href='index.php';";
       echo '</script>';
 
-      session_destroy();
      ?>
   </body>
 </html>
