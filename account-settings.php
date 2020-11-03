@@ -153,9 +153,9 @@
                   $d ='#KR#%5>DSG<)(E667)F?';
 
                   // change above step to session
-                  $currentUser = $_SESSION['name'];
+                  $currentUser = $_SESSION['m_id'];
 
-                  $query = "SELECT * FROM member WHERE member.fname = '$currentUser'";
+                  $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
 
                   // get result from database;
                   $result = mysqli_query($connection, $query);
@@ -215,7 +215,7 @@
                 );
               }
 
-              $query = "SELECT * FROM member WHERE member.fname = '$currentUser'";
+              $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
 
               // get result from database;
               $result = mysqli_query($connection, $query);

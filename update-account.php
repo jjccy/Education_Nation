@@ -14,7 +14,7 @@
         $updatepassword = "false";
 
         // change above step to session
-        $currentUser = $_SESSION['name'];
+        $currentUser = $_SESSION['m_id'];
 
         $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
@@ -27,7 +27,7 @@
           );
         }
 
-        $query = "SELECT * FROM member WHERE member.fname = '$currentUser'";
+        $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
         // get result from database;
 
         $result = mysqli_query($connection, $query);
@@ -68,7 +68,7 @@
         }
 
         if ($newFirstName != NULL) {
-          $query = "UPDATE member SET fname = '$newFirstName' WHERE member.fname = '$currentUser'";
+          $query = "UPDATE member SET fname = '$newFirstName' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);
 
           if (!$result) {
@@ -82,7 +82,7 @@
         }
 
         if ($newLastName != NULL) {
-          $query = "UPDATE member SET lname = '$newLastName' WHERE member.fname = '$currentUser'";
+          $query = "UPDATE member SET lname = '$newLastName' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);
 
           if (!$result) {
@@ -91,7 +91,7 @@
         }
 
         if ($newEmail != NULL) {
-          $query = "UPDATE member SET email = '$newEmail' WHERE member.fname = '$currentUser'";
+          $query = "UPDATE member SET email = '$newEmail' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);
 
           if (!$result) {
@@ -100,7 +100,7 @@
         }
 
         if ($newPassword != NULL) {
-          $query = "UPDATE member SET password = '$newPassword' WHERE member.fname = '$currentUser'";
+          $query = "UPDATE member SET password = '$newPassword' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);
 
           if (!$result) {
