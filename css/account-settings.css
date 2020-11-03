@@ -17,28 +17,40 @@
     display: flex;
     display: -webkit-flex;
     display: -ms-flex;
-    flex-direction: row;
+    /* flex-direction: column; */
     margin-bottom: 2em;
 }
 
 
 /* name wrapper */
 
-.user-info-wrapper {
+.user-info-container {
     display: flex;
     display: -webkit-flex;
     display: -ms-flex;
     flex-direction: column;
 }
 
+.user-info-wrapper {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-direction: row;
+}
+
 
 /* name and specs */
 
 .user-info {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-direction: column;
     padding: 1em 2em;
     border-radius: 10px;
     background: #EEE8F6;
     margin-left: 1em;
+    /* width: 100%; */
 }
 
 
@@ -70,9 +82,13 @@
 
 /* splitting the content in half */
 
-.account-content-split {
+.account-content-current {
     flex: 1;
     padding-left: 2em;
+}
+
+.account-content-new {
+    flex: 3;
 }
 
 .info-element-container {
@@ -89,8 +105,8 @@
 }
 
 .account-menu {
-    border-right: 1px solid #F6F7F9;
-    flex: 0 0 15%;
+    /* flex: 0 0 25%; */
+    flex: 1;
 }
 
 .account-setting-menu {
@@ -111,5 +127,27 @@
 }
 
 .tutor-balance-amount {
-    /* font-size: 2rem; */
+    padding-top: 0.5em;
+    font-size: 2rem;
+}
+
+.account-menu-container {
+    height: 100%;
+    width: auto;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    border-right: 1px solid #F6F7F9;
+}
+
+.user-info .tutor-name {
+    margin: 0;
+}
+
+.user-info .tutor-balance,
+.user-info .tutor-balance-amount {
+    margin: 0;
 }

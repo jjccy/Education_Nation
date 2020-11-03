@@ -132,8 +132,9 @@
       <div class="account-settings">
         <div class="user-overlay">
           <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+          <div class="user-info-container">
+          <div class="space-filler"></div>
           <div class="user-info-wrapper">
-            <div class="space-filler"></div>
             <div class="user-info">
               <p class="heading-1 tutor-name">
                 <?php
@@ -175,14 +176,11 @@
               </p>
               <p class="tutor-spec">Math Tutor (K-12)</p>
             </div>
-          </div>
-
-          <div class="user-info-wrapper">
-            <div class="space-filler"></div>
             <div class="user-info">
               <p class="heading-3 tutor-balance">Balance </p>
-              <p class="heading-3 tutor-balance-amount">$340.51</p>
+              <p class="heading-3 tutor-balance-amount">$3000.51</p>
             </div>
+          </div>
           </div>
 
         </div>
@@ -192,16 +190,18 @@
         <div class="account-content">
 
           <div class="account-menu">
-            <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu title-active">Account Settings</a>
-            <a href="" class="title-with-icon body-text icon-clock account-setting-menu">Upcoming Bookings</a>
-            <a href="tutor_about-me.php" class="title-with-icon body-text icon-tutor-about account-setting-menu">About Me</a>
-            <a href="" class="title-with-icon body-text icon-calendar account-setting-menu">Availability</a>
-            <a href="" class="title-with-icon body-text icon-booking-history account-setting-menu">Booking History</a>
-            <a href="" class="title-with-icon body-text icon-star account-setting-menu">Reviews</a>
+            <div class="account-menu-container">
+              <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu title-active">Account Settings</a>
+              <a href="" class="title-with-icon body-text icon-clock account-setting-menu">Upcoming Bookings</a>
+              <a href="tutor_about-me.php" class="title-with-icon body-text icon-tutor-about account-setting-menu">About Me</a>
+              <a href="" class="title-with-icon body-text icon-calendar account-setting-menu">Availability</a>
+              <a href="" class="title-with-icon body-text icon-booking-history account-setting-menu">Booking History</a>
+              <a href="" class="title-with-icon body-text icon-star account-setting-menu">Reviews</a>
+            </div>
           </div>
 
           <!-- Current user info -->
-          <div class="account-content-split">
+          <div class="account-content-current">
             <?php
               // get database
               $connection = mysqli_connect("localhost", "root", "", "terence_liu");
@@ -250,7 +250,7 @@
           </div>
 
           <!-- Update form for user info -->
-          <div class="account-content-split">
+          <div class="account-content-new">
 
             <!-- form allows for user to update the account info -->
             <!-- current password and new password is required to update any information -->
