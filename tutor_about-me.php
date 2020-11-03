@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Account Settings</title>
+    <title>Account Settings - About Me</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -177,14 +177,6 @@
             </div>
           </div>
 
-          <div class="user-info-wrapper">
-            <div class="space-filler"></div>
-            <div class="user-info">
-              <p class="heading-3 tutor-balance">Balance </p>
-              <p class="heading-3 tutor-balance-amount">$340.51</p>
-            </div>
-          </div>
-
         </div>
 
         <p class="title-with-icon heading-1 icon-setting">Account Settings</p>
@@ -192,96 +184,20 @@
         <div class="account-content">
 
           <div class="account-menu">
-            <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu title-active">Account Settings</a>
+            <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu">Account Settings</a>
             <a href="" class="title-with-icon body-text icon-clock account-setting-menu">Upcoming Bookings</a>
-            <a href="tutor_about-me.php" class="title-with-icon body-text icon-tutor-about account-setting-menu">About Me</a>
+            <a href="tutor_about-me.php" class="title-with-icon body-text icon-tutor-about account-setting-menu title-active">About Me</a>
             <a href="" class="title-with-icon body-text icon-calendar account-setting-menu">Availability</a>
             <a href="" class="title-with-icon body-text icon-booking-history account-setting-menu">Booking History</a>
             <a href="" class="title-with-icon body-text icon-star account-setting-menu">Reviews</a>
           </div>
 
-          <!-- Current user info -->
-          <div class="account-content-split">
-            <?php
-              // get database
-              $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+          <div class="account-setting-about">
+            <textarea>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 
-              if(mysqli_connect_errno()) {
-                // if fail, skip all php and print errors
-
-                die("Database connet failed: " .
-                  mysqli_connect_error() .
-                  " (" . mysqli_connect_errno(). ")"
-                );
-              }
-
-              $query = "SELECT * FROM member WHERE member.fname = '$currentUser'";
-
-              // get result from database;
-              $result = mysqli_query($connection, $query);
-
-              while ($row = $result -> fetch_assoc()) {
-                // current user data; being retried and displayed
-                echo '<div class="info-element-container">';
-                echo '<p class="heading-3">Current Name</p>';
-                echo '<p class="body-text">' . $row['fname'] . " " . $row['lname'] . '</p>';
-                echo '</div>';
-
-                echo '<div class="info-element-container">';
-                echo '<p class="heading-3">Current Email</p>';
-                echo '<p class="body-text">' . $row['email'] . '</p>';
-                echo '</div>';
-
-                echo '<div class="info-element-container">';
-                echo '<p class="heading-3">Current Password</p>';
-                echo '<p class="body-text">';
-
-                // getting password length and displaying it's length in '*'s
-                // $passwordLength = strlen($row['password']);
-
-                for ($i = 0; $i < 10; $i++) {
-                  echo '*';
-                }
-
-                echo '</p>';
-                echo '</div>';
-              }
-            ?>
-          </div>
-
-          <!-- Update form for user info -->
-          <div class="account-content-split">
-
-            <!-- form allows for user to update the account info -->
-            <!-- current password and new password is required to update any information -->
-            <form id="edit-account-form" action="update-account.php" method="post">
-              <div class="form-group">
-                <label for="fname-edit" class="form-label"> First Name </label>
-                <input type="text" name="fname-edit" id="fname-edit" class="text-box" placeholder="John">
-
-                <label for="lname-edit" class="form-label"> Last Name </label>
-                <input type="text" name="lname-edit" id="lname-edit" class="text-box" placeholder="Doe">
-
-                <label for="email-edit" class="form-label"> Email </label>
-                <input type="text" name="email-edit" id="email-edit" class="text-box" placeholder="you@example.com">
-
-                <label for="current-password-input" class="form-label"> Current Password </label>
-                <a class="form-reveal" href="#" onclick="show('current-password-input')"> Show </a>
-                <input type="password" name="current-password-input" id="current-password-input" class="text-box" placeholder="Enter your new password" required>
-
-                <label for="password-edit-input" class="form-label"> New Password </label>
-                <a class="form-reveal" href="#" onclick="show('password-edit-input'), show('password-confirm-input')"> Show </a>
-                <input type="password" name="password-edit-input" id="password-edit-input" class="text-box" placeholder="Enter your new password" required>
-
-                <label for="password-confirm-input" class="form-label"> Confirm Password </label>
-                <input type="password" name="password-confirm-input" id="password-confirm-input" class="text-box" placeholder="Enter your new password" required>
-
-                <!-- on submit sends runs update-account.php -->
-                <div class="form-submit">
-                  <input type="submit" name="edit-account-submit" id="edit-account-submit" value="Update" class="button-default">
-                </div>
-              </div>
-            </form>
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            </textarea>
           </div>
 
 

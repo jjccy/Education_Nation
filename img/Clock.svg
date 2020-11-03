@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.088" height="21.044" viewBox="0 0 21.088 21.044">
+  <g id="alarm_clock" transform="translate(-1.967 -1)">
+    <g id="Group_826" data-name="Group 826" transform="translate(4.352 18.946)">
+      <path id="Path_4681" data-name="Path 4681" d="M36.414,41.419,34.5,39.5l1-1,1.914,1.914a.694.694,0,0,1,0,1h0A.793.793,0,0,1,36.414,41.419Z" transform="translate(-21.316 -38.5)" fill="#37474f"/>
+      <path id="Path_4682" data-name="Path 4682" d="M8.17,41.419,10.085,39.5l-1-1L7.165,40.414a.694.694,0,0,0,0,1h0A.793.793,0,0,0,8.17,41.419Z" transform="translate(-6.95 -38.5)" fill="#37474f"/>
+    </g>
+    <circle id="Ellipse_28" data-name="Ellipse 28" cx="9.571" cy="9.571" r="9.571" transform="translate(2.94 2.436)" fill="#c62828"/>
+    <circle id="Ellipse_29" data-name="Ellipse 29" cx="7.657" cy="7.657" r="7.657" transform="translate(4.854 4.35)" fill="#eee"/>
+    <rect id="Rectangle_1061" data-name="Rectangle 1061" width="0.383" height="6.221" transform="translate(8.25 16.543) rotate(-135)" fill="#e53935"/>
+    <rect id="Rectangle_1062" data-name="Rectangle 1062" width="0.957" height="6.221" transform="translate(12.033 5.786)"/>
+    <rect id="Rectangle_1063" data-name="Rectangle 1063" width="1.101" height="4.403" transform="translate(15.998 14.712) rotate(135)"/>
+    <circle id="Ellipse_30" data-name="Ellipse 30" cx="0.957" cy="0.957" r="0.957" transform="translate(11.554 11.05)"/>
+    <circle id="Ellipse_31" data-name="Ellipse 31" cx="0.479" cy="0.479" r="0.479" transform="translate(12.033 11.528)" fill="#c62828"/>
+    <rect id="Rectangle_1064" data-name="Rectangle 1064" width="1.914" height="1.436" transform="translate(11.554 1)" fill="#37474f"/>
+    <g id="Group_827" data-name="Group 827" transform="translate(1.967 1.511)">
+      <path id="Path_4683" data-name="Path 4683" d="M37.882,8.831A4.294,4.294,0,0,0,31.9,2.849Z" transform="translate(-17.576 -2.067)" fill="#37474f"/>
+      <path id="Path_4684" data-name="Path 4684" d="M2.749,8.831A4.294,4.294,0,0,1,8.731,2.849Z" transform="translate(-1.967 -2.067)" fill="#37474f"/>
+    </g>
+  </g>
+</svg>

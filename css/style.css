@@ -45,11 +45,10 @@ img {
 }
 
 .flex-box {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-
-  align-items: center;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
 }
 
 .max-flex-box-item {
@@ -469,7 +468,7 @@ img {
 }
 
 .icon-enter {
-    /*Award icon on Home Page*/
+    /*Enter icon on Home Page*/
     background-image: url("../img/Login.svg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -478,7 +477,7 @@ img {
 }
 
 .icon-phone {
-    /*Award icon on Home Page*/
+    /*Phone icon on Home Page*/
     background-image: url("../img/Phone_Number.svg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -487,7 +486,7 @@ img {
 }
 
 .icon-email {
-    /*Award icon on Home Page*/
+    /*Email icon on Home Page*/
     background-image: url("../img/Email_Address.svg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -496,7 +495,7 @@ img {
 }
 
 .icon-location {
-    /*Award icon on Home Page*/
+    /*Location icon on Home Page*/
     background-image: url("../img/Office_Address.svg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -507,6 +506,51 @@ img {
 .icon-setting {
     /*Setting icon on Accounts Page*/
     background-image: url("../img/Settings.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
+.icon-clock {
+    /*Clock icon on Accounts Page*/
+    background-image: url("../img/clock.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
+.icon-tutor-about {
+    /*About icon on Accounts Page*/
+    background-image: url("../img/Tutor_About.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
+.icon-calendar {
+    /*Calendar icon on Accounts Page*/
+    background-image: url("../img/Calendar.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
+.icon-booking-history {
+    /*Calendar icon on Accounts Page*/
+    background-image: url("../img/timeline.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
+.icon-star {
+    /*Calendar icon on Accounts Page*/
+    background-image: url("../img/Star.svg");
     background-repeat: no-repeat;
     background-size: contain;
     height: auto;
