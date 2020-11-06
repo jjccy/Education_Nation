@@ -12,7 +12,7 @@
     $keepMeSignedIn = $_POST['signed-in'];
 
     // get database
-    $connection = mysqli_connect("localhost", $email, $password, "terence_liu");
+    $connection = mysqli_connect("localhost", "root", "", "terence_liu");
     //Check if database connection was a success or not
     if(mysqli_connect_errno()) {
       // if fail, skip all php and print errors
