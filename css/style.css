@@ -557,6 +557,15 @@ img {
     width: auto;
 }
 
+.icon-rating {
+    /*Rating icon on Accounts Page*/
+    background-image: url("../img/Rating.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
 
 /* end side nav bar */
 
