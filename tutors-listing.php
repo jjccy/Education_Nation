@@ -234,7 +234,19 @@
               $tutorlame = $row['lname'];
               $tutorID = $row['tutor_id'];
 
-              echo "<a href='tutor-detail.php' class='card-container'>";
+
+              // send tutor id through url
+              $url = "tutor-detail.php";
+              $query = parse_url($url, PHP_URL_QUERY);
+
+              // Returns a string if the URL has parameters or NULL if not
+              if ($query) {
+                  $url .= "&tutor_id=" . $tutorID;
+              } else {
+                  $url .= "?tutor_id=" . $tutorID;
+              }
+
+              echo "<a href='$url' class='card-container'>";
               echo "<img src='$profileImage' alt='$tutorfame Profile Picture'>";
               echo "<div class='info-wrapper'>";
               echo "<div class='card-info'>";
@@ -243,6 +255,8 @@
               echo "</div>";
               echo "</div>";
               echo "</a>";
+
+
             }
 
             // release returned data

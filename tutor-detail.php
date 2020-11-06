@@ -130,7 +130,55 @@
 
       <!-- start tutor detail section -->
       <section class="tutor-detail">
-        <p class="title-with-icon heading-1 icon-tutors">Susan White</p>
+        <?php
+        // if tutor id is not null
+        if(isset($_GET['tutor_id'])) {
+          // get target tutor id
+          $tutorID = $_GET['tutor_id'];
+
+          $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+          if(mysqli_connect_errno()) {
+            // if fail, skip all php and print errors
+
+            die("Database connet failed: " .
+              mysqli_connect_error() .
+              " (" . mysqli_connect_errno(). ")"
+            );
+          }
+
+          $tutorInfo = mysqli_fetch_array(mysqli_query($connection, "SELECT member.fname, member.lname, member.profile_address, tutor.bio
+                                                  FROM member INNER JOIN tutor ON member.m_id = $tutorID
+                                                  WHERE $tutorID = tutor.tutor_id"));
+
+          if (!$tutorInfo) {
+            die ("get tutor info fail " . mysqli_error($connection));
+          }
+
+          $tutorfname = $tutorInfo['fname'];
+          $tutorlname = $tutorInfo['lname'];
+
+
+          $reviews = mysqli_query($connection, "SELECT review.data_posted, review.rating, review.comments, member.fname, member.lname
+                                                  FROM review INNER JOIN member ON review.student_id = member.m_id
+                                                  WHERE $tutorID = review.tutor_id");
+
+          if (!$reviews) {
+            die ("get reviews fail " . mysqli_error($connection));
+          }
+
+
+          mysqli_close($connection);
+        }
+
+
+
+
+         ?>
+        <p class="title-with-icon heading-1 icon-tutors">
+          <?php
+          echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White");
+          ?>
+        </p>
 
         <!-- start detail info -->
         <div class="detail-info">
@@ -156,16 +204,14 @@
             <section class="text-area display" id="about">
               <p class="heading-2">About Me</p>
               <p class="body-text">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                <?php
+                echo (isset($tutorID) ? $tutorInfo['bio'] : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                 sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
                 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
                 Stet clita kasd gubergren, no sea takimata sanctus est
                 Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
                 consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-
-              </p>
-              <p class="body-text">
+                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br><br>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                 sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
                 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
@@ -173,8 +219,8 @@
                 ipsum dolor sit amet. Lorem ipsum dolor sit amet,
                 consetetur sadipscing elitr, sed diam nonumy eirmod tempor
                 invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                At vero eos et accusam et justo duo dolores et ea rebum.
-              </p>
+                At vero eos et accusam et justo duo dolores et ea rebum.");
+                ?>
             </section>
 
             <section class="text-area" id="review">
@@ -259,10 +305,25 @@
 
           <div class="image-holder">
             <div class="card-container">
-                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
+              <?php
+              if (isset($tutorID)) {
+                // get profile address;
+                $profileImage = $tutorInfo['profile_address'];
+                if ($profileImage == null) {
+                  $profileImage = "img/member/default.jpg";
+                }
+
+                echo "<img src='$profileImage' alt='$tutorfname Profile Picture'>";
+              }
+              else {
+                echo "<img src='img/Tutor_PFP.png' alt='Tutor Profile Picture'>";
+              }
+
+
+               ?>
                 <div class="info-wrapper">
                     <div class="card-info">
-                        <p class="heading-4">Susan White</p>
+                        <p class="heading-4"><?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?></p>
                         <p class="body-text tutor-spec">Grade 9 - Math</p>
                     </div>
                 </div>
@@ -274,8 +335,6 @@
 
       </section>
       <!-- end tutro detail section -->
-
-
 
 
     </div>
