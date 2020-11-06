@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Account Settings - About Me</title>
+    <title>Account Settings</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -59,7 +59,7 @@
 
             <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
             <?php
-              
+
 
               if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
                   $connection = mysqli_connect("localhost", "root", "", "terence_liu");
@@ -128,83 +128,102 @@
       </div>
       <!-- end side nav -->
 
-      <!-- start account setting content -->
+      <!-- start account setting about content -->
       <div class="account-settings">
-        <div class="user-overlay">
-          <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-          <div class="user-info-wrapper">
+        <div class="account-settings-container">
+          <div class="user-overlay">
+            <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+            <div class="user-info-container">
             <div class="space-filler"></div>
-            <div class="user-info">
-              <p class="heading-1 tutor-name">
-                <?php
-                  // get database
-                  $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            <div class="user-info-wrapper">
+              <div class="user-info">
+                <p class="heading-1 tutor-name">
+                  <?php
+                    // get database
+                    $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
-                  if(mysqli_connect_errno()) {
-                    // if fail, skip all php and print errors
+                    if(mysqli_connect_errno()) {
+                      // if fail, skip all php and print errors
 
-                    die("Database connet failed: " .
-                      mysqli_connect_error() .
-                      " (" . mysqli_connect_errno(). ")"
-                    );
-                  }
+                      die("Database connet failed: " .
+                        mysqli_connect_error() .
+                        " (" . mysqli_connect_errno(). ")"
+                      );
+                    }
 
-                  // stating the deliminator
-                  $d ='#KR#%5>DSG<)(E667)F?';
+                    // stating the deliminator
+                    $d ='#KR#%5>DSG<)(E667)F?';
 
-                  // change above step to session
-                  $currentUser = $_COOKIE['name'];
+                    // change above step to session
+                    $currentUser = $_COOKIE['m_id'];
 
-                  $query = "SELECT * FROM member WHERE member.fname = '$currentUser'";
+                    $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
 
-                  // get result from database;
-                  $result = mysqli_query($connection, $query);
+                    // get result from database;
+                    $result = mysqli_query($connection, $query);
 
-                  if (!$result) {
-                    die('database query failed');
-                  }
+                    if (!$result) {
+                      die('database query failed');
+                    }
 
-                  while ($row = $result -> fetch_assoc()) {
-                    echo $row['fname'] . " " . $row['lname'] . "<br>";
-                  }
+                    while ($row = $result -> fetch_assoc()) {
+                      echo $row['fname'] . " " . $row['lname'] . "<br>";
+                    }
 
-                  mysqli_free_result($result);
-                  mysqli_close($connection);
+                    mysqli_free_result($result);
+                    mysqli_close($connection);
 
-                ?>
-              </p>
-              <p class="tutor-spec">Math Tutor (K-12)</p>
+                  ?>
+                </p>
+                <p class="tutor-spec">Math Tutor (K-12)</p>
+              </div>
+              <div class="user-info">
+                <p class="heading-3 tutor-balance">Balance </p>
+                <p class="heading-3 tutor-balance-amount">$3000.51</p>
+              </div>
+            </div>
+            </div>
+
+          </div>
+
+          <div class="account-settings-header">
+            <div class="heading-spacer"></div>
+            <div class="header-wrapper">
+              <p class="title-with-icon heading-1 icon-tutor-about">About Me</p>
+            </div>
+            <!-- <div class="space-filler"></div> -->
+          </div>
+
+          <div class="account-content">
+
+            <div class="account-menu">
+              <div class="account-menu-container">
+                <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu">Account Settings</a>
+                <a href="tutor_upcoming-booking.php" class="title-with-icon body-text icon-clock account-setting-menu">Upcoming Bookings</a>
+                <a href="tutor_about-me.php" class="title-with-icon body-text icon-tutor-about account-setting-menu title-active">About Me</a>
+                <a href="tutor_availability.php" class="title-with-icon body-text icon-calendar account-setting-menu">Availability</a>
+                <a href="tutor_booking-history.php" class="title-with-icon body-text icon-booking-history account-setting-menu">Booking History</a>
+                <a href="tutor_reviews.php" class="title-with-icon body-text icon-star account-setting-menu">Reviews</a>
+              </div>
+            </div>
+
+            <div class="account-setting-about">
+              <textarea>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+              </textarea>
+
+              <div class="about-btn-container">
+                <button class="btn btn-outline">Cancel</button>
+                <button class="btn btn-fill">Update</button>
+              </div>
             </div>
           </div>
-
-        </div>
-
-        <p class="title-with-icon heading-1 icon-setting">Account Settings</p>
-
-        <div class="account-content">
-
-          <div class="account-menu">
-            <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu">Account Settings</a>
-            <a href="" class="title-with-icon body-text icon-clock account-setting-menu">Upcoming Bookings</a>
-            <a href="tutor_about-me.php" class="title-with-icon body-text icon-tutor-about account-setting-menu title-active">About Me</a>
-            <a href="" class="title-with-icon body-text icon-calendar account-setting-menu">Availability</a>
-            <a href="" class="title-with-icon body-text icon-booking-history account-setting-menu">Booking History</a>
-            <a href="" class="title-with-icon body-text icon-star account-setting-menu">Reviews</a>
-          </div>
-
-          <div class="account-setting-about">
-            <textarea>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            </textarea>
-          </div>
-
-
         </div>
       </div>
 
-      <!-- end account setting  content -->
+      <!-- end account setting  about content -->
 
     </div>
     <!-- end body wrapper -->
