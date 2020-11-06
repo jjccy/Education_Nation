@@ -62,10 +62,10 @@
 
             <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
             <?php
-              
+
 
               if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
-                  $connection = mysqli_connect("localhost", "login", "", "terence_liu");
+                  $connection = mysqli_connect("localhost", "root", "", "terence_liu");
                   $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
                                                                                 WHERE member.m_id = " .  $_COOKIE['m_id']))[0];
 
@@ -201,6 +201,55 @@
 
           <!-- cards wrapper -->
           <div class="cards-wrapper">
+
+            <?php
+            $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            if(mysqli_connect_errno()) {
+              // if fail, skip all php and print errors
+
+              die("Database connet failed: " .
+                mysqli_connect_error() .
+                " (" . mysqli_connect_errno(). ")"
+              );
+            }
+
+            $tutorList = mysqli_query($connection, "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address
+                                                    FROM tutor INNER JOIN member ON tutor.tutor_id = member.m_id");
+
+            if (!$tutorList) {
+                die("get tutorlist failed: " . mysqli_error($connection));
+            }
+
+            // print each tutor from list
+            while ($row = mysqli_fetch_array($tutorList))
+            {
+              // get profile address;
+              $profileImage = $row['profile_address'];
+              if ($profileImage == null) {
+                $profileImage = "img/member/default.jpg";
+              }
+
+              // get name and id;
+              $tutorfame = $row['fname'];
+              $tutorlame = $row['lname'];
+              $tutorID = $row['tutor_id'];
+
+              echo "<a href='tutor-detail.php' class='card-container'>";
+              echo "<img src='$profileImage' alt='$tutorfame Profile Picture'>";
+              echo "<div class='info-wrapper'>";
+              echo "<div class='card-info'>";
+              echo "<p class='heading-4'>$tutorfame $tutorlame</p>";
+              echo "<p class='body-text tutor-spec'>Grade 9 - Math</p>";
+              echo "</div>";
+              echo "</div>";
+              echo "</a>";
+            }
+
+            // release returned data
+            mysqli_free_result($tutorList);
+            mysqli_close($connection);
+
+             ?>
 
             <div class="card-container">
                 <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">

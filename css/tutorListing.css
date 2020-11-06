@@ -285,7 +285,7 @@ html, body {
 }
 
 .cards-wrapper .max-flex-box-item {
-  flex: 1 1 17em;
+  flex: 1 1 17em !important;
   margin-right: 2em;
 }
 /* cards end here */

@@ -59,10 +59,10 @@
 
             <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
             <?php
-              
+
 
               if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
-                  $connection = mysqli_connect("localhost", "login", "", "terence_liu");
+                  $connection = mysqli_connect("localhost", "root", "", "terence_liu");
                   $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
                                                                                 WHERE member.m_id = " .  $_COOKIE['m_id']))[0];
 
