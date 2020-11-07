@@ -155,6 +155,171 @@
                   </div>
                 </div>
               </div>
+
+              <div class="list-card">
+                <div class="card-img">
+                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+                </div>
+                <div class="card-content-container">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <div class="card-title">
+                        <p class=heading-1>Ashley Bucha</p>
+                      </div>
+
+                      <div class="card-rating">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                      </div>
+
+                      <div class="card-date">
+                        <p class="heading-3">5 days ago</p>
+                      </div>
+
+                    </div>
+                    <div class="card-detail">
+                      <p class="body-text">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-card">
+                <div class="card-img">
+                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+                </div>
+                <div class="card-content-container">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <div class="card-title">
+                        <p class=heading-1>Ashley Bucha</p>
+                      </div>
+
+                      <div class="card-rating">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                      </div>
+
+                      <div class="card-date">
+                        <p class="heading-3">5 days ago</p>
+                      </div>
+
+                    </div>
+                    <div class="card-detail">
+                      <p class="body-text">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-card">
+                <div class="card-img">
+                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+                </div>
+                <div class="card-content-container">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <div class="card-title">
+                        <p class=heading-1>Ashley Bucha</p>
+                      </div>
+
+                      <div class="card-rating">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                      </div>
+
+                      <div class="card-date">
+                        <p class="heading-3">5 days ago</p>
+                      </div>
+
+                    </div>
+                    <div class="card-detail">
+                      <p class="body-text">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-card">
+                <div class="card-img">
+                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+                </div>
+                <div class="card-content-container">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <div class="card-title">
+                        <p class=heading-1>Ashley Bucha</p>
+                      </div>
+
+                      <div class="card-rating">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                      </div>
+
+                      <div class="card-date">
+                        <p class="heading-3">5 days ago</p>
+                      </div>
+
+                    </div>
+                    <div class="card-detail">
+                      <p class="body-text">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-card">
+                <div class="card-img">
+                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+                </div>
+                <div class="card-content-container">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <div class="card-title">
+                        <p class=heading-1>Ashley Bucha</p>
+                      </div>
+
+                      <div class="card-rating">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                        <img src="img/Rating.svg" alt="">
+                      </div>
+
+                      <div class="card-date">
+                        <p class="heading-3">5 days ago</p>
+                      </div>
+
+                    </div>
+                    <div class="card-detail">
+                      <p class="body-text">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
