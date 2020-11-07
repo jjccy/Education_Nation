@@ -12,16 +12,22 @@
   }
 
  //Delete all rows in the tasks table
-  $delete_query = 'DELETE FROM tutor';
-  $delete_result = mysqli_query($connection, $delete_query);
-  $delete_query = 'DELETE FROM student';
-  $delete_result = mysqli_query($connection, $delete_query);
-  $delete_query = 'DELETE FROM member';
-  $delete_result = mysqli_query($connection, $delete_query);
   $delete_query = 'DELETE FROM course';
   $delete_result = mysqli_query($connection, $delete_query);
   $delete_query = 'DELETE FROM review';
   $delete_result = mysqli_query($connection, $delete_query);
+  $delete_query = 'DELETE FROM tutor';
+  $delete_result = mysqli_query($connection, $delete_query);
+  if(!$delete_result){
+    die("error".  mysqli_error($connection));
+  }
+  $delete_query = 'DELETE FROM student';
+  $delete_result = mysqli_query($connection, $delete_query);
+  $delete_query = 'DELETE FROM member';
+  $delete_result = mysqli_query($connection, $delete_query);
+
+
+
 
   $password = "123123";
   $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
