@@ -9,7 +9,7 @@
 
     // change login status to false;
     // $_COOKIE['loggedin'] = false;
-    setcookie('loggedin', false, time() - 3600, "/");
+    setcookie('loggedin', false, time() - 3600);
 
 
       // alert box exit

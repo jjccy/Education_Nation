@@ -24,7 +24,7 @@
     <!-- start body wrapper -->
     <div class="body-wrapper">
 
-      <?php include('shared/topNav.php'); ?>
+      <?php include('shared/footer.php'); ?>
 
       <!-- start side nav -->
       <div class="side-nav">

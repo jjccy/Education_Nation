@@ -9,7 +9,6 @@
     // get user input
     $email = $_POST['email-input'];
     $password = $_POST['password-input'];
-    $keepMeSignedIn = $_POST['signed-in'];
 
     // get database
     $connection = mysqli_connect("localhost", "root", "", "terence_liu");
@@ -44,7 +43,7 @@
         else if ($row['email']==$email && password_verify($password, $row['password'])) {
           //save logged in status, email, name, and id to session
           //checkbox for keep me signed in is selected
-          if(isset($keepMeSignedIn)){
+          if(isset($_POST['signed-in'])){
             //do not delete cookies, and sign out only when logout is clicked
             setcookie('loggedin', true);
             setcookie('email', $email);
@@ -66,7 +65,7 @@
           mysqli_close($connection);
 
 
-          //provide alert that log in was successful
+          // provide alert that log in was successful
           echo '<script language="javascript">';
           $welcome = "alert('Welcome, " . $row['fname'] . "');";
           echo $welcome;
@@ -80,7 +79,7 @@
     mysqli_free_result($result);
     mysqli_close($connection);
 
-      // alert box reject
+    // alert box reject
     echo '<script language="javascript">';
     echo 'alert("Account Not Found");';
     echo "window.location.href='login.php';";

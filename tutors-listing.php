@@ -145,15 +145,16 @@
               );
             }
 
-            $tutorList = mysqli_query($connection, "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address
-                                                    FROM tutor INNER JOIN member ON tutor.tutor_id = member.m_id");
+            $courseList = mysqli_query($connection, "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.c_id
+                                                    FROM course INNER JOIN tutor ON tutor.tutor_id = course.tutor_id
+                                                    INNER JOIN member ON course.tutor_id = member.m_id");
 
-            if (!$tutorList) {
+            if (!$courseList) {
                 die("get tutorlist failed: " . mysqli_error($connection));
             }
 
             // print each tutor from list
-            while ($row = mysqli_fetch_array($tutorList))
+            while ($row = mysqli_fetch_array($courseList))
             {
               // get profile address;
               $profileImage = $row['profile_address'];
@@ -165,7 +166,12 @@
               $tutorfame = $row['fname'];
               $tutorlame = $row['lname'];
               $tutorID = $row['tutor_id'];
+              $courseID = $row['c_id'];
+              $courseName = $row['subject_name'];
+              $minGrade = $row['min_grade'];
+              $maxGrade = $row['max_grade'];
 
+              ($minGrade === 0) ? $minGrade = "K" : true;
 
               // send tutor id through url
               $url = "tutor-detail.php";
@@ -173,10 +179,12 @@
 
               // Returns a string if the URL has parameters or NULL if not
               if ($query) {
-                  $url .= "&tutor_id=" . $tutorID;
+                  $url .= "&course_id=" . $courseID . "&tutor_id=" . $tutorID;
               } else {
-                  $url .= "?tutor_id=" . $tutorID;
+                  $url .= "?course_id=" . $courseID . "&tutor_id=" . $tutorID;
               }
+
+
 
               // print the tutor card
               echo "<a href='$url' class='card-container'>";
@@ -184,7 +192,7 @@
               echo "<div class='info-wrapper'>";
               echo "<div class='card-info'>";
               echo "<p class='heading-4'>$tutorfame $tutorlame</p>";
-              echo "<p class='body-text tutor-spec'>Grade 9 - Math</p>";
+              echo "<p class='body-text tutor-spec'>Grade $minGrade - $maxGrade : $courseName</p>";
               echo "</div>";
               echo "</div>";
               echo "</a>";
@@ -193,12 +201,13 @@
             }
 
             // release returned data
-            mysqli_free_result($tutorList);
+            mysqli_free_result($courseList);
             mysqli_close($connection);
 
              ?>
 
-            <div class="card-container">
+             <!-- content html example -->
+            <!-- <div class="card-container">
                 <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
                 <div class="info-wrapper">
                     <div class="card-info">
@@ -207,91 +216,7 @@
                         <a href="tutor-detail.php" class="btn">See More</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="card-container">
-                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-                <div class="info-wrapper">
-                    <div class="card-info">
-                        <p class="heading-4">Susan White</p>
-                        <p class="body-text tutor-spec">Grade 9 - Math</p>
-                        <a href="tutor-detail.php" class="btn">See More</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card-container">
-                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-                <div class="info-wrapper">
-                    <div class="card-info">
-                        <p class="heading-4">Susan White</p>
-                        <p class="body-text tutor-spec">Grade 9 - Math</p>
-                        <a href="tutor-detail.php" class="btn">See More</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card-container">
-                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-                <div class="info-wrapper">
-                    <div class="card-info">
-                        <p class="heading-4">Susan White</p>
-                        <p class="body-text tutor-spec">Grade 9 - Math</p>
-                        <a href="tutor-detail.php" class="btn">See More</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card-container">
-                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-                <div class="info-wrapper">
-                    <div class="card-info">
-                        <p class="heading-4">Susan White</p>
-                        <p class="body-text tutor-spec">Grade 9 - Math</p>
-                        <a href="tutor-detail.php" class="btn">See More</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card-container">
-                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-                <div class="info-wrapper">
-                    <div class="card-info">
-                        <p class="heading-4">Susan White</p>
-                        <p class="body-text tutor-spec">Grade 9 - Math</p>
-                        <a href="tutor-detail.php" class="btn">See More</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card-container">
-                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-                <div class="info-wrapper">
-                    <div class="card-info">
-                        <p class="heading-4">Susan White</p>
-                        <p class="body-text tutor-spec">Grade 9 - Math</p>
-                        <a href="tutor-detail.php" class="btn">See More</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card-container">
-                <img src="img/Tutor_PFP.png" alt="Tutor Profile Picture">
-                <div class="info-wrapper">
-                    <div class="card-info">
-                        <p class="heading-4">Susan White</p>
-                        <p class="body-text tutor-spec">Grade 9 - Math</p>
-                        <a href="tutor-detail.php" class="btn">See More</a>
-                    </div>
-                </div>
-            </div>
-
+            </div> -->
 
             <!-- many max flex box make sure all cards are same width -->
 
@@ -348,7 +273,7 @@
 
 
     <!-- footer starts here -->
-    <?php include('shared/topNav.php'); ?>
+    <?php include('shared/footer.php'); ?>
 
     <!-- end of footer section -->
 

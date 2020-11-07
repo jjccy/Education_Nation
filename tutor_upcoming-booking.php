@@ -363,7 +363,7 @@
 
 
     <!-- footer starts here -->
-    <?php include('shared/topNav.php'); ?>
+    <?php include('shared/footer.php'); ?>
 
     <!-- end of footer section -->
 

@@ -66,47 +66,47 @@
       $forForeignKey = "";
 
       // create new user and give them privilege
-      $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
-      if (!mysqli_query($connection, $sql)) {
-        die ("create new user failed: " . mysqli_error($connection));
-      }
-      $sql = "GRANT ALL
-      ON terence_liu.member
-      TO '" . $email . "'@'localhost';";
-
-      if (!mysqli_query($connection, $sql)) {
-        die ("grant privilege failed: " . mysqli_error($connection));
-      }
+      // $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
+      // if (!mysqli_query($connection, $sql)) {
+      //   die ("create new user failed: " . mysqli_error($connection));
+      // }
+      // $sql = "GRANT ALL
+      // ON terence_liu.member
+      // TO '" . $email . "'@'localhost';";
+      //
+      // if (!mysqli_query($connection, $sql)) {
+      //   die ("grant privilege failed: " . mysqli_error($connection));
+      // }
 
 
       // check if is a tutor or student
       if ($role === "tutor") {
         // add access to tutor table
-        $sql = "GRANT ALL
-        ON terence_liu.tutor
-        TO '" . $email . "'@'localhost';";
-        if (!mysqli_query($connection, $sql)) {
-          die ("Connection failed: " . mysqli_error($connection));
-        }
+        // $sql = "GRANT ALL
+        // ON terence_liu.tutor
+        // TO '" . $email . "'@'localhost';";
+        // if (!mysqli_query($connection, $sql)) {
+        //   die ("Connection failed: " . mysqli_error($connection));
+        // }
 
         $forForeignKey = "INSERT INTO tutor (tutor_id) VALUES(last_insert_id())";
       }
       else {
         // add access to student table
-        $sql = "GRANT ALL
-        ON terence_liu.student
-        TO '" . $email . "'@'localhost';";
-        if (!mysqli_query($connection, $sql)) {
-          die ("Connection failed: " . mysqli_error($connection));
-        }
-
-        // add access to review table
-        $sql = "GRANT ALL
-        ON terence_liu.review
-        TO '" . $email . "'@'localhost';";
-        if (!mysqli_query($connection, $sql)) {
-          die ("Connection failed: " . mysqli_error($connection));
-        }
+        // $sql = "GRANT ALL
+        // ON terence_liu.student
+        // TO '" . $email . "'@'localhost';";
+        // if (!mysqli_query($connection, $sql)) {
+        //   die ("Connection failed: " . mysqli_error($connection));
+        // }
+        //
+        // // add access to review table
+        // $sql = "GRANT ALL
+        // ON terence_liu.review
+        // TO '" . $email . "'@'localhost';";
+        // if (!mysqli_query($connection, $sql)) {
+        //   die ("Connection failed: " . mysqli_error($connection));
+        // }
 
         $forForeignKey = "INSERT INTO student (student_id) VALUES(last_insert_id())";
       }

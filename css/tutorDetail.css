@@ -128,6 +128,8 @@
   display: flex;
 
   margin-bottom: 2.5em;
+
+  align-items: center;
 }
 
 .overall-review > * {
@@ -139,6 +141,17 @@
   font-weight: 800;
   margin-block-start: 0;
   margin-block-end: 0;
+}
+
+.overall-review > #writeReview {
+  padding: .9em 2.5em;
+
+  font-family: SF Pro Display;
+  text-decoration: none;
+  color: white;
+
+  background-color: #673AB7;
+  border-radius: .4em;
 }
 
 .posts {

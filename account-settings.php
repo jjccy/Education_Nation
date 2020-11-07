@@ -22,7 +22,7 @@
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
-    <div class="body-wrapper">
+    <?php include('shared/footer.php'); ?>
 
       <?php include('shared/topNav.php'); ?>
 

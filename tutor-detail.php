@@ -50,6 +50,7 @@
           if(isset($_GET['tutor_id'])) {
             // get target tutor id
             $tutorID = $_GET['tutor_id'];
+            $courseID = $_GET['course_id'];
 
             $connection = mysqli_connect("localhost", "root", "", "terence_liu");
             if(mysqli_connect_errno()) {
@@ -62,16 +63,17 @@
             }
 
             // get tutor info
-            $tutorInfo = mysqli_fetch_array(mysqli_query($connection, "SELECT member.fname, member.lname, member.profile_address, tutor.bio
-                                                    FROM member INNER JOIN tutor ON member.m_id = $tutorID
-                                                    WHERE $tutorID = tutor.tutor_id"));
+            $courseInfo = mysqli_fetch_array(mysqli_query($connection, "SELECT member.fname, member.lname, member.profile_address, tutor.bio, course.subject_name, course.min_grade, course.max_grade, course.c_id
+                                                    FROM course INNER JOIN tutor ON course.tutor_id = $tutorID
+                                                    INNER JOIN member ON member.m_id = $tutorID
+                                                    WHERE $courseID = course.c_id"));
 
-            if (!$tutorInfo) {
+            if (!$courseInfo) {
               die ("get tutor info fail " . mysqli_error($connection));
             }
 
-            $tutorfname = $tutorInfo['fname'];
-            $tutorlname = $tutorInfo['lname'];
+            $tutorfname = $courseInfo['fname'];
+            $tutorlname = $courseInfo['lname'];
 
             // get tutor reiews
             $reviews = mysqli_query($connection, "SELECT review.date_posted, review.rating, review.comments, member.fname, member.lname
@@ -117,7 +119,7 @@
               <p class="body-text">
                 <?php
                 // if get tutor id, display tutor's bio, if not, display default one
-                echo (isset($tutorID) ? $tutorInfo['bio'] : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                echo (isset($tutorID) ? $courseInfo['bio'] : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                 sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
                 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
                 Stet clita kasd gubergren, no sea takimata sanctus est
@@ -173,6 +175,8 @@
                 <div class="Stars" style="--rating: <?php echo $average; ?>;" aria-label="Rating of this product is <?php echo $average; ?> out of 5."></div>
                 <p class="body-text"><?php echo isset($tutorID) ? $count . " " : "0 "; ?>reviews</p>
                 <div class="max-flex-box-item"></div>
+
+                <a id='writeReview' href="#">Write Reivew</a>
               </div>
 
               <?php
@@ -288,10 +292,14 @@
               <?php
               if (isset($tutorID)) {
                 // get profile address;
-                $profileImage = $tutorInfo['profile_address'];
+                $profileImage = $courseInfo['profile_address'];
                 if ($profileImage == null) {
                   $profileImage = "img/member/default.jpg";
                 }
+
+                $courseName = $courseInfo['subject_name'];
+                $minGrade = $courseInfo['min_grade'];
+                $maxGrade = $courseInfo['max_grade'];
 
                 echo "<img src='$profileImage' alt='$tutorfname Profile Picture'>";
               }
@@ -304,11 +312,13 @@
                 <div class="info-wrapper">
                     <div class="card-info">
                         <p class="heading-4"><?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?></p>
-                        <p class="body-text tutor-spec">Grade 9 - Math</p>
+                        <p class="body-text tutor-spec"><?php echo (isset($tutorID) ? "Grade " . $minGrade . " - " . $maxGrade . " : " . $courseName : "Grade 9 - Math"); ?></p>
                     </div>
                 </div>
             </div>
           </div>
+
+
 
         </div>
         <!-- end detail info -->
@@ -327,7 +337,7 @@
 
 
     <!-- footer starts here -->
-    <?php include('shared/topNav.php'); ?>
+    <?php include('shared/footer.php'); ?>
 
     <!-- end of footer section -->
 
