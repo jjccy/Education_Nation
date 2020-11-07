@@ -1,3 +1,15 @@
+body {
+  background: url('../img/Home_Background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: right top;
+  background-size: auto 100%;
+}
+
+.background {
+  display: none;
+}
+
 .home-page {
   padding-left: 18.8em;
   padding-top: 8.5em;
@@ -48,7 +60,7 @@
   display: inline-block;
 }
 
-#inner:first-child > .flex-box{
+#inner:first-child>.flex-box {
   padding-left: 0;
   margin-left: 0;
 }
@@ -86,7 +98,7 @@
 
 /* cards end here */
 /* list buttons */
-.slider-title-section{
+.slider-title-section {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
@@ -95,7 +107,7 @@
   margin-bottom: 3em;
 }
 
-.slider-title-section > * {
+.slider-title-section>* {
   flex: 1 1 auto;
 }
 

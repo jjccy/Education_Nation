@@ -1,3 +1,15 @@
+body {
+  background: url('../img/Login_Background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: right center;
+  background-size: 60% auto;
+}
+
+.background {
+  display: none;
+}
+
 .login-page {
   padding-left: 18.8em;
   padding-top: 8.5em;
@@ -55,7 +67,12 @@
 
 /*Welcome message CSS*/
 .login-message {
+  margin-left: 16em;
   min-width: 28em;
+}
+
+.login-message .heading-1 {
+  color: #FFFFFF;
 }
 
 /* Form Styling*/

@@ -48,7 +48,7 @@
   // echo $result2;
 
   //create Theo Tutor Member
-  $query1 = "INSERT INTO member (email, fname, lname, password, profile_addressm) VALUES ('theo_tang@gmail.com', 'Theo', 'Tang', '$hashedPassword', 'img/member/profile_picture_2.png')";
+  $query1 = "INSERT INTO member (email, fname, lname, password, profile_address) VALUES ('theo_tang@gmail.com', 'Theo', 'Tang', '$hashedPassword', 'img/member/profile_picture_2.png')";
   $result1 = mysqli_query($connection, $query1);
   $query2 = "INSERT INTO tutor (tutor_id, balance, bio, primary_language, city, country) VALUES(last_insert_id(), 10.99, 'This is the biography for Theo. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'English, Cantonese', 'Richmond', 'Canada')";
   $result2 = mysqli_query($connection, $query2);
