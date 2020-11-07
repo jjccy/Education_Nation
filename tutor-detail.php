@@ -63,7 +63,8 @@
             }
 
             // get tutor info
-            $courseInfo = mysqli_fetch_array(mysqli_query($connection, "SELECT member.fname, member.lname, member.profile_address, tutor.bio, course.subject_name, course.min_grade, course.max_grade, course.c_id
+            $courseInfo = mysqli_fetch_array(mysqli_query($connection, "SELECT member.fname, member.lname, member.profile_address,
+            course.subject_name, course.min_grade, course.max_grade, course.c_id, course.price, tutor.bio, tutor.primary_language, tutor.city, tutor.country
                                                     FROM course INNER JOIN tutor ON course.tutor_id = $tutorID
                                                     INNER JOIN member ON member.m_id = $tutorID
                                                     WHERE $courseID = course.c_id"));
@@ -287,36 +288,78 @@
 
           <div class="max-flex-box-item"></div>
 
-          <div class="image-holder">
-            <div class="card-container">
-              <?php
-              if (isset($tutorID)) {
-                // get profile address;
-                $profileImage = $courseInfo['profile_address'];
-                if ($profileImage == null) {
-                  $profileImage = "img/member/default.jpg";
+          <!-- start right side couse info section -->
+          <div class="course-info">
+
+            <div class="image-holder">
+              <div class="card-container">
+                <?php
+                if (isset($tutorID)) {
+                  // get profile address;
+                  $profileImage = $courseInfo['profile_address'];
+                  if ($profileImage == null) {
+                    $profileImage = "img/member/default.jpg";
+                  }
+
+                  $courseName = $courseInfo['subject_name'];
+                  $minGrade = $courseInfo['min_grade'];
+                  $maxGrade = $courseInfo['max_grade'];
+
+                  echo "<img src='$profileImage' alt='$tutorfname Profile Picture'>";
+                }
+                else {
+                  echo "<img src='img/Tutor_PFP.png' alt='Tutor Profile Picture'>";
                 }
 
-                $courseName = $courseInfo['subject_name'];
-                $minGrade = $courseInfo['min_grade'];
-                $maxGrade = $courseInfo['max_grade'];
 
-                echo "<img src='$profileImage' alt='$tutorfname Profile Picture'>";
-              }
-              else {
-                echo "<img src='img/Tutor_PFP.png' alt='Tutor Profile Picture'>";
-              }
-
-
-               ?>
-                <div class="info-wrapper">
-                    <div class="card-info">
-                        <p class="heading-4"><?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?></p>
-                        <p class="body-text tutor-spec"><?php echo (isset($tutorID) ? "Grade " . $minGrade . " - " . $maxGrade . " : " . $courseName : "Grade 9 - Math"); ?></p>
-                    </div>
-                </div>
+                 ?>
+                  <div class="info-wrapper">
+                      <div class="card-info">
+                          <p class="heading-4"><?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?></p>
+                          <p class="body-text tutor-spec"><?php echo (isset($tutorID) ? "Grade " . $minGrade . " - " . $maxGrade . " : " . $courseName : "Grade 9 - Math"); ?></p>
+                      </div>
+                  </div>
+              </div>
             </div>
+
+            <?php
+            if (isset($tutorID)) {
+              // get course info
+
+              $price = "$" . $courseInfo['price'] . "/hour";
+              $language = explode(", ", $courseInfo['primary_language']);
+              $location = $courseInfo['city'] . ", " . $courseInfo['country'];
+            }
+            else {
+              // display default values
+              $price = "$24.00/hour";
+              $language = ["English","Spanish"];
+              $location = "Vancouver, Canada";
+            }
+             ?>
+
+            <!-- course info text -->
+            <div class="course-info-text">
+              <p class="heading-2">Price</p>
+              <p id='course-price'><?php echo $price ?></p>
+            </div>
+
+            <div class="course-info-text">
+              <p class="heading-2">Language</p>
+              <?php
+              foreach ($language as &$lang) {
+                  echo "<p class='body-text'>$lang</p>";
+              }
+               ?>
+            </div>
+
+            <div class="course-info-text">
+              <p class="heading-2">Location</p>
+              <p class='body-text'><?php echo $location ?></p>
+            </div>
+
           </div>
+
 
 
 
