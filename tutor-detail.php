@@ -24,92 +24,7 @@
     <!-- start body wrapper -->
     <div class="body-wrapper">
 
-      <!-- start top nav -->
-      <div class="top-nav">
-
-        <div class="top-nav-item logo">
-          <a href="index.php"><img src="img/Logo.svg" alt="Logo image"></a>
-        </div>
-
-        <div class="top-nav-item">
-          <div class="searchbar">
-              <button type="submit" name="search" aria-label="search-button"></button>
-              <input type="search" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
-
-          </div>
-        </div>
-
-        <div class="max-flex-box-item"></div>
-
-        <div class="top-nav-item account-section" id='not-login'>
-          <div class="top-nav-item">
-            <a href="sign-up.php">Sign up</a>
-          </div>
-          <div class="top-nav-item">
-            <a href="login.php">Login</a>
-          </div>
-        </div>
-
-        <div class="top-nav-item account-section" id='logined'>
-          <div class="cart-quantity-top">
-            <a href="cart.php" class="title-with-icon heading-3 icon-cart">Cart: 3</a>
-          </div>
-
-          <div class="dropDown">
-
-            <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
-            <?php
-
-
-              if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
-                  $connection = mysqli_connect("localhost", "root", "", "terence_liu");
-                  $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
-                                                                                WHERE member.m_id = " .  $_COOKIE['m_id']))[0];
-
-                  mysqli_close($connection);
-
-                  if ($profileImage == null) {
-                    $profileImage = "img/member/default.jpg";
-                  }
-
-                  echo "<script language='javascript'>
-                          document.getElementById('logined').classList.add('display');
-                        </script>";
-
-              } else {
-                echo "<script language='javascript'>
-                        document.getElementById('not-login').classList.add('display');
-                      </script>";
-              }
-            ?>
-
-            <button class="dropbtn">
-              <div class="login-wrapper">
-                <div class="icon-pic profile-picture" style="background-image:url(<?php echo $profileImage?>)"></div>
-                  <p class="heading-3"> <span class="hello"> Hello </span>
-                  <?php echo $_COOKIE['name']?>
-                 </p>
-                <div class="icon-caret"></div>
-              </div>
-
-            </button>
-
-            <div class="dropdown-content">
-
-              <a href="logOut.php">Log out</a>
-              <a href="account-settings.php">Account Setting</a>
-            </div>
-
-          </div>
-          <!-- end login-wrapper -->
-
-        </div>
-        <!-- end  logined section-->
-
-
-
-      </div>
-      <!-- ends top nav -->
+      <?php include('shared/topNav.php'); ?>
 
       <!-- start side nav -->
       <div class="side-nav">
@@ -241,12 +156,14 @@
                 $average = number_format($average, 1, '.', '');
 
                 $count = mysqli_fetch_array(mysqli_query($connection, "SELECT COUNT(review.r_id) FROM review WHERE $tutorID = review.tutor_id"))[0];
+
+                mysqli_close($connection);
               }
               else {
                 $average = 0;
               }
 
-              mysqli_close($connection);
+
                ?>
               <!-- overall review -->
               <p class="heading-2">Reviews</p>
@@ -259,6 +176,38 @@
               </div>
 
               <?php
+
+              // function to convert time stamp to days ago.
+              function time_elapsed_string($datetime, $full = false) {
+                  $now = new DateTime;
+                  $ago = new DateTime($datetime);
+                  $diff = $now->diff($ago);
+
+                  $diff->w = floor($diff->d / 7);
+                  $diff->d -= $diff->w * 7;
+
+                  $string = array(
+                      'y' => 'year',
+                      'm' => 'month',
+                      'w' => 'week',
+                      'd' => 'day',
+                      'h' => 'hour',
+                      'i' => 'minute',
+                      's' => 'second',
+                  );
+                  foreach ($string as $k => &$v) {
+                      if ($diff->$k) {
+                          $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+                      } else {
+                          unset($string[$k]);
+                      }
+                  }
+
+                  if (!$full) $string = array_slice($string, 0, 1);
+                  return $string ? implode(', ', $string) . ' ago' : 'just now';
+              }
+
+
               // print every posts
               if (isset($tutorID)) {
                 while ($row = mysqli_fetch_array($reviews))
@@ -272,7 +221,7 @@
                     <div>
                       <!-- ther star div -->
                       <div class='Stars post' style='--rating: ". $rating .";' aria-label='Rating of this product is ". $rating ." out of 5.'></div>
-                      <p class='body-text'>5 days ago</p>
+                      <p class='body-text'>". time_elapsed_string($row['date_posted']) . "</p>
                     </div>
                     <p class='body-text'>
                       $comment
@@ -378,11 +327,7 @@
 
 
     <!-- footer starts here -->
-
-    <footer>
-
-
-    </footer>
+    <?php include('shared/topNav.php'); ?>
 
     <!-- end of footer section -->
 
