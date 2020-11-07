@@ -255,14 +255,18 @@
     
     .card-title {
         flex: 2;
+        padding-left: 1em;
+        padding-right: 1em;
     }
     
     .card-detail {
         max-width: 80%;
+        flex: 3;
     }
     
     .card-close {
-        align-self: center
+        align-self: center;
+        padding-left: 1em;
     }
     
     .card-img .user-pfp {
@@ -303,7 +307,7 @@
     }
     
     .card-header .card-title {
-        /* flex: 3; */
+        padding-left: 0;
     }
     
     .card-header .heading-1 {
@@ -313,6 +317,10 @@
     .card-header .card-rating {
         padding-left: 1em;
         padding-right: 1em;
+    }
+    
+    .card-header .card-date {
+        padding-left: 1em;
     }
     
     .information-wrapper {
