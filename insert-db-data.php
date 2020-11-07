@@ -10,6 +10,19 @@
       " (" . mysqli_connect_errno(). ")"
     );
   }
+
+ //Delete all rows in the tasks table
+  $delete_query = 'DELETE FROM tutor';
+  $delete_result = mysqli_query($connection, $delete_query);
+  $delete_query = 'DELETE FROM student';
+  $delete_result = mysqli_query($connection, $delete_query);
+  $delete_query = 'DELETE FROM member';
+  $delete_result = mysqli_query($connection, $delete_query);
+  $delete_query = 'DELETE FROM course';
+  $delete_result = mysqli_query($connection, $delete_query);
+  $delete_query = 'DELETE FROM review';
+  $delete_result = mysqli_query($connection, $delete_query);
+
   $password = "123123";
   $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -95,5 +108,37 @@
   $query2 = "INSERT INTO student (student_id, cur_grade) VALUES(last_insert_id(), 12)";
   $result2 = mysqli_query($connection, $query2);
 
+  //------------------------------------------------------------------12x Subjects-------------------------------------------------------------------------------------
+  //Query to retrieve David's tutor_id
+  $tutor_query = "SELECT tutor_id FROM tutor INNER JOIN member ON tutor.tutor_id = member.m_id WHERE member.email='david_cao@gmail.com'";
+  $tutor_result = mysqli_query($connection, $tutor_query);
+  if (!$tutor_result){
+  die("Database query failed.");
+}
+  if(mysqli_num_rows($tutor_result)){
+    while($row=mysqli_fetch_assoc($tutor_result)){
+      $tutor_id = $row["tutor_id"];
+    }
+  }
+  //creating a Math course for David
+  $query1 = "INSERT INTO course (tutor_id, subject_name, min_grade, max_grade, price) VALUES ('$tutor_id','Math', 7, 9, 24)";
+  $result1 = mysqli_query($connection, $query1);
+  //creating a Science course David
+  $query1 = "INSERT INTO course (tutor_id, subject_name, min_grade, max_grade, price) VALUES ('$tutor_id','Science', 8, 10, 20)";
+  $result1 = mysqli_query($connection, $query1);
+  //Query to retrieve Allen's student_id
+  $student_query = "SELECT student_id FROM student INNER JOIN member ON student.student_id = member.m_id WHERE member.email='allen_chen@gmail.com'";
+  $student_result = mysqli_query($connection, $student_query);
+  if (!$student_result){
+  die("Database query failed.");
+  }
+  if(mysqli_num_rows($student_result)){
+    while($row=mysqli_fetch_assoc($student_result)){
+      $student_id = $row["student_id"];
+    }
+  }
+  $query1 = "INSERT INTO review (tutor_id, student_id, rating, comments, date_posted) VALUES ('$tutor_id','$student_id', 3.9, 'David is a very good tutor, he carried me through Math 9.', '2020-11-06 12:12:12')";
+  $result1 = mysqli_query($connection, $query1);
+//access db, get id for the tutor_id of the tutor you want to insert, store it into a value
   mysqli_close($connection);
 ?>
