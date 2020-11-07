@@ -120,9 +120,9 @@
         echo '</script>';
 
         // store user information in session
-        setcookie('loggedin', true, time() + 5400, "/");
-        setcookie('email', $email, time() + 5400, "/");
-        setcookie('name', $fname, time() + 5400, "/");
+        setcookie('loggedin', true, time() + 5400);
+        setcookie('email', $email, time() + 5400);
+        setcookie('name', $fname, time() + 5400);
 
         // $_SESSION['loggedin'] = true;
         // $_SESSION['email'] = $email;
@@ -146,7 +146,7 @@
         while ($row = mysqli_fetch_array($getId))
         {
           if ($email === $row['email']) { // password_verify the email
-            setcookie('m_id', $row['m_id'], time() + 5400, "/");
+            setcookie('m_id', $row['m_id'], time() + 5400);
             break;
           }
         }
@@ -166,10 +166,10 @@
     mysqli_free_result($result);
     mysqli_close($connection);
 
-    //
-    // echo '<script language="javascript">';
-    // echo "window.location.href='index.php';";
-    // echo '</script>';
+
+    echo '<script language="javascript">';
+    echo "window.location.href='index.php';";
+    echo '</script>';
 
      ?>
   </body>

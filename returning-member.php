@@ -55,10 +55,10 @@
           //checkbox for keep me signed in is not selected
           else{
             //delete cookies after 90 minutes, therefore signing out
-            setcookie('loggedin', true, time() + 5400, "/");
-            setcookie('email', $email, time() + 5400, "/");
-            setcookie('name', $row['fname'], time() + 5400, "/");
-            setcookie('m_id', $row['m_id'], time() + 5400, "/");
+            setcookie('loggedin', true, time() + 5400);
+            setcookie('email', $email, time() + 5400);
+            setcookie('name', $row['fname'], time() + 5400);
+            setcookie('m_id', $row['m_id'], time() + 5400);
           }
 
           // release returned data

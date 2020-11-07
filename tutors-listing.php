@@ -246,6 +246,7 @@
                   $url .= "?tutor_id=" . $tutorID;
               }
 
+              // print the tutor card
               echo "<a href='$url' class='card-container'>";
               echo "<img src='$profileImage' alt='$tutorfame Profile Picture'>";
               echo "<div class='info-wrapper'>";

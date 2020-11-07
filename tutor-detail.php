@@ -131,53 +131,49 @@
       <!-- start tutor detail section -->
       <section class="tutor-detail">
         <?php
-        // if tutor id is not null
-        if(isset($_GET['tutor_id'])) {
-          // get target tutor id
-          $tutorID = $_GET['tutor_id'];
+          // if tutor id is not null
+          if(isset($_GET['tutor_id'])) {
+            // get target tutor id
+            $tutorID = $_GET['tutor_id'];
 
-          $connection = mysqli_connect("localhost", "root", "", "terence_liu");
-          if(mysqli_connect_errno()) {
-            // if fail, skip all php and print errors
+            $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            if(mysqli_connect_errno()) {
+              // if fail, skip all php and print errors
 
-            die("Database connet failed: " .
-              mysqli_connect_error() .
-              " (" . mysqli_connect_errno(). ")"
-            );
+              die("Database connet failed: " .
+                mysqli_connect_error() .
+                " (" . mysqli_connect_errno(). ")"
+              );
+            }
+
+            // get tutor info
+            $tutorInfo = mysqli_fetch_array(mysqli_query($connection, "SELECT member.fname, member.lname, member.profile_address, tutor.bio
+                                                    FROM member INNER JOIN tutor ON member.m_id = $tutorID
+                                                    WHERE $tutorID = tutor.tutor_id"));
+
+            if (!$tutorInfo) {
+              die ("get tutor info fail " . mysqli_error($connection));
+            }
+
+            $tutorfname = $tutorInfo['fname'];
+            $tutorlname = $tutorInfo['lname'];
+
+            // get tutor reiews
+            $reviews = mysqli_query($connection, "SELECT review.date_posted, review.rating, review.comments, member.fname, member.lname
+                                                    FROM review INNER JOIN member ON review.student_id = member.m_id
+                                                    WHERE $tutorID = review.tutor_id");
+
+            if (!$reviews) {
+              die ("get reviews fail " . mysqli_error($connection));
+            }
+
+
+            mysqli_close($connection);
           }
 
-          $tutorInfo = mysqli_fetch_array(mysqli_query($connection, "SELECT member.fname, member.lname, member.profile_address, tutor.bio
-                                                  FROM member INNER JOIN tutor ON member.m_id = $tutorID
-                                                  WHERE $tutorID = tutor.tutor_id"));
-
-          if (!$tutorInfo) {
-            die ("get tutor info fail " . mysqli_error($connection));
-          }
-
-          $tutorfname = $tutorInfo['fname'];
-          $tutorlname = $tutorInfo['lname'];
-
-
-          $reviews = mysqli_query($connection, "SELECT review.data_posted, review.rating, review.comments, member.fname, member.lname
-                                                  FROM review INNER JOIN member ON review.student_id = member.m_id
-                                                  WHERE $tutorID = review.tutor_id");
-
-          if (!$reviews) {
-            die ("get reviews fail " . mysqli_error($connection));
-          }
-
-
-          mysqli_close($connection);
-        }
-
-
-
-
-         ?>
+        ?>
         <p class="title-with-icon heading-1 icon-tutors">
-          <?php
-          echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White");
-          ?>
+          <?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?>
         </p>
 
         <!-- start detail info -->
@@ -189,7 +185,7 @@
             <div class="info-btns">
               <a href="#" class="info-btn" onclick="displayContent(about)">
                 <img src="img/Tutor_About.svg" alt="About image">
-                <p>About Us</p>
+                <p>About Me</p>
               </a>
               <a href="#" class="info-btn" onclick="displayContent(review)">
                 <img src="img/Tutor_Reviews.svg" alt="temp image">
@@ -205,6 +201,7 @@
               <p class="heading-2">About Me</p>
               <p class="body-text">
                 <?php
+                // if get tutor id, display tutor's bio, if not, display default one
                 echo (isset($tutorID) ? $tutorInfo['bio'] : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                 sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
                 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
@@ -224,15 +221,48 @@
             </section>
 
             <section class="text-area" id="review">
+              <?php
+              if (isset($tutorID)) {
+                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+                if(mysqli_connect_errno()) {
+                  // if fail, skip all php and print errors
+
+                  die("Database connet failed: " .
+                    mysqli_connect_error() .
+                    " (" . mysqli_connect_errno(). ")"
+                  );
+                }
+
+                $query = "SELECT AVG(rating) AS AverageReview FROM review";
+
+                $average = mysqli_fetch_array(mysqli_query($connection, $query))[0];
+              }
+              else {
+                $average = 0;
+              }
+               ?>
               <!-- overall review -->
               <p class="heading-2">Reviews</p>
               <div class="overall-review">
-                <p class="body-text">2.5</p>
+                <p class="body-text"><?php echo $average; ?></p>
                 <!-- ther star div -->
-                <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
-                <p class="body-text">2 reviews</p>
+                <div class="Stars" style="--rating: <?php echo $average; ?>;" aria-label="Rating of this product is <?php echo $average; ?> out of 5."></div>
+                <p class="body-text"><?php echo isset($tutorID) ? count($reviews) : "0"; ?> reviews</p>
                 <div class="max-flex-box-item"></div>
               </div>
+
+              <?php
+              // print every posts
+              if (isset($tutorID)) {
+                while ($row = mysqli_fetch_array($reviews))
+                {
+                  $studentName = $row['fname'] . " " . $row['lname'];
+
+                  echo "string";
+                }
+              }
+
+              ?>
 
               <!-- for each post -->
               <div class="posts">
