@@ -114,6 +114,23 @@
       </div>
       <!-- ends top nav -->
 
+      <!-- start side nav -->
+      <div class="side-nav">
+        <div class="side-nav-item main-menu">
+          <p class="heading-2">Explore</p>
+          <a href="index.php" class="icon-home">Home</a>
+          <a href="tutors-listing.php" class="icon-tutors">Tutors</a>
+          <a href="about.php" class="icon-about">About</a>
+          <a href="contact.php" class="icon-contact">Contact</a>
+        </div>
+        <div class="max-flex-box-item"></div>
+        <div class="side-nav-item help-button">
+          <a href="#" class="icon-help" id="help-center" onclick="chatModuleUp()">Help Center</a>
+        </div>
+
+      </div>
+      <!-- end side nav -->
+
       <!-- start tutor list -->
       <section class="tutor-list">
 
