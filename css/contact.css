@@ -1,3 +1,11 @@
+body {
+  background: url('../img/Contact_Background.png');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: right bottom;
+  background-size: auto;
+}
+
 .contact-page {
   padding-left: 18.8em;
   padding-top: 8.5em;
@@ -150,14 +158,15 @@
 /*Contact info background*/
 .contact-info {
   position: fixed;
-  right: 0;
-  top: 0;
-  height: 100vh;
+  right: 5%;
+  top: 10%;
+  min-height: 60vh;
   flex: 1 1 auto;
-  background: #E5F8FF;
-  padding: 10em 6em 4em 6em;
-  border-top-left-radius: 82px;
-  border-bottom-left-radius: 82px;
+  background: #FFFFFF;
+  border: 1px solid #C4CAD5;
+  padding: 4em 6em 4em 6em;
+  border-radius: 30px;
+  box-shadow: 1px 1px 5px rgba(125, 125, 125, 0.2);
   z-index: 3;
   display: -webkit-flex;
   display: -ms-flex;

@@ -1,3 +1,15 @@
+body {
+  background: url('../img/Sign_Up_Background.png');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: 100% auto;
+}
+
+.background {
+  display: none;
+}
+
 .top-nav {
   background: none;
 }
@@ -153,21 +165,19 @@ input[type='checkbox']:checked:after {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-
   flex-direction: row;
   width: 100%;
-
 }
 
 .register-flex-child {
   flex: 1 1 auto;
 }
 
-.register-flex-box > div {
+.register-flex-box>div {
   margin-right: 3em;
 }
 
-.register-flex-box > div:last-child {
+.register-flex-box>div:last-child {
   margin-right: 0;
 }
 
