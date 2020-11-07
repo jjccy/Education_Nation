@@ -233,13 +233,20 @@
                   );
                 }
 
-                $query = "SELECT AVG(rating) AS AverageReview FROM review";
+                $query = "SELECT AVG(rating) AS AverageReview FROM review WHERE $tutorID = review.tutor_id";
 
                 $average = mysqli_fetch_array(mysqli_query($connection, $query))[0];
+                $average == null ? $average = 0 : $average = $average;
+
+                $average = number_format($average, 1, '.', '');
+
+                $count = mysqli_fetch_array(mysqli_query($connection, "SELECT COUNT(review.r_id) FROM review WHERE $tutorID = review.tutor_id"))[0];
               }
               else {
                 $average = 0;
               }
+
+              mysqli_close($connection);
                ?>
               <!-- overall review -->
               <p class="heading-2">Reviews</p>
@@ -247,7 +254,7 @@
                 <p class="body-text"><?php echo $average; ?></p>
                 <!-- ther star div -->
                 <div class="Stars" style="--rating: <?php echo $average; ?>;" aria-label="Rating of this product is <?php echo $average; ?> out of 5."></div>
-                <p class="body-text"><?php echo isset($tutorID) ? count($reviews) : "0"; ?> reviews</p>
+                <p class="body-text"><?php echo isset($tutorID) ? $count . " " : "0 "; ?>reviews</p>
                 <div class="max-flex-box-item"></div>
               </div>
 
@@ -257,19 +264,32 @@
                 while ($row = mysqli_fetch_array($reviews))
                 {
                   $studentName = $row['fname'] . " " . $row['lname'];
+                  $rating = $row['rating'];
+                  $comment = $row['comments'];
 
-                  echo "string";
+                  echo "<div class='posts'>
+                    <p class='body-text'>$studentName</p>
+                    <div>
+                      <!-- ther star div -->
+                      <div class='Stars post' style='--rating: ". $rating .";' aria-label='Rating of this product is ". $rating ." out of 5.'></div>
+                      <p class='body-text'>5 days ago</p>
+                    </div>
+                    <p class='body-text'>
+                      $comment
+                    </p>
+                  </div>";
+
+
                 }
               }
 
               ?>
 
-              <!-- for each post -->
-              <div class="posts">
+              <!-- for each post template -->
+              <!-- <div class="posts">
                 <p class="body-text">Jenniffer Lee</p>
                 <div>
-                  <!-- ther star div -->
-                  <div class="Stars post" style="--rating: 5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                  <div class="Stars post" style=" rating: 5;" aria-label="Rating of this product is 2.3 out of 5."></div>
                   <p class="body-text">5 days ago</p>
                 </div>
                 <p class="body-text">
@@ -282,27 +302,8 @@
                   invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                   At vero eos et accusam et justo duo dolores et ea rebum.
                 </p>
-              </div>
+              </div> -->
 
-              <!-- for each post -->
-              <div class="posts">
-                <p class="body-text">Jenniffer Lee</p>
-                <div>
-                  <!-- ther star div -->
-                  <div class="Stars post" style="--rating: 0;" aria-label="Rating of this product is 2.3 out of 5."></div>
-                  <p class="body-text">5 days ago</p>
-                </div>
-                <p class="body-text">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                  sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-                  Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                  ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-                  consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                  invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                  At vero eos et accusam et justo duo dolores et ea rebum.
-                </p>
-              </div>
             </section>
 
             <section class="text-area" id="availability">
