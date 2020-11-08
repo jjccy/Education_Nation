@@ -72,6 +72,12 @@
 
         <a href="logOut.php">Log out</a>
         <a href="account-settings.php">Account Setting</a>
+
+        <?php
+        if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true && isset($_COOKIE['isTutor'])) {
+            echo "<a href='tutor_courses-create.php'>Create new course</a>";
+        }
+         ?>
       </div>
 
     </div>
