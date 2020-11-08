@@ -98,6 +98,9 @@
                       );
                     }
 
+                    // stating the deliminator
+                    $d ='#KR#%5>DSG<)(E667)F?';
+
                     // change above step to session
                     $currentUser = $_COOKIE['m_id'];
 
@@ -119,7 +122,7 @@
 
                   ?>
                 </p>
-                <p class="tutor-spec ">Math Tutor (K-12)</p>
+                <p class="tutor-spec">Math Tutor (K-12)</p>
               </div>
               <div class="user-info">
                 <p class="heading-3 tutor-balance">Balance </p>
@@ -139,7 +142,6 @@
                     }
 
                     mysqli_free_result($result);
-                    mysqli_close($connection);
                   ?>
                 </p>
               </div>
@@ -151,7 +153,7 @@
           <div class="account-settings-header">
             <div class="heading-spacer"></div>
             <div class="header-wrapper">
-              <p class="title-with-icon heading-1 icon-award">Courses</p>
+              <p class="title-with-icon heading-1 icon-award">Create A Course</p>
             </div>
             <!-- <div class="space-filler"></div> -->
           </div>
@@ -160,91 +162,25 @@
 
             <?php include('shared/account-settings-menu.php'); ?>
 
-            <div class="account-setting-list tutor-courses">
-              <?php
-                // get database
-                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            <div class="account-setting-list tutor-courses tutor-course-create">
+                <form id="create-course-form" action="create-course.php" method="post">
+                    <div class="form-group">
+                        <label for="subject-create" class="form-label"> Course Subject </label>
+                        <input type="text" name="subject-create" id="subject-create" class="text-box" placeholder="Subject name" required>
 
-                if(mysqli_connect_errno()) {
-                  // if fail, skip all php and print errors
+                        <label for="wage-create" class="form-label"> Hourly Wage </label>
+                        <input type="text" name="wage-create" id="wage-create" class="text-box" placeholder="Price per hour" required>
 
-                  die("Database connet failed: " .
-                    mysqli_connect_error() .
-                    " (" . mysqli_connect_errno(). ")"
-                  );
-                }
-
-                $query = "SELECT * FROM course WHERE course.tutor_id = '$currentUser'";
-
-                // get result from database;
-                $result = mysqli_query($connection, $query);
-
-                if (!$result) {
-                      die("Database connect failed" .  mysqli_error($connection));
-                }
-
-                while ($row = $result -> fetch_assoc()) {
-                    $price = "$" . $row['price'];
-                    $subject = $row['subject_name'];
-                    
-                    if ($row['min_grade'] == 0) {
-                      $minGrade = "K";
-                    }
-
-                    else {
-                      $minGrade = $row['min_grade'];
-                    }
-
-                    if ($row['min_grade'] <= $row['max_grade']) {
-                    $grade_range = "Grades: " . $minGrade . " - " . $row['max_grade'];
-                    }
-
-                    else {
-                    $grade_range = "Grade: " . $row['min_grade'];
-                    }
-
-                    echo '<div class="list-card">';
-                        echo '<div class="card-img">';
-                            echo '<img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">';
-                        echo '</div>';
-                        echo '<div class="card-content-container">';
-                            echo '<div class="card-row">';
-                            echo '<div class="courses-detail-wrapper">';
-                                echo '<div class="information-wrapper">';
-                                echo '<a href="tutor_courses-edit.php" class="card-row">';
-                                  echo '<div class="card-price">';
-                                      echo '<p class="heading-3 subject-text">';
-                                          echo $subject;
-                                      echo '</p>';
-                                  echo '</div>';
-                              
-                                  echo '<div class="card-img card-icon">';
-                                      echo '<img src="img/Edit_Purple.svg" alt="edit icon">';
-                                  echo '</div>';
-                                echo '</a>';
-                                echo '<p class="heading-1 grade-text">';
-                                    echo $grade_range;
-                                echo '</p>';
-                                echo '</div>';
-                            echo '</div>';
-                    
-                            echo '<div class="card-content-container">';
-                                echo '<p class="heading-1 rate-text">';
-                                    echo $price;
-                                echo '</p>';
-                            echo '</div>';
-                            echo '</div>';
-                        echo '</div>';
-                    echo '</div>';
-                }
-
-                mysqli_free_result($result);
-                mysqli_close($connection);
-              ?>
-
-              <div class="btn-container">
-                <a href="tutor_courses-create.php" class="btn btn-fill button-default">Create Course</a>
-              </div>
+                        <label class="form-label"> Grade Range </label>
+                        <input type="text" name="min-age-create" id="min-age-create" class="text-box" placeholder="Min." required>
+                        <input type="text" name="max-age-create" id="max-age-create" class="text-box" placeholder="Max." required>
+                
+                        <!-- on submit sends runs update-account.php -->
+                        <div class="form-submit">
+                        <input type="submit" name="create-course-submit" id="create-course-submit" value="Create Course" class="btn button-default">
+                        </div>
+                    </div>
+                </form>
             </div>
           </div>
         </div>

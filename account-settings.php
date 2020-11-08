@@ -243,7 +243,7 @@
 
                   <!-- on submit sends runs update-account.php -->
                   <div class="form-submit">
-                    <input type="submit" name="edit-account-submit" id="edit-account-submit" value="Update" class="button-default">
+                    <input type="submit" name="edit-account-submit" id="edit-account-submit" value="Update" class="btn button-default">
                   </div>
                 </div>
               </form>
