@@ -256,8 +256,15 @@ img {
 .account-section .profile-picture {
     min-height: 1.75rem;
     max-height: 3rem;
-    padding-left: 3rem;
+    padding-right: 1.75rem;
     align-items: center;
+    border-radius: 3em;
+
+    margin-right: 1.25rem;
+
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 .account-section .dropDown {
@@ -840,7 +847,148 @@ img {
   border-radius: .3em;
 }
 
+/* login overlay */
+#loginOverlay > .overlay-body {
+  width: 35em;
+}
 
+/* login page form layout */
+.login-page-item {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 1 auto;
+}
+
+/* login page empty space on right*/
+.login-page-filler {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 1 auto;
+}
+
+.login-form {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+#login-form {
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/*Welcome message CSS*/
+.login-message {
+  margin-left: 16em;
+  min-width: 28em;
+}
+
+.login-message .heading-1 {
+  color: #FFFFFF;
+}
+
+/* Form Styling*/
+.form-label {
+  font-family: SF Pro Display SemiBold;
+  display: inline-block;
+  color: #776FC4;
+  width: 50%;
+  float: left;
+}
+
+.form-reveal {
+  font-family: SF Pro Display SemiBold;
+  display: inline-block;
+  text-decoration: none;
+  text-align: right;
+  float: right;
+  color: #776FC4;
+  width: 50%;
+}
+
+/*input text-box styling*/
+.text-box {
+  font-family: 'SF Pro Display', sans-serif;
+  background-color: transparent;
+  color: #000000;
+  border: none;
+  border-bottom: 1px solid #C4CAD5;
+  outline-width: 0;
+  padding: 0.75rem 0;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+  display: block;
+  width: 100%;
+  clear: both;
+  font-size: 1.4rem;
+}
+
+/*input text-box styling*/
+.text-box[type=text]:focus {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #776FC4;
+  outline-width: 0;
+}
+
+/*input text-box styling*/
+::placeholder {
+  color: #C4CAD5;
+}
+
+/*Submit button styling*/
+.button-default {
+  margin-top: 2em;
+  background-color: #673AB7;
+  width: 100%;
+  border-radius: 6px;
+  padding: 0.75em;
+  border: none;
+  color: #FFFFFF;
+  font-family: SF Pro Display;
+  font-size: 1em;
+}
+
+/*Link styling*/
+.link-default {
+  font-family: SF Pro Display SemiBold;
+  text-decoration: none;
+  color: #776FC4;
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+/*Checkbox styling*/
+input[type='checkbox'] {
+  cursor: pointer;
+  margin-right: 0.5em;
+  width: 1em;
+  height: 1em;
+}
+
+input[type='checkbox']:before {
+  border: 1px solid #C4CAD5;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+input[type='checkbox']:checked:after {
+  border: 1px solid #C4CAD5;
+  border-radius: 5px;
+  background-color: #776FC4;
+}
+
+/* End of Form Styling*/
 
 /* end of card */
 

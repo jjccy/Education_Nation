@@ -387,11 +387,13 @@
 
 
 
-    if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true && !isset($_COOKIE['isTutor'])) {
-      include('shared/reviewOverlay.php');
+    if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
+      if (!isset($_COOKIE['isTutor'])) {
+        include('shared/reviewOverlay.php');
+      }
     }
     else {
-
+      include('shared/loginOverlay.php');
     }
 
      ?>
