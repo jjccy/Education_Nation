@@ -2,22 +2,27 @@
   <div class="overlay-body">
     <a href="#" id='closeButton' onclick="closeOverlay(reviewOverlay)"></a>
 
-    <form class="post-review" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" target="_blank">
+    <form class="post-review" action="addReview.php" method="post">
+      <!-- hidden input to send current  -->
+      <input type="hidden" name="currentPage" value="<?php echo "$_SERVER[REQUEST_URI]"; ?>">
+      <input type="hidden" name="tutorID" value="<?php echo $tutorID ?>">
+
+
       <p class='heading-1'><?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?></p>
 
       <!-- rating and course selection -->
       <div class="flex-box">
-        <p class="body-text rating-text" id='rating-text'>0.0</p>
+        <p class="body-text rating-text" id='rating-text'>0</p>
         <div class="rate">
-          <input type="radio" id="star5" name="rate" value="5" />
+          <input type="radio" id="star5" name="rate" value="5" onClick="setRating(5)"/>
           <label for="star5" title="text">5 stars</label>
-          <input type="radio" id="star4" name="rate" value="4" />
+          <input type="radio" id="star4" name="rate" value="4" onClick="setRating(4)"/>
           <label for="star4" title="text">4 stars</label>
-          <input type="radio" id="star3" name="rate" value="3" />
+          <input type="radio" id="star3" name="rate" value="3" onClick="setRating(3)"/>
           <label for="star3" title="text">3 stars</label>
-          <input type="radio" id="star2" name="rate" value="2" />
+          <input type="radio" id="star2" name="rate" value="2" onClick="setRating(2)"/>
           <label for="star2" title="text">2 stars</label>
-          <input type="radio" id="star1" name="rate" value="1" />
+          <input type="radio" id="star1" name="rate" value="1" onClick="setRating(1)"/>
           <label for="star1" title="text">1 star</label>
         </div>
 
@@ -25,15 +30,30 @@
 
         <!-- display select course -->
         <select name="selectCourse" id="selectCourse">
-          <option value="-99999">course</option>
-          <option value="-99999">course</option>
-          <option value="-99999">course</option>
-          <option value="-99999">course</option>
-          <option value="-99999">course</option>
+          <option value="-99">Select Course</option>
+          <?php
+          $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+          $courseName= mysqli_query($connection, "SELECT course.subject_name, course.c_id
+                                                  FROM course
+                                                  WHERE $tutorID = course.tutor_id");
+
+          if (!$courseName) {
+            die("get course name fail");
+          }
+
+          // echo every single course
+          while ($row = mysqli_fetch_assoc($courseName))
+          {
+            echo "<option value='" . $row['c_id'] ."'>" . $row['subject_name'] . "</option>";
+          }
+
+          mysqli_free_result($courseName);
+          mysqli_close($connection);
+           ?>
         </select>
       </div>
 
-      <textarea>Enter your review here ...</textarea>
+      <textarea name='comment'>Enter your review here ...</textarea>
 
       <input type="submit" name="submitReview" value="Submit Review">
     </form>
@@ -49,5 +69,9 @@
     document.getElementById(inputId.id).style.opacity = "0";
 
     return false;
+  }
+
+  function setRating(rate) {
+    document.getElementById('rating-text').innerHTML = rate;
   }
 </script>

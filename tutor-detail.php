@@ -177,7 +177,7 @@
                 <p class="body-text"><?php echo isset($tutorID) ? $count . " " : "0 "; ?>reviews</p>
                 <div class="max-flex-box-item"></div>
 
-                <?php echo (isset($_COOKIE['loggedin']) && $_COOKIE['isTutor']) ? "" : "<a id='writeReview' href='#' onClick='displayOverlay(0)'>Write Reivew</a>";?>
+                <?php echo (isset($_COOKIE['loggedin']) && isset($_COOKIE['isTutor'])) ? "" : "<a id='writeReview' href='#' onClick='displayOverlay(0)'>Write Reivew</a>";?>
               </div>
 
               <?php
@@ -385,10 +385,10 @@
 
     <?php
 
-    include('shared/reviewOverlay.php');
 
-    if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
 
+    if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true && !isset($_COOKIE['isTutor'])) {
+      include('shared/reviewOverlay.php');
     }
     else {
 
