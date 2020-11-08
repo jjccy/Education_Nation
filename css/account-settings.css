@@ -175,11 +175,12 @@
     
     .account-setting-about textarea {
         width: 100%;
-        resize: none;
-        height: 100%;
+        resize: vertical;
+        min-height: 10em;
         padding: 1em;
         border-radius: 15px;
         border-color: #776FC4;
+        overflow: visible;
     }
     
     .account-setting-about {
