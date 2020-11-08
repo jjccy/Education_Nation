@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2020 at 11:03 AM
+-- Generation Time: Nov 08, 2020 at 09:57 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,14 +30,16 @@ USE `terence_liu`;
 --
 
 DROP TABLE IF EXISTS `course`;
-CREATE TABLE `course` (
-  `c_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `course` (
+  `c_id` int(11) NOT NULL AUTO_INCREMENT,
   `tutor_id` int(11) NOT NULL,
   `price` decimal(6,2) DEFAULT NULL,
   `subject_name` char(30) DEFAULT NULL,
   `min_grade` decimal(2,0) DEFAULT NULL,
-  `max_grade` decimal(2,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `max_grade` decimal(2,0) DEFAULT NULL,
+  PRIMARY KEY (`c_id`,`tutor_id`),
+  KEY `tutor_id` (`tutor_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `course`
@@ -59,14 +61,15 @@ INSERT INTO `course` (`c_id`, `tutor_id`, `price`, `subject_name`, `min_grade`, 
 --
 
 DROP TABLE IF EXISTS `member`;
-CREATE TABLE `member` (
-  `m_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `member` (
+  `m_id` int(11) NOT NULL AUTO_INCREMENT,
   `fname` char(30) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` char(128) DEFAULT NULL,
   `profile_address` varchar(260) DEFAULT NULL,
-  `lname` char(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `lname` char(30) DEFAULT NULL,
+  PRIMARY KEY (`m_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=275 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `member`
@@ -92,15 +95,19 @@ INSERT INTO `member` (`m_id`, `fname`, `email`, `password`, `profile_address`, `
 --
 
 DROP TABLE IF EXISTS `review`;
-CREATE TABLE `review` (
-  `r_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `review` (
+  `r_id` int(11) NOT NULL AUTO_INCREMENT,
   `student_id` int(11) NOT NULL,
   `tutor_id` int(11) NOT NULL,
-  `c_id` int(11) NOT NULL,
+  `c_id` int(11) DEFAULT NULL,
   `date_posted` timestamp NOT NULL DEFAULT current_timestamp(),
   `rating` decimal(2,1) DEFAULT NULL,
-  `comments` mediumtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `comments` mediumtext DEFAULT NULL,
+  PRIMARY KEY (`r_id`,`student_id`,`tutor_id`),
+  KEY `student_id` (`student_id`),
+  KEY `tutor_id` (`tutor_id`),
+  KEY `c_id` (`c_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `review`
@@ -112,7 +119,11 @@ INSERT INTO `review` (`r_id`, `student_id`, `tutor_id`, `c_id`, `date_posted`, `
 (27, 272, 264, 61, '2020-11-06 16:21:12', '2.5', 'Theo is a very good tutor, but he babbles for a very long time.'),
 (28, 269, 266, 62, '2020-11-06 14:24:12', '3.8', 'Terence is a very good tutor, but he moves too quickly.'),
 (29, 270, 268, 63, '2020-11-06 14:28:12', '0.0', 'Justin is always to late and ends sessions early, avoid him.'),
-(30, 271, 267, 64, '2020-11-06 14:29:12', '4.0', 'Sean knows what to teach, and has high expectations.');
+(30, 271, 267, 64, '2020-11-06 14:29:12', '4.0', 'Sean knows what to teach, and has high expectations.'),
+(31, 269, 265, 59, '2020-11-08 08:34:11', '2.0', 'worst teacher ever'),
+(36, 269, 265, 0, '2020-11-08 08:44:49', '4.0', 'Overall is not a bad teacher'),
+(37, 269, 265, 58, '2020-11-08 08:46:40', '1.0', 'Just the math is so bad'),
+(42, 269, 265, NULL, '2020-11-08 08:53:42', '0.0', 'last test');
 
 -- --------------------------------------------------------
 
@@ -121,9 +132,10 @@ INSERT INTO `review` (`r_id`, `student_id`, `tutor_id`, `c_id`, `date_posted`, `
 --
 
 DROP TABLE IF EXISTS `student`;
-CREATE TABLE `student` (
+CREATE TABLE IF NOT EXISTS `student` (
   `student_id` int(11) NOT NULL,
-  `cur_grade` decimal(2,0) DEFAULT NULL
+  `cur_grade` decimal(2,0) DEFAULT NULL,
+  PRIMARY KEY (`student_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -145,13 +157,14 @@ INSERT INTO `student` (`student_id`, `cur_grade`) VALUES
 --
 
 DROP TABLE IF EXISTS `tutor`;
-CREATE TABLE `tutor` (
+CREATE TABLE IF NOT EXISTS `tutor` (
   `tutor_id` int(11) NOT NULL,
   `balance` decimal(8,2) DEFAULT NULL,
   `bio` mediumtext DEFAULT NULL,
   `primary_language` tinytext DEFAULT NULL,
   `city` char(30) DEFAULT NULL,
-  `country` char(30) DEFAULT NULL
+  `country` char(30) DEFAULT NULL,
+  PRIMARY KEY (`tutor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -164,66 +177,6 @@ INSERT INTO `tutor` (`tutor_id`, `balance`, `bio`, `primary_language`, `city`, `
 (266, '350.47', 'This is the biography for Terence. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'English, Cantonese', 'Burnaby', 'Canada'),
 (267, '58.98', 'This is the biography for Sean. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'English, Korean', 'Mapleridge', 'Canada'),
 (268, '888.88', 'This is the biography for Justin. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'Mandarin', 'Vancouver', 'Canada');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `course`
---
-ALTER TABLE `course`
-  ADD PRIMARY KEY (`c_id`,`tutor_id`),
-  ADD KEY `tutor_id` (`tutor_id`);
-
---
--- Indexes for table `member`
---
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`m_id`);
-
---
--- Indexes for table `review`
---
-ALTER TABLE `review`
-  ADD PRIMARY KEY (`r_id`,`student_id`,`tutor_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `tutor_id` (`tutor_id`),
-  ADD KEY `c_id` (`c_id`);
-
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`student_id`);
-
---
--- Indexes for table `tutor`
---
-ALTER TABLE `tutor`
-  ADD PRIMARY KEY (`tutor_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `course`
---
-ALTER TABLE `course`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
-
---
--- AUTO_INCREMENT for table `member`
---
-ALTER TABLE `member`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=275;
-
---
--- AUTO_INCREMENT for table `review`
---
-ALTER TABLE `review`
-  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables

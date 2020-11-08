@@ -4,11 +4,10 @@ if(isset($_POST['submitReview'])) {
   // get input review
   $returnPage = $_POST['currentPage'];
   $tutorID = $_POST['tutorID'];
-  $rate = $_POST['rate'];
   $courseId = $_POST['selectCourse'];
   $comment = $_POST['comment'];
 
-
+  (!isset($_POST['rate'])) ? $rate = 0 : $rate = $_POST['rate'];
 
   $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
