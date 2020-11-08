@@ -153,7 +153,7 @@
           <div class="account-settings-header">
             <div class="heading-spacer"></div>
             <div class="header-wrapper">
-              <p class="title-with-icon heading-1 icon-clock">Upcoming Bookings</p>
+              <p class="title-with-icon heading-1 icon-award">Courses</p>
             </div>
             <!-- <div class="space-filler"></div> -->
           </div>
@@ -162,232 +162,28 @@
 
             <?php include('shared/account-settings-menu.php'); ?>
 
-            <div class="account-setting-list">
+            <div class="account-setting-list tutor-courses">
               <div class="list-card">
                 <div class="card-img">
                   <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
                 </div>
-                <div class="card-title">
-                  <p class=heading-1>Ashley Bucha</p>
-                </div>
-                <div class="card-detail">
-                    <div class="information-wrapper">
-                      <div class="student-info">
-                        <div class="same-line">
-                          <p class="body-text">Subject: </p>
-                          <p class="body-text">Math</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Grade: </p>
-                          <p class="body-text">4</p>
-                        </div>
-                      </div>
-                      <div class="appointment-info">
-                        <div class="same-line">
-                          <p class="body-text">Date: </p>
-                          <p class="body-text">October 31, 2020</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Time: </p>
-                          <p class="body-text">3PM - 4PM</p>
-                        </div>
+                <div class="card-content-container">
+                  <div class="card-row">
+                    <div class="courses-detail-wrapper">
+                      <div class="information-wrapper">
+                        <p class="heading-3 subject-text icon-edit-two title-with-icon">Mathematics</p>
+                        <p class="heading-1 grade-text">Grades 7 - 10</p>
                       </div>
                     </div>
-                </div>
-                <div class="card-close">
-                  <a href="">
-                    <img src="img/close-black.svg" alt="">
-                  </a>
-                </div>
-              </div>
 
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-title">
-                  <p class=heading-1>Ashley Bucha</p>
-                </div>
-                <div class="card-detail">
-                    <div class="information-wrapper">
-                      <div class="student-info">
-                        <div class="same-line">
-                          <p class="body-text">Subject: </p>
-                          <p class="body-text">Math</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Grade: </p>
-                          <p class="body-text">4</p>
-                        </div>
-                      </div>
-                      <div class="appointment-info">
-                        <div class="same-line">
-                          <p class="body-text">Date: </p>
-                          <p class="body-text">October 31, 2020</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Time: </p>
-                          <p class="body-text">3PM - 4PM</p>
-                        </div>
-                      </div>
+                    <div class="card-content-container">
+                      <p class="heading-1 rate-text">$18/hour</p>
                     </div>
+                  </div>
                 </div>
-                <div class="card-close">
-                  <a href="">
-                    <img src="img/close-black.svg" alt="">
-                  </a>
-                </div>
-              </div>
 
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-title">
-                  <p class=heading-1>Ashley Bucha</p>
-                </div>
-                <div class="card-detail">
-                    <div class="information-wrapper">
-                      <div class="student-info">
-                        <div class="same-line">
-                          <p class="body-text">Subject: </p>
-                          <p class="body-text">Math</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Grade: </p>
-                          <p class="body-text">4</p>
-                        </div>
-                      </div>
-                      <div class="appointment-info">
-                        <div class="same-line">
-                          <p class="body-text">Date: </p>
-                          <p class="body-text">October 31, 2020</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Time: </p>
-                          <p class="body-text">3PM - 4PM</p>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="card-close">
-                  <a href="">
-                    <img src="img/close-black.svg" alt="">
-                  </a>
-                </div>
-              </div>
+                <div class="card-rate">
 
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-title">
-                  <p class=heading-1>Ashley Bucha</p>
-                </div>
-                <div class="card-detail">
-                    <div class="information-wrapper">
-                      <div class="student-info">
-                        <div class="same-line">
-                          <p class="body-text">Subject: </p>
-                          <p class="body-text">Math</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Grade: </p>
-                          <p class="body-text">4</p>
-                        </div>
-                      </div>
-                      <div class="appointment-info">
-                        <div class="same-line">
-                          <p class="body-text">Date: </p>
-                          <p class="body-text">October 31, 2020</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Time: </p>
-                          <p class="body-text">3PM - 4PM</p>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="card-close">
-                  <a href="">
-                    <img src="img/close-black.svg" alt="">
-                  </a>
-                </div>
-              </div>
-
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-title">
-                  <p class=heading-1>Ashley Bucha</p>
-                </div>
-                <div class="card-detail">
-                    <div class="information-wrapper">
-                      <div class="student-info">
-                        <div class="same-line">
-                          <p class="body-text">Subject: </p>
-                          <p class="body-text">Math</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Grade: </p>
-                          <p class="body-text">4</p>
-                        </div>
-                      </div>
-                      <div class="appointment-info">
-                        <div class="same-line">
-                          <p class="body-text">Date: </p>
-                          <p class="body-text">October 31, 2020</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Time: </p>
-                          <p class="body-text">3PM - 4PM</p>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="card-close">
-                  <a href="">
-                    <img src="img/close-black.svg" alt="">
-                  </a>
-                </div>
-              </div>
-
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-title">
-                  <p class=heading-1>Ashley Bucha</p>
-                </div>
-                <div class="card-detail">
-                    <div class="information-wrapper">
-                      <div class="student-info">
-                        <div class="same-line">
-                          <p class="body-text">Subject: </p>
-                          <p class="body-text">Math</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Grade: </p>
-                          <p class="body-text">4</p>
-                        </div>
-                      </div>
-                      <div class="appointment-info">
-                        <div class="same-line">
-                          <p class="body-text">Date: </p>
-                          <p class="body-text">October 31, 2020</p>
-                        </div>
-                        <div class="same-line">
-                          <p class="body-text">Time: </p>
-                          <p class="body-text">3PM - 4PM</p>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="card-close">
-                  <a href="">
-                    <img src="img/close-black.svg" alt="">
-                  </a>
                 </div>
               </div>
             </div>

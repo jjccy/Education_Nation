@@ -432,6 +432,15 @@ img {
     width: 3rem;
 }
 
+.icon-edit-two {
+    /*edit icon*/
+    background-image: url("../img/edit.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
 .icon-pic {
     /*Profile Picture*/
     background-image: url("../img/Jennifer_PFP.png");
