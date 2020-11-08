@@ -426,6 +426,7 @@ display: -ms-flex; */
     justify-content: flex-start;
     align-content: flex-start;
     margin: 0;
+    clear: both;
 }
 
 .grade-container .flex-child .grade-text {
