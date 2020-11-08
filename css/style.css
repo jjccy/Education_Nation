@@ -22,7 +22,7 @@ img {
 .heading-2 {
     font-family: Poppins;
     color: #000000;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-block-start: 0;
 }
 
@@ -42,6 +42,7 @@ img {
     font-family: SF Pro Display;
     color: #000000;
     font-size: .95rem;
+    line-height: 1.5em;
 }
 
 .flex-box {
@@ -321,7 +322,7 @@ img {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
     overflow-x: hidden;
 }
 

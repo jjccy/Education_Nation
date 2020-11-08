@@ -2,6 +2,8 @@
   padding-left: 18.8em;
   padding-top: 8.5em;
   padding-right: 9.5em;
+
+  margin-bottom: 5em;
 }
 
 .detail-info {
@@ -88,6 +90,38 @@
 
 .text-area.display {
   display: block;
+}
+
+/* course detail section */
+.course-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-info > * {
+  flex: 1 1 auto;
+  margin-bottom: 1.3em;
+}
+
+.course-info > *:last-child {
+  margin-bottom: 0;
+}
+
+.course-info > * > .body-text {
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+}
+
+.course-info .heading-2 {
+  margin-block-end: .5em;
+}
+
+#course-price {
+  font-family: Poppins;
+  font-size: 1.7em;
+  color: #776FC4;
+
+  margin-block-start: .5em;
 }
 
 /* reveiw section */
