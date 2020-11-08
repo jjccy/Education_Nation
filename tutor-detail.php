@@ -77,7 +77,7 @@
             $tutorlname = $courseInfo['lname'];
 
             // get tutor reiews
-            $reviews = mysqli_query($connection, "SELECT review.date_posted, review.rating, review.comments, member.fname, member.lname
+            $reviews = mysqli_query($connection, "SELECT review.date_posted, review.rating, review.comments, review.c_id, member.fname, member.lname
                                                     FROM review INNER JOIN member ON review.student_id = member.m_id
                                                     WHERE $tutorID = review.tutor_id");
 
@@ -160,7 +160,7 @@
 
                 $count = mysqli_fetch_array(mysqli_query($connection, "SELECT COUNT(review.r_id) FROM review WHERE $tutorID = review.tutor_id"))[0];
 
-                mysqli_close($connection);
+
               }
               else {
                 $average = 0;
@@ -171,13 +171,13 @@
               <!-- overall review -->
               <p class="heading-2">Reviews</p>
               <div class="overall-review">
-                <p class="body-text"><?php echo $average; ?></p>
+                <p class="body-text rating-text"><?php echo $average; ?></p>
                 <!-- ther star div -->
                 <div class="Stars" style="--rating: <?php echo $average; ?>;" aria-label="Rating of this product is <?php echo $average; ?> out of 5."></div>
                 <p class="body-text"><?php echo isset($tutorID) ? $count . " " : "0 "; ?>reviews</p>
                 <div class="max-flex-box-item"></div>
 
-                <a id='writeReview' href="#">Write Reivew</a>
+                <?php echo (isset($_COOKIE['loggedin']) && $_COOKIE['isTutor']) ? "" : "<a id='writeReview' href='#' onClick='displayOverlay(0)'>Write Reivew</a>";?>
               </div>
 
               <?php
@@ -220,22 +220,28 @@
                   $studentName = $row['fname'] . " " . $row['lname'];
                   $rating = $row['rating'];
                   $comment = $row['comments'];
+                  $subjectName = mysqli_query($connection, "SELECT course.subject_name FROM course WHERE '" . $row['c_id']  . "'= course.c_id");
+                  $subjectName = (1 == ($subjectName->num_rows)) ? mysqli_fetch_array($subjectName)[0] : "";
 
                   echo "<div class='posts'>
-                    <p class='body-text'>$studentName</p>
-                    <div>
-                      <!-- ther star div -->
-                      <div class='Stars post' style='--rating: ". $rating .";' aria-label='Rating of this product is ". $rating ." out of 5.'></div>
-                      <p class='body-text'>". time_elapsed_string($row['date_posted']) . "</p>
-                    </div>
-                    <p class='body-text'>
-                      $comment
-                    </p>
-                  </div>";
+                          <p class='body-text'>$studentName</p>
+                          <div>
+                            <!-- ther star div -->
+                            <div class='Stars post' style='--rating: ". $rating .";' aria-label='Rating of this product is ". $rating ." out of 5.'></div>
+                            <p class='body-text'>". time_elapsed_string($row['date_posted']) . "</p>
+                            <div class='max-flex-box-item'></div>
+                            <p class='body-text'>$subjectName</p>
+                          </div>
+                          <p class='body-text'>
+                            $comment
+                          </p>
+                        </div>";
 
 
                 }
               }
+
+              mysqli_close($connection);
 
               ?>
 
@@ -375,7 +381,20 @@
 
 
 
+    <!-- overlay -->
 
+    <?php
+
+    include('shared/reviewOverlay.php');
+
+    if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
+
+    }
+    else {
+
+    }
+
+     ?>
 
 
 

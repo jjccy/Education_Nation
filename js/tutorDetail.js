@@ -2,9 +2,10 @@ var sections = [document.getElementById('about'),
               document.getElementById('review'),
               document.getElementById('availability')];
 
+var overlay = document.getElementsByClassName("overlay");
 
 function displayContent(id) {
-  
+
   event.preventDefault();
   sections.forEach(section => sectionCheck(section, id.id));
 
@@ -22,4 +23,13 @@ function sectionCheck(section, inputId) {
       section.classList.remove("display")
     }
   }
+}
+
+function displayOverlay(number) {
+  event.preventDefault();
+
+  overlay[number].style.zIndex = "999";
+  overlay[number].style.opacity = "1";
+
+  return false;
 }

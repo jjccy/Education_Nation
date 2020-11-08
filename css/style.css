@@ -5,6 +5,10 @@
     font-size: 11pt;
 }
 
+body {
+  position: relative;
+}
+
 img {
     width: auto;
     max-width: 100%;
@@ -667,22 +671,6 @@ img {
     text-decoration: underline;
 }
 
-
-/* end of card */
-
-@media screen and (min-width: 1700px) {
-    * {
-        font-size: 12pt;
-    }
-}
-
-@media screen and (min-width: 1990px) {
-    * {
-        font-size: 13pt;
-    }
-}
-
-
 /* responsive */
 
 .iframe-wrapper {
@@ -697,4 +685,122 @@ img {
 .help-iframe {
     width: 100%;
     height: 100%;
+}
+
+
+/* overlay module */
+.overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  transition: all .3s ease;
+
+  /* z-index: -100;
+  opacity: 0; */
+
+  z-index:999;
+}
+
+.overlay-body {
+  position: absolute;
+
+  width: 50em;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 3em 3em 2.3em;
+
+  background-color: white;
+  border-radius: 1.2em;
+}
+
+.overlay #closeButton {
+  position: absolute;
+  right: 1.7em;
+  top: 1.3em;
+
+  width: .7em;
+  height: .7em;
+
+  background-image: url(../img/close-black.svg);
+
+  opacity: .3;
+  transition: all .5s ease-out;
+}
+
+.overlay #closeButton:hover,
+.overlay #closeButton:active,
+.overlay #closeButton:focus {
+  opacity: .7;
+}
+
+/* overlay reivew section */
+.post-review {
+  border: 1px solid pink;
+}
+
+.post-review > .flex-box {
+  align-items: center;
+}
+
+.post-review > .flex-box > *{
+  flex: 1 1 auto;
+}
+
+.rate {
+    float: left;
+    height: auto;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1.1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #847ec4;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #b5aff0;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #585199;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css && https://codepen.io/hesguru/pen/BaybqXv*/
+
+/* end of card */
+
+@media screen and (min-width: 1700px) {
+    * {
+        font-size: 12pt;
+    }
+}
+
+@media screen and (min-width: 1990px) {
+    * {
+        font-size: 13pt;
+    }
 }

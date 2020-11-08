@@ -90,6 +90,7 @@
         // }
 
         $forForeignKey = "INSERT INTO tutor (tutor_id) VALUES(last_insert_id())";
+        setcookie('isTutor', true, time() + 5400);
       }
       else {
         // add access to student table
@@ -109,6 +110,7 @@
         // }
 
         $forForeignKey = "INSERT INTO student (student_id) VALUES(last_insert_id())";
+        setcookie('isTutor', false, time() + 5400);
       }
 
       // insert new user info into database

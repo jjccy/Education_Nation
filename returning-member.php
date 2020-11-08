@@ -41,6 +41,9 @@
         }
         //if email exists and password is correct
         else if ($row['email']==$email && password_verify($password, $row['password'])) {
+          // check if is tutor
+          $checker = mysqli_query($connection, "SELECT tutor.tutor_id FROM tutor WHERE tutor.tutor_id = " . "'". $row['m_id'] . "'");
+          $isTutor = (1 == ($checker->num_rows));
           //save logged in status, email, name, and id to session
           //checkbox for keep me signed in is selected
           if(isset($_POST['signed-in'])){
@@ -49,7 +52,7 @@
             setcookie('email', $email);
             setcookie('name', $row['fname']);
             setcookie('m_id', $row['m_id']);
-
+            setcookie('isTutor', $isTutor);
           }
           //checkbox for keep me signed in is not selected
           else{
@@ -58,6 +61,7 @@
             setcookie('email', $email, time() + 5400);
             setcookie('name', $row['fname'], time() + 5400);
             setcookie('m_id', $row['m_id'], time() + 5400);
+            setcookie('isTutor', $isTutor, time() + 5400);
           }
 
           // release returned data
