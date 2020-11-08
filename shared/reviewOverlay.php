@@ -2,7 +2,7 @@
   <div class="overlay-body">
     <a href="#" id='closeButton' onclick="closeOverlay(reviewOverlay)"></a>
 
-    <form class="post-review" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+    <form class="post-review" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" target="_blank">
       <p class='heading-1'><?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?></p>
 
       <!-- rating and course selection -->
@@ -25,8 +25,17 @@
 
         <!-- display select course -->
         <select name="selectCourse" id="selectCourse">
+          <option value="-99999">course</option>
+          <option value="-99999">course</option>
+          <option value="-99999">course</option>
+          <option value="-99999">course</option>
+          <option value="-99999">course</option>
         </select>
       </div>
+
+      <textarea>Enter your review here ...</textarea>
+
+      <input type="submit" name="submitReview" value="Submit Review">
     </form>
   </div>
 </div>

@@ -700,10 +700,10 @@ img {
 
   transition: all .3s ease;
 
-  /* z-index: -100;
-  opacity: 0; */
+  z-index: -100;
+  opacity: 0;
 
-  z-index:999;
+  /* z-index:999; */
 }
 
 .overlay-body {
@@ -743,7 +743,6 @@ img {
 
 /* overlay reivew section */
 .post-review {
-  border: 1px solid pink;
 }
 
 .post-review > .flex-box {
@@ -752,6 +751,11 @@ img {
 
 .post-review > .flex-box > *{
   flex: 1 1 auto;
+  margin-right: .5em;
+}
+
+.post-review > .flex-box > *:last-child{
+  margin-right: 0;
 }
 
 .rate {
@@ -768,7 +772,7 @@ img {
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
-    font-size:30px;
+    font-size:2.5em;
     color:#ccc;
 }
 .rate:not(:checked) > label:before {
@@ -787,6 +791,51 @@ img {
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
     color: #585199;
+}
+
+#selectCourse {
+  width: 15em;
+
+  padding: .3em 1.2em;
+  font-family: SF Pro Display;
+  font-size: 1em;
+  color: #ccc;
+
+  border-radius: .2em;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+#selectCourse > option {
+  color: #777;
+}
+
+.post-review textarea {
+  width: 100%;
+  height: 15em;
+  padding: 1.3em 2.8em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  font-family: SF Pro Display;
+  font-size: .85em;
+  resize: none;
+
+  box-sizing: border-box;
+  border: 1px solid #776fc4;
+  border-radius: 1em;
+}
+
+.post-review input[type="submit"] {
+  float: right;
+
+  padding: .8em 4.5em;
+
+  font-family: SF Pro Display;
+  font-size: .92em;
+  color: white;
+
+  background-color: #673ab7;
+  border-radius: .3em;
 }
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css && https://codepen.io/hesguru/pen/BaybqXv*/
