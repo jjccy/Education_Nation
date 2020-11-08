@@ -47,7 +47,39 @@
       <div class="account-settings">
         <div class="account-settings-container">
           <div class="user-overlay">
-            <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+            <img class="user-pfp" src="
+            <?php
+              // get database
+              $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+
+              if(mysqli_connect_errno()) {
+                // if fail, skip all php and print errors
+
+                die("Database connet failed: " .
+                  mysqli_connect_error() .
+                  " (" . mysqli_connect_errno(). ")"
+                );
+              }
+
+              // change above step to session
+              $currentUser = $_COOKIE['m_id'];
+
+              $query = "SELECT profile_address FROM member WHERE member.m_id = '$currentUser'";
+
+              // get result from database;
+              $result = mysqli_query($connection, $query);
+
+              if (!$result) {
+                die('database query failed');
+              }
+
+              while ($row = $result -> fetch_assoc()) {
+                echo $row['profile_address'];
+              }
+
+              mysqli_free_result($result);
+            ?>
+            " alt="Account User Profile Picture">
             <div class="user-info-container">
             <div class="space-filler"></div>
             <div class="user-info-wrapper">
@@ -86,7 +118,7 @@
                     }
 
                     mysqli_free_result($result);
-                    mysqli_close($connection);
+                    // mysqli_close($connection);
 
                   ?>
                 </p>
@@ -94,7 +126,24 @@
               </div>
               <div class="user-info">
                 <p class="heading-3 tutor-balance">Balance </p>
-                <p class="heading-3 tutor-balance-amount">$3000.51</p>
+                <p class="heading-3 tutor-balance-amount">
+                  <?php
+                    $query = "SELECT * FROM tutor WHERE tutor.tutor_id = '$currentUser'";
+
+                    // get result from database;
+                    $result = mysqli_query($connection, $query);
+
+                    if (!$result) {
+                      die('database query failed');
+                    }
+
+                    while ($row = $result -> fetch_assoc()) {
+                      echo "$" . $row['balance'];
+                    }
+
+                    mysqli_free_result($result);
+                  ?>
+                </p>
               </div>
             </div>
             </div>
@@ -111,16 +160,7 @@
 
           <div class="account-content">
 
-          <div class="account-menu">
-              <div class="account-menu-container">
-                <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu">Account Settings</a>
-                <a href="tutor_upcoming-booking.php" class="title-with-icon body-text icon-clock account-setting-menu title-active">Upcoming Bookings</a>
-                <a href="tutor_about-me.php" class="title-with-icon body-text icon-tutor-about account-setting-menu">About Me</a>
-                <a href="tutor_availability.php" class="title-with-icon body-text icon-calendar account-setting-menu">Availability</a>
-                <a href="tutor_booking-history.php" class="title-with-icon body-text icon-booking-history account-setting-menu">Booking History</a>
-                <a href="tutor_reviews.php" class="title-with-icon body-text icon-star account-setting-menu">Reviews</a>
-              </div>
-            </div>
+            <?php include('shared/account-settings-menu.php'); ?>
 
             <div class="account-setting-list">
               <div class="list-card">

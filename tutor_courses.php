@@ -22,7 +22,7 @@
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
-    <?php include('shared/footer.php'); ?>
+    <div class="body-wrapper">
 
       <?php include('shared/topNav.php'); ?>
 
@@ -43,11 +43,11 @@
       </div>
       <!-- end side nav -->
 
-      <!-- start account setting content -->
+      <!-- start account setting about content -->
       <div class="account-settings">
         <div class="account-settings-container">
           <div class="user-overlay">
-          <img class="user-pfp" src="
+            <img class="user-pfp" src="
             <?php
               // get database
               $connection = mysqli_connect("localhost", "root", "", "terence_liu");
@@ -153,108 +153,45 @@
           <div class="account-settings-header">
             <div class="heading-spacer"></div>
             <div class="header-wrapper">
-              <p class="title-with-icon heading-1 icon-setting">Account Settings</p>
+              <p class="title-with-icon heading-1 icon-award">Courses</p>
             </div>
+            <!-- <div class="space-filler"></div> -->
           </div>
 
           <div class="account-content">
 
             <?php include('shared/account-settings-menu.php'); ?>
 
-            <!-- Current user info -->
-            <div class="account-content-current">
-              <?php
-                // get database
-                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            <div class="account-setting-list tutor-courses">
+              <div class="list-card">
+                <div class="card-img">
+                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
+                </div>
+                <div class="card-content-container">
+                  <div class="card-row">
+                    <div class="courses-detail-wrapper">
+                      <div class="information-wrapper">
+                        <p class="heading-3 subject-text icon-edit-two title-with-icon">Mathematics</p>
+                        <p class="heading-1 grade-text">Grades 7 - 10</p>
+                      </div>
+                    </div>
 
-                if(mysqli_connect_errno()) {
-                  // if fail, skip all php and print errors
-
-                  die("Database connet failed: " .
-                    mysqli_connect_error() .
-                    " (" . mysqli_connect_errno(). ")"
-                  );
-                }
-
-                $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
-
-                // get result from database;
-                $result = mysqli_query($connection, $query);
-
-                while ($row = $result -> fetch_assoc()) {
-                  // current user data; being retried and displayed
-                  echo '<div class="info-element-container">';
-                  echo '<p class="heading-3">Current Name</p>';
-                  echo '<p class="body-text">' . $row['fname'] . " " . $row['lname'] . '</p>';
-                  echo '</div>';
-
-                  echo '<div class="info-element-container">';
-                  echo '<p class="heading-3">Current Email</p>';
-                  echo '<p class="body-text">' . $row['email'] . '</p>';
-                  echo '</div>';
-
-                  echo '<div class="info-element-container">';
-                  echo '<p class="heading-3">Current Password</p>';
-                  echo '<p class="body-text">';
-
-                  // getting password length and displaying it's length in '*'s
-                  // $passwordLength = strlen($row['password']);
-
-                  for ($i = 0; $i < 10; $i++) {
-                    echo '*';
-                  }
-
-                  echo '</p>';
-                  echo '</div>';
-                }
-
-                
-                mysqli_free_result($result);
-                mysqli_close($connection);
-              ?>
-            </div>
-
-            <!-- Update form for user info -->
-            <div class="account-content-new">
-
-              <!-- form allows for user to update the account info -->
-              <!-- current password and new password is required to update any information -->
-              <form id="edit-account-form" action="update-account.php" method="post">
-                <div class="form-group">
-                  <label for="fname-edit" class="form-label"> First Name </label>
-                  <input type="text" name="fname-edit" id="fname-edit" class="text-box" placeholder="John">
-
-                  <label for="lname-edit" class="form-label"> Last Name </label>
-                  <input type="text" name="lname-edit" id="lname-edit" class="text-box" placeholder="Doe">
-
-                  <label for="email-edit" class="form-label"> Email </label>
-                  <input type="text" name="email-edit" id="email-edit" class="text-box" placeholder="you@example.com">
-
-                  <label for="current-password-input" class="form-label"> Current Password </label>
-                  <a class="form-reveal" href="#" onclick="show('current-password-input')"> Show </a>
-                  <input type="password" name="current-password-input" id="current-password-input" class="text-box" placeholder="Enter your new password" required>
-
-                  <label for="password-edit-input" class="form-label"> New Password </label>
-                  <a class="form-reveal" href="#" onclick="show('password-edit-input'), show('password-confirm-input')"> Show </a>
-                  <input type="password" name="password-edit-input" id="password-edit-input" class="text-box" placeholder="Enter your new password" required>
-
-                  <label for="password-confirm-input" class="form-label"> Confirm Password </label>
-                  <input type="password" name="password-confirm-input" id="password-confirm-input" class="text-box" placeholder="Enter your new password" required>
-
-                  <!-- on submit sends runs update-account.php -->
-                  <div class="form-submit">
-                    <input type="submit" name="edit-account-submit" id="edit-account-submit" value="Update" class="button-default">
+                    <div class="card-content-container">
+                      <p class="heading-1 rate-text">$18/hour</p>
+                    </div>
                   </div>
                 </div>
-              </form>
+
+                <div class="card-rate">
+
+                </div>
+              </div>
             </div>
-
-
           </div>
         </div>
       </div>
 
-      <!-- end account setting  content -->
+      <!-- end account setting  about content -->
 
     </div>
     <!-- end body wrapper -->
@@ -262,7 +199,7 @@
 
 
     <!-- footer starts here -->
-    <?php include('shared/topNav.php'); ?>
+    <?php include('shared/footer.php'); ?>
 
     <!-- end of footer section -->
 

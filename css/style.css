@@ -793,6 +793,8 @@ img {
     color: #585199;
 }
 
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css && https://codepen.io/hesguru/pen/BaybqXv*/
+
 #selectCourse {
   width: 15em;
 
@@ -838,7 +840,7 @@ img {
   border-radius: .3em;
 }
 
-/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css && https://codepen.io/hesguru/pen/BaybqXv*/
+
 
 /* end of card */
 

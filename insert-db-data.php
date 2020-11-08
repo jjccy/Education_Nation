@@ -306,8 +306,9 @@
   //creating a English course Sean
   $query1 = "INSERT INTO course (tutor_id, subject_name, min_grade, max_grade, price) VALUES ('$tutor_id','English', 8, 12, 19)";
   $result1 = mysqli_query($connection, $query1);
+  $c_id = mysqli_insert_id($connection);
 
-  //Query to retrieve Victor's student_id
+  //Query to retrieve Linsey's student_id
   $student_query = "SELECT student_id FROM student INNER JOIN member ON student.student_id = member.m_id WHERE member.email='linsey_gong@gmail.com'";
   $student_result = mysqli_query($connection, $student_query);
   //if query fails die
@@ -325,6 +326,25 @@
   $result1 = mysqli_query($connection, $query1);
 
 
+  //Query to retrieve Victor's student_id
+  $student_query = "SELECT student_id FROM student INNER JOIN member ON student.student_id = member.m_id WHERE member.email='victor_hau@gmail.com'";
+  $student_result = mysqli_query($connection, $student_query);
+  //if query fails die
+  if (!$student_result){
+  die("Database query failed 3." . mysqli_error($connection));
+  }
+  //Get results if the query for student_id
+  if(mysqli_num_rows($student_result)){
+    while($row=mysqli_fetch_assoc($student_result)){
+      $student_id = $row["student_id"];
+    }
+  }
+  //creating a review by Victor for Sean
+  $query1 = "INSERT INTO review (tutor_id, student_id, c_id, rating, comments, date_posted) VALUES ('$tutor_id','$student_id', '$c_id', 5.0, 'Cool dude.', '2020-11-07 10:29:12')";
+  $result1 = mysqli_query($connection, $query1);
+  if (!$result1){
+  die("Database query failed 2.". mysqli_error($connection));
+  }
 
 //access db, get id for the tutor_id of the tutor you want to insert, store it into a value
   mysqli_close($connection);
