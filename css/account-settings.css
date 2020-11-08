@@ -247,10 +247,6 @@ display: -ms-flex; */
     margin-bottom: 1em;
 }
 
-.list-card:hover {
-    transform: scale(1.01);
-}
-
 .list-card .heading-1 {
     color: #776FC4;
     text-align: center;
@@ -265,6 +261,15 @@ display: -ms-flex; */
 
 .card-img {
     flex: 1;
+}
+
+.card-icon {
+    align-self: center;
+    padding-left: 1em;
+}
+
+.card-price .subject-text {
+    width: auto;
 }
 
 .card-title {
@@ -322,6 +327,7 @@ display: -ms-flex; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    text-decoration: none;
 }
 
 .card-header p {
@@ -365,14 +371,18 @@ display: -ms-flex; */
     margin-bottom: 1em;
 }
 
-.list-card .grade-text {
+.list-card .grade-text,
+.grade-container .grade-text {
     font-family: SF Pro Display;
     color: #000000;
     text-align: left;
+    padding-top: 0.5em;
+    margin: 0;
 }
 
 .list-card .subject-text {
     font-size: 1.25rem;
+    margin: 0;
 }
 
 .list-card .rate-text {
@@ -383,4 +393,47 @@ display: -ms-flex; */
 
 .subject-text:hover {
     text-decoration: underline;
+}
+
+.btn-container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-container .btn {
+    width: 50em;
+}
+
+.btn:hover {
+    box-shadow: -2px -2px 5px rgba(125, 125, 125, 0.2);
+    transform: scale(1.01);
+    text-decoration: underline;
+}
+
+.tutor-course-create {
+    max-width: 50%;
+}
+
+.grade-container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: 0;
+}
+
+.grade-container .flex-child .grade-text {
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+}
+
+.grade-container .flex-child {
+    flex: 1;
 }
