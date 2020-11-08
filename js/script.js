@@ -27,7 +27,7 @@ function chatModuleUp() {
         chat_content.classList.remove("module-body-hide");
         chat_content.classList.add("module-body");
     } else {
-        console.log("chat module is open already!");
+        // console.log("chat module is open already!");
     }
 }
 
@@ -38,14 +38,14 @@ function setFrame() {
     iframe.style.height = helpModule.offsetHeight + "px";
     iframe.style.width = helpModule.offsetWidth + "px";
 
-    console.log("setFrame ran");
+    // console.log("setFrame ran");
 }
 
 // update iFrame height and width when clicked on
 function updateFrame() {
     var iframe = parent.document.getElementById("iframeHelp");
     var helpModule = iframe.contentWindow.document.getElementById("help-module");
-    console.log("running updateframeHeight");
+    // console.log("running updateframeHeight");
 
     var newHeight = helpModule.offsetHeight + "px";
     var newWidth = helpModule.offsetWidth + "px";
@@ -59,5 +59,5 @@ if (document.getElementById("chat-header") != null) {
 
 if (document.getElementById("iframeHelp") != null) {
     document.getElementById("iframeHelp").addEventListener("load", setFrame);
-    console.log("loading setframe");
+    // console.log("loading setframe");
 }

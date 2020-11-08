@@ -159,16 +159,7 @@
 
           <div class="account-content">
 
-          <div class="account-menu">
-              <div class="account-menu-container">
-                <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu title-active">Account Settings</a>
-                <a href="tutor_upcoming-booking.php" class="title-with-icon body-text icon-clock account-setting-menu">Upcoming Bookings</a>
-                <a href="tutor_about-me.php" class="title-with-icon body-text icon-tutor-about account-setting-menu">About Me</a>
-                <a href="tutor_availability.php" class="title-with-icon body-text icon-calendar account-setting-menu">Availability</a>
-                <a href="tutor_booking-history.php" class="title-with-icon body-text icon-booking-history account-setting-menu">Booking History</a>
-                <a href="tutor_reviews.php" class="title-with-icon body-text icon-star account-setting-menu">Reviews</a>
-              </div>
-            </div>
+            <?php include('shared/account-settings-menu.php'); ?>
 
             <!-- Current user info -->
             <div class="account-content-current">
