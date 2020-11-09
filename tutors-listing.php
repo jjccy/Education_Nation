@@ -97,26 +97,40 @@
           <div class="filter-popout hide">
             <div class="group">
 
-              <label class="container">Math
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">English
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">French
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">Science
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-              </label>
-              <label class="container">History
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-              </label>
+              <?php
+              // get all course from Database
+              $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+              $allCoursesOption = mysqli_query($connection, "SELECT DISTINCT course.subject_name
+                                                                        FROM course
+                                                                        ORDER BY course.subject_name");
+
+
+              if (!$allCoursesOption) {
+                die("get all course option fail");
+              }
+
+              // echo every single course
+              while ($row = mysqli_fetch_assoc($allCoursesOption))
+              {
+                $coursename = $row['subject_name'];
+
+                echo "<label class='container'>$coursename
+                        <input type='checkbox' checked='checked' value='$coursename'>
+                        <span class='checkmark'></span>
+                      </label>";
+              }
+
+              mysqli_free_result($allCoursesOption);
+              mysqli_close($connection);
+
+               ?>
+
+              <!-- check box template -->
+              <!-- <label class='container'>Math
+                <input type='checkbox' checked='checked'>
+                <span class='checkmark'></span>
+              </label> -->
+
             </div>
 
             <!-- two side slide bar -->

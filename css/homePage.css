@@ -96,6 +96,10 @@ body {
   font-size: .8rem;
 }
 
+element.style {
+  width:auto !important;
+}
+
 /* cards end here */
 /* list buttons */
 .slider-title-section {

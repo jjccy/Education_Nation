@@ -122,7 +122,7 @@ body {
   position: relative;
   right: 0;
   order: 2;
-  width: 15.5em;
+  width: 16em;
   padding-left: 3em;
   font-family: SF Pro Display;
   transition-property: all;
@@ -200,6 +200,8 @@ body {
   height: 1.5em;
   width: 1.5em;
   background-color: #fff;
+
+  border-radius: .2em;
 }
 
 /* On mouse-over, add a grey background color */
@@ -226,12 +228,12 @@ body {
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-  left: .5em;
-  top: .16em;
-  width: .35em;
-  height: .85em;
+  left: .48em;
+  top: .15em;
+  width: .33em;
+  height: .8em;
   border: solid white;
-  border-width: 0 .2em .2em 0;
+  border-width: 0 .18em .18em 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
