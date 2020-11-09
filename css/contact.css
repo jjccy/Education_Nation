@@ -1,9 +1,9 @@
 body {
-  background: url('../img/Contact_Background.png');
+  background: url('../img/Purple_Bottom_Right.png');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: right bottom;
-  background-size: auto;
+  background-size: 25% auto;
 }
 
 .contact-page {
@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-height: 100vh;
 }
 
 /* signup page form layout */
@@ -159,7 +160,7 @@ body {
 .contact-info {
   position: fixed;
   right: 5%;
-  top: 10%;
+  top: 15%;
   min-height: 60vh;
   flex: 1 1 auto;
   background: #FFFFFF;
