@@ -15,6 +15,19 @@ img {
   object-fit: cover;
 }
 
+footer {
+  padding: 3em;
+  width: 100vw;
+  text-align: center;
+}
+
+footer p {
+  font-family: SF Pro Display SemiBold;
+  color: #776FC4;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
 .heading-1 {
   font-family: Poppins;
   color: #000000;
@@ -95,6 +108,7 @@ img {
   z-index: 99;
   position: fixed;
   background: linear-gradient(180deg, white 80%, rgba(0, 0, 0, 0));
+  /* background: rgba(255, 255, 255, 0.5); */
 }
 
 .top-nav-item {
