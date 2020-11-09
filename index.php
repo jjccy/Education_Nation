@@ -65,7 +65,7 @@
         <!-- home best tutors section Slider carousel-->
         <section class="home-slider">
           <div class="slider-title-section">
-            <p class="title-with-icon heading-1 icon-award">Best Tutors Of The Month</p>
+            <p class="title-with-icon heading-1 icon-award">Best Course Of The Month</p>
 
             <!-- slider buttons -->
             <div class="max-flex-box-item"></div>

@@ -181,9 +181,10 @@
               </div>
 
               <?php
-
+              date_default_timezone_set("America/Vancouver");
               // function to convert time stamp to days ago.
               function time_elapsed_string($datetime, $full = false) {
+
                   $now = new DateTime;
                   $ago = new DateTime($datetime);
                   $diff = $now->diff($ago);
