@@ -254,9 +254,8 @@ img {
 }
 
 .account-section .profile-picture {
-    min-height: 1.75rem;
-    max-height: 3rem;
-    padding-right: 1.75rem;
+    height: 2.3em;
+    padding-right: 2.3em;
     align-items: center;
     border-radius: 3em;
 
