@@ -55,7 +55,7 @@
               if(mysqli_connect_errno()) {
                 // if fail, skip all php and print errors
 
-                die("Database connet failed: " .
+                die("Database connection failed: " .
                   mysqli_connect_error() .
                   " (" . mysqli_connect_errno(). ")"
                 );
