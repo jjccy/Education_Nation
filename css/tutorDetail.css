@@ -14,8 +14,17 @@ body {
   padding-left: 18.8em;
   padding-top: 8.5em;
   padding-right: 9.5em;
-  margin-bottom: 5em;
+  /* margin-bottom: 5em; */
   min-height: 100vh;
+}
+
+.tutor-detail-container {
+  box-shadow: -2px -2px 5px rgba(125, 125, 125, 0.2);
+  background: white;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  padding: 4em;
+  min-height: 86vh;
 }
 
 .detail-info {

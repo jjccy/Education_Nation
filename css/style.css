@@ -5,7 +5,7 @@
 }
 
 body {
-    position: relative;
+  position: relative;
 }
 
 img {
@@ -13,6 +13,19 @@ img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+footer {
+  padding: 3em;
+  width: 100vw;
+  text-align: center;
+}
+
+footer p {
+  font-family: SF Pro Display SemiBold;
+  color: #776FC4;
+  font-size: 1rem;
+  text-decoration: none;
 }
 
 .heading-1 {
@@ -95,6 +108,7 @@ img {
   z-index: 99;
   position: fixed;
   background: linear-gradient(180deg, white 80%, rgba(0, 0, 0, 0));
+  /* background: rgba(255, 255, 255, 0.5); */
 }
 
 .top-nav-item {
@@ -303,6 +317,7 @@ img {
 
 .account-section .dropDown:hover .dropdown-content {
   display: block;
+  overflow: hidden;
 }
 
 .account-section .dropDown:hover .login-wrapper {
@@ -655,7 +670,6 @@ img {
   text-decoration: underline;
 }
 
-
 /* responsive */
 .iframe-wrapper {
   position: fixed;
@@ -672,7 +686,6 @@ img {
 }
 
 /* overlay module */
-
 .overlay {
   position: fixed;
   top: 0;
@@ -711,9 +724,8 @@ img {
 .overlay #closeButton:hover,
 .overlay #closeButton:active,
 .overlay #closeButton:focus {
-    opacity: .7;
+  opacity: .7;
 }
-
 
 /* overlay reivew section */
 .post-review {}
@@ -772,7 +784,6 @@ img {
   color: #585199;
 }
 
-
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css && https://codepen.io/hesguru/pen/BaybqXv*/
 #selectCourse {
   width: 15em;
@@ -818,160 +829,140 @@ img {
 }
 
 /* login page form layout */
-
 .login-page-item {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    flex: 1 1 auto;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 1 auto;
 }
 
-
 /* login page empty space on right*/
-
 .login-page-filler {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    flex: 1 1 auto;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 1 auto;
 }
 
 .login-form {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    flex-direction: column;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
 }
 
 #login-form {
-    width: 100%;
-    margin-top: 1em;
-    margin-bottom: 1em;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-
 /*Welcome message CSS*/
-
 .login-message {
-    margin-left: 16em;
-    min-width: 28em;
+  margin-left: 16em;
+  min-width: 28em;
 }
 
 .login-message .heading-1 {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
-
 /* Form Styling*/
-
 .form-label {
-    font-family: SF Pro Display SemiBold;
-    display: inline-block;
-    color: #776FC4;
-    width: 50%;
-    float: left;
+  font-family: SF Pro Display SemiBold;
+  display: inline-block;
+  color: #776FC4;
+  width: 50%;
+  float: left;
 }
 
 .form-reveal {
-    font-family: SF Pro Display SemiBold;
-    display: inline-block;
-    text-decoration: none;
-    text-align: right;
-    float: right;
-    color: #776FC4;
-    width: 50%;
+  font-family: SF Pro Display SemiBold;
+  display: inline-block;
+  text-decoration: none;
+  text-align: right;
+  float: right;
+  color: #776FC4;
+  width: 50%;
 }
 
-
 /*input text-box styling*/
-
 .text-box {
-    font-family: 'SF Pro Display', sans-serif;
-    background-color: transparent;
-    color: #000000;
-    border: none;
-    border-bottom: 1px solid #C4CAD5;
-    outline-width: 0;
-    padding: 0.75rem 0;
-    margin-bottom: 2.5rem;
-    margin-top: 0.5rem;
-    display: block;
-    width: 100%;
-    clear: both;
-    font-size: 1.4rem;
+  font-family: 'SF Pro Display', sans-serif;
+  background-color: transparent;
+  color: #000000;
+  border: none;
+  border-bottom: 1px solid #C4CAD5;
+  outline-width: 0;
+  padding: 0.75rem 0;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+  display: block;
+  width: 100%;
+  clear: both;
+  font-size: 1.4rem;
 }
 
-
 /*input text-box styling*/
-
 .text-box[type=text]:focus {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #776FC4;
-    outline-width: 0;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #776FC4;
+  outline-width: 0;
 }
-
 
 /*input text-box styling*/
-
 ::placeholder {
-    color: #C4CAD5;
+  color: #C4CAD5;
 }
-
 
 /*Submit button styling*/
-
 .button-default {
-    margin-top: 2em;
-    background-color: #673AB7;
-    width: 100%;
-    border-radius: 6px;
-    padding: 0.75em;
-    border: none;
-    color: #FFFFFF;
-    font-family: SF Pro Display;
-    font-size: 1em;
+  margin-top: 2em;
+  background-color: #673AB7;
+  width: 100%;
+  border-radius: 6px;
+  padding: 0.75em;
+  border: none;
+  color: #FFFFFF;
+  font-family: SF Pro Display;
+  font-size: 1em;
 }
-
 
 /*Link styling*/
-
 .link-default {
-    font-family: SF Pro Display SemiBold;
-    text-decoration: none;
-    color: #776FC4;
-    font-size: 1em;
-    margin-bottom: 0;
+  font-family: SF Pro Display SemiBold;
+  text-decoration: none;
+  color: #776FC4;
+  font-size: 1em;
+  margin-bottom: 0;
 }
 
-
 /*Checkbox styling*/
-
 input[type='checkbox'] {
-    cursor: pointer;
-    margin-right: 0.5em;
-    width: 1em;
-    height: 1em;
+  cursor: pointer;
+  margin-right: 0.5em;
+  width: 1em;
+  height: 1em;
 }
 
 input[type='checkbox']:before {
-    border: 1px solid #C4CAD5;
-    border-radius: 5px;
-    background-color: transparent;
+  border: 1px solid #C4CAD5;
+  border-radius: 5px;
+  background-color: transparent;
 }
 
 input[type='checkbox']:checked:after {
-    border: 1px solid #C4CAD5;
-    border-radius: 5px;
-    background-color: #776FC4;
+  border: 1px solid #C4CAD5;
+  border-radius: 5px;
+  background-color: #776FC4;
 }
-
 
 /* End of Form Styling*/
 /* end of card */
@@ -988,31 +979,30 @@ input[type='checkbox']:checked:after {
 }
 
 /* Review Stars */
-
 :root {
-    --star-size: 3rem;
-    --post-star-size: 2rem;
-    --star-color: #eee;
-    --star-background: #776FC4;
+  --star-size: 3rem;
+  --post-star-size: 2rem;
+  --star-color: #eee;
+  --star-background: #776FC4;
 }
 
 .Stars {
-    --percent: calc(var(--rating) / 5 * 100%);
-    display: inline-block;
-    font-size: var(--star-size);
-    /* font-family: Times; */
-    line-height: 1;
-    margin-right: 1em !important;
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  /* font-family: Times; */
+  line-height: 1;
+  margin-right: 1em !important;
 }
 
 .Stars.post {
-    font-size: var(--post-star-size);
+  font-size: var(--post-star-size);
 }
 
 .Stars::before {
-    content: '★★★★★';
-    /* letter-spacing: .2em; */
-    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  content: '★★★★★';
+  /* letter-spacing: .2em; */
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
