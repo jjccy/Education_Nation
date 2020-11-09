@@ -27,7 +27,10 @@
   <div class="top-nav-item account-section" id='logined'>
     <div class="cart-quantity-top">
       <?php
-      session_start();
+      if (session_status() == PHP_SESSION_NONE) {
+          session_start();
+      }
+      
       if (!isset($_SESSION['isTutor']) || !$_SESSION['isTutor']) {
         echo "<a href='cart.php' class='title-with-icon heading-3 icon-cart'>Cart: 3</a>";
       }
@@ -41,7 +44,7 @@
 
 
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-            $connection = mysqli_connect("localhost", "login", "", "terence_liu");
+            $connection = mysqli_connect("localhost", "view", "", "terence_liu");
             $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
                                                                           WHERE member.m_id = " .  $_SESSION['m_id']))[0];
 
@@ -79,7 +82,7 @@
         <a href="account-settings.php">Account Setting</a>
 
         <?php
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SESSION['isTutor'])) {
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['isTutor']) {
             echo "<a href='tutor_courses-create.php'>Create new course</a>";
         }
          ?>

@@ -2,7 +2,7 @@
     <img class="user-pfp" src="
     <?php
         // get database
-        $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+        $connection = mysqli_connect("localhost", "view", "", "terence_liu");
 
         if(mysqli_connect_errno()) {
         // if fail, skip all php and print errors
@@ -39,7 +39,7 @@
                 <p class="heading-1 tutor-name">
                     <?php
                     // get database
-                    $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+                    $connection = mysqli_connect("localhost", "view", "", "terence_liu");
 
                     if(mysqli_connect_errno()) {
                         // if fail, skip all php and print errors

@@ -11,7 +11,7 @@
     $password = $_POST['password-input'];
 
     // get database
-    $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+    $connection = mysqli_connect("localhost", "login", "", "terence_liu");
     //Check if database connection was a success or not
     if(mysqli_connect_errno()) {
       // if fail, skip all php and print errors
@@ -99,7 +99,6 @@
     echo 'alert("Account Not Found");';
     echo "window.location.href='login.php';";
     echo '</script>';
-
     ?>
 
   </body>

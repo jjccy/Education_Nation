@@ -32,7 +32,7 @@
         <select name="selectCourse" id="selectCourse">
           <option value="-99">Select Course</option>
           <?php
-          $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+          $connection = mysqli_connect("localhost", "view", "", "terence_liu");
           $courseName= mysqli_query($connection, "SELECT course.subject_name, course.c_id
                                                   FROM course
                                                   WHERE $tutorID = course.tutor_id");

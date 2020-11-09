@@ -18,7 +18,7 @@
     $duplicated = false;
 
     // get database
-    $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+    $connection = mysqli_connect("localhost", "login", "", "terence_liu");
 
     if(mysqli_connect_errno()) {
       // if fail, skip all php and print errors
@@ -64,29 +64,6 @@
       VALUES ('" . $email . "', '" . $fname . "', '" . $lname . "', '".  $hashedPassword . "')";
 
       $forForeignKey = "";
-
-      // create new user and give them privilege
-      $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
-      if (!mysqli_query($connection, $sql)) {
-        die ("create new user failed: " . mysqli_error($connection));
-      }
-
-      $sql = "GRANT ALL
-      ON terence_liu.member
-      TO '" . $email . "'@'localhost';";
-
-      if (!mysqli_query($connection, $sql)) {
-        die ("grant privilege failed: " . mysqli_error($connection));
-      }
-
-      // give all priviage on data
-      $sql = "GRANT SELECT,INSERT,UPDATE
-      ON terence_liu.*
-      TO '" . $email . "'@'localhost';";
-      if (!mysqli_query($connection, $sql)) {
-        die ("Connection failed: " . mysqli_error($connection));
-      }
-
 
       ini_set("session.gc_maxlifetime", 60 * 90);
       session_start();
@@ -161,6 +138,22 @@
             break;
           }
         }
+
+
+
+        // // create new user and give them privilege
+        // $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
+        // if (!mysqli_query($connection, $sql)) {
+        //   die ("create new user failed: " . mysqli_error($connection));
+        // }
+        //
+        // // give all priviage on data
+        // $sql = "GRANT SELECT,INSERT,UPDATE
+        // ON terence_liu.*
+        // TO '" . $email . "'@'localhost';";
+        // if (!mysqli_query($connection, $sql)) {
+        //   die ("Connection failed: " . mysqli_error($connection));
+        // }
 
       }
       else {
