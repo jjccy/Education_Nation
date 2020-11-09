@@ -26,7 +26,11 @@
 
   <div class="top-nav-item account-section" id='logined'>
     <div class="cart-quantity-top">
-      <a href="cart.php" class="title-with-icon heading-3 icon-cart">Cart: 3</a>
+      <?php
+      if (!isset($_COOKIE['isTutor'])) {
+        echo "<a href='cart.php' class='title-with-icon heading-3 icon-cart'>Cart: 3</a>";
+      }
+       ?>
     </div>
 
     <div class="dropDown">
