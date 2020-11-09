@@ -81,14 +81,11 @@
                   ?>
                 </textarea>
 
-                <input type="submit" id="input-cancel" value="Cancel" name="input-cancel">
-                <input type="submit" id="input-update" value="Update">
+                <div class="about-btn-container">
+                  <input class="btn btn-outline" type="submit" id="input-cancel" value="Cancel" name="input-cancel">
+                  <input class="btn btn-fill" type="submit" id="input-update" value="Update">
+                </div>
               </form>
-
-              <div class="about-btn-container">
-                <button class="btn btn-outline">Cancel</button>
-                <button class="btn btn-fill">Update</button>
-              </div>
             </div>
           </div>
         </div>

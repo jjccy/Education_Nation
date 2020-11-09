@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <?php include('shared/underConstruction.php'); ?>
     <?php include('shared/checkLogin.php'); ?>
     <div class="background"></div>
 

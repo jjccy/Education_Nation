@@ -7,7 +7,9 @@
 </head>
 <body>
     <?php
-        if ($_POST['input-cancel'] == NULL || $_POST['input-cancel'] != "Cancel") {
+        // checking if cancel has been pressed; if yes then returns back to about-me with no changes
+        // if cancel wasn't then updating db with updated bio
+        if (!isset($_POST['input-cancel']) || $_POST['input-cancel'] != "Cancel") {
           if (session_status() == PHP_SESSION_NONE) {
               session_start();
           }

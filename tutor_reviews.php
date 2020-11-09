@@ -109,7 +109,7 @@
                 }
 
                 // change above step to session
-                $currentUser = $_COOKIE['m_id'];
+                $currentUser = $_SESSION['m_id'];
 
                 $query = "SELECT * FROM review INNER JOIN member WHERE review.tutor_id = '$currentUser' AND member.m_id = review.student_id";
 
