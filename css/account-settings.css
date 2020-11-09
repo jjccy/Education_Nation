@@ -70,6 +70,8 @@ display: -ms-flex; */
 
 .tutor-name {
     color: #776FC4;
+    align-self: center;
+    flex: 1;
 }
 
 .tutor-spec {

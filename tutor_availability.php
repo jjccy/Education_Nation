@@ -52,7 +52,7 @@
           <div class="account-settings-header">
             <div class="heading-spacer"></div>
             <div class="header-wrapper">
-              <p class="title-with-icon heading-1 icon-award">Create A Course</p>
+              <p class="title-with-icon heading-1 icon-calendar">Availability</p>
             </div>
             <!-- <div class="space-filler"></div> -->
           </div>
@@ -61,26 +61,7 @@
 
             <?php include('shared/account-settings-menu.php'); ?>
 
-            <div class="account-setting-list tutor-courses tutor-course-create">
-                <form id="create-course-form" action="create-course.php" method="post">
-                    <div class="form-group">
-                        <label for="subject-create" class="form-label"> Course Subject </label>
-                        <input type="text" name="subject-create" id="subject-create" class="text-box" placeholder="Subject name" required>
-
-                        <label for="wage-create" class="form-label"> Hourly Wage </label>
-                        <input type="text" name="wage-create" id="wage-create" class="text-box" placeholder="Price per hour" required>
-
-                        <label class="form-label"> Grade Range </label>
-                        <input type="text" name="min-age-create" id="min-age-create" class="text-box" placeholder="Min." required>
-                        <input type="text" name="max-age-create" id="max-age-create" class="text-box" placeholder="Max." required>
-                
-                        <!-- on submit sends runs update-account.php -->
-                        <div class="form-submit">
-                        <input type="submit" name="create-course-submit" id="create-course-submit" value="Create Course" class="btn button-default">
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <div class="availability"></div>
           </div>
         </div>
       </div>
