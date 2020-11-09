@@ -65,7 +65,7 @@
             // get tutor info
             $courseInfo = mysqli_fetch_array(mysqli_query($connection, "SELECT member.fname, member.lname, member.profile_address,
             course.subject_name, course.min_grade, course.max_grade, course.c_id, course.price, tutor.bio, tutor.primary_language, tutor.city, tutor.country
-                                                    FROM course INNER JOIN tutor ON course.tutor_id = $tutorID
+                                                    FROM course INNER JOIN tutor ON tutor.tutor_id = $tutorID
                                                     INNER JOIN member ON member.m_id = $tutorID
                                                     WHERE $courseID = course.c_id"));
 
