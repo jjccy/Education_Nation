@@ -107,7 +107,7 @@
                 $courseList = mysqli_query($connection, "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.c_id, AVG(review.rating) AS AverageReview
                                                         FROM course INNER JOIN tutor ON tutor.tutor_id = course.tutor_id
                                                         INNER JOIN member ON course.tutor_id = member.m_id
-                                                        JOIN review ON tutor.tutor_id = review.tutor_id
+                                                        JOIN review ON course.c_id = review.c_id
                                                         GROUP By course.c_id
                                                         ORDER BY AverageReview DESC
                                                         LIMIT 5");
