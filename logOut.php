@@ -9,7 +9,9 @@
 
     // change login status to false;
     // $_COOKIE['loggedin'] = false;
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     session_destroy();
 
 

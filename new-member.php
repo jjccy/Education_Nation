@@ -66,7 +66,9 @@
       $forForeignKey = "";
 
       ini_set("session.gc_maxlifetime", 60 * 90);
-      session_start();
+      if (session_status() == PHP_SESSION_NONE) {
+          session_start();
+      }
       // check if is a tutor or student
       if ($role === "tutor") {
         // add access to tutor table
@@ -142,18 +144,18 @@
 
 
         // // create new user and give them privilege
-        // $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
-        // if (!mysqli_query($connection, $sql)) {
-        //   die ("create new user failed: " . mysqli_error($connection));
-        // }
-        //
-        // // give all priviage on data
-        // $sql = "GRANT SELECT,INSERT,UPDATE
-        // ON terence_liu.*
-        // TO '" . $email . "'@'localhost';";
-        // if (!mysqli_query($connection, $sql)) {
-        //   die ("Connection failed: " . mysqli_error($connection));
-        // }
+        $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
+        if (!mysqli_query($connection, $sql)) {
+          die ("create new user failed: " . mysqli_error($connection));
+        }
+
+        // give all priviage on data
+        $sql = "GRANT SELECT,INSERT,UPDATE
+        ON terence_liu.*
+        TO '" . $email . "'@'localhost';";
+        if (!mysqli_query($connection, $sql)) {
+          die ("Connection failed: " . mysqli_error($connection));
+        }
 
       }
       else {

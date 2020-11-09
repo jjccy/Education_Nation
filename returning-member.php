@@ -67,7 +67,9 @@
             ini_set("session.gc_maxlifetime", 90 * 60);
 
           }
-          session_start();
+          if (session_status() == PHP_SESSION_NONE) {
+              session_start();
+          }
           $_SESSION["loggedin"] = true;
           $_SESSION["email"] = $email;
           $_SESSION["name"] = $row['fname'];

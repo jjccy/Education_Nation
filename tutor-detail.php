@@ -52,7 +52,7 @@
             $tutorID = $_GET['tutor_id'];
             $courseID = $_GET['course_id'];
 
-            $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            $connection = mysqli_connect("localhost", "view", "", "terence_liu");
             if(mysqli_connect_errno()) {
               // if fail, skip all php and print errors
 
@@ -141,7 +141,7 @@
             <section class="text-area" id="review">
               <?php
               if (isset($tutorID)) {
-                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+                $connection = mysqli_connect("localhost", "view", "", "terence_liu");
                 if(mysqli_connect_errno()) {
                   // if fail, skip all php and print errors
 
