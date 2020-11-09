@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/account-settings.css">
     <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/account-settings.css">
+
   </head>
 
   <body>
@@ -25,7 +26,7 @@
     <!-- start body wrapper -->
     <div class="body-wrapper">
 
-      <?php include('shared/footer.php'); ?>
+      <?php include('shared/topNav.php'); ?>
 
       <!-- start side nav -->
       <div class="side-nav">

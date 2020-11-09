@@ -1,7 +1,7 @@
 body {
   background: url('../img/Aqua_Bottom_Right.png');
   background-repeat: no-repeat, no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-position: right bottom;
   background-size: 25% auto;
 }
@@ -30,7 +30,7 @@ body {
 }
 
 .detail-info .card-container {
-    max-width: 15em;
+  max-width: 15em;
 }
 
 .actual-info {
@@ -67,7 +67,7 @@ body {
 }
 
 .info-btn:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .info-btn.active {}
@@ -85,20 +85,18 @@ body {
 }
 
 .text-area {
-    max-width: 42em;
-    display: none;
+  max-width: 42em;
+  display: none;
 }
 
 .text-area.display {
-    display: block;
+  display: block;
 }
 
-
 /* course detail section */
-
 .course-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .course-info>* {
@@ -116,7 +114,7 @@ body {
 }
 
 .course-info .heading-2 {
-    margin-block-end: .5em;
+  margin-block-end: .5em;
 }
 
 #course-price {
@@ -125,7 +123,6 @@ body {
   color: #776FC4;
   margin-block-start: .5em;
 }
-
 
 /* reveiw section */
 .overall-review {
