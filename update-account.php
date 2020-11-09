@@ -6,7 +6,7 @@
   </head>
   <body>
     <?php
-        
+        session_start();
 
         $updatefname = "false";
         $updatelname = "false";
@@ -14,7 +14,7 @@
         $updatepassword = "false";
 
         // change above step to session
-        $currentUser = $_COOKIE['m_id'];
+        $currentUser = $_SESSION['m_id'];
 
         $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
@@ -77,8 +77,8 @@
 
           // updating session name
           else {
-            setcookie('name', $newFirstName);
-            // $_SESSION['name'] = $newFirstName;
+            // setcookie('name', $newFirstName);
+            $_SESSION['name'] = $newFirstName;
           }
         }
 

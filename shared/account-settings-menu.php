@@ -1,6 +1,6 @@
 <?php
     // returns true mean user is a tutor
-    if (isset($_COOKIE['isTutor'])) { ?>
+    if (isset($_SESSION['isTutor']) && $_SESSION['isTutor']) { ?>
         <div class="account-menu">
             <div class="account-menu-container">
                 <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu" id="account-setting-link">Account Settings</a>
@@ -12,7 +12,7 @@
                 <a href="tutor_courses.php" class="title-with-icon body-text icon-award account-setting-menu" id="courses-link">Courses</a>
             </div>
         </div>
-    <?php } 
+    <?php }
     else { ?>
         <div class="account-menu">
             <div class="account-menu-container">
@@ -45,7 +45,7 @@
     if (current_url.includes("account-settings")) {
         account_settings.classList.add("title-active");
     }
-    
+
     else if (current_url.includes("upcoming-booking")) {
         upcoming_booking.classList.add("title-active");
     }

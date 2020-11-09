@@ -27,7 +27,8 @@
   <div class="top-nav-item account-section" id='logined'>
     <div class="cart-quantity-top">
       <?php
-      if (!isset($_COOKIE['isTutor'])) {
+      session_start();
+      if (!isset($_SESSION['isTutor']) || !$_SESSION['isTutor']) {
         echo "<a href='cart.php' class='title-with-icon heading-3 icon-cart'>Cart: 3</a>";
       }
        ?>
@@ -39,10 +40,10 @@
       <?php
 
 
-        if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true) {
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             $connection = mysqli_connect("localhost", "login", "", "terence_liu");
             $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
-                                                                          WHERE member.m_id = " .  $_COOKIE['m_id']))[0];
+                                                                          WHERE member.m_id = " .  $_SESSION['m_id']))[0];
 
             mysqli_close($connection);
 
@@ -65,7 +66,7 @@
         <div class="login-wrapper">
           <div class="icon-pic profile-picture" style="background-image:url(<?php echo $profileImage?>)"></div>
             <p class="heading-3"> <span class="hello"> Hello </span>
-            <?php echo $_COOKIE['name']?>
+            <?php echo $_SESSION['name']?>
            </p>
           <div class="icon-caret"></div>
         </div>
@@ -78,7 +79,7 @@
         <a href="account-settings.php">Account Setting</a>
 
         <?php
-        if (isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true && isset($_COOKIE['isTutor'])) {
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SESSION['isTutor'])) {
             echo "<a href='tutor_courses-create.php'>Create new course</a>";
         }
          ?>

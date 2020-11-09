@@ -8,8 +8,9 @@
 <body>
     <?php
         if ($_POST['input-cancel'] == NULL || $_POST['input-cancel'] != "Cancel") {
+          session_start();
             // change above step to session
-            $currentUser = $_COOKIE['m_id'];
+            $currentUser = $_SESSION['m_id'];
 
             $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
@@ -30,7 +31,7 @@
             if ($updatedBio != NULL) {
                 $query = "UPDATE tutor SET bio = '$updatedBio' WHERE tutor.tutor_id = '$currentUser'";
                 $result = mysqli_query($connection, $query);
-    
+
                 if (!$result) {
                     die('database query failed');
                 }

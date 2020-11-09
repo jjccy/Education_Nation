@@ -87,8 +87,9 @@
         die ("Connection failed: " . mysqli_error($connection));
       }
 
+
+      ini_set("session.gc_maxlifetime", 60 * 90);
       session_start();
-      ini_set("session.gc_maxlifetime", 90 * 60);
       // check if is a tutor or student
       if ($role === "tutor") {
         // add access to tutor table

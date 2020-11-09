@@ -9,6 +9,7 @@
 
     // change login status to false;
     // $_COOKIE['loggedin'] = false;
+    session_start();
     session_destroy();
 
 

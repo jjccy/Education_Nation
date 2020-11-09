@@ -24,11 +24,11 @@ if(isset($_POST['submitReview'])) {
 
   if ($courseId == -99) {
     $newReview = "INSERT INTO review (student_id, tutor_id, rating, comments)
-    VALUES ('" . $_COOKIE['m_id'] . "', '" . $tutorID . "', '".  $rate . "', '" . $comment . "')";
+    VALUES ('" . $_SESSION['m_id'] . "', '" . $tutorID . "', '".  $rate . "', '" . $comment . "')";
   }
   else {
     $newReview = "INSERT INTO review (student_id, tutor_id, c_id, rating, comments)
-    VALUES ('" . $_COOKIE['m_id'] . "', '" . $tutorID . "', '" . $courseId . "', '".  $rate . "', '" . $comment . "')";
+    VALUES ('" . $_SESSION['m_id'] . "', '" . $tutorID . "', '" . $courseId . "', '".  $rate . "', '" . $comment . "')";
   }
 
 
