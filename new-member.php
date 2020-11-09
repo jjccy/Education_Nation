@@ -66,19 +66,29 @@
       $forForeignKey = "";
 
       // create new user and give them privilege
-      // $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
-      // if (!mysqli_query($connection, $sql)) {
-      //   die ("create new user failed: " . mysqli_error($connection));
-      // }
-      // $sql = "GRANT ALL
-      // ON terence_liu.member
-      // TO '" . $email . "'@'localhost';";
-      //
-      // if (!mysqli_query($connection, $sql)) {
-      //   die ("grant privilege failed: " . mysqli_error($connection));
-      // }
+      $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
+      if (!mysqli_query($connection, $sql)) {
+        die ("create new user failed: " . mysqli_error($connection));
+      }
 
+      $sql = "GRANT ALL
+      ON terence_liu.member
+      TO '" . $email . "'@'localhost';";
 
+      if (!mysqli_query($connection, $sql)) {
+        die ("grant privilege failed: " . mysqli_error($connection));
+      }
+
+      // give all priviage on data
+      $sql = "GRANT SELECT,INSERT,UPDATE
+      ON terence_liu.*
+      TO '" . $email . "'@'localhost';";
+      if (!mysqli_query($connection, $sql)) {
+        die ("Connection failed: " . mysqli_error($connection));
+      }
+
+      session_start();
+      ini_set("session.gc_maxlifetime", 90 * 60);
       // check if is a tutor or student
       if ($role === "tutor") {
         // add access to tutor table
@@ -90,7 +100,7 @@
         // }
 
         $forForeignKey = "INSERT INTO tutor (tutor_id) VALUES(last_insert_id())";
-        setcookie('isTutor', true, time() + 5400);
+        $_SESSION["isTutor"] = true;
       }
       else {
         // add access to student table
@@ -110,7 +120,7 @@
         // }
 
         $forForeignKey = "INSERT INTO student (student_id) VALUES(last_insert_id())";
-        setcookie('isTutor', false, time() + 5400);
+        $_SESSION["isTutor"] = false;
       }
 
       // insert new user info into database
@@ -122,13 +132,11 @@
         echo '</script>';
 
         // store user information in session
-        setcookie('loggedin', true, time() + 5400);
-        setcookie('email', $email, time() + 5400);
-        setcookie('name', $fname, time() + 5400);
+        $_SESSION["loggedin"] = true;
+        $_SESSION["email"] = $email;
+        $_SESSION["name"] = $fname;
+        $_SESSION["password"] = $password;
 
-        // $_SESSION['loggedin'] = true;
-        // $_SESSION['email'] = $email;
-        // $_SESSION['name'] = $fname;
         // $getId = "SELECT member.m_id FROM member WHERE member.email=" . $email;
         // echo $getId ."<br>";
         // // $_SESSION['m_id'] = mysqli_fetch_array(mysqli_query($connection, $getId));
@@ -148,7 +156,7 @@
         while ($row = mysqli_fetch_array($getId))
         {
           if ($email === $row['email']) { // password_verify the email
-            setcookie('m_id', $row['m_id'], time() + 5400);
+            $_SESSION["m_id"] = $row['m_id'];
             break;
           }
         }
