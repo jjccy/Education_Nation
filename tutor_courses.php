@@ -64,7 +64,7 @@
             <div class="account-setting-list tutor-courses">
               <?php
                 // get database
-                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+                $connection = mysqli_connect("localhost", "view", "", "terence_liu");
 
                 if(mysqli_connect_errno()) {
                   // if fail, skip all php and print errors
@@ -87,7 +87,7 @@
                 while ($row = $result -> fetch_assoc()) {
                     $price = "$" . $row['price'];
                     $subject = $row['subject_name'];
-                    
+
                     if ($row['min_grade'] == 0) {
                       $minGrade = "K";
                     }
@@ -118,7 +118,7 @@
                                           echo $subject;
                                       echo '</p>';
                                   echo '</div>';
-                              
+
                                   echo '<div class="card-img card-icon">';
                                       echo '<img src="img/Edit_Purple.svg" alt="edit icon">';
                                   echo '</div>';
@@ -128,7 +128,7 @@
                                 echo '</p>';
                                 echo '</div>';
                             echo '</div>';
-                    
+
                             echo '<div class="card-content-container">';
                                 echo '<p class="heading-1 rate-text">';
                                     echo $price;

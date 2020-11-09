@@ -99,7 +99,7 @@
 
               <?php
               // get all course from Database
-              $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+              $connection = mysqli_connect("localhost", "view", "", "terence_liu");
               $allCoursesOption = mysqli_query($connection, "SELECT DISTINCT course.subject_name
                                                                         FROM course
                                                                         ORDER BY course.subject_name");
@@ -149,7 +149,7 @@
           <div class="cards-wrapper">
 
             <?php
-            $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            $connection = mysqli_connect("localhost", "view", "", "terence_liu");
             if(mysqli_connect_errno()) {
               // if fail, skip all php and print errors
 

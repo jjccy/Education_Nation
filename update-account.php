@@ -6,7 +6,9 @@
   </head>
   <body>
     <?php
-        
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
         $updatefname = "false";
         $updatelname = "false";
@@ -14,9 +16,9 @@
         $updatepassword = "false";
 
         // change above step to session
-        $currentUser = $_COOKIE['m_id'];
+        $currentUser = $_SESSION['m_id'];
 
-        $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+        $connection = mysqli_connect("localhost", "login" , "" , "terence_liu");
 
         if(mysqli_connect_errno()) {
           // if fail, skip all php and print errors
@@ -77,8 +79,8 @@
 
           // updating session name
           else {
-            setcookie('name', $newFirstName);
-            // $_SESSION['name'] = $newFirstName;
+            // setcookie('name', $newFirstName);
+            $_SESSION['name'] = $newFirstName;
           }
         }
 
@@ -98,6 +100,7 @@
           if (!$result) {
               die('database query failed');
           }
+          $_SESSION['email'] = $newEmail;
         }
 
         if ($newPassword != NULL) {
@@ -107,6 +110,29 @@
           if (!$result) {
               die('database query failed');
           }
+          $_SESSION['password'] = $newPassword;
+        }
+
+
+        // drop old user account and create new one
+
+        $sql = "DROP USER '" . $email . "'@'localhost';";
+        if (!mysqli_query($connection, $sql)) {
+          die ("create new user failed: " . mysqli_error($connection));
+        }
+
+        // create new user account
+        $sql = "CREATE USER '" . $_SESSION['email'] . "'@'localhost' IDENTIFIED BY '" . $_SESSION['password'] . "';";
+        if (!mysqli_query($connection, $sql)) {
+          die ("create new user failed: " . mysqli_error($connection));
+        }
+
+        // give all priviage on data
+        $sql = "GRANT SELECT,INSERT,UPDATE
+        ON terence_liu.*
+        TO '" . $_SESSION['email'] . "'@'localhost';";
+        if (!mysqli_query($connection, $sql)) {
+          die ("Connection failed: " . mysqli_error($connection));
         }
 
         mysqli_close($connection);

@@ -23,7 +23,6 @@
     <!-- end of chat module -->
 
     <!-- start body wrapper -->
-    <?php include('shared/footer.php'); ?>
 
       <?php include('shared/topNav.php'); ?>
 
@@ -64,7 +63,7 @@
             <div class="account-content-current">
               <?php
                 // get database
-                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+                $connection = mysqli_connect("localhost", "view", "", "terence_liu");
 
                 if(mysqli_connect_errno()) {
                   // if fail, skip all php and print errors
@@ -107,7 +106,7 @@
                   echo '</div>';
                 }
 
-                
+
                 mysqli_free_result($result);
                 mysqli_close($connection);
               ?>
@@ -161,7 +160,7 @@
 
 
     <!-- footer starts here -->
-    <?php include('shared/topNav.php'); ?>
+    <?php include('shared/footer.php'); ?>
 
     <!-- end of footer section -->
 

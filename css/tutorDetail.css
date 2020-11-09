@@ -1,19 +1,32 @@
+body {
+  background: url('../img/Aqua_Bottom_Right.png');
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll;
+  background-position: right bottom;
+  background-size: 25% auto;
+}
+
+.background {
+  display: none;
+}
+
 .tutor-detail {
-    padding-left: 18.8em;
-    padding-top: 8.5em;
-    padding-right: 9.5em;
-    margin-bottom: 5em;
+  padding-left: 18.8em;
+  padding-top: 8.5em;
+  padding-right: 9.5em;
+  margin-bottom: 5em;
+  min-height: 100vh;
 }
 
 .detail-info {
-    width: 100%;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
 }
 
 .detail-info>div {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .detail-info .card-container {
@@ -21,36 +34,36 @@
 }
 
 .actual-info {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-right: 3em;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 3em;
 }
 
 .info-btns {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    margin-bottom: 3.5em;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 3.5em;
 }
 
 .info-btn {
-    width: 12em;
-    height: 13.2em;
-    position: relative;
-    text-decoration: none;
-    text-align: center;
-    color: #776FC4;
-    font-family: SF Pro Display;
-    font-size: .9rem;
-    padding: 3.8em 3.2em 0;
-    margin-right: 1.5em;
-    background: #EEE8F6;
-    border-radius: 1em;
-    transition-property: all;
-    transition-duration: .1s;
+  width: 12em;
+  height: 13.2em;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  color: #776FC4;
+  font-family: SF Pro Display;
+  font-size: .9rem;
+  padding: 3.8em 3.2em 0;
+  margin-right: 1.5em;
+  background: #EEE8F6;
+  border-radius: 1em;
+  transition-property: all;
+  transition-duration: .1s;
 }
 
 .info-btn:hover {
@@ -60,15 +73,15 @@
 .info-btn.active {}
 
 .info-btn>img {
-    margin-bottom: .5em;
+  margin-bottom: .5em;
 }
 
 .info-btn>p {
-    position: absolute;
-    left: 50%;
-    -ms-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    bottom: 0em;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  bottom: 0em;
 }
 
 .text-area {
@@ -89,17 +102,17 @@
 }
 
 .course-info>* {
-    flex: 0 0 auto;
-    margin-bottom: 1.3em;
+  flex: 0 0 auto;
+  margin-bottom: 1.3em;
 }
 
 .course-info>*:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .course-info>*>.body-text {
-    margin-block-start: .5em;
-    margin-block-end: .5em;
+  margin-block-start: .5em;
+  margin-block-end: .5em;
 }
 
 .course-info .heading-2 {
@@ -107,70 +120,69 @@
 }
 
 #course-price {
-    font-family: Poppins;
-    font-size: 1.7em;
-    color: #776FC4;
-    margin-block-start: .5em;
+  font-family: Poppins;
+  font-size: 1.7em;
+  color: #776FC4;
+  margin-block-start: .5em;
 }
 
 
 /* reveiw section */
-
 .overall-review {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    margin-bottom: 2.5em;
-    align-items: center;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 2.5em;
+  align-items: center;
 }
 
 .overall-review>* {
-    margin-right: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .overall-review>*:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .rating-text {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-block-start: 0;
-    margin-block-end: 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .overall-review>#writeReview {
-    padding: .9em 2.5em;
-    font-family: SF Pro Display;
-    text-decoration: none;
-    color: white;
-    background-color: #673AB7;
-    border-radius: .4em;
+  padding: .9em 2.5em;
+  font-family: SF Pro Display;
+  text-decoration: none;
+  color: white;
+  background-color: #673AB7;
+  border-radius: .4em;
 }
 
 .posts {
-    padding-top: 1.2em;
-    padding-bottom: 2.3em;
-    width: 100%;
-    border-top: 1px solid rgba(200, 200, 200, 0.5);
+  padding-top: 1.2em;
+  padding-bottom: 2.3em;
+  width: 100%;
+  border-top: 1px solid rgba(200, 200, 200, 0.5);
 }
 
 .posts>p:first-child {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .posts>div {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    align-items: center;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
 }
 
 .posts>div>p:last-child {
-    color: #ccc;
+  color: #ccc;
 }
 
 .posts>.body-text {
-    margin-block-start: .5em;
-    margin-block-end: .2em;
+  margin-block-start: .5em;
+  margin-block-end: .2em;
 }

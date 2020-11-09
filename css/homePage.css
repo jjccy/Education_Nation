@@ -1,9 +1,9 @@
 body {
-  background: url('../img/Home_Background.jpg');
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: right top;
-  background-size: auto 100%;
+  background: url('../img/Blue_Top_Right.png'), url('../img/Blue_Bottom_Left.png');
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll, scroll;
+  background-position: right top, left bottom;
+  background-size: auto 20%, auto 30%;
 }
 
 .background {
@@ -97,7 +97,7 @@ body {
 }
 
 element.style {
-  width:auto !important;
+  width: auto !important;
 }
 
 /* cards end here */

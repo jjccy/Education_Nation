@@ -1,5 +1,8 @@
 <?php
 if(isset($_POST['submitReview'])) {
+  if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+  }
 
   // get input review
   $returnPage = $_POST['currentPage'];
@@ -9,7 +12,7 @@ if(isset($_POST['submitReview'])) {
 
   (!isset($_POST['rate'])) ? $rate = 0 : $rate = $_POST['rate'];
 
-  $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+  $connection = mysqli_connect("localhost", $_SESSION['email'] , $_SESSION['password'] , "terence_liu");
 
   if(mysqli_connect_errno()) {
     // if fail, skip all php and print errors
@@ -24,11 +27,11 @@ if(isset($_POST['submitReview'])) {
 
   if ($courseId == -99) {
     $newReview = "INSERT INTO review (student_id, tutor_id, rating, comments)
-    VALUES ('" . $_COOKIE['m_id'] . "', '" . $tutorID . "', '".  $rate . "', '" . $comment . "')";
+    VALUES ('" . $_SESSION['m_id'] . "', '" . $tutorID . "', '".  $rate . "', '" . $comment . "')";
   }
   else {
     $newReview = "INSERT INTO review (student_id, tutor_id, c_id, rating, comments)
-    VALUES ('" . $_COOKIE['m_id'] . "', '" . $tutorID . "', '" . $courseId . "', '".  $rate . "', '" . $comment . "')";
+    VALUES ('" . $_SESSION['m_id'] . "', '" . $tutorID . "', '" . $courseId . "', '".  $rate . "', '" . $comment . "')";
   }
 
 

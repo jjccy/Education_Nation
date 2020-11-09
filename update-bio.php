@@ -8,10 +8,13 @@
 <body>
     <?php
         if ($_POST['input-cancel'] == NULL || $_POST['input-cancel'] != "Cancel") {
+          if (session_status() == PHP_SESSION_NONE) {
+              session_start();
+          }
             // change above step to session
-            $currentUser = $_COOKIE['m_id'];
+            $currentUser = $_SESSION['m_id'];
 
-            $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+            $connection = mysqli_connect("localhost", $_SESSION['email'] , $_SESSION['password'] , "terence_liu");
 
             if(mysqli_connect_errno()) {
             // if fail, skip all php and print errors
@@ -30,7 +33,7 @@
             if ($updatedBio != NULL) {
                 $query = "UPDATE tutor SET bio = '$updatedBio' WHERE tutor.tutor_id = '$currentUser'";
                 $result = mysqli_query($connection, $query);
-    
+
                 if (!$result) {
                     die('database query failed');
                 }

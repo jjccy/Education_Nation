@@ -8,9 +8,12 @@
 <body>
     <?php
         // change above step to session
-        $currentUser = $_COOKIE['m_id'];
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        $currentUser = $_SESSION['m_id'];
 
-        $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+        $connection = mysqli_connect("localhost", $_SESSION['email'] , $_SESSION['password'] , "terence_liu");
 
         if(mysqli_connect_errno()) {
             // if fail, skip all php and print errors
@@ -62,7 +65,7 @@
             mysqli_close($connection);
         }
 
-        
+
         while ($row = $result -> fetch_assoc()) {
             if ($row['subject_name'] == $subject) {
                 if ($row['min_grade'] == $minGrade) {
@@ -88,7 +91,7 @@
         if (!$result) {
             die("Database connect failed" .  mysqli_error($connection));
         }
-        
+
         mysqli_close($connection);
 
         echo '<script language="javascript">';

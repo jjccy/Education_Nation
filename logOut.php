@@ -9,11 +9,10 @@
 
     // change login status to false;
     // $_COOKIE['loggedin'] = false;
-    setcookie('loggedin', false, time() - 3600);
-    setcookie('email', "", time() - 3600);
-    setcookie('name', "", time() - 3600);
-    setcookie('m_id', "", time() - 3600);
-    setcookie('isTutor', "", time() - 3600);
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    session_destroy();
 
 
       // alert box exit

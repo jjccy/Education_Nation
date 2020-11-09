@@ -11,7 +11,7 @@
     $password = $_POST['password-input'];
 
     // get database
-    $connection = mysqli_connect("localhost", "root", "", "terence_liu");
+    $connection = mysqli_connect("localhost", "login", "", "terence_liu");
     //Check if database connection was a success or not
     if(mysqli_connect_errno()) {
       // if fail, skip all php and print errors
@@ -46,23 +46,36 @@
           $isTutor = (1 == ($checker->num_rows));
           //save logged in status, email, name, and id to session
           //checkbox for keep me signed in is selected
+
           if(isset($_POST['signed-in'])){
             //do not delete cookies, and sign out only when logout is clicked
-            setcookie('loggedin', true);
-            setcookie('email', $email);
-            setcookie('name', $row['fname']);
-            setcookie('m_id', $row['m_id']);
-            setcookie('isTutor', $isTutor);
+            // setcookie('loggedin', true);
+            // setcookie('email', $email);
+            // setcookie('name', $row['fname']);
+            // setcookie('m_id', $row['m_id']);
+            // setcookie('isTutor', $isTutor);
+            ini_set("session.gc_maxlifetime", 60 * 60 * 24 * 30);
           }
           //checkbox for keep me signed in is not selected
           else{
             //delete cookies after 90 minutes, therefore signing out
-            setcookie('loggedin', true, time() + 5400);
-            setcookie('email', $email, time() + 5400);
-            setcookie('name', $row['fname'], time() + 5400);
-            setcookie('m_id', $row['m_id'], time() + 5400);
-            setcookie('isTutor', $isTutor, time() + 5400);
+            // setcookie('loggedin', true, time() + 5400);
+            // setcookie('email', $email, time() + 5400);
+            // setcookie('name', $row['fname'], time() + 5400);
+            // setcookie('m_id', $row['m_id'], time() + 5400);
+            // setcookie('isTutor', $isTutor, time() + 5400);
+            ini_set("session.gc_maxlifetime", 90 * 60);
+
           }
+          if (session_status() == PHP_SESSION_NONE) {
+              session_start();
+          }
+          $_SESSION["loggedin"] = true;
+          $_SESSION["email"] = $email;
+          $_SESSION["name"] = $row['fname'];
+          $_SESSION["isTutor"] = $isTutor;
+          $_SESSION["m_id"] = $row['m_id'];
+          $_SESSION["password"] = $password;
 
           // release returned data
           mysqli_free_result($result);
@@ -88,7 +101,6 @@
     echo 'alert("Account Not Found");';
     echo "window.location.href='login.php';";
     echo '</script>';
-
     ?>
 
   </body>
