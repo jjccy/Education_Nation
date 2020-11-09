@@ -1,9 +1,9 @@
 body {
-  background: url('../img/Sign_Up_Background.png');
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  background-size: 100% auto;
+  background: url('../img/Purple_Top_Right.png'), url('../img/Purple_Bottom_Left.png');
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll, scroll;
+  background-position: right top, left bottom;
+  background-size: auto 60%, auto 25%;
 }
 
 .background {
@@ -23,6 +23,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-height: 100vh;
 }
 
 /* signup page form layout */
