@@ -6,7 +6,7 @@
 }
 
 body {
-  position: relative;
+    position: relative;
 }
 
 img {
@@ -258,12 +258,13 @@ img {
     padding-right: 2.3em;
     align-items: center;
     border-radius: 3em;
-
     margin-right: 1.25rem;
-
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
 }
 
 .account-section .dropDown {
@@ -677,6 +678,7 @@ img {
     text-decoration: underline;
 }
 
+
 /* responsive */
 
 .iframe-wrapper {
@@ -695,299 +697,314 @@ img {
 
 
 /* overlay module */
+
 .overlay {
-  position: fixed;
-  top:0;
-  left:0;
-  width: 100%;
-  height: 100vh;
-
-  background-color: rgba(0, 0, 0, 0.5);
-
-  transition: all .3s ease;
-
-  z-index: -100;
-  opacity: 0;
-
-  /* z-index:999; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all .3s ease;
+    z-index: -100;
+    opacity: 0;
+    /* z-index:999; */
 }
 
 .overlay-body {
-  position: absolute;
-
-  width: 50em;
-
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  padding: 3em 3em 2.3em;
-
-  background-color: white;
-  border-radius: 1.2em;
+    position: absolute;
+    width: 50em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3em 3em 2.3em;
+    background-color: white;
+    border-radius: 1.2em;
 }
 
 .overlay #closeButton {
-  position: absolute;
-  right: 1.7em;
-  top: 1.3em;
-
-  width: .7em;
-  height: .7em;
-
-  background-image: url(../img/close-black.svg);
-
-  opacity: .3;
-  transition: all .5s ease-out;
+    position: absolute;
+    right: 1.7em;
+    top: 1.3em;
+    width: .7em;
+    height: .7em;
+    background-image: url(../img/close-black.svg);
+    opacity: .3;
+    transition: all .5s ease-out;
 }
 
 .overlay #closeButton:hover,
 .overlay #closeButton:active,
 .overlay #closeButton:focus {
-  opacity: .7;
+    opacity: .7;
 }
+
 
 /* overlay reivew section */
-.post-review {
+
+.post-review {}
+
+.post-review>.flex-box {
+    align-items: center;
 }
 
-.post-review > .flex-box {
-  align-items: center;
+.post-review>.flex-box>* {
+    flex: 1 1 auto;
+    margin-right: .5em;
 }
 
-.post-review > .flex-box > *{
-  flex: 1 1 auto;
-  margin-right: .5em;
-}
-
-.post-review > .flex-box > *:last-child{
-  margin-right: 0;
+.post-review>.flex-box>*:last-child {
+    margin-right: 0;
 }
 
 .rate {
     float: left;
     height: auto;
 }
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
 }
-.rate:not(:checked) > label {
-    float:right;
-    width:1.1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:2.5em;
-    color:#ccc;
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1.1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 2.5em;
+    color: #ccc;
 }
-.rate:not(:checked) > label:before {
+
+.rate:not(:checked)>label:before {
     content: '★ ';
 }
-.rate > input:checked ~ label {
+
+.rate>input:checked~label {
     color: #847ec4;
 }
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
     color: #b5aff0;
 }
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
     color: #585199;
 }
+
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css && https://codepen.io/hesguru/pen/BaybqXv*/
 
 #selectCourse {
-  width: 15em;
-
-  padding: .3em 1.2em;
-  font-family: SF Pro Display;
-  font-size: 1em;
-  color: #ccc;
-
-  border-radius: .2em;
-  border-color: rgba(0, 0, 0, 0.3);
+    width: 15em;
+    padding: .3em 1.2em;
+    font-family: SF Pro Display;
+    font-size: 1em;
+    color: #ccc;
+    border-radius: .2em;
+    border-color: rgba(0, 0, 0, 0.3);
 }
 
-#selectCourse > option {
-  color: #777;
+#selectCourse>option {
+    color: #777;
 }
 
 .post-review textarea {
-  width: 100%;
-  height: 15em;
-  padding: 1.3em 2.8em;
-  margin-top: 2em;
-  margin-bottom: 2em;
-
-  font-family: SF Pro Display;
-  font-size: .85em;
-  resize: none;
-
-  box-sizing: border-box;
-  border: 1px solid #776fc4;
-  border-radius: 1em;
+    width: 100%;
+    height: 15em;
+    padding: 1.3em 2.8em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-family: SF Pro Display;
+    font-size: .85em;
+    resize: none;
+    box-sizing: border-box;
+    border: 1px solid #776fc4;
+    border-radius: 1em;
 }
 
 .post-review input[type="submit"] {
-  float: right;
-
-  padding: .8em 4.5em;
-
-  font-family: SF Pro Display;
-  font-size: .92em;
-  color: white;
-
-  background-color: #673ab7;
-  border-radius: .3em;
+    float: right;
+    padding: .8em 4.5em;
+    font-family: SF Pro Display;
+    font-size: .92em;
+    color: white;
+    background-color: #673ab7;
+    border-radius: .3em;
 }
+
 
 /* login overlay */
-#loginOverlay > .overlay-body {
-  width: 35em;
+
+#loginOverlay>.overlay-body {
+    width: 35em;
 }
+
 
 /* login page form layout */
+
 .login-page-item {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1 1 auto;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 1 auto;
 }
 
+
 /* login page empty space on right*/
+
 .login-page-filler {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1 1 auto;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 1 auto;
 }
 
 .login-form {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  flex-direction: column;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
 }
 
 #login-form {
-  width: 100%;
-  margin-top: 1em;
-  margin-bottom: 1em;
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
+
 /*Welcome message CSS*/
+
 .login-message {
-  margin-left: 16em;
-  min-width: 28em;
+    margin-left: 16em;
+    min-width: 28em;
 }
 
 .login-message .heading-1 {
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
 
+
 /* Form Styling*/
+
 .form-label {
-  font-family: SF Pro Display SemiBold;
-  display: inline-block;
-  color: #776FC4;
-  width: 50%;
-  float: left;
+    font-family: SF Pro Display SemiBold;
+    display: inline-block;
+    color: #776FC4;
+    width: 50%;
+    float: left;
 }
 
 .form-reveal {
-  font-family: SF Pro Display SemiBold;
-  display: inline-block;
-  text-decoration: none;
-  text-align: right;
-  float: right;
-  color: #776FC4;
-  width: 50%;
+    font-family: SF Pro Display SemiBold;
+    display: inline-block;
+    text-decoration: none;
+    text-align: right;
+    float: right;
+    color: #776FC4;
+    width: 50%;
 }
 
+
 /*input text-box styling*/
+
 .text-box {
-  font-family: 'SF Pro Display', sans-serif;
-  background-color: transparent;
-  color: #000000;
-  border: none;
-  border-bottom: 1px solid #C4CAD5;
-  outline-width: 0;
-  padding: 0.75rem 0;
-  margin-bottom: 2.5rem;
-  margin-top: 0.5rem;
-  display: block;
-  width: 100%;
-  clear: both;
-  font-size: 1.4rem;
+    font-family: 'SF Pro Display', sans-serif;
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    border-bottom: 1px solid #C4CAD5;
+    outline-width: 0;
+    padding: 0.75rem 0;
+    margin-bottom: 2.5rem;
+    margin-top: 0.5rem;
+    display: block;
+    width: 100%;
+    clear: both;
+    font-size: 1.4rem;
 }
 
+
 /*input text-box styling*/
+
 .text-box[type=text]:focus {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #776FC4;
-  outline-width: 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #776FC4;
+    outline-width: 0;
 }
 
+
 /*input text-box styling*/
+
 ::placeholder {
-  color: #C4CAD5;
+    color: #C4CAD5;
 }
+
 
 /*Submit button styling*/
+
 .button-default {
-  margin-top: 2em;
-  background-color: #673AB7;
-  width: 100%;
-  border-radius: 6px;
-  padding: 0.75em;
-  border: none;
-  color: #FFFFFF;
-  font-family: SF Pro Display;
-  font-size: 1em;
+    margin-top: 2em;
+    background-color: #673AB7;
+    width: 100%;
+    border-radius: 6px;
+    padding: 0.75em;
+    border: none;
+    color: #FFFFFF;
+    font-family: SF Pro Display;
+    font-size: 1em;
 }
+
 
 /*Link styling*/
+
 .link-default {
-  font-family: SF Pro Display SemiBold;
-  text-decoration: none;
-  color: #776FC4;
-  font-size: 1em;
-  margin-bottom: 0;
+    font-family: SF Pro Display SemiBold;
+    text-decoration: none;
+    color: #776FC4;
+    font-size: 1em;
+    margin-bottom: 0;
 }
 
+
 /*Checkbox styling*/
+
 input[type='checkbox'] {
-  cursor: pointer;
-  margin-right: 0.5em;
-  width: 1em;
-  height: 1em;
+    cursor: pointer;
+    margin-right: 0.5em;
+    width: 1em;
+    height: 1em;
 }
 
 input[type='checkbox']:before {
-  border: 1px solid #C4CAD5;
-  border-radius: 5px;
-  background-color: transparent;
+    border: 1px solid #C4CAD5;
+    border-radius: 5px;
+    background-color: transparent;
 }
 
 input[type='checkbox']:checked:after {
-  border: 1px solid #C4CAD5;
-  border-radius: 5px;
-  background-color: #776FC4;
+    border: 1px solid #C4CAD5;
+    border-radius: 5px;
+    background-color: #776FC4;
 }
 
+
 /* End of Form Styling*/
+
 
 /* end of card */
 
@@ -1001,4 +1018,35 @@ input[type='checkbox']:checked:after {
     * {
         font-size: 13pt;
     }
+}
+
+
+/* Review Stars */
+
+:root {
+    --star-size: 3rem;
+    --post-star-size: 2rem;
+    --star-color: #eee;
+    --star-background: #776FC4;
+}
+
+.Stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-size: var(--star-size);
+    /* font-family: Times; */
+    line-height: 1;
+    margin-right: 1em !important;
+}
+
+.Stars.post {
+    font-size: var(--post-star-size);
+}
+
+.Stars::before {
+    content: '★★★★★';
+    /* letter-spacing: .2em; */
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

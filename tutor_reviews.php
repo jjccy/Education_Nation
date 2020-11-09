@@ -62,203 +62,108 @@
             <?php include('shared/account-settings-menu.php'); ?>
 
             <div class="account-setting-list">
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-content-container">
-                  <div class="card-content">
-                    <div class="card-header">
-                      <div class="card-title">
-                        <p class=heading-1>Ashley Bucha</p>
-                      </div>
+              <?php
+                date_default_timezone_set("America/Vancouver");
+                // function to convert time stamp to days ago.
+                function time_elapsed_string($datetime, $full = false) {
 
-                      <div class="card-rating">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                      </div>
+                    $now = new DateTime;
+                    $ago = new DateTime($datetime);
+                    $diff = $now->diff($ago);
 
-                      <div class="card-date">
-                        <p class="heading-3">5 days ago</p>
-                      </div>
+                    $diff->w = floor($diff->d / 7);
+                    $diff->d -= $diff->w * 7;
 
-                    </div>
-                    <div class="card-detail">
-                      <p class="body-text">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    $string = array(
+                        'y' => 'year',
+                        'm' => 'month',
+                        'w' => 'week',
+                        'd' => 'day',
+                        'h' => 'hour',
+                        'i' => 'minute',
+                        's' => 'second',
+                    );
+                    foreach ($string as $k => &$v) {
+                        if ($diff->$k) {
+                            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+                        } else {
+                            unset($string[$k]);
+                        }
+                    }
 
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-content-container">
-                  <div class="card-content">
-                    <div class="card-header">
-                      <div class="card-title">
-                        <p class=heading-1>Ashley Bucha</p>
-                      </div>
+                    if (!$full) $string = array_slice($string, 0, 1);
+                    return $string ? implode(', ', $string) . ' ago' : 'just now';
+                }
 
-                      <div class="card-rating">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                      </div>
+                // get database
+                $connection = mysqli_connect("localhost", "root", "", "terence_liu");
 
-                      <div class="card-date">
-                        <p class="heading-3">5 days ago</p>
-                      </div>
+                if(mysqli_connect_errno()) {
+                // if fail, skip all php and print errors
 
-                    </div>
-                    <div class="card-detail">
-                      <p class="body-text">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                die("Database connection failed: " .
+                    mysqli_connect_error() .
+                    " (" . mysqli_connect_errno(). ")"
+                );
+                }
 
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-content-container">
-                  <div class="card-content">
-                    <div class="card-header">
-                      <div class="card-title">
-                        <p class=heading-1>Ashley Bucha</p>
-                      </div>
+                // change above step to session
+                $currentUser = $_COOKIE['m_id'];
 
-                      <div class="card-rating">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                      </div>
+                $query = "SELECT * FROM review INNER JOIN member WHERE review.tutor_id = '$currentUser' AND member.m_id = review.student_id";
 
-                      <div class="card-date">
-                        <p class="heading-3">5 days ago</p>
-                      </div>
+                // get result from database;
+                $result = mysqli_query($connection, $query);
 
-                    </div>
-                    <div class="card-detail">
-                      <p class="body-text">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                if (!$result) {
+                die('database query failed');
+                }
 
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-content-container">
-                  <div class="card-content">
-                    <div class="card-header">
-                      <div class="card-title">
-                        <p class=heading-1>Ashley Bucha</p>
-                      </div>
+                while ($row = $result -> fetch_assoc()) {
+                    $comment = $row['comments'];
+                    $rating = $row['rating'];
+                    $date = $row['date_posted'];
+                    $name = $row['fname'] . " " . $row['lname'];
+                    $image = $row['profile_address'];
 
-                      <div class="card-rating">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                      </div>
+                    echo '<div class="list-card">';
+                        echo '<div class="card-img">';
+                        echo '<img class="user-pfp" src="';
+                        echo $image;
+                        echo '" alt="Account User Profile Picture">';
+                        echo '</div>';
+                        echo '<div class="card-content-container">';
+                        echo '<div class="card-content">';
+                            echo '<div class="card-header">';
+                            echo '<div class="card-title">';
+                                echo '<p class=heading-1>';
+                                echo $name;
+                                echo '</p>';
+                            echo '</div>';
 
-                      <div class="card-date">
-                        <p class="heading-3">5 days ago</p>
-                      </div>
+                            echo '<div class="card-rating">';
+                              echo "<div class='Stars post' style='--rating: ". $rating .";' aria-label='Rating of this product is ". $rating ." out of 5.'></div>";
+                            echo '</div>';
 
-                    </div>
-                    <div class="card-detail">
-                      <p class="body-text">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                            echo '<div class="card-date">';
+                                echo '<p class="heading-3">';
+                                echo time_elapsed_string($date);
+                                echo '</p>
+                            </div>';
 
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-content-container">
-                  <div class="card-content">
-                    <div class="card-header">
-                      <div class="card-title">
-                        <p class=heading-1>Ashley Bucha</p>
-                      </div>
+                            echo '</div>
+                            <div class="card-detail">
+                            <p class="body-text">';
+                                echo $comment;
+                            echo '</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>';
+                }
 
-                      <div class="card-rating">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                      </div>
-
-                      <div class="card-date">
-                        <p class="heading-3">5 days ago</p>
-                      </div>
-
-                    </div>
-                    <div class="card-detail">
-                      <p class="body-text">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="list-card">
-                <div class="card-img">
-                  <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
-                </div>
-                <div class="card-content-container">
-                  <div class="card-content">
-                    <div class="card-header">
-                      <div class="card-title">
-                        <p class=heading-1>Ashley Bucha</p>
-                      </div>
-
-                      <div class="card-rating">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                        <img src="img/Rating.svg" alt="">
-                      </div>
-
-                      <div class="card-date">
-                        <p class="heading-3">5 days ago</p>
-                      </div>
-
-                    </div>
-                    <div class="card-detail">
-                      <p class="body-text">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                mysqli_free_result($result);
+              ?>
             </div>
           </div>
         </div>
