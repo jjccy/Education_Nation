@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/account-settings.css">
     <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/account-settings.css">
+
   </head>
 
-  <body>    
-    <?php include('shared/checkLogin.php'); ?>  
+  <body>
+    <?php include('shared/checkLogin.php'); ?>
     <div class="background"></div>
 
     <!-- start of chat module -->
