@@ -1,6 +1,9 @@
 <div class="user-overlay">
     <img class="user-pfp" src="
     <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
         // get database
         $connection = mysqli_connect("localhost", "view", "", "terence_liu");
 

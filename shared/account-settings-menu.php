@@ -1,4 +1,7 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     // returns true mean user is a tutor
     if (isset($_SESSION['isTutor']) && $_SESSION['isTutor']) { ?>
         <div class="account-menu">

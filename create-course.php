@@ -8,6 +8,9 @@
 <body>
     <?php
         // change above step to session
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $currentUser = $_SESSION['m_id'];
 
         $connection = mysqli_connect("localhost", $_SESSION['email'] , $_SESSION['password'] , "terence_liu");
