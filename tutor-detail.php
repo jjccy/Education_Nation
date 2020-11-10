@@ -45,6 +45,7 @@
 
       <!-- start tutor detail section -->
       <section class="tutor-detail">
+        <div class="tutor-detail-container">
         <?php
           // if tutor id is not null
           if(isset($_GET['tutor_id'])) {
@@ -373,7 +374,7 @@
 
         </div>
         <!-- end detail info -->
-
+      </div>
       </section>
       <!-- end tutro detail section -->
 

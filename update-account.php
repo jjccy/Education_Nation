@@ -69,7 +69,7 @@
             $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
         }
 
-        if ($newFirstName != NULL) {
+        if (isset($newFirstName)) {
           $query = "UPDATE member SET fname = '$newFirstName' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);
 
@@ -84,7 +84,7 @@
           }
         }
 
-        if ($newLastName != NULL) {
+        if (isset($newLastName)) {
           $query = "UPDATE member SET lname = '$newLastName' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);
 
@@ -93,7 +93,7 @@
           }
         }
 
-        if ($newEmail != NULL) {
+        if (isset($newEmail)) {
           $query = "UPDATE member SET email = '$newEmail' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);
 
@@ -103,7 +103,7 @@
           $_SESSION['email'] = $newEmail;
         }
 
-        if ($newPassword != NULL) {
+        if (isset($newPassword)) {
           $query = "UPDATE member SET password = '$newPassword' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);
 

@@ -3,7 +3,7 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-attachment: scroll, scroll;
   background-position: right top, left bottom;
-  background-size: auto 20%, auto 30%;
+  background-size: 25% auto, 30% auto;
 }
 
 .background {

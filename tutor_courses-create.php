@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/account-settings.css">
     <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/account-settings.css">
+
   </head>
 
   <body>
@@ -73,7 +74,7 @@
                         <label class="form-label"> Grade Range </label>
                         <input type="text" name="min-age-create" id="min-age-create" class="text-box" placeholder="Min." required>
                         <input type="text" name="max-age-create" id="max-age-create" class="text-box" placeholder="Max." required>
-                
+
                         <!-- on submit sends runs update-account.php -->
                         <div class="form-submit">
                         <input type="submit" name="create-course-submit" id="create-course-submit" value="Create Course" class="btn button-default">

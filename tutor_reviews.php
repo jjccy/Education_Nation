@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/account-settings.css">
     <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/account-settings.css">
+
   </head>
 
   <body>
@@ -108,7 +109,7 @@
                 }
 
                 // change above step to session
-                $currentUser = $_COOKIE['m_id'];
+                $currentUser = $_SESSION['m_id'];
 
                 $query = "SELECT * FROM review INNER JOIN member WHERE review.tutor_id = '$currentUser' AND member.m_id = review.student_id";
 
