@@ -7,9 +7,8 @@
 
   <div class="top-nav-item">
     <div class="searchbar">
-        <button type="submit" name="search" aria-label="search-button"></button>
-        <input type="search" name="search" aria-label="search" placeholder="Search for tutors or subjects...">
-
+        <button type="submit" name="search" aria-label="search-button" onClick="search_function()"></button>
+        <input type="search" id="searchbar" name="search" aria-label="search" placeholder="Search for tutors or subjects..." onkeydown="key_down()">
     </div>
   </div>
 
@@ -30,7 +29,7 @@
       if (session_status() == PHP_SESSION_NONE) {
           session_start();
       }
-      
+
       if (!isset($_SESSION['isTutor']) || !$_SESSION['isTutor']) {
         echo "<a href='cart.php' class='title-with-icon heading-3 icon-cart'>Cart: 3</a>";
       }
@@ -98,3 +97,21 @@
 
 </div>
 <!-- ends top nav -->
+
+<script>
+  function key_down(e) {
+    e = e || window.event;
+    if(e.keyCode === 13) {
+      search_function();
+    }
+  }
+
+  function search_function() {
+    var inputText = document.getElementById("searchbar").value;
+    let url = 'tutors-listing.php?searchInput=' + inputText;
+
+    // alert("searching: " + url);
+
+    window.location.href=url;
+  }
+</script>

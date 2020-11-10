@@ -46,6 +46,7 @@
         $duplicated = true;
         echo '<script language="javascript">';
         echo 'alert("duplicate email");';
+        echo "window.location.href='sign-up.php';";
         echo '</script>';
         break;
       }
