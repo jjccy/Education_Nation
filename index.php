@@ -131,10 +131,8 @@
                   $tutorID = $row['tutor_id'];
                   $courseID = $row['c_id'];
                   $courseName = $row['subject_name'];
-                  $minGrade = $row['min_grade'];
+                  $minGrade = ($row['min_grade'] == 0) ? "K" : $row['min_grade'];
                   $maxGrade = $row['max_grade'];
-
-                  ($minGrade === 0) ? $minGrade = "K" : true;
 
                   // send tutor id through url
                   $url = "tutor-detail.php";

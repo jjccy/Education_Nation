@@ -79,7 +79,8 @@
             // get tutor reiews
             $reviews = mysqli_query($connection, "SELECT review.date_posted, review.rating, review.comments, review.c_id, member.fname, member.lname
                                                     FROM review INNER JOIN member ON review.student_id = member.m_id
-                                                    WHERE $tutorID = review.tutor_id");
+                                                    WHERE $tutorID = review.tutor_id
+                                                    ORDER BY review.date_posted DESC");
 
             if (!$reviews) {
               die ("get reviews fail " . mysqli_error($connection));
@@ -309,7 +310,7 @@
                   }
 
                   $courseName = $courseInfo['subject_name'];
-                  $minGrade = $courseInfo['min_grade'];
+                  $minGrade = ($courseInfo['min_grade'] == 0) ? "K" : $courseInfo['min_grade'];
                   $maxGrade = $courseInfo['max_grade'];
 
                   echo "<img src='$profileImage' alt='$tutorfname Profile Picture'>";
