@@ -10,12 +10,11 @@
     $email = $_POST['email-input'];
     $password = $_POST['password-input'];
 
-    // get database
+    // get database using login privilege
     $connection = mysqli_connect("localhost", "login", "", "terence_liu");
     //Check if database connection was a success or not
     if(mysqli_connect_errno()) {
       // if fail, skip all php and print errors
-
       die("Database connect failed: " .
         mysqli_connect_error() .
         " (" . mysqli_connect_errno(). ")"

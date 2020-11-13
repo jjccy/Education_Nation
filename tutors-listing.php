@@ -98,8 +98,16 @@
             <div class="group">
 
               <?php
-              // get all course from Database
+              // Connect to database using view privilege
               $connection = mysqli_connect("localhost", "view", "", "terence_liu");
+              //Check if database connection was a success or not
+              if(mysqli_connect_errno()) {
+                // if fail, skip all php and print errors
+                die("Database connect failed: " .
+                  mysqli_connect_error() .
+                  " (" . mysqli_connect_errno(). ")"
+                );
+              }
               $allCoursesOption = mysqli_query($connection, "SELECT DISTINCT course.subject_name
                                                                         FROM course
                                                                         ORDER BY course.subject_name");
