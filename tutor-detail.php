@@ -93,7 +93,7 @@
 
         ?>
         <p class="title-with-icon heading-1 icon-tutors">
-          <?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?>
+          <?php echo (isset($tutorID) ? "$tutorfname $tutorlname | $courseInfo['subject_name']" : "Susan White"); ?>
         </p>
 
         <!-- start detail info -->
