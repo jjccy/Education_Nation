@@ -331,10 +331,24 @@
 
                  ?>
                   <div class="info-wrapper">
-                      <a class="card-info" href="#">
-                          
-
-                      </a>
+                    <?php
+                    // display add to cart button only if not login as tutor
+                    // if not login, pop up login overlay
+                    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
+                      echo "<a class='card-info' href='#' onClick='displayOverlay(0)'>
+                              <p class='title-with-icon heading-4 icon-cart-purple'>
+                                Add to Cart
+                              </p>
+                            </a>";
+                    }
+                    else if (!$_SESSION['isTutor']) {
+                      echo "<a class='card-info' href='cart.php''>
+                              <p class='title-with-icon heading-4 icon-cart-purple'>
+                                Add to Cart
+                              </p>
+                            </a>";
+                    }
+                     ?>
                   </div>
               </div>
             </div>

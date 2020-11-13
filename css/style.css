@@ -449,6 +449,15 @@ footer p {
     width: auto;
 }
 
+.icon-cart-purple {
+    /*Caret Icon*/
+    background-image: url("../img/Cart_Purple.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
 .icon-edit {
     /*Edit icon*/
     background-image: url("../img/edit.svg");
