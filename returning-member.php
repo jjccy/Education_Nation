@@ -27,7 +27,7 @@
 
     //check if query results is empty or not
     if (!$result) {
-      die('database query failed' . mysqli_connect_error());
+      die('database query failed');
     }
     else{
       while ($row = $result -> fetch_assoc()) {

@@ -57,7 +57,7 @@
           </div>
 
           <div class="account-content">
-
+            <!--Display account setting inner menu for members (student or tutor)-->
             <?php include('shared/account-settings-menu.php'); ?>
 
             <!-- Current user info -->
@@ -74,7 +74,7 @@
                     " (" . mysqli_connect_errno(). ")"
                   );
                 }
-
+                
                 $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
 
                 // get result from database;
@@ -173,12 +173,13 @@
 
     <!-- script for form -->
     <script type="text/javascript">
+      //Get new password from input field
       var password = document.getElementById("password-edit-input"),
           confirm_password = document.getElementById("password-confirm-input");
 
       password.onchange = function() {validatePassword();};
       confirm_password.onkeyup = function() {validatePassword();};
-
+      //Function to check if password is correct
       function validatePassword(){
         if(password.value != confirm_password.value) {
           confirm_password.setCustomValidity("Passwords Don't Match");
@@ -186,7 +187,7 @@
           confirm_password.setCustomValidity('');
         }
       }
-
+      //Function to show and hide password
       function show(id) {
         event.preventDefault();
 
