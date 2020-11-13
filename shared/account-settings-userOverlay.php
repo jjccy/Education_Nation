@@ -1,6 +1,7 @@
 <div class="user-overlay">
     <img class="user-pfp" src="
     <?php
+    // check if session start has been called
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
@@ -29,7 +30,11 @@
         }
 
         while ($row = $result -> fetch_assoc()) {
-        echo $row['profile_address'];
+            echo $row['profile_address'];
+            
+            if ($row['profile_address'] == NULL) {
+                echo 'img/member/default.jpg';
+            }
         }
 
         mysqli_free_result($result);
@@ -52,9 +57,6 @@
                         " (" . mysqli_connect_errno(). ")"
                         );
                     }
-
-                    // stating the deliminator
-                    $d ='#KR#%5>DSG<)(E667)F?';
 
                     // change above step to session
                     $currentUser = $_SESSION['m_id'];
@@ -80,6 +82,7 @@
                 <!-- <p class="tutor-spec">Math Tutor (K-12)</p> -->
             </div>
 
+            <!-- displaying current tutor's balance -->
             <?php if (isset($_SESSION['isTutor']) && $_SESSION['isTutor']) { ?>
                 <div class="user-info">
                     <p class="heading-3 tutor-balance">Balance </p>

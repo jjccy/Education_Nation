@@ -1,9 +1,11 @@
 <?php
+    // check if session start has been called
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    // returns true mean user is a tutor
+    // returns true means user is a tutor
     if (isset($_SESSION['isTutor']) && $_SESSION['isTutor']) { ?>
+        <!-- menu for tutor -->
         <div class="account-menu">
             <div class="account-menu-container">
                 <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu" id="account-setting-link">Account Settings</a>
@@ -17,6 +19,7 @@
         </div>
     <?php }
     else { ?>
+        <!-- menu for student -->
         <div class="account-menu">
             <div class="account-menu-container">
                 <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu" id="account-setting-link">Account Settings</a>
@@ -27,8 +30,10 @@
     <?php } ?>
 
 <script>
+    // gets current page url
     var current_url = window.location.pathname;
-    console.log(current_url);
+
+    // getting links from account settings menu
     var account_settings = document.getElementById("account-setting-link");
     var upcoming_booking = document.getElementById("upcoming-booking-link");
     var about_me = document.getElementById("about-me-link");
@@ -37,6 +42,7 @@
     var reviews = document.getElementById("reviews-link");
     var courses = document.getElementById("courses-link");
 
+    // removing all of the 'title-active' class on the links
     account_settings.classList.remove("title-active");
     upcoming_booking.classList.remove("title-active");
     about_me.classList.remove("title-active");
@@ -45,6 +51,7 @@
     reviews.classList.remove("title-active");
     courses.classList.remove("title-active");
 
+    // checking if the current page matches any of the links, if so then set active state to that link
     if (current_url.includes("account-settings")) {
         account_settings.classList.add("title-active");
     }

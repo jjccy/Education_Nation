@@ -67,6 +67,8 @@
             ini_set("session.gc_maxlifetime", 90 * 60);
 
           }
+
+          // starting session if it hasn't been started
           if (session_status() == PHP_SESSION_NONE) {
               session_start();
           }

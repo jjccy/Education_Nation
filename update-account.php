@@ -6,14 +6,16 @@
   </head>
   <body>
     <?php
+        // check if session start has been called
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
 
-        $updatefname = "false";
-        $updatelname = "false";
-        $updateemail = "false";
-        $updatepassword = "false";
+        // initializing variables to see if these fields need to be updated
+        // $updatefname = "false";
+        // $updatelname = "false";
+        // $updateemail = "false";
+        // $updatepassword = "false";
 
         // change above step to session
         $currentUser = $_SESSION['m_id'];
@@ -23,12 +25,13 @@
         if(mysqli_connect_errno()) {
           // if fail, skip all php and print errors
 
-          die("Database connet failed: " .
+          die("Database connect failed: " .
             mysqli_connect_error() .
             " (" . mysqli_connect_errno(). ")"
           );
         }
 
+        // retrieving the current user's row in the member table
         $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
         // get result from database;
 
@@ -38,6 +41,7 @@
             die('database query failed');
         }
 
+        // storing the current user's information as variables
         while ($row = $result -> fetch_assoc()) {
             $firstName = $row['fname'];
             $lastName = $row['lname'];
@@ -46,7 +50,7 @@
 
         mysqli_free_result($result);
 
-        echo $firstName . "<br>" . $lastName . "<br>" . $email . "<br>";
+        // echo $firstName . "<br>" . $lastName . "<br>" . $email . "<br>";
 
         // retrieving updated user info and storing them as new variables;
         // checking if the input field is empty; if empty then use previous data; else use the updated info
@@ -69,6 +73,7 @@
             $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
         }
 
+        // checking if new variables are created, if yes then update select information in the row
         if (isset($newFirstName)) {
           $query = "UPDATE member SET fname = '$newFirstName' WHERE member.m_id = '$currentUser'";
           $result = mysqli_query($connection, $query);

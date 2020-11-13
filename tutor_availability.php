@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <!-- prevents page from being fully loaded and tells users a page is not ready yet -->
     <?php include('shared/underConstruction.php'); ?>
     <?php include('shared/checkLogin.php'); ?>
     <div class="background"></div>
@@ -63,6 +64,7 @@
 
             <?php include('shared/account-settings-menu.php'); ?>
 
+            <!-- container for availability settings -->
             <div class="availability"></div>
           </div>
         </div>

@@ -63,6 +63,7 @@
             <?php include('shared/account-settings-menu.php'); ?>
 
             <div class="account-setting-list tutor-courses tutor-course-create">
+                <!-- form takes details of the new course that the tutor is about to create -->
                 <form id="create-course-form" action="create-course.php" method="post">
                     <div class="form-group">
                         <label for="subject-create" class="form-label"> Course Subject </label>

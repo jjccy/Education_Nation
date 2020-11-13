@@ -62,6 +62,7 @@
             <?php include('shared/account-settings-menu.php'); ?>
 
             <div class="account-setting-list tutor-courses tutor-course-create">
+                <!-- form to update course information -->
                 <form id="edit-course-form" action="edit-course.php" method="post">
                     <div class="form-group">
                         <label for="subject-edit" class="form-label"> Course Subject </label>
