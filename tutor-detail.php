@@ -179,7 +179,7 @@
                 <p class="body-text"><?php echo isset($tutorID) ? $count . " " : "0 "; ?>reviews</p>
                 <div class="max-flex-box-item"></div>
 
-                <?php echo (isset($_SESSION['loggedin']) && isset($_SESSION['isTutor']) && $_SESSION['isTutor']) ? "" : "<a id='writeReview' href='#' onClick='displayOverlay(0)'>Write Reivew</a>";?>
+                <?php echo (isset($_SESSION['loggedin']) && isset($_SESSION['isTutor']) && $_SESSION['isTutor']) ? "" : "<a id='writeReview' href='#' onClick='displayOverlay(0)'>Write Review</a>";?>
               </div>
 
               <?php
