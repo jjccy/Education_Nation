@@ -5,8 +5,6 @@
 
     <title>Home</title>
 
-    <!-- <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/slick-theme.css"> -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
@@ -26,7 +24,7 @@
 
     <!-- start body wrapper -->
     <div class="body-wrapper">
-
+      <!--Display top nav from shared-->
       <?php include('shared/topNav.php'); ?>
 
       <!-- start side nav -->
@@ -79,6 +77,7 @@
                 <p class="body-text"> / </p>
                 <p class="body-text" id="totalPage">02</p>
               </div>
+
               <a href="#" class="arrow-btn active" id="right-button">
                 <p>&#8594;</p>
               </a>
@@ -103,7 +102,7 @@
                     " (" . mysqli_connect_errno(). ")"
                   );
                 }
-
+                // Query to search for the top 5 tutors' info (name, id, image address, subject, grade range) based on their average rating
                 $courseList = mysqli_query($connection, "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.c_id, AVG(review.rating) AS AverageReview
                                                         FROM course INNER JOIN tutor ON tutor.tutor_id = course.tutor_id
                                                         INNER JOIN member ON course.tutor_id = member.m_id
@@ -111,7 +110,7 @@
                                                         GROUP By course.c_id
                                                         ORDER BY AverageReview DESC
                                                         LIMIT 5");
-
+                //If query to search for top 5 tutors failed die
                 if (!$courseList) {
                     die("get tutorlist failed: " . mysqli_error($connection));
                 }
@@ -194,9 +193,6 @@
     <!-- end of footer section -->
     <!-- Script for Slider-->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <!-- <script src="js/slick.js"></script>
-    <script src="js/slider.js"></script> -->
-    <!-- End of Script for Slider-->
 
     <script src="js/script.js"></script>
     <script src="js/horzontal-scroll.js"></script>

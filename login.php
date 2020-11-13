@@ -75,12 +75,13 @@
 
     <!-- script for log in form -->
     <script type="text/javascript">
+    //Get password input
       var password = document.getElementById("password-input"),
           confirm_password = document.getElementById("confirm_password");
 
       password.onchange = function() {validatePassword();};
       confirm_password.onkeyup = function() {validatePassword();};
-
+      //Check if passwords match or not
       function validatePassword(){
         if(password.value != confirm_password.value) {
           confirm_password.setCustomValidity("Passwords Don't Match");
@@ -88,7 +89,7 @@
           confirm_password.setCustomValidity('');
         }
       }
-
+      //hide the password
       function show(id) {
         event.preventDefault();
 

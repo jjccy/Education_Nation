@@ -36,7 +36,7 @@
           $courseName= mysqli_query($connection, "SELECT course.subject_name, course.c_id
                                                   FROM course
                                                   WHERE $tutorID = course.tutor_id");
-
+          //if course name query does not work die
           if (!$courseName) {
             die("get course name fail");
           }
@@ -46,15 +46,15 @@
           {
             echo "<option value='" . $row['c_id'] ."'>" . $row['subject_name'] . "</option>";
           }
-
+          // release database connection and results
           mysqli_free_result($courseName);
           mysqli_close($connection);
            ?>
         </select>
       </div>
-
+      <!--Text area to input review-->
       <textarea name='comment'>Enter your review here ...</textarea>
-
+      <!--Submit review button-->
       <input type="submit" name="submitReview" value="Submit Review">
     </form>
   </div>
@@ -62,6 +62,7 @@
 
 
 <script type="text/javascript">
+  // function to close the overlay modal
   function closeOverlay(inputId) {
     event.preventDefault();
 
@@ -70,7 +71,7 @@
 
     return false;
   }
-
+  // function to set the rating
   function setRating(rate) {
     document.getElementById('rating-text').innerHTML = rate;
   }

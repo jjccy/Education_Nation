@@ -21,7 +21,7 @@
       <iframe class="help-iframe" id="iframeHelp" src="help-overlay.php" frameborder="0"></iframe>
     </div>
     <!-- end of chat module -->
-
+    <!-- show top nav from a shared php file-->
     <?php include('shared/topNav.php'); ?>
 
       <!-- start side nav -->

@@ -7,11 +7,11 @@
   <body>
     <?php
 
-    // change login status to false;
-    // $_COOKIE['loggedin'] = false;
+    // check if there is currently a session or not, if not start one
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    // destroy the session
     session_destroy();
 
 
