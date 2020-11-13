@@ -27,17 +27,17 @@
         </div>
     </section>
 
-    <!-- prevents the remainder of the page to be loaded -->
-    <?php exit(); ?>
-
     <script>
         var btn = document.getElementById("back-home-btn");
 
         btn.addEventListener("click", returnHome);
 
         function returnHome() {
-            window.location.href='../index.php';
+            window.location.href='index.php';
         }
     </script>
+
+    <!-- prevents the remainder of the page to be loaded -->
+    <?php exit(); ?>
 </body>
 </html>

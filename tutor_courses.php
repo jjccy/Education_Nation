@@ -62,7 +62,9 @@
 
             <?php include('shared/account-settings-menu.php'); ?>
 
+            <!-- account setting tutor course container -->
             <div class="account-setting-list tutor-courses">
+              <!-- gets and displays all courses the tutor has created -->
               <?php
                 // get database
                 $connection = mysqli_connect("localhost", "view", "", "terence_liu");
@@ -105,6 +107,7 @@
                     $grade_range = "Grade: " . $row['min_grade'];
                     }
 
+                    // card for each course the tutor has
                     echo '<div class="list-card">';
                         echo '<div class="card-img">';
                             echo '<img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">';
@@ -144,6 +147,7 @@
                 mysqli_close($connection);
               ?>
 
+              <!-- sends tutor to create course page -->
               <div class="btn-container">
                 <a href="tutor_courses-create.php" class="btn btn-fill button-default">Create Course</a>
               </div>

@@ -27,11 +27,13 @@
             );
             }
 
+            // storing updated bio as a variable if it is not empty
             if($_POST['updateBio'] != NULL){
                 $updatedBio = $_POST['updateBio'];
                 echo $updatedBio . "<br>";
             }
 
+            // updated tutor's bio 
             if ($updatedBio != NULL) {
                 $query = "UPDATE tutor SET bio = '$updatedBio' WHERE tutor.tutor_id = '$currentUser'";
                 $result = mysqli_query($connection, $query);

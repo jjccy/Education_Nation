@@ -75,6 +75,7 @@
                   );
                 }
                 
+                // gets row of members table to show current user
                 $query = "SELECT * FROM member WHERE member.m_id = '$currentUser'";
 
                 // get result from database;

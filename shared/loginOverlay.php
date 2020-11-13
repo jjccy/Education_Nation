@@ -1,3 +1,4 @@
+<!-- login overlay -->
 <div class="overlay" id="loginOverlay">
   <div class="overlay-body">
     <a href="#" id='closeButton' onclick="closeOverlay(loginOverlay)"></a>

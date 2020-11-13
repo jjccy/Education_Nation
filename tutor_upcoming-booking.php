@@ -62,7 +62,9 @@
 
             <?php include('shared/account-settings-menu.php'); ?>
 
+            <!-- container to hold all of the upcoming booking cards -->
             <div class="account-setting-list">
+              <!-- upcoming booking card -->
               <div class="list-card">
                 <div class="card-img">
                   <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">

@@ -62,8 +62,11 @@
             <?php include('shared/account-settings-menu.php'); ?>
 
             <div class="account-setting-about">
+              <!-- form to update tutor's about me content -->
               <form action="update-bio.php" method="post" id="update-bio-form">
-                <textarea id="updateBio" name="updateBio"><?php
+                <!-- pre-populating textarea with tutor's current about me content  -->
+                <textarea id="updateBio" name="updateBio"><?php // tags are next to each other to eliminate upwanted spacing in textarea
+                    // getting current user's bio
                     $query = "SELECT bio FROM tutor WHERE tutor.tutor_id = '$currentUser'";
 
                     // get result from database;
@@ -73,6 +76,7 @@
                       die('database query failed');
                     }
 
+                    // populating current user's bio
                     while ($row = $result -> fetch_assoc()) {
                       echo $row['bio'];
                     }
@@ -81,6 +85,7 @@
                   ?>
                 </textarea>
 
+                <!-- update or cancel about me -->
                 <div class="about-btn-container">
                   <input class="btn btn-outline" type="submit" id="input-cancel" value="Cancel" name="input-cancel">
                   <input class="btn btn-fill" type="submit" id="input-update" value="Update">

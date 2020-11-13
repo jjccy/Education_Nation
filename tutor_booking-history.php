@@ -60,8 +60,9 @@
 
           <div class="account-content">
             <?php include('shared/account-settings-menu.php'); ?>
-
+            <!-- container for all the booking history cards -->
             <div class="account-setting-list">
+              <!-- card for each tutor booking history -->
               <div class="list-card">
                 <div class="card-img">
                   <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
@@ -95,6 +96,7 @@
                 </div>
               </div>
 
+              <!-- card for each tutor booking history -->
               <div class="list-card">
                 <div class="card-img">
                   <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
@@ -128,6 +130,7 @@
                 </div>
               </div>
 
+              <!-- card for each tutor booking history -->
               <div class="list-card">
                 <div class="card-img">
                   <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
@@ -161,6 +164,7 @@
                 </div>
               </div>
 
+              <!-- card for each tutor booking history -->
               <div class="list-card">
                 <div class="card-img">
                   <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
@@ -194,6 +198,7 @@
                 </div>
               </div>
 
+              <!-- card for each tutor booking history -->
               <div class="list-card">
                 <div class="card-img">
                   <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">
@@ -227,6 +232,7 @@
                 </div>
               </div>
 
+              <!-- card for each tutor booking history -->
               <div class="list-card">
                 <div class="card-img">
                   <img class="user-pfp" src="img/account_photo.png" alt="Account User Profile Picture">

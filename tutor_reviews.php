@@ -62,7 +62,9 @@
 
             <?php include('shared/account-settings-menu.php'); ?>
 
+            <!-- review card container -->
             <div class="account-setting-list">
+              <!-- retrieving all of the reviews for the tutor -->
               <?php
                 date_default_timezone_set("America/Vancouver");
                 // function to convert time stamp to days ago.
@@ -127,6 +129,7 @@
                     $name = $row['fname'] . " " . $row['lname'];
                     $image = $row['profile_address'];
 
+                    // displaying a card for each review the tutor has
                     echo '<div class="list-card">';
                         echo '<div class="card-img">';
                         echo '<img class="user-pfp" src="';
