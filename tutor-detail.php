@@ -76,6 +76,11 @@
 
             $tutorfname = $courseInfo['fname'];
             $tutorlname = $courseInfo['lname'];
+            $courseName = $courseInfo['subject_name'];
+            $minGrade = ($courseInfo['min_grade'] == 0) ? "K" : $courseInfo['min_grade'];
+            $maxGrade = $courseInfo['max_grade'];
+
+            ($minGrade === 0) ? $minGrade = "K" : true;
 
             // get tutor reiews
             $reviews = mysqli_query($connection, "SELECT review.date_posted, review.rating, review.comments, review.c_id, member.fname, member.lname
@@ -93,7 +98,10 @@
 
         ?>
         <p class="title-with-icon heading-1 icon-tutors">
-          <?php echo (isset($tutorID) ? "$tutorfname $tutorlname | $courseInfo['subject_name']" : "Susan White"); ?>
+          <?php
+
+          echo (isset($tutorID) ? "$tutorfname $tutorlname | $courseName $minGrade - $maxGrade" : "Susan White");
+          ?>
         </p>
 
         <!-- start detail info -->
@@ -323,10 +331,10 @@
 
                  ?>
                   <div class="info-wrapper">
-                      <div class="card-info">
-                          <p class="heading-4"><?php echo (isset($tutorID) ? "$tutorfname $tutorlname" : "Susan White"); ?></p>
-                          <p class="body-text tutor-spec"><?php echo (isset($tutorID) ? "Grade " . $minGrade . " - " . $maxGrade . " : " . $courseName : "Grade 9 - Math"); ?></p>
-                      </div>
+                      <a class="card-info" href="#">
+                          
+
+                      </a>
                   </div>
               </div>
             </div>

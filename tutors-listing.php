@@ -228,7 +228,7 @@
               echo "<div class='info-wrapper'>";
               echo "<div class='card-info'>";
               echo "<p class='heading-4'>$tutorfame $tutorlame</p>";
-              echo "<p class='body-text tutor-spec'>$courseName | Grade $minGrade - $maxGrade</p>";
+              echo "<p class='body-text tutor-spec'>$courseName | $minGrade - $maxGrade</p>";
               echo "</div>";
               echo "</div>";
               echo "</a>";
