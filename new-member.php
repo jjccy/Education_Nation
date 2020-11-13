@@ -23,23 +23,24 @@
     if(mysqli_connect_errno()) {
       // if fail, skip all php and print errors
 
-      die("Database connet failed: " .
+      die("Database connect failed: " .
         mysqli_connect_error() .
         " (" . mysqli_connect_errno(). ")"
       );
     }
-
+    //query to retrieve member emails from member table.
     $query = "SELECT member.email FROM member";
 
     // get result from database;
     $result = mysqli_query($connection, $query);
 
+    //if query for results failed die
     if (!$result) {
       die('database query failed');
     }
 
 
-    // check if email is duplicate
+    // check if email is duplicate, if it is alert users
     while ($row = mysqli_fetch_array($result))
     {
       if ($email === $row[0]) { // password_verify the email
@@ -65,7 +66,7 @@
       VALUES ('" . $email . "', '" . $fname . "', '" . $lname . "', '".  $hashedPassword . "')";
 
       $forForeignKey = "";
-
+      //Set default session length to 90 minutes, then start session
       ini_set("session.gc_maxlifetime", 60 * 90);
       if (session_status() == PHP_SESSION_NONE) {
           session_start();
@@ -79,7 +80,7 @@
         // if (!mysqli_query($connection, $sql)) {
         //   die ("Connection failed: " . mysqli_error($connection));
         // }
-
+        //insert tutor as a tutor class
         $forForeignKey = "INSERT INTO tutor (tutor_id) VALUES(last_insert_id())";
         $_SESSION["isTutor"] = true;
       }
@@ -99,7 +100,7 @@
         // if (!mysqli_query($connection, $sql)) {
         //   die ("Connection failed: " . mysqli_error($connection));
         // }
-
+        //Insert member as a student class
         $forForeignKey = "INSERT INTO student (student_id) VALUES(last_insert_id())";
         $_SESSION["isTutor"] = false;
       }
@@ -173,7 +174,7 @@
     mysqli_free_result($result);
     mysqli_close($connection);
 
-
+    //send to home page once sign up is successful
     echo '<script language="javascript">';
     echo "window.location.href='index.php';";
     echo '</script>';

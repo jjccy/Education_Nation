@@ -38,7 +38,7 @@
                         <div class="chat-sender">
                             <p class="body-text sender-text">EducBot</p>
                         </div>
-
+                        <!-- Introduction of feature -->
                         <div class="chat-message">
                             <p class="body-text">
                                 EducBot here! I'm EducationNation's automated messaging bot. <br>
@@ -47,13 +47,14 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- autofilled question number 1 -->
                 <div class="chat-auto-question">
                     <a href="#" class="body-text chat-question-text">
                         I'm new to EducationNation, I want to learn more!
                     </a>
+                    <!-- autofilled question number 2 -->
                     <a href="#" class="body-text chat-question-text">
-                        I'm an EducationNation memeber. I am seeking for assistance.
+                        I'm an EducationNation member. I am seeking for assistance.
                     </a>
                 </div>
             </div>
