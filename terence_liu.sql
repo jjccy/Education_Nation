@@ -296,3 +296,42 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+GRANT RELOAD, SHUTDOWN, PROCESS, REFERENCES, SHOW DATABASES, SUPER, LOCK TABLES, REPLICATION SLAVE, REPLICATION CLIENT, CREATE USER ON *.* TO `login`@`localhost` WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON `terence_liu`.* TO `login`@`localhost` WITH GRANT OPTION;
+
+GRANT SELECT ON *.* TO `view`@`localhost`;
+
+GRANT USAGE ON *.* TO `jimmy_chu@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `jimmy_chu@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `david_ca0@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `david_ca0@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `terence_liu@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `terence_liu@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `sean_jeong@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `sean_jeong@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `justin_wang@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `justin_wang@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `tim_tembo@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `tim_tembo@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `victor_hau@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `victor_hau@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `linsey_gong@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `linsey_gong@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `jone_ko@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `jone_ko@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `samuel_fung@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `samuel_fung@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `allen_chen@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `allen_chen@gmail.com`@`localhost`;
