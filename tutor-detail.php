@@ -342,7 +342,7 @@
                             </a>";
                     }
                     else if (!$_SESSION['isTutor']) {
-                      echo "<a class='card-info' href='cart.php''>
+                      echo "<a class='card-info' href='addToCart.php?course_id=$courseID'>
                               <p class='title-with-icon heading-4 icon-cart-purple'>
                                 Add to Cart
                               </p>

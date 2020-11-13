@@ -25,45 +25,43 @@
 
   <div class="top-nav-item account-section" id='logined'>
     <div class="cart-quantity-top">
+      <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
       <?php
       if (session_status() == PHP_SESSION_NONE) {
           session_start();
       }
 
-      if (!isset($_SESSION['isTutor']) || !$_SESSION['isTutor']) {
-        echo "<a href='cart.php' class='title-with-icon heading-3 icon-cart'>Cart: 3</a>";
+      if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+          $connection = mysqli_connect("localhost", "view", "", "terence_liu");
+          $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
+                                                                        WHERE member.m_id = " .  $_SESSION['m_id']))[0];
+
+          if ($profileImage == null) {
+            $profileImage = "img/member/default.jpg";
+          }
+
+          echo "<script language='javascript'>
+                  document.getElementById('logined').classList.add('display');
+                </script>";
+
+      } else {
+        echo "<script language='javascript'>
+                document.getElementById('not-login').classList.add('display');
+              </script>";
       }
+
+      // if login as a tutor
+      if (!isset($_SESSION['isTutor']) || !$_SESSION['isTutor']) {
+        // get number of course in cart
+        $inCart = (mysqli_query($connection, "SELECT cartadd.student_id FROM cartadd WHERE cartadd.student_id = " .  $_SESSION['m_id'])->num_rows);
+
+        echo "<a href='cart.php' class='title-with-icon heading-3 icon-cart'>Cart: $inCart</a>";
+      }
+      mysqli_close($connection);
        ?>
     </div>
 
     <div class="dropDown">
-
-      <!-- check if user login, if so, display loign status, if not, display login / sign up link -->
-      <?php
-
-
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-            $connection = mysqli_connect("localhost", "view", "", "terence_liu");
-            $profileImage = mysqli_fetch_array(mysqli_query($connection, "SELECT member.profile_address FROM member
-                                                                          WHERE member.m_id = " .  $_SESSION['m_id']))[0];
-
-            mysqli_close($connection);
-
-            if ($profileImage == null) {
-              $profileImage = "img/member/default.jpg";
-            }
-
-            echo "<script language='javascript'>
-                    document.getElementById('logined').classList.add('display');
-                  </script>";
-
-        } else {
-          echo "<script language='javascript'>
-                  document.getElementById('not-login').classList.add('display');
-                </script>";
-        }
-      ?>
-
       <button class="dropbtn">
         <div class="login-wrapper">
           <div class="icon-pic profile-picture" style="background-image:url(<?php echo $profileImage?>)"></div>
