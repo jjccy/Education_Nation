@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2020 at 06:51 AM
+-- Generation Time: Nov 13, 2020 at 06:31 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,20 +26,31 @@ USE `terence_liu`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cartadd`
+--
+
+DROP TABLE IF EXISTS `cartadd`;
+CREATE TABLE `cartadd` (
+  `c_id` int(11) DEFAULT NULL,
+  `student_id` int(11) DEFAULT NULL,
+  `cart_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `course`
 --
 
 DROP TABLE IF EXISTS `course`;
-CREATE TABLE IF NOT EXISTS `course` (
-  `c_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `course` (
+  `c_id` int(11) NOT NULL,
   `tutor_id` int(11) NOT NULL,
   `price` decimal(6,2) DEFAULT NULL,
   `subject_name` char(30) DEFAULT NULL,
   `min_grade` decimal(2,0) DEFAULT NULL,
-  `max_grade` decimal(2,0) DEFAULT NULL,
-  PRIMARY KEY (`c_id`,`tutor_id`),
-  KEY `tutor_id` (`tutor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4;
+  `max_grade` decimal(2,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `course`
@@ -61,15 +72,14 @@ INSERT INTO `course` (`c_id`, `tutor_id`, `price`, `subject_name`, `min_grade`, 
 --
 
 DROP TABLE IF EXISTS `member`;
-CREATE TABLE IF NOT EXISTS `member` (
-  `m_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `member` (
+  `m_id` int(11) NOT NULL,
   `fname` char(30) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` char(128) DEFAULT NULL,
   `profile_address` varchar(260) DEFAULT NULL,
-  `lname` char(30) DEFAULT NULL,
-  PRIMARY KEY (`m_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=275 DEFAULT CHARSET=utf8mb4;
+  `lname` char(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `member`
@@ -95,19 +105,15 @@ INSERT INTO `member` (`m_id`, `fname`, `email`, `password`, `profile_address`, `
 --
 
 DROP TABLE IF EXISTS `review`;
-CREATE TABLE IF NOT EXISTS `review` (
-  `r_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `review` (
+  `r_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
   `tutor_id` int(11) NOT NULL,
   `c_id` int(11) DEFAULT NULL,
   `date_posted` timestamp NOT NULL DEFAULT current_timestamp(),
   `rating` decimal(2,1) DEFAULT NULL,
-  `comments` mediumtext DEFAULT NULL,
-  PRIMARY KEY (`r_id`,`student_id`,`tutor_id`),
-  KEY `student_id` (`student_id`),
-  KEY `tutor_id` (`tutor_id`),
-  KEY `c_id` (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4;
+  `comments` mediumtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `review`
@@ -132,10 +138,9 @@ INSERT INTO `review` (`r_id`, `student_id`, `tutor_id`, `c_id`, `date_posted`, `
 --
 
 DROP TABLE IF EXISTS `student`;
-CREATE TABLE IF NOT EXISTS `student` (
+CREATE TABLE `student` (
   `student_id` int(11) NOT NULL,
-  `cur_grade` decimal(2,0) DEFAULT NULL,
-  PRIMARY KEY (`student_id`)
+  `cur_grade` decimal(2,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -157,14 +162,13 @@ INSERT INTO `student` (`student_id`, `cur_grade`) VALUES
 --
 
 DROP TABLE IF EXISTS `tutor`;
-CREATE TABLE IF NOT EXISTS `tutor` (
+CREATE TABLE `tutor` (
   `tutor_id` int(11) NOT NULL,
   `balance` decimal(8,2) DEFAULT NULL,
   `bio` mediumtext DEFAULT NULL,
   `primary_language` tinytext DEFAULT NULL,
   `city` char(30) DEFAULT NULL,
-  `country` char(30) DEFAULT NULL,
-  PRIMARY KEY (`tutor_id`)
+  `country` char(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -179,21 +183,83 @@ INSERT INTO `tutor` (`tutor_id`, `balance`, `bio`, `primary_language`, `city`, `
 (268, '888.88', 'This is the biography for Justin. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'Mandarin', 'Vancouver', 'Canada');
 
 --
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cartadd`
+--
+ALTER TABLE `cartadd`
+  ADD PRIMARY KEY (`cart_id`),
+  ADD KEY `c_id` (`c_id`),
+  ADD KEY `student_id` (`student_id`);
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`c_id`,`tutor_id`),
+  ADD KEY `tutor_id` (`tutor_id`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`m_id`);
+
+--
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`r_id`,`student_id`,`tutor_id`),
+  ADD KEY `student_id` (`student_id`),
+  ADD KEY `tutor_id` (`tutor_id`),
+  ADD KEY `c_id` (`c_id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`student_id`);
+
+--
+-- Indexes for table `tutor`
+--
+ALTER TABLE `tutor`
+  ADD PRIMARY KEY (`tutor_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `course`
+--
+ALTER TABLE `course`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=275;
+
+--
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `student`
+-- Constraints for table `cartadd`
 --
-ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `member` (`m_id`);
-
---
--- Constraints for table `tutor`
---
-ALTER TABLE `tutor`
-  ADD CONSTRAINT `tutor_ibfk_1` FOREIGN KEY (`tutor_id`) REFERENCES `member` (`m_id`);
-COMMIT;
+ALTER TABLE `cartadd`
+  ADD CONSTRAINT `cartadd_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `course` (`c_id`),
+  ADD CONSTRAINT `cartadd_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
 
 --
 -- Constraints for table `course`
@@ -208,47 +274,19 @@ ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`),
   ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`);
 
+--
+-- Constraints for table `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `member` (`m_id`);
+
+--
+-- Constraints for table `tutor`
+--
+ALTER TABLE `tutor`
+  ADD CONSTRAINT `tutor_ibfk_1` FOREIGN KEY (`tutor_id`) REFERENCES `member` (`m_id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-GRANT RELOAD, SHUTDOWN, PROCESS, REFERENCES, SHOW DATABASES, SUPER, LOCK TABLES, REPLICATION SLAVE, REPLICATION CLIENT, CREATE USER ON *.* TO `login`@`localhost` WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON `terence_liu`.* TO `login`@`localhost` WITH GRANT OPTION;
-
-
-GRANT SELECT ON *.* TO `view`@`localhost`;
-
-GRANT USAGE ON *.* TO `jimmy_chu@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `jimmy_chu@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `david_ca0@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `david_ca0@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `terence_liu@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `terence_liu@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `sean_jeong@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `sean_jeong@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `justin_wang@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `justin_wang@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `tim_tembo@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `tim_tembo@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `victor_hau@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `victor_hau@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `linsey_gong@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `linsey_gong@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `jone_ko@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `jone_ko@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `samuel_fung@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `samuel_fung@gmail.com`@`localhost`;
-
-GRANT USAGE ON *.* TO `allen_chen@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
-GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `allen_chen@gmail.com`@`localhost`;
