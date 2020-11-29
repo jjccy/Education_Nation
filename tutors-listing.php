@@ -146,7 +146,7 @@
           </div>
 
           <!-- cards wrapper -->
-          <div class="cards-wrapper">
+          <div class="cards-wrapper" id='cardLists'>
 
             <?php
             $connection = mysqli_connect("localhost", "view", "", "terence_liu");

@@ -148,7 +148,7 @@
         // // create new user and give them privilege
         $sql = "CREATE USER '" . $email . "'@'localhost' IDENTIFIED BY '" . $password . "';";
         if (!mysqli_query($connection, $sql)) {
-          die ("create new user failed: " . mysqli_error($connection));
+          die ("create new user account to database failed: " . mysqli_error($connection));
         }
 
         // give all priviage on data
@@ -156,16 +156,17 @@
         ON terence_liu.*
         TO '" . $email . "'@'localhost';";
         if (!mysqli_query($connection, $sql)) {
-          die ("Connection failed: " . mysqli_error($connection));
+          die ("new user grant access failed: " . mysqli_error($connection));
         }
 
       }
       else {
+        die("insert new user failed: " . mysqli_error($connection));
         // alert box reject
         echo '<script language="javascript">';
         echo 'alert("fail to create new user");';
         echo '</script>';
-        die("Connection failed: " . mysqli_error($connection));
+
       }
 
     }

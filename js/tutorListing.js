@@ -1,5 +1,5 @@
 
-
+// pop out filter
 $(document).ready(function() {
   $("#adjust-filter").click(function(event) {
     event.preventDefault();
@@ -22,6 +22,7 @@ function changeFilter() {
     }
 };
 
+// double side slider
 $( function() {
   var low;
   $( "#slider-range" ).slider({
@@ -41,3 +42,27 @@ $( function() {
   });
   $( "#amount" ).val("K" + " - " + $( "#slider-range" ).slider( "values", 1 ) );
 } );
+
+
+// AJAX for tutor listing cards
+
+function sortAndFilter(str) {
+  var xmlhttp = new XMLHttpRequest();
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("cardLists").innerHTML = this.responseText;
+  }
+
+  if (str.length == 0) {
+    xmlhttp.open("tutorListCards.php", true);
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "tutorListCards.php?q=" + str, true);  
+  }
+
+  xmlhttp.send();
+}
