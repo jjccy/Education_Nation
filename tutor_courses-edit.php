@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/signup.css">
     <link rel="stylesheet" href="css/account-settings.css">
   </head>
 
@@ -83,7 +82,7 @@
                             <input type="text" name="max-age-edit" id="max-age-edit" class="text-box" placeholder="Max." required>
                           </div>
                         </div>
-                
+
                         <!-- on submit sends runs update-account.php -->
                         <div class="form-submit">
                         <input type="submit" name="edit-course-submit" id="edit-course-submit" value="Edit Course" class="btn button-default">
