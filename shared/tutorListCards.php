@@ -13,27 +13,46 @@ if(mysqli_connect_errno()) {
   );
 }
 
-// get the q parameter from URL
-$q = $_REQUEST["q"];
-
-$query = "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.c_id
+$query = "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address,
+course.subject_name, course.min_grade, course.max_grade, course.c_id, course.price,
+AVG(review.rating) AS AverageReview
           FROM course INNER JOIN tutor ON tutor.tutor_id = course.tutor_id
-          INNER JOIN member ON course.tutor_id = member.m_id";
+          INNER JOIN member ON course.tutor_id = member.m_id
+          JOIN review ON course.c_id = review.c_id
+          GROUP By course.c_id";
 
-// add search condition
-if (isset($_GET['searchInput'])) {
-  $input = explode(" ", $_GET['searchInput']);
 
-  $query .= " WHERE tutor.tutor_id < 0";
 
-  foreach ($input as &$value) {
-    $query .= " OR UPPER(member.fname) like UPPER('%" . $value . "%')";
-    $query .= " OR UPPER(member.lname) like UPPER('%" . $value . "%')";
-    $query .= " OR UPPER(course.subject_name) like UPPER('%" . $value . "%')";
-    // $query .= " OR UPPER(course.min_grade) like UPPER('%" . $value . "%')";
-    // $query .= " OR UPPER(course.max_grade) like UPPER('%" . $value . "%')";
+// get the sort and filter parameter from URL
+
+
+// add sort condition
+if (isset($_GET['sortby'])) {
+
+  switch($_GET['sortby']) {
+    case "rate":
+      $query .= " ORDER BY AverageReview DESC";
+      break;
+
+    case "a-z":
+      $query .= " ORDER BY member.fname";
+      break;
+
+    case "z-a":
+      $query .= " ORDER BY member.fname DESC";
+      break;
+
+    case "price-high":
+      $query .= " ORDER BY course.price DESC";
+      break;
+
+    case "price-low":
+      $query .= " ORDER BY course.price";
+      break;
   }
+
 }
+
 
 $courseList = mysqli_query($connection, $query);
 
@@ -92,6 +111,14 @@ while ($row = mysqli_fetch_array($courseList))
 
 
 }
+echo "<div class='max-flex-box-item'></div>";
+echo "<div class='max-flex-box-item'></div>";
+echo "<div class='max-flex-box-item'></div>";
+echo "<div class='max-flex-box-item'></div>";
+echo "<div class='max-flex-box-item'></div>";
+echo "<div class='max-flex-box-item'></div>";
+echo "<div class='max-flex-box-item'></div>";
+
 
 // release returned data
 mysqli_free_result($courseList);

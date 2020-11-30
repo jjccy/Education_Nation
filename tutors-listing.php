@@ -69,11 +69,11 @@
               </button>
 
               <div class="dropdown-content">
-                <a href="#" id="top-rate">Top Rated</a>
-                <a href="#" id="a-z">A - Z</a>
-                <a href="#" id="z-a">Z - A</a>
-                <a href="#" id="price-high">Price: High - Low</a>
-                <a href="#" id="price-low">Price: Low - High</a>
+                <a href="#" id="top-rate" onclick="sortBy('rate')">Top Rated</a>
+                <a href="#" id="a-z" onclick="sortBy('a-z')">A - Z</a>
+                <a href="#" id="z-a" onclick="sortBy('z-a')">Z - A</a>
+                <a href="#" id="price-high" onclick="sortBy('price-high')">Price: High - Low</a>
+                <a href="#" id="price-low" onclick="sortBy('price-low')">Price: Low - High</a>
               </div>
             </div>
 
