@@ -59,6 +59,8 @@
 
               <?php
 
+              $subtotal = 0;
+
               // if there are stuff in cart
               if ($inCart > 0) {
                 $connection = mysqli_connect("localhost", "view", "", "terence_liu");
@@ -99,6 +101,7 @@
                   $minGrade = ($row['min_grade'] == 0) ? "K" : $row['min_grade'];
                   $maxGrade = $row['max_grade'];
                   $price = $row['price'];
+                  $subtotal += $row['price'];
 
                   ($minGrade === 0) ? $minGrade = "K" : true;
 
@@ -174,17 +177,23 @@
             <div class="cart-payment-breakdown">
               <div class="breakdown-item breakdown-subtotal">
                 <p class="body-text">Subtotal:</p>
-                <p class="body-text">$66.00</p>
+                <p class="body-text">
+                  <?php echo "$" . $subtotal . ".00" ?>
+                </p>
               </div>
 
               <div class="breakdown-item breakdown-tax">
                 <p class="body-text">Taxes:</p>
-                <p class="body-text">$4.00</p>
+                <p class="body-text">
+                  <?php echo "$" . $subtotal*0.12 ?>
+                </p>
               </div>
 
               <div class="breakdown-item breakdown-total">
                 <p class="heading-3 cart-info-heading">Total:</p>
-                <p class="heading-3 cart-info-heading">$70.00</p>
+                <p class="heading-3 cart-info-heading">
+                  <?php echo "$" . $subtotal*1.12 ?>
+                </p>
               </div>
             </div>
 
