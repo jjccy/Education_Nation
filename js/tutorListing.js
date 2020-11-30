@@ -117,12 +117,12 @@ function sortAndFilter() {
   if (sortby != "") {
     theURL = theURL + "&sortby=" + sortby;
   }
-  if (course != "") {
-    theURL = theURL + "&course=" + course;
-  }
+  
   if (grade != "") {
     theURL = theURL + "&grade=" + grade;
   }
+
+  theURL = theURL + "&course=" + course;
 
   myReq.open("GET", theURL, true);
   myReq.onreadystatechange = theHTTPResponse;
