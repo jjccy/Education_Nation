@@ -21,7 +21,7 @@
       );
     }
     //retrieve email and password
-    $query = "SELECT member.email, member.password, member.fname, member.m_id FROM member WHERE member.email =" . "'". $email . "'";
+    $query = "SELECT member.email, member.password, member.fname, member.lname, member.m_id FROM member WHERE member.email =" . "'". $email . "'";
     $result = mysqli_query($connection, $query);
 
     //check if query results is empty or not
@@ -77,6 +77,7 @@
           $_SESSION["isTutor"] = $isTutor;
           $_SESSION["m_id"] = $row['m_id'];
           $_SESSION["password"] = $password;
+          $_SESSION['lname'] = $row['lname'];
 
           // release returned data
           mysqli_free_result($result);

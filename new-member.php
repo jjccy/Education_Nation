@@ -118,6 +118,7 @@
         $_SESSION["email"] = $email;
         $_SESSION["name"] = $fname;
         $_SESSION["password"] = $password;
+        $_SESSION['lname'] = $lname;
 
         // $getId = "SELECT member.m_id FROM member WHERE member.email=" . $email;
         // echo $getId ."<br>";
