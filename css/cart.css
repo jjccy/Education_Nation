@@ -1,6 +1,6 @@
     .cart-detail-background {
       /* display: block; */
-      position: fixed;
+      /* position: fixed;
       right: 0;
       top: 0;
       height: 100vh;
@@ -8,7 +8,23 @@
       background: #E5F8FF;
       border-top-left-radius: 82px;
       border-bottom-left-radius: 82px;
-      z-index: 3;
+      z-index: 3; */
+    }
+
+    body {
+      background: url('../img/Purple_Bottom_Right.png');
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: right bottom;
+      background-size: 30% auto;
+    }
+
+    .cart-container {
+      box-shadow: -2px -2px 5px rgba(125, 125, 125, 0.2);
+      background: white;
+      border-radius: 50px;
+      padding: 4em;
+      min-height: 85.5vh;
     }
 
     /* .cart-detail-top {
@@ -58,7 +74,6 @@
       padding-left: 3rem;
       align-items: center;
     } */
-
     @media only screen and (max-width: 1800px) {
       .login-wrapper .heading-3 {
         padding-left: 0;
@@ -93,10 +108,21 @@
 
     .cart-item {
       padding-right: 1.5em;
+      padding-bottom: 1.5em;
     }
 
     .cart-item .card-container {
       max-width: 15em;
+    }
+
+    .remove-button {
+      background-image: url('../img/Remove_From_Cart.svg');
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -1.4em;
+      right: -1em;
+      width: 3em;
+      height: 3em;
     }
 
     .cart-content {
@@ -111,18 +137,22 @@
     }
 
     .cart-detail {
-      flex: 0 0 25%;
+      flex: 0 0 40%;
       position: relative;
       z-index: 4;
       padding-left: 1.5em;
     }
 
+    .cart-payment-breakdown {
+      padding: 0 1.5rem;
+    }
+
     .cart-info {
-      background: white;
+      background: #F6F7F9;
+      border-radius: 1.4em;
       display: flex;
       display: -webkit-flex;
       display: -ms-flex;
-      border-radius: 10px;
       padding: 1.5em;
       flex-direction: row;
       justify-content: space-between;
@@ -166,7 +196,7 @@
     }
 
     .breakdown-total {
-      border-bottom: solid 1px #776FC4;
+      border-bottom: solid 1px #C4BFFC;
     }
 
     .place-order {
