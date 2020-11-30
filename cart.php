@@ -110,6 +110,7 @@
                   echo"<div class='cart-item'>
                         <div class='card-container'>
                           <img src='$profileImage' alt='$tutorfame Profile Picture'>
+                          <div class='remove-button'></div>
                           <div class='info-wrapper'>
                             <div class='card-info'>
                               <p class='heading-4'>$tutorfame $tutorlame</p>
@@ -217,11 +218,7 @@
 
 
     <!-- footer starts here -->
-
-    <footer>
-
-
-    </footer>
+    <?php include('shared/footer.php'); ?>
 
     <!-- end of footer section -->
 
