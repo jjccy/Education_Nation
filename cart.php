@@ -74,7 +74,7 @@
                 }
 
                 // get all carts for this student
-                $query = "SELECT member.fname, member.lname, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.price
+                $query = "SELECT cartadd.cart_id, member.fname, member.lname, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.price
                           FROM cartadd INNER JOIN course on cartadd.c_id = course.c_id
                           INNER JOIN member on course.tutor_id = member.m_id
                           WHERE cartadd.student_id = " .  $_SESSION['m_id'];
@@ -102,6 +102,7 @@
                   $maxGrade = $row['max_grade'];
                   $price = $row['price'];
                   $subtotal += $row['price'];
+                  $cartID = $row['cart_id'];
 
                   ($minGrade === 0) ? $minGrade = "K" : true;
 
@@ -110,7 +111,7 @@
                   echo"<div class='cart-item'>
                         <div class='card-container'>
                           <img src='$profileImage' alt='$tutorfame Profile Picture'>
-                          <div class='remove-button'></div>
+                          <div class='remove-button' id='$cartID' onclick='removeItem($cartID)'></div>
                           <div class='info-wrapper'>
                             <div class='card-info'>
                               <p class='heading-4'>$tutorfame $tutorlame</p>
@@ -158,7 +159,9 @@
             <div class="cart-info">
               <div class="billing-info">
                 <p class="heading-3 cart-info-heading"> Billing Information</p>
-                <p class="body-text bill-name">Jennifer Salong</p>
+                <p class="body-text bill-name">
+                  <?php echo $_SESSION['name'] . " " . $_SESSION['lname']; ?>
+                </p>
                 <p class="body-text bill-address">1234 Alphabet Street, Vancouver, BC, V5A 1A1</p>
                 <p class="body-text bill-phone-num">604.111.1111</p>
               </div>
@@ -205,17 +208,8 @@
       </div>
       <!-- end cart section -->
 
-
-
-
     </div>
     <!-- end body wrapper -->
-
-
-
-
-
-
 
     <!-- footer starts here -->
     <?php include('shared/footer.php'); ?>
@@ -223,6 +217,15 @@
     <!-- end of footer section -->
 
     <script src="js/script.js"></script>
+
+    <script>
+      function removeItem(cart_id) {
+        let target = 'removeCartItem.php';
+        let url = target + '?cartid=' + cart_id;
+
+        window.location.href = url;
+      }
+    </script>
 
   </body>
 </html>
