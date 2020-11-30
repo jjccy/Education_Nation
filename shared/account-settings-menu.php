@@ -25,6 +25,7 @@
                 <a href="account-settings.php" class="title-with-icon body-text icon-setting account-setting-menu" id="account-setting-link">Account Settings</a>
                 <a href="tutor_upcoming-booking.php" class="title-with-icon body-text icon-clock account-setting-menu" id="upcoming-booking-link">Upcoming Bookings</a>
                 <a href="tutor_booking-history.php" class="title-with-icon body-text icon-booking-history account-setting-menu" id="booking-history-link">Booking History</a>
+                <a href="student_personalization.php" class="title-with-icon body-text icon-customize account-setting-menu" id="personalization-link">Personalization</a>
             </div>
         </div>
     <?php } ?>
@@ -41,6 +42,7 @@
     var booking_history = document.getElementById("booking-history-link");
     var reviews = document.getElementById("reviews-link");
     var courses = document.getElementById("courses-link");
+    var personalization = document.getElementById("personalization-link");
 
     // removing all of the 'title-active' class on the links
     account_settings.classList.remove("title-active");
@@ -50,6 +52,7 @@
     booking_history.classList.remove("title-active");
     reviews.classList.remove("title-active");
     courses.classList.remove("title-active");
+    personalization.classList.remove("title-active");
 
     // checking if the current page matches any of the links, if so then set active state to that link
     if (current_url.includes("account-settings")) {
@@ -78,5 +81,9 @@
 
     else if (current_url.includes("courses")) {
         courses.classList.add("title-active");
+    }
+
+    else if (current_url.includes("personalization")) {
+        personalization.classList.add("title-active");
     }
 </script>

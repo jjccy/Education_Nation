@@ -15,7 +15,7 @@
     if (!isset($_SESSION['isTutor']) || !$_SESSION['isTutor']) {
         echo "<script>";
             echo "var current_url = window.location.pathname;";
-            echo 'if (!(current_url.includes("account-settings") || current_url.includes("upcoming-booking") || current_url.includes("booking-history"))) {';
+            echo 'if (!(current_url.includes("account-settings") || current_url.includes("upcoming-booking") || current_url.includes("booking-history") || current_url.includes("personalization"))) {';
                 echo "window.location.href='index.php';";
                 echo "alert('Restricted, you do not have access!');";
             echo '}';
