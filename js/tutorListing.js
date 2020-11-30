@@ -66,6 +66,9 @@ $( function() {
         low = ui.values[ 0 ];
       }
       $( "#amount" ).val( low + " - " + ui.values[ 1 ] );
+
+      grade = ui.values[0] + "-" + ui.values[1];
+      sortAndFilter();
     }
   });
   $( "#amount" ).val("K" + " - " + $( "#slider-range" ).slider( "values", 1 ) );
@@ -73,8 +76,8 @@ $( function() {
 
 
 // AJAX for tutor listing cards
-var course;
-var age;
+var course = "";
+var grade = "";
 var sortby = "";
 
 // call when sort link is clicked
@@ -87,6 +90,24 @@ function sortBy(sort) {
   return false;
 }
 
+// couse when course check box is selected
+function courseSelect() {
+  let courses = document.getElementsByName("courses[]");
+  course = "";
+  courses.forEach(checkCourse);
+  sortAndFilter();
+}
+
+
+
+function checkCourse(item) {
+  if (item.checked) {
+    course = course + item.value + "-";
+  }
+}
+
+
+
 function sortAndFilter() {
   let targetPage = 'shared/tutorListCards.php';
   let myRand = parseInt(Math.random() * 99999999999999999);
@@ -96,7 +117,12 @@ function sortAndFilter() {
   if (sortby != "") {
     theURL = theURL + "&sortby=" + sortby;
   }
-
+  if (course != "") {
+    theURL = theURL + "&course=" + course;
+  }
+  if (grade != "") {
+    theURL = theURL + "&grade=" + grade;
+  }
 
   myReq.open("GET", theURL, true);
   myReq.onreadystatechange = theHTTPResponse;

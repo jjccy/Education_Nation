@@ -123,7 +123,7 @@
                 $coursename = $row['subject_name'];
 
                 echo "<label class='container'>$coursename
-                        <input type='checkbox' checked='checked' value='$coursename'>
+                        <input type='checkbox' id='courses' name='courses[]' checked='checked' value='$coursename' onclick='courseSelect()'>
                         <span class='checkmark'></span>
                       </label>";
               }

@@ -18,12 +18,41 @@ course.subject_name, course.min_grade, course.max_grade, course.c_id, course.pri
 AVG(review.rating) AS AverageReview
           FROM course INNER JOIN tutor ON tutor.tutor_id = course.tutor_id
           INNER JOIN member ON course.tutor_id = member.m_id
-          JOIN review ON course.c_id = review.c_id
-          GROUP By course.c_id";
+          JOIN review ON course.c_id = review.c_id";
 
 
 
 // get the sort and filter parameter from URL
+
+// sort condition
+if (isset($_GET['course']) || isset($_GET['grade'])) {
+  $query .= " WHERE tutor.tutor_id < 0";
+
+  if (isset($_GET['grade'])) {
+    $grade = explode("-", $_GET['grade']);
+
+    $query .= " OR (course.min_grade <= " . $grade[1];
+    $query .= " AND course.max_grade >= " . $grade[0] . ")";
+  }
+
+  if (isset($_GET['course'])) {
+    $courses = explode("-", $_GET['course']);
+
+    (isset($_GET['grade'])) ? $query .= " AND (" :  $query .= " OR (";
+
+    foreach ($courses as &$course) {
+        $query .= "course.subject_name = '$course' OR ";
+    }
+
+    // remove last three
+    $query = substr($query, 0, -4);
+
+    $query .= ") ";
+  }
+
+}
+
+$query .= " GROUP By course.c_id";
 
 
 // add sort condition
