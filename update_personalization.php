@@ -105,4 +105,8 @@
 
     // mysqli_free_result($result);
     mysqli_close($connection);
+
+    echo '<script language="javascript">';
+    echo "window.location.href='student_personalization.php';";
+    echo '</script>';
 ?>
