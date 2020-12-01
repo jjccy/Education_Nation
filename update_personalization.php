@@ -48,8 +48,24 @@
         }
     
         if($_POST['grade-edit'] != NULL){
-            $grade = $_POST['grade-edit'];
-            echo $grade . "<br>";
+            if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
+                $grade = 0;
+                echo $grade . "<br>";
+            }
+            
+            else if ($_POST['grade-edit'] >= 0 && $_POST['grade-edit'] <= 12) {
+                $grade = $_POST['grade-edit'];
+                echo $grade . "<br>";
+            }
+
+            else {
+                echo '<script language="javascript">';
+                echo "window.location.href='student_personalization.php';";
+                echo 'alert("Grade Range Out of Bounds");';
+                echo '</script>';
+                // mysqli_free_result($result);
+                // mysqli_close($connection);
+            }
         }
     
         if($_POST['language-edit'] != NULL){
@@ -81,8 +97,24 @@
         }
     
         if($_POST['grade-edit'] != NULL){
-            $grade = $_POST['grade-edit'];
-            echo $grade . "<br>";
+            if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
+                $grade = 0;
+                echo $grade . "<br>";
+            }
+
+            else if ($_POST['grade-edit'] >= 0 && $_POST['grade-edit'] <= 12) {
+                $grade = $_POST['grade-edit'];
+                echo $grade . "<br>";
+            }
+
+            else {
+                echo '<script language="javascript">';
+                echo "window.location.href='student_personalization.php';";
+                echo 'alert("Grade Range Out of Bounds");';
+                echo '</script>';
+                // mysqli_free_result($result);
+                // mysqli_close($connection);
+            }
         }
     
         if($_POST['language-edit'] != NULL){
@@ -99,7 +131,7 @@
         $result = mysqli_query($connection, $query);
 
         if (!$result) {
-            die('database query failed update');
+            die('database query failed update' . mysqli_error($connection));
         }
     }
 
