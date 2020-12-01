@@ -64,7 +64,11 @@
               if (session_status() == PHP_SESSION_NONE) {
                 session_start();
               }
-
+              //set default values to nothing
+              $grade = "";
+              $city = "";
+              $courses = "";
+              $lang = "";
               // change above step to session
               $currentUser = $_SESSION['m_id'];
 
@@ -85,7 +89,7 @@
               if (!$result) {
                 die('database query failed update');
               }
-              
+
               else {
                 while ($row = $result -> fetch_assoc()) {
                   $grade = $row['grade'];
@@ -93,7 +97,7 @@
                   $courses = $row['courses'];
                   $lang = $row['lang'];
                 }
-  
+
                 mysqli_free_result($result);
               }
 
@@ -109,7 +113,7 @@
                         <input type="text" name="subject-edit" id="subject-edit" class="text-box" placeholder="Math, Science, English" value="<?php echo $courses; ?>">
 
                         <label for="grade-edit" class="form-label"> Enter Grade </label>
-                        <input type="text" name="grade-edit" id="grade-edit" class="text-box" placeholder="2" value="<?php if ($grade == 0) { echo "K"; } else { echo $grade;  }?>">
+                        <input type="text" name="grade-edit" id="grade-edit" class="text-box" placeholder="2" value="<?php if ($grade === 0) { echo "K"; } else { echo $grade;  }?>">
 
                         <label for="language-edit" class="form-label"> Preferred Language </label>
                         <input type="text" name="language-edit" id="language-edit" class="text-box" placeholder="English" value="<?php echo $lang; ?>">

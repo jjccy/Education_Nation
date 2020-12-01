@@ -33,10 +33,10 @@
         $courses = $row['courses'];
         $lang = $row['lang'];
 
-        echo $grade . "hi <br>";
-        echo $city . "hi <br>";
-        echo $courses . "hi <br>";
-        echo $lang . "hi <br>";
+        // echo $grade . "hi <br>";
+        // echo $city . "hi <br>";
+        // echo $courses . "hi <br>";
+        // echo $lang . "hi <br>";
     }
 
     // grade, city, or courses is not set then run this
@@ -44,18 +44,18 @@
     if (!isset($grade) || !isset($city) || !isset($courses) || !isset($lang)) {
         if($_POST['subject-edit'] != NULL){
             $courses = $_POST['subject-edit'];
-            echo $courses . "<br>";
+            // echo $courses . "<br>";
         }
-    
+
         if($_POST['grade-edit'] != NULL){
             if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
                 $grade = 0;
-                echo $grade . "<br>";
+                // echo $grade . "<br>";
             }
-            
+
             else if ($_POST['grade-edit'] >= 0 && $_POST['grade-edit'] <= 12) {
                 $grade = $_POST['grade-edit'];
-                echo $grade . "<br>";
+                // echo $grade . "<br>";
             }
 
             else {
@@ -67,15 +67,15 @@
                 // mysqli_close($connection);
             }
         }
-    
+
         if($_POST['language-edit'] != NULL){
             $lang = $_POST['language-edit'];
-            echo $lang . "<br>";
+            // echo $lang . "<br>";
         }
-    
+
         if($_POST['location-edit'] != NULL){
             $city = $_POST['location-edit'];
-            echo $city . "<br>";
+            // echo $city . "<br>";
         }
 
         $query = "INSERT INTO personalization (student_id, grade, city, courses, lang) VALUES ($currentUser, $grade, '$city', '$courses', '$lang')";
@@ -93,18 +93,18 @@
     else {
         if($_POST['subject-edit'] != NULL){
             $courses = $_POST['subject-edit'];
-            echo $courses . "<br>";
+            // echo $courses . "<br>";
         }
-    
+
         if($_POST['grade-edit'] != NULL){
             if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
                 $grade = 0;
-                echo $grade . "<br>";
+                // echo $grade . "<br>";
             }
 
             else if ($_POST['grade-edit'] >= 0 && $_POST['grade-edit'] <= 12) {
                 $grade = $_POST['grade-edit'];
-                echo $grade . "<br>";
+                // echo $grade . "<br>";
             }
 
             else {
@@ -116,15 +116,15 @@
                 // mysqli_close($connection);
             }
         }
-    
+
         if($_POST['language-edit'] != NULL){
             $lang = $_POST['language-edit'];
-            echo $lang . "<br>";
+            // echo $lang . "<br>";
         }
-    
+
         if($_POST['location-edit'] != NULL){
             $city = $_POST['location-edit'];
-            echo $city . "<br>";
+            // echo $city . "<br>";
         }
 
         $query = "UPDATE personalization SET city = '$city', grade = $grade, courses = '$courses', lang = '$lang' WHERE student_id = $currentUser";
