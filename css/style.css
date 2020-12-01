@@ -611,6 +611,15 @@ footer p {
     width: auto;
 }
 
+.icon-recommended {
+    /*Recommended icon on Home Page*/
+    background-image: url("../img/Recommended.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    width: auto;
+}
+
 
 /* end side nav bar */
 
