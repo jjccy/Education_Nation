@@ -87,6 +87,11 @@
             // get result from database;
 
             $result = mysqli_query($connection, $query);
+            
+            if(!$result) {
+              die("get personalization failed: " . mysqli_error($connection));
+            }
+
             if (mysqli_num_rows($result) <= 0) {
               $displayRecommended = false;
             }
@@ -127,16 +132,17 @@
                                     ORDER BY AverageReview DESC
                                     LIMIT 5";
 
-              $resultRecommended = mysqli_query($connection, $queryRecommended);
+            $resultRecommended = mysqli_query($connection, $queryRecommended);              
 
               //If query to search for top 5 tutors failed die
               if (!$resultRecommended) {
                   die("get tutorlist failed: " . mysqli_error($connection));
               }
 
-              if (mysqli_num_rows($resultRecommended) == 0) {
-                $showRecommended = false;
-              }
+            if (mysqli_num_rows($resultRecommended) == 0) {
+              $showRecommended = false;
+            }
+        
             if ($result && $showRecommended) {
         ?>
         <!-- home recommended courses Slider carousel-->
