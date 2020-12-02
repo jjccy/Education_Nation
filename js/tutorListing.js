@@ -76,7 +76,7 @@ $( function() {
 
 
 // AJAX for tutor listing cards
-var course = "";
+var course = null;
 var grade = "";
 var sortby = "";
 
@@ -117,12 +117,15 @@ function sortAndFilter() {
   if (sortby != "") {
     theURL = theURL + "&sortby=" + sortby;
   }
-  
+
   if (grade != "") {
     theURL = theURL + "&grade=" + grade;
   }
 
-  theURL = theURL + "&course=" + course;
+  if (course != null) {
+    theURL = theURL + "&course=" + course;
+  }
+
 
   myReq.open("GET", theURL, true);
   myReq.onreadystatechange = theHTTPResponse;
