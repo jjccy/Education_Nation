@@ -134,17 +134,22 @@
                       while ($row = mysqli_fetch_assoc($allCoursesOption))
                       {
                         $coursename = $row['subject_name'];
-                        if(strpos($courses, $coursename) !== false){
-                          $checked = 'checked';
-                        }
-                        else{
-                          $checked = 'unchecked';
-                        }
+                        // if(strpos($courses, $coursename) !== false){
+                        //   $checked = 'checked';
+                        // }
+                        // else{
+                        //   $checked = 'unchecked';
+                        // }
 
-                        echo "<label class='container'>$coursename
-                                <input type='checkbox' id='courses' name='courses[]' checked='if(strpos($courses, $coursename) !== false){ echo checked;} else{ echo unchecked;}' value='$coursename' onclick='courseSelect()'>
+                        $checkboxHTML = "<label class='container'>$coursename
+                                <input type='checkbox' id='courses' name='courses[]' ";
+                                if(strpos($courses, $coursename) !== false){
+                                  $checkboxHTML .= "checked='checked' ";
+                                }
+                                $checkboxHTML .= "value='$coursename'>
                                 <span class='checkmark'></span>
-                              </label>";
+                                </label>";
+                                echo $checkboxHTML;
                       }
                       echo "</div>";
                       mysqli_free_result($allCoursesOption);
@@ -225,18 +230,6 @@
         }
 
         return false;
-      }
-
-      // course when course check box is selected
-      function courseSelect() {
-        let courses = document.getElementsByName("courses[]");
-        course = "";
-        courses.forEach(checkCourse);
-      }
-      function checkCourse(item) {
-        if (item.checked) {
-          course = course + item.value + "-";
-        }
       }
 
 

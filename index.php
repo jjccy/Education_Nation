@@ -87,7 +87,6 @@
             // get result from database;
 
             $result = mysqli_query($connection, $query);
-
             if(!$result) {
               die("get personalization failed: " . mysqli_error($connection));
             }
@@ -95,17 +94,16 @@
             if (mysqli_num_rows($result) <= 0) {
               $displayRecommended = false;
             }
-            if($displayRecommended){
+            $firstRow = mysqli_fetch_assoc($result);
+            mysqli_data_seek($result, 0);
+
+            if($displayRecommended && !($firstRow['grade']==-1 && $firstRow['city'] == "" && $firstRow['courses'] =="" && $firstRow['lang'] == "")){
               while ($row = $result -> fetch_assoc()) {
                 $grade = $row['grade'];
                 $city = $row['city'];
                 $courses = $row['courses'];
                 $lang = $row['lang'];
 
-                // echo $grade . "<br>";
-                // echo $city . "<br>";
-                // echo $courses . "<br>";
-                // echo $lang . "<br>";
               }
 
               mysqli_free_result($result);
@@ -125,7 +123,7 @@
               if($grade != -1){
                 $queryRecommended .= "(course.min_grade <= $grade AND course.max_grade >= $grade) AND ";
               }
-              if(sizeof($courseArray)>0 && isset($courseArray)){
+              if(sizeof($courseArray)>0 && $courseArray[0]!=""){
                 $queryRecommended .= "(";
                 for ($i = 0; $i < sizeof($courseArray); $i++) {
                   if (sizeof($courseArray) == 1 || $i == sizeof($courseArray) - 1) {
@@ -136,15 +134,19 @@
                     $queryRecommended .= "(course.subject_name = '$courseArray[$i]') OR ";
                   }
                 }
-                $queryRecommended = ") ";
+                $queryRecommended .= ") ";
               }
-              if(substr($queryRecommended, -5) === ' AND '){
-                rtrim($queryRecommended, ' AND ');
+              if(substr($queryRecommended, -5) == " AND "){
+                // echo "Check " . substr($queryRecommended, -5);
+                $queryRecommended = rtrim($queryRecommended, ' AND ');
+                // substr($queryRecommended, -5);
+
+                // echo "Check #2 " . $queryRecommended . "<br> <br>";
               }
               $queryRecommended .= "GROUP BY course.c_id
                                     ORDER BY AverageReview DESC
                                     LIMIT 5";
-              echo $queryRecommended;
+              // echo $queryRecommended;
               $resultRecommended = mysqli_query($connection, $queryRecommended);
 
               //If query to search for top 5 tutors failed die
@@ -262,6 +264,7 @@
                 // }
 
                 // print each tutor from list
+                if(mysqli_num_rows($resultRecommended)>0){
                 while ($row = mysqli_fetch_array($resultRecommended))
                 {
 
@@ -307,6 +310,7 @@
 
                 }
               }
+            }
 
                 // release returned data
                 mysqli_free_result($resultRecommended);
