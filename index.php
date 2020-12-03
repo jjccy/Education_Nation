@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <!-- background of site -->
     <div class="background"></div>
 
     <!-- start of chat module -->
@@ -115,20 +116,24 @@
               );
             }
 
+            // looking for current user's row in the personalization table
             $query = "SELECT * FROM personalization WHERE personalization.student_id = '$currentUser'";
+            
             // get result from database;
-
             $result = mysqli_query($connection, $query);
             if(!$result) {
               die("get personalization failed: " . mysqli_error($connection));
             }
 
+            // if no rows belong to current user then set $displayRecommended to false
             if (mysqli_num_rows($result) <= 0) {
               $displayRecommended = false;
             }
+
             $firstRow = mysqli_fetch_assoc($result);
             mysqli_data_seek($result, 0);
 
+            // only displaying the recommended slider; if there is content or results to show for it
             if($displayRecommended && !($firstRow['grade']==-1 && $firstRow['city'] == "" && $firstRow['courses'] =="" && $firstRow['lang'] == "")){
               while ($row = $result -> fetch_assoc()) {
                 $grade = $row['grade'];
@@ -141,11 +146,14 @@
               mysqli_free_result($result);
               $courseArray = explode("_", $courses);
 
+              // builting a query to look for recommended courses for the student
               $queryRecommended = "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.c_id, AVG(review.rating) AS AverageReview
                                   FROM course INNER JOIN tutor ON tutor.tutor_id = course.tutor_id
                                   INNER JOIN member ON course.tutor_id = member.m_id
                                   JOIN review ON course.c_id = review.c_id
                                   WHERE "; //.city = '$city' AND tutor.primary_language LIKE '%$lang%' AND (course.min_grade <= $grade AND course.max_grade >= $grade) AND ". "(";
+
+              // only added city/language/grade to the query if the user has inputted it
               if($city != ""){
                 $queryRecommended .= "tutor.city = '$city' AND ";
               }
@@ -155,6 +163,8 @@
               if($grade != -1){
                 $queryRecommended .= "(course.min_grade <= $grade AND course.max_grade >= $grade) AND ";
               }
+
+              // adding only the selected courses into the search query
               if(sizeof($courseArray)>0 && $courseArray[0]!=""){
                 $queryRecommended .= "(";
                 for ($i = 0; $i < sizeof($courseArray); $i++) {
@@ -168,17 +178,18 @@
                 }
                 $queryRecommended .= ") ";
               }
-              if(substr($queryRecommended, -5) == " AND "){
-                // echo "Check " . substr($queryRecommended, -5);
-                $queryRecommended = rtrim($queryRecommended, ' AND ');
-                // substr($queryRecommended, -5);
 
+              // removing "AND" if it is at the end of the query
+              if(substr($queryRecommended, -5) == " AND "){
+                $queryRecommended = rtrim($queryRecommended, ' AND ');
                 // echo "Check #2 " . $queryRecommended . "<br> <br>";
               }
+
+              // grouping, ordering, limiting the results
               $queryRecommended .= "GROUP BY course.c_id
                                     ORDER BY AverageReview DESC
                                     LIMIT 5";
-              // echo $queryRecommended;
+
               $resultRecommended = mysqli_query($connection, $queryRecommended);
 
               //If query to search for top 5 tutors failed die
@@ -186,10 +197,12 @@
                   die("get tutorlist failed: " . mysqli_error($connection));
               }
 
+              // if no results are available set $showRecommended to false
               if (mysqli_num_rows($resultRecommended) == 0) {
                 $showRecommended = false;
               }
 
+              // if no results are available hiding recommended
               if ($result && $showRecommended && mysqli_num_rows($resultRecommended) > 0) {
 
                 echo "<script>
@@ -242,8 +255,6 @@
 
                 }
               }
-
-
 
                 // release returned data
                 mysqli_free_result($resultRecommended);

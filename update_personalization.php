@@ -18,6 +18,7 @@
         );
     }
 
+    // getting current user's personalization table
     $query = "SELECT * FROM personalization WHERE personalization.student_id = '$currentUser'";
     // get result from database;
 
@@ -27,6 +28,7 @@
         die('database query failed');
     }
 
+    // storing current user's personalization row as variables
     while ($row = $result -> fetch_assoc()) {
         $grade = $row['grade'];
         $city = $row['city'];
@@ -82,6 +84,7 @@
             // echo $city . "<br>";
         // }
 
+        // inserting personalization info for user's who do not already have data in the table
         $query = "INSERT INTO personalization(student_id, grade, city, courses, lang) VALUES($currentUser, $grade, '$city', '$courses', '$lang')";
         $result = mysqli_query($connection, $query);
 
@@ -93,7 +96,7 @@
         }
     }
 
-    // update table
+    // update table for users who already have information in the personalization table
     else {
         // if($_POST['subject-edit'] != NULL){
         $courses = (empty($_POST['courses']))? "" : implode("_", $_POST['courses']);
