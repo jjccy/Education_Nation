@@ -87,7 +87,7 @@
             // get result from database;
 
             $result = mysqli_query($connection, $query);
-            
+
             if(!$result) {
               die("get personalization failed: " . mysqli_error($connection));
             }
@@ -109,30 +109,43 @@
               }
 
               mysqli_free_result($result);
+              $courseArray = explode("_", $courses);
 
               $queryRecommended = "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.c_id, AVG(review.rating) AS AverageReview
                                   FROM course INNER JOIN tutor ON tutor.tutor_id = course.tutor_id
                                   INNER JOIN member ON course.tutor_id = member.m_id
                                   JOIN review ON course.c_id = review.c_id
-                                  WHERE tutor.city = '$city' AND tutor.primary_language LIKE '%$lang%' AND (course.min_grade <= $grade AND course.max_grade >= $grade) AND (";
-
-              $courseArray = explode(", ", $courses);
-
-              for ($i = 0; $i < sizeof($courseArray); $i++) {
-                if (sizeof($courseArray) == 1 || $i == sizeof($courseArray) - 1) {
-                  $queryRecommended .= "course.subject_name = '$courseArray[$i]') ";
-                }
-
-                else {
-                  $queryRecommended .= "course.subject_name = '$courseArray[$i]' OR ";
-                }
+                                  WHERE "; //.city = '$city' AND tutor.primary_language LIKE '%$lang%' AND (course.min_grade <= $grade AND course.max_grade >= $grade) AND ". "(";
+              if($city != ""){
+                $queryRecommended .= "tutor.city = '$city' AND ";
               }
+              if($lang != ""){
+                $queryRecommended .= "tutor.primary_language LIKE '%$lang%' AND ";
+              }
+              if($grade != -1){
+                $queryRecommended .= "(course.min_grade <= $grade AND course.max_grade >= $grade) AND ";
+              }
+              if(sizeof($courseArray)>0 && isset($courseArray)){
+                $queryRecommended .= "(";
+                for ($i = 0; $i < sizeof($courseArray); $i++) {
+                  if (sizeof($courseArray) == 1 || $i == sizeof($courseArray) - 1) {
+                    $queryRecommended .= "(course.subject_name = '$courseArray[$i]') ";
+                  }
 
-              $queryRecommended .= "GROUP By course.c_id
+                  else {
+                    $queryRecommended .= "(course.subject_name = '$courseArray[$i]') OR ";
+                  }
+                }
+                $queryRecommended = ") ";
+              }
+              if(substr($queryRecommended, -5) === ' AND '){
+                rtrim($queryRecommended, ' AND ');
+              }
+              $queryRecommended .= "GROUP BY course.c_id
                                     ORDER BY AverageReview DESC
                                     LIMIT 5";
-
-            $resultRecommended = mysqli_query($connection, $queryRecommended);              
+              echo $queryRecommended;
+              $resultRecommended = mysqli_query($connection, $queryRecommended);
 
               //If query to search for top 5 tutors failed die
               if (!$resultRecommended) {
@@ -142,7 +155,7 @@
             if (mysqli_num_rows($resultRecommended) == 0) {
               $showRecommended = false;
             }
-        
+
             if ($result && $showRecommended) {
         ?>
         <!-- home recommended courses Slider carousel-->

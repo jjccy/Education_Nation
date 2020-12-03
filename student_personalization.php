@@ -109,11 +109,53 @@
             <div class="personalization">
                 <form id="edit-personalization-form" action="update_personalization.php" method="post">
                     <div class="form-group">
-                        <label for="subject-edit" class="form-label"> Subjects of Interest </label>
-                        <input type="text" name="subject-edit" id="subject-edit" class="text-box" placeholder="Math, Science, English" value="<?php echo $courses; ?>">
+                      <?php
+                      // Connect to database using view privilege
+                      $connection = mysqli_connect("localhost", "view", "", "terence_liu");
+                      //Check if database connection was a success or not
+                      if(mysqli_connect_errno()) {
+                        // if fail, skip all php and print errors
+                        die("Database connect failed: " .
+                          mysqli_connect_error() .
+                          " (" . mysqli_connect_errno(). ")"
+                        );
+                      }
+                      $allCoursesOption = mysqli_query($connection, "SELECT DISTINCT course.subject_name
+                                                                                FROM course
+                                                                                ORDER BY course.subject_name");
+
+                      if (!$allCoursesOption) {
+                        die("get all course option fail");
+                      }
+
+                      // echo every single course
+                      echo "<div class=course-selection>";
+                      echo "<label class='form-label'> Subjects of Interest </label> <br>";
+                      while ($row = mysqli_fetch_assoc($allCoursesOption))
+                      {
+                        $coursename = $row['subject_name'];
+                        if(strpos($courses, $coursename) !== false){
+                          $checked = 'checked';
+                        }
+                        else{
+                          $checked = 'unchecked';
+                        }
+
+                        echo "<label class='container'>$coursename
+                                <input type='checkbox' id='courses' name='courses[]' checked='if(strpos($courses, $coursename) !== false){ echo checked;} else{ echo unchecked;}' value='$coursename' onclick='courseSelect()'>
+                                <span class='checkmark'></span>
+                              </label>";
+                      }
+                      echo "</div>";
+                      mysqli_free_result($allCoursesOption);
+                      mysqli_close($connection);
+
+                       ?>
+                        <!-- <label for="subject-edit" class="form-label"> Subjects of Interest </label>
+                        <input type="text" name="subject-edit" id="subject-edit" class="text-box" placeholder="Math, Science, English" value="<?php echo $courses; ?>"> -->
 
                         <label for="grade-edit" class="form-label"> Enter Grade </label>
-                        <input type="text" name="grade-edit" id="grade-edit" class="text-box" placeholder="2" value="<?php if ($grade === 0) { echo "K"; } else { echo $grade;  }?>">
+                        <input type="text" name="grade-edit" id="grade-edit" class="text-box" placeholder="2" value="<?php if ($grade == -1) { echo ""; } else if($grade===0) {echo "K";} else { echo $grade;  }?>">
 
                         <label for="language-edit" class="form-label"> Preferred Language </label>
                         <input type="text" name="language-edit" id="language-edit" class="text-box" placeholder="English" value="<?php echo $lang; ?>">
@@ -183,6 +225,18 @@
         }
 
         return false;
+      }
+
+      // course when course check box is selected
+      function courseSelect() {
+        let courses = document.getElementsByName("courses[]");
+        course = "";
+        courses.forEach(checkCourse);
+      }
+      function checkCourse(item) {
+        if (item.checked) {
+          course = course + item.value + "-";
+        }
       }
 
 

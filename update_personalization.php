@@ -41,44 +41,48 @@
 
     // grade, city, or courses is not set then run this
     // insert row into table
-    if (!isset($grade) || !isset($city) || !isset($courses) || !isset($lang)) {
-        if($_POST['subject-edit'] != NULL){
-            $courses = $_POST['subject-edit'];
+    if (!isset($grade) && !isset($city) && !isset($courses) && !isset($lang)) {
+        // if($_POST['courses'] != NULL){
+        $courses = (empty($_POST['courses']))? "" : implode("_", $_POST['courses']);
             // echo $courses . "<br>";
-        }
+        // }
 
-        if($_POST['grade-edit'] != NULL){
-            if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
-                $grade = 0;
-                // echo $grade . "<br>";
-            }
+        // if($_POST['grade-edit'] != NULL){
+          if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
+              $grade = 0;
+              // echo $grade . "<br>";
+          }
 
-            else if ($_POST['grade-edit'] >= 0 && $_POST['grade-edit'] <= 12) {
-                $grade = $_POST['grade-edit'];
-                // echo $grade . "<br>";
-            }
+          else if ($_POST['grade-edit'] >= 0 && $_POST['grade-edit'] <= 12) {
+              $grade = $_POST['grade-edit'];
+              // echo $grade . "<br>";
+          }
 
-            else {
-                echo '<script language="javascript">';
-                echo "window.location.href='student_personalization.php';";
-                echo 'alert("Grade Range Out of Bounds");';
-                echo '</script>';
-                // mysqli_free_result($result);
-                // mysqli_close($connection);
-            }
-        }
+          else if ($_POST['grade-edit'] == ""){
+              $grade = -1;
+          }
 
-        if($_POST['language-edit'] != NULL){
-            $lang = $_POST['language-edit'];
+          else {
+              echo '<script language="javascript">';
+              echo "window.location.href='student_personalization.php';";
+              echo 'alert("Grade Range Out of Bounds");';
+              echo '</script>';
+              // mysqli_free_result($result);
+              // mysqli_close($connection);
+          }
+        // }
+
+        // if($_POST['language-edit'] != NULL){
+        $lang = ($_POST['language-edit']==NULL) ? "" : $_POST['language-edit'];
             // echo $lang . "<br>";
-        }
+        // }
 
-        if($_POST['location-edit'] != NULL){
-            $city = $_POST['location-edit'];
+        // if($_POST['location-edit'] != NULL){
+        $city = ($_POST['location-edit'==NULL]) ? "" : $_POST['location-edit'];
             // echo $city . "<br>";
-        }
+        // }
 
-        $query = "INSERT INTO personalization (student_id, grade, city, courses, lang) VALUES ($currentUser, $grade, '$city', '$courses', '$lang')";
+        $query = "INSERT INTO personalization(student_id, grade, city, courses, lang) VALUES($currentUser, $grade, '$city', '$courses', '$lang')";
         $result = mysqli_query($connection, $query);
 
         if (!$result) {
@@ -91,41 +95,45 @@
 
     // update table
     else {
-        if($_POST['subject-edit'] != NULL){
-            $courses = $_POST['subject-edit'];
+        // if($_POST['subject-edit'] != NULL){
+        $courses = (empty($_POST['courses']))? "" : implode("_", $_POST['courses']);
             // echo $courses . "<br>";
+        // }
+
+        // if($_POST['grade-edit'] != NULL){
+        if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
+            $grade = 0;
+            // echo $grade . "<br>";
         }
 
-        if($_POST['grade-edit'] != NULL){
-            if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
-                $grade = 0;
-                // echo $grade . "<br>";
-            }
-
-            else if ($_POST['grade-edit'] >= 0 && $_POST['grade-edit'] <= 12) {
-                $grade = $_POST['grade-edit'];
-                // echo $grade . "<br>";
-            }
-
-            else {
-                echo '<script language="javascript">';
-                echo "window.location.href='student_personalization.php';";
-                echo 'alert("Grade Range Out of Bounds");';
-                echo '</script>';
-                // mysqli_free_result($result);
-                // mysqli_close($connection);
-            }
+        else if ($_POST['grade-edit'] == ""){
+            $grade = -1;
         }
 
-        if($_POST['language-edit'] != NULL){
-            $lang = $_POST['language-edit'];
+        else if ($_POST['grade-edit'] >= 0 && $_POST['grade-edit'] <= 12) {
+            $grade = $_POST['grade-edit'];
+            // echo $grade . "<br>";
+        }
+
+        else {
+            echo '<script language="javascript">';
+            echo "window.location.href='student_personalization.php';";
+            echo 'alert("Grade Range Out of Bounds");';
+            echo '</script>';
+            // mysqli_free_result($result);
+            // mysqli_close($connection);
+        }
+        // }
+
+        // if($_POST['language-edit'] != NULL){
+        $lang = ($_POST['language-edit']==NULL) ? "" : $_POST['language-edit'];
             // echo $lang . "<br>";
-        }
+        // }
 
-        if($_POST['location-edit'] != NULL){
-            $city = $_POST['location-edit'];
+        // if($_POST['location-edit'] != NULL){
+        $city = ($_POST['location-edit']==NULL) ? "" : $_POST['location-edit'];
             // echo $city . "<br>";
-        }
+        // }
 
         $query = "UPDATE personalization SET city = '$city', grade = $grade, courses = '$courses', lang = '$lang' WHERE student_id = $currentUser";
         $result = mysqli_query($connection, $query);

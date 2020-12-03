@@ -176,7 +176,7 @@ body {
   color: #333;
   font-size: 1.1rem;
   text-align: left;
-  letter-spacing: .15em;
+  /* letter-spacing: .15em; */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -200,7 +200,6 @@ body {
   height: 1.5em;
   width: 1.5em;
   background-color: #fff;
-
   border-radius: .2em;
   border: 1px solid rgba(119, 111, 196, 0.5);
 }
