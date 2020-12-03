@@ -69,6 +69,7 @@
               $city = "";
               $courses = "";
               $lang = "";
+
               // change above step to session
               $currentUser = $_SESSION['m_id'];
 
@@ -82,6 +83,7 @@
                 );
               }
 
+              // looking for personalization row that belongs to current user
               $query = "SELECT * FROM personalization WHERE personalization.student_id = '$currentUser'";
 
               $result = mysqli_query($connection, $query);
@@ -91,6 +93,7 @@
               }
 
               else {
+                // storing current user's personalization info into rows
                 while ($row = $result -> fetch_assoc()) {
                   $grade = $row['grade'];
                   $city = $row['city'];
@@ -141,6 +144,7 @@
                         //   $checked = 'unchecked';
                         // }
 
+                        // prepopulating the state of the checkbox according to the personalization table
                         $checkboxHTML = "<label class='container'>$coursename
                                 <input type='checkbox' id='courses' name='courses[]' ";
                                 if(strpos($courses, $coursename) !== false){
@@ -159,6 +163,7 @@
                         <!-- <label for="subject-edit" class="form-label"> Subjects of Interest </label>
                         <input type="text" name="subject-edit" id="subject-edit" class="text-box" placeholder="Math, Science, English" value="<?php echo $courses; ?>"> -->
 
+                        <!-- the following input fields are prepopulated if a row of content belongs to the current user -->
                         <label for="grade-edit" class="form-label"> Enter Grade </label>
                         <input type="text" name="grade-edit" id="grade-edit" class="text-box" placeholder="2" value="<?php if ($grade == -1) { echo ""; } else if($grade===0) {echo "K";} else { echo $grade;  }?>">
 
