@@ -60,6 +60,38 @@
         </div>
         <!-- end home title section -->
 
+        <!-- home recommended courses Slider carousel-->
+        <section class="home-slider hide" id="recommend">
+          <div class="slider-title-section">
+            <p class="title-with-icon heading-1 icon-recommended">Recommended Courses</p>
+
+            <!-- slider buttons -->
+            <div class="max-flex-box-item"></div>
+
+            <div class="slider-button">
+              <a href="#" class="arrow-btn" id="left-button-recommended">
+                <p>&#8592;</p>
+              </a>
+              <div class="page-number">
+                <p class="body-text" id="currentPage">01</p>
+                <p class="body-text"> / </p>
+                <p class="body-text" id="totalPage">02</p>
+              </div>
+
+              <a href="#" class="arrow-btn active" id="right-button-recommended">
+                <p>&#8594;</p>
+              </a>
+            </div>
+            <!-- end slider buttons -->
+          </div>
+
+
+          <!-- slider section-->
+          <div id="elemRecommended" class="flex-box">
+
+            <div id="outerRecommended" class="max-flex-box-item">
+              <div id="innerRecommended">
+
         <!-- checking if student is logged in to display recommended courses -->
         <?php
           // check if session start has been called
@@ -154,117 +186,17 @@
                   die("get tutorlist failed: " . mysqli_error($connection));
               }
 
-            if (mysqli_num_rows($resultRecommended) == 0) {
-              $showRecommended = false;
-            }
+              if (mysqli_num_rows($resultRecommended) == 0) {
+                $showRecommended = false;
+              }
 
-            if ($result && $showRecommended) {
-        ?>
-        <!-- home recommended courses Slider carousel-->
-        <section class="home-slider">
-          <div class="slider-title-section">
-            <p class="title-with-icon heading-1 icon-recommended">Recommended Courses</p>
+              if ($result && $showRecommended && mysqli_num_rows($resultRecommended) > 0) {
 
-            <!-- slider buttons -->
-            <div class="max-flex-box-item"></div>
-
-            <div class="slider-button">
-              <a href="#" class="arrow-btn" id="left-button-recommended">
-                <p>&#8592;</p>
-              </a>
-              <div class="page-number">
-                <p class="body-text" id="currentPage">01</p>
-                <p class="body-text"> / </p>
-                <p class="body-text" id="totalPage">02</p>
-              </div>
-
-              <a href="#" class="arrow-btn active" id="right-button-recommended">
-                <p>&#8594;</p>
-              </a>
-            </div>
-            <!-- end slider buttons -->
-          </div>
-
-
-          <!-- slider section-->
-          <div id="elemRecommended" class="flex-box">
-
-            <div id="outerRecommended" class="max-flex-box-item">
-              <div id="innerRecommended">
-
-                <?php
-                // $connection = mysqli_connect("localhost", "view", "", "terence_liu");
-                // if(mysqli_connect_errno()) {
-                //   // if fail, skip all php and print errors
-
-                //   die("Database connet failed: " .
-                //     mysqli_connect_error() .
-                //     " (" . mysqli_connect_errno(). ")"
-                //   );
-                // }
-
-                // $query = "SELECT personalization.grade, personalization.city, personalization.courses, personalization.lang FROM personalization WHERE personalization.student_id = '$currentUser'";
-
-                // $result = mysqli_query($connection, $query);
-
-                // if (!$result) {
-                //   die("Database connect failed insert: " .
-                //   mysqli_connect_error() .
-                //   " (" . mysqli_connect_errno(). ")"
-                //   );
-                // }
-
-                // else {
-                //   while ($row = $result -> fetch_assoc()) {
-                //       $grade = $row['grade'];
-                //       $city = $row['city'];
-                //       $courses = $row['courses'];
-                //       $lang = $row['lang'];
-
-                //       // echo $grade . "<br>";
-                //       // echo $city . "<br>";
-                //       // echo $courses . "<br>";
-                //       // echo $lang . "<br>";
-                //   }
-
-                //   mysqli_free_result($result);
-                // }
-
-                // $queryRecommended = "SELECT member.fname, member.lname, tutor.tutor_id, member.profile_address, course.subject_name, course.min_grade, course.max_grade, course.c_id, AVG(review.rating) AS AverageReview
-                //                     FROM course INNER JOIN tutor ON tutor.tutor_id = course.tutor_id
-                //                     INNER JOIN member ON course.tutor_id = member.m_id
-                //                     JOIN review ON course.c_id = review.c_id
-                //                     WHERE tutor.city = '$city' AND tutor.primary_language LIKE '%$lang%' AND (course.min_grade <= $grade AND course.max_grade >= $grade) AND (";
-
-                // $courseArray = explode(", ", $courses);
-
-                // for ($i = 0; $i < sizeof($courseArray); $i++) {
-                //   if (sizeof($courseArray) == 1 || $i == sizeof($courseArray) - 1) {
-                //     $queryRecommended .= "course.subject_name = '$courseArray[$i]') ";
-                //   }
-
-                //   else {
-                //     $queryRecommended .= "course.subject_name = '$courseArray[$i]' OR ";
-                //   }
-                // }
-
-                // $queryRecommended .= "GROUP By course.c_id
-                //                       ORDER BY AverageReview DESC
-                //                       LIMIT 5";
-
-                // $resultRecommended = mysqli_query($connection, $queryRecommended);
-
-                // //If query to search for top 5 tutors failed die
-                // if (!$resultRecommended) {
-                //     die("get tutorlist failed: " . mysqli_error($connection));
-                // }
-
-                // if (mysqli_num_rows($resultRecommended) == 0) {
-                //   $showRecommended = false;
-                // }
+                echo "<script>
+                       document.getElementById('recommend').classList.remove('hide');
+                      </script>" ;
 
                 // print each tutor from list
-                if(mysqli_num_rows($resultRecommended)>0){
                 while ($row = mysqli_fetch_array($resultRecommended))
                 {
 
@@ -310,11 +242,15 @@
 
                 }
               }
-            }
+
+
 
                 // release returned data
                 mysqli_free_result($resultRecommended);
                 mysqli_close($connection);
+
+          }
+          }
 
                  ?>
 
@@ -327,8 +263,6 @@
 
 
         </section>
-
-        <?php } }?>
         <!-- end home recommended courses Slider carousel -->
 
         <!-- home best tutors section Slider carousel-->

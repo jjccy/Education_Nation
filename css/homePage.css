@@ -49,6 +49,10 @@ body {
   align-items: flex-start; */
 }
 
+.home-slider.hide {
+  display: none;
+}
+
 .slide:first-child {
   margin-left: 0;
 }
