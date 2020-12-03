@@ -82,16 +82,17 @@ if (isset($_GET['sortby'])) {
 
 }
 
-
 $courseList = mysqli_query($connection, $query);
 
 if (!$courseList) {
     die("get tutorlist failed: " . mysqli_error($connection));
 }
 
+$jsonText = "";
+
 // if result is smaller than 1, tell user no found result
 if (1 > ($courseList->num_rows)) {
-  echo "<p class='heading-4'>No Match result</p>";
+  $jsonText .= "<p class='heading-4'>No Match result</p>";
 }
 
 // print each tutor from list
@@ -128,26 +129,34 @@ while ($row = mysqli_fetch_array($courseList))
 
 
   // print the tutor card
-  echo "<a href='$url' class='card-container'>";
-  echo "<img src='$profileImage' alt='$tutorfame Profile Picture'>";
-  echo "<div class='info-wrapper'>";
-  echo "<div class='card-info'>";
-  echo "<p class='heading-4'>$tutorfame $tutorlame</p>";
-  echo "<p class='body-text tutor-spec'>$courseName | $minGrade - $maxGrade</p>";
-  echo "</div>";
-  echo "</div>";
-  echo "</a>";
+  $jsonText .= "<a href='$url' class='card-container'>";
+  $jsonText .= "<img src='$profileImage' alt='$tutorfame Profile Picture'>";
+  $jsonText .= "<div class='info-wrapper'>";
+  $jsonText .= "<div class='card-info'>";
+  $jsonText .= "<p class='heading-4'>$tutorfame $tutorlame</p>";
+  $jsonText .= "<p class='body-text tutor-spec'>$courseName | $minGrade - $maxGrade</p>";
+  $jsonText .= "</div>";
+  $jsonText .= "</div>";
+  $jsonText .= "</a>";
 
 
 }
-echo "<div class='max-flex-box-item'></div>";
-echo "<div class='max-flex-box-item'></div>";
-echo "<div class='max-flex-box-item'></div>";
-echo "<div class='max-flex-box-item'></div>";
-echo "<div class='max-flex-box-item'></div>";
-echo "<div class='max-flex-box-item'></div>";
-echo "<div class='max-flex-box-item'></div>";
+$jsonText .= "<div class='max-flex-box-item'></div>";
+$jsonText .= "<div class='max-flex-box-item'></div>";
+$jsonText .= "<div class='max-flex-box-item'></div>";
+$jsonText .= "<div class='max-flex-box-item'></div>";
+$jsonText .= "<div class='max-flex-box-item'></div>";
+$jsonText .= "<div class='max-flex-box-item'></div>";
+$jsonText .= "<div class='max-flex-box-item'></div>";
 
+if (!isset($myObj))
+    $myObj = new stdClass();
+
+$myObj->newList = $jsonText;
+
+$myJSON = json_encode($myObj);
+
+echo $myJSON;
 
 // release returned data
 mysqli_free_result($courseList);

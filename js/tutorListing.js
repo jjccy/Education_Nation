@@ -135,7 +135,9 @@ function sortAndFilter() {
 function theHTTPResponse() {
   if (myReq.readyState == 4) {
     if (myReq.status == 200) {
-      document.getElementById("cardLists").innerHTML = myReq.responseText;
+
+      var myObj = JSON.parse(myReq.responseText);
+      document.getElementById("cardLists").innerHTML = myObj.newList;
     }
   }
 }
