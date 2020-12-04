@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2020 at 06:48 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Generation Time: Dec 04, 2020 at 04:43 AM
+-- Server version: 10.4.16-MariaDB
+-- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,11 +30,22 @@ USE `terence_liu`;
 --
 
 DROP TABLE IF EXISTS `cartadd`;
-CREATE TABLE `cartadd` (
+CREATE TABLE IF NOT EXISTS `cartadd` (
   `c_id` int(11) DEFAULT NULL,
   `student_id` int(11) DEFAULT NULL,
-  `cart_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `cart_id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`cart_id`),
+  KEY `c_id` (`c_id`),
+  KEY `student_id` (`student_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cartadd`
+--
+
+INSERT INTO `cartadd` (`c_id`, `student_id`, `cart_id`) VALUES
+(59, 272, 2),
+(60, 272, 3);
 
 -- --------------------------------------------------------
 
@@ -43,14 +54,16 @@ CREATE TABLE `cartadd` (
 --
 
 DROP TABLE IF EXISTS `course`;
-CREATE TABLE `course` (
-  `c_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `course` (
+  `c_id` int(11) NOT NULL AUTO_INCREMENT,
   `tutor_id` int(11) NOT NULL,
   `price` decimal(6,2) DEFAULT NULL,
   `subject_name` char(30) DEFAULT NULL,
   `min_grade` decimal(2,0) DEFAULT NULL,
-  `max_grade` decimal(2,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `max_grade` decimal(2,0) DEFAULT NULL,
+  PRIMARY KEY (`c_id`,`tutor_id`),
+  KEY `tutor_id` (`tutor_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `course`
@@ -63,7 +76,10 @@ INSERT INTO `course` (`c_id`, `tutor_id`, `price`, `subject_name`, `min_grade`, 
 (61, 264, '16.00', 'Calculus', '11', '12'),
 (62, 266, '21.00', 'Chemistry', '11', '12'),
 (63, 268, '24.00', 'Biology', '11', '12'),
-(64, 267, '19.00', 'English', '8', '12');
+(64, 267, '19.00', 'English', '8', '12'),
+(65, 266, '12.00', 'Biology', '0', '8'),
+(66, 267, '90.00', 'Computer Science', '0', '12'),
+(67, 264, '50.00', 'Math', '0', '12');
 
 -- --------------------------------------------------------
 
@@ -72,14 +88,15 @@ INSERT INTO `course` (`c_id`, `tutor_id`, `price`, `subject_name`, `min_grade`, 
 --
 
 DROP TABLE IF EXISTS `member`;
-CREATE TABLE `member` (
-  `m_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `member` (
+  `m_id` int(11) NOT NULL AUTO_INCREMENT,
   `fname` char(30) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` char(128) DEFAULT NULL,
   `profile_address` varchar(260) DEFAULT NULL,
-  `lname` char(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `lname` char(30) DEFAULT NULL,
+  PRIMARY KEY (`m_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `member`
@@ -87,7 +104,7 @@ CREATE TABLE `member` (
 
 INSERT INTO `member` (`m_id`, `fname`, `email`, `password`, `profile_address`, `lname`) VALUES
 (264, 'Jimmy', 'jimmy_chu@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_1.png', 'Chu'),
-(265, 'David', 'david_cao@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_3.png', 'Cao'),
+(265, 'David', 'david_cao@gmail.com', '$2y$10$5YM3N8OPcoqmuP94niSo1OlVZmQec3q0nuarA6MALhRBt8NphKktK', 'img/member/profile_picture_3.png', 'Cao'),
 (266, 'Terence', 'terence_liu@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_4.png', 'Liu'),
 (267, 'Sean', 'sean_jeong@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_5.png', 'Jeong'),
 (268, 'Justin', 'justin_wang@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', '', 'Wang'),
@@ -96,7 +113,31 @@ INSERT INTO `member` (`m_id`, `fname`, `email`, `password`, `profile_address`, `
 (271, 'Linsey', 'linsey_gong@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_13.png', 'Gong'),
 (272, 'Jone', 'jone_ko@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', '', 'Ko'),
 (273, 'Samuel', 'samuel_fung@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_14.png', 'Fung'),
-(274, 'Allen', 'allen_chen@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', '', 'Chen');
+(274, 'Allen', 'allen_chen@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', '', 'Chen'),
+(275, 'Bobby', 'blee@gmail.com', '$2y$10$K4MjQiOjdNICsiwycfqnK.7HGsfc8ZIVNrlc1Bw35RX/tFvKqriPu', NULL, 'Lee');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personalization`
+--
+
+DROP TABLE IF EXISTS `personalization`;
+CREATE TABLE IF NOT EXISTS `personalization` (
+  `student_id` int(11) NOT NULL,
+  `grade` int(2) DEFAULT NULL,
+  `city` varchar(30) DEFAULT NULL,
+  `lang` varchar(30) DEFAULT NULL,
+  `courses` varchar(120) DEFAULT NULL,
+  PRIMARY KEY (`student_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `personalization`
+--
+
+INSERT INTO `personalization` (`student_id`, `grade`, `city`, `lang`, `courses`) VALUES
+(269, 12, 'Burnaby', 'English, Cantonese', 'Biology_Calculus_Chemistry_Computer Science_English_Math_Science');
 
 -- --------------------------------------------------------
 
@@ -105,15 +146,19 @@ INSERT INTO `member` (`m_id`, `fname`, `email`, `password`, `profile_address`, `
 --
 
 DROP TABLE IF EXISTS `review`;
-CREATE TABLE `review` (
-  `r_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `review` (
+  `r_id` int(11) NOT NULL AUTO_INCREMENT,
   `student_id` int(11) NOT NULL,
   `tutor_id` int(11) NOT NULL,
   `c_id` int(11) DEFAULT NULL,
   `date_posted` timestamp NOT NULL DEFAULT current_timestamp(),
   `rating` decimal(2,1) DEFAULT NULL,
-  `comments` mediumtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `comments` mediumtext DEFAULT NULL,
+  PRIMARY KEY (`r_id`,`student_id`,`tutor_id`),
+  KEY `student_id` (`student_id`),
+  KEY `tutor_id` (`tutor_id`),
+  KEY `c_id` (`c_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `review`
@@ -129,7 +174,11 @@ INSERT INTO `review` (`r_id`, `student_id`, `tutor_id`, `c_id`, `date_posted`, `
 (31, 269, 265, 59, '2020-11-08 08:34:11', '2.0', 'worst teacher ever'),
 (36, 269, 265, 0, '2020-11-08 08:44:49', '4.0', 'Overall is not a bad teacher'),
 (37, 269, 265, 58, '2020-11-08 08:46:40', '1.0', 'Just the math is so bad'),
-(42, 269, 265, NULL, '2020-11-08 08:53:42', '0.0', 'last test');
+(42, 269, 265, NULL, '2020-11-08 08:53:42', '0.0', 'last test'),
+(43, 269, 264, 60, '2020-11-20 23:09:44', '5.0', 'Great course!'),
+(44, 272, 265, 58, '2020-11-20 23:37:58', '5.0', 'Great tutor!'),
+(45, 272, 264, 60, '2020-11-21 00:40:54', '5.0', 'Great guy. solid class!'),
+(46, 269, 265, 58, '2020-11-30 07:31:20', '5.0', 'Great guy!');
 
 -- --------------------------------------------------------
 
@@ -138,9 +187,10 @@ INSERT INTO `review` (`r_id`, `student_id`, `tutor_id`, `c_id`, `date_posted`, `
 --
 
 DROP TABLE IF EXISTS `student`;
-CREATE TABLE `student` (
+CREATE TABLE IF NOT EXISTS `student` (
   `student_id` int(11) NOT NULL,
-  `cur_grade` decimal(2,0) DEFAULT NULL
+  `cur_grade` decimal(2,0) DEFAULT NULL,
+  PRIMARY KEY (`student_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -153,7 +203,8 @@ INSERT INTO `student` (`student_id`, `cur_grade`) VALUES
 (271, '4'),
 (272, '6'),
 (273, '7'),
-(274, '12');
+(274, '12'),
+(275, NULL);
 
 -- --------------------------------------------------------
 
@@ -162,13 +213,14 @@ INSERT INTO `student` (`student_id`, `cur_grade`) VALUES
 --
 
 DROP TABLE IF EXISTS `tutor`;
-CREATE TABLE `tutor` (
+CREATE TABLE IF NOT EXISTS `tutor` (
   `tutor_id` int(11) NOT NULL,
   `balance` decimal(8,2) DEFAULT NULL,
   `bio` mediumtext DEFAULT NULL,
   `primary_language` tinytext DEFAULT NULL,
   `city` char(30) DEFAULT NULL,
-  `country` char(30) DEFAULT NULL
+  `country` char(30) DEFAULT NULL,
+  PRIMARY KEY (`tutor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -178,83 +230,9 @@ CREATE TABLE `tutor` (
 INSERT INTO `tutor` (`tutor_id`, `balance`, `bio`, `primary_language`, `city`, `country`) VALUES
 (264, '0.00', 'This is the biography for Jimmy.  lolol         ', 'English', 'Vancouver', 'Canada'),
 (265, '150.40', 'This is the biography for David. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'English', 'Vancouver', 'Canada'),
-(266, '350.47', 'This is the biography for Terence. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'English, Cantonese', 'Burnaby', 'Canada'),
+(266, '350.47', 'UPDATE: This is the biography for Terence. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.                ', 'English, Cantonese', 'Burnaby', 'Canada'),
 (267, '58.98', 'This is the biography for Sean. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'English, Korean', 'Mapleridge', 'Canada'),
 (268, '888.88', 'This is the biography for Justin. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'Mandarin', 'Vancouver', 'Canada');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cartadd`
---
-ALTER TABLE `cartadd`
-  ADD PRIMARY KEY (`cart_id`),
-  ADD KEY `c_id` (`c_id`),
-  ADD KEY `student_id` (`student_id`);
-
---
--- Indexes for table `course`
---
-ALTER TABLE `course`
-  ADD PRIMARY KEY (`c_id`,`tutor_id`),
-  ADD KEY `tutor_id` (`tutor_id`);
-
---
--- Indexes for table `member`
---
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`m_id`);
-
---
--- Indexes for table `review`
---
-ALTER TABLE `review`
-  ADD PRIMARY KEY (`r_id`,`student_id`,`tutor_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `tutor_id` (`tutor_id`),
-  ADD KEY `c_id` (`c_id`);
-
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`student_id`);
-
---
--- Indexes for table `tutor`
---
-ALTER TABLE `tutor`
-  ADD PRIMARY KEY (`tutor_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cartadd`
---
-ALTER TABLE `cartadd`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `course`
---
-ALTER TABLE `course`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
-
---
--- AUTO_INCREMENT for table `member`
---
-ALTER TABLE `member`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=275;
-
---
--- AUTO_INCREMENT for table `review`
---
-ALTER TABLE `review`
-  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Constraints for dumped tables
@@ -272,6 +250,12 @@ ALTER TABLE `cartadd`
 --
 ALTER TABLE `course`
   ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`tutor_id`);
+
+--
+-- Constraints for table `personalization`
+--
+ALTER TABLE `personalization`
+  ADD CONSTRAINT `personalization_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
 
 --
 -- Constraints for table `review`

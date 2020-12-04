@@ -69,7 +69,7 @@
             <!-- slider buttons -->
             <div class="max-flex-box-item"></div>
 
-            <div class="slider-button">
+            <div id="recommend-btns" class="slider-button">
               <a href="#" class="arrow-btn" id="left-button-recommended">
                 <p>&#8592;</p>
               </a>

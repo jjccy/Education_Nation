@@ -165,7 +165,7 @@
 
                         <!-- the following input fields are prepopulated if a row of content belongs to the current user -->
                         <label for="grade-edit" class="form-label"> Enter Grade </label>
-                        <input type="text" name="grade-edit" id="grade-edit" class="text-box" placeholder="2" value="<?php if ($grade == -1) { echo ""; } else if($grade===0) {echo "K";} else { echo $grade;  }?>">
+                        <input type="text" name="grade-edit" id="grade-edit" class="text-box" placeholder="2" value="<?php if ($grade == -1) { echo ""; } else if($grade==0) {echo "K";} else { echo $grade;  }?>">
 
                         <label for="language-edit" class="form-label"> Preferred Language </label>
                         <input type="text" name="language-edit" id="language-edit" class="text-box" placeholder="English" value="<?php echo $lang; ?>">
