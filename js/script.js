@@ -15,20 +15,27 @@ function modChatModule() {
     }
 
     updateFrame();
+
+    console.log('mod chat module');
 }
 
 function chatModuleUp() {
-    var iframe = document.getElementById("iframeHelp");
-    var caret = iframe.contentWindow.document.getElementById("chat-module-caret");
-    var chat_content = iframe.contentWindow.document.getElementById("chat-content");
+    event.preventDefault();
+    return false;
+    // modChatModule();
 
-    if (caret.classList[1] == "icon-caret-flip" && chat_content.classList[0] == "module-body-hide") {
-        caret.classList.add("icon-caret-flip");
-        chat_content.classList.remove("module-body-hide");
-        chat_content.classList.add("module-body");
-    } else {
-        // console.log("chat module is open already!");
-    }
+    // var iframe = document.getElementById("iframeHelp");
+    // var caret = iframe.contentWindow.document.getElementById("chat-module-caret");
+    // var chat_content = iframe.contentWindow.document.getElementById("chat-content");
+
+    // if (caret.classList[1] == "icon-caret-flip" && chat_content.classList[0] == "module-body-hide") {
+    //     caret.classList.add("icon-caret-flip");
+    //     chat_content.classList.remove("module-body-hide");
+    //     chat_content.classList.add("module-body");
+    // } else { 
+    //     // console.log("chat module is open already!");
+    // }
+    console.log("chat module up");
 }
 
 // to set iFrame height and width onload
