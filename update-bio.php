@@ -27,6 +27,13 @@
             );
             }
 
+            $query = "SELECT tutor.bio FROM tutor WHERE tutor.tutor_id = '$currentUser'";
+            $result = mysqli_query($connection, $query);
+
+            if (!$result) {
+                die('database query failed' . mysqli_error($result));
+            }
+
             // storing updated bio as a variable if it is not empty
             if($_POST['updateBio'] != NULL){
                 $updatedBio = $_POST['updateBio'];
@@ -36,10 +43,11 @@
             // updated tutor's bio 
             if ($updatedBio != NULL) {
                 $query = "UPDATE tutor SET bio = '$updatedBio' WHERE tutor.tutor_id = '$currentUser'";
+
                 $result = mysqli_query($connection, $query);
 
                 if (!$result) {
-                    die('database query failed');
+                    die('database query failed update' . mysqli_connect_error());
                 }
             }
 
