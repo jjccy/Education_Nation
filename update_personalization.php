@@ -98,12 +98,10 @@
 
     // update table for users who already have information in the personalization table
     else {
-        // if($_POST['subject-edit'] != NULL){
+
         $courses = (empty($_POST['courses']))? "" : implode("_", $_POST['courses']);
             // echo $courses . "<br>";
-        // }
 
-        // if($_POST['grade-edit'] != NULL){
         if ($_POST['grade-edit'] == "K" || $_POST['grade-edit'] == "k") {
             $grade = 0;
             // echo $grade . "<br>";
@@ -128,15 +126,11 @@
         }
         // }
 
-        // if($_POST['language-edit'] != NULL){
         $lang = ($_POST['language-edit']==NULL) ? "" : $_POST['language-edit'];
             // echo $lang . "<br>";
-        // }
 
-        // if($_POST['location-edit'] != NULL){
         $city = ($_POST['location-edit']==NULL) ? "" : $_POST['location-edit'];
             // echo $city . "<br>";
-        // }
 
         $query = "UPDATE personalization SET city = '$city', grade = $grade, courses = '$courses', lang = '$lang' WHERE student_id = $currentUser";
         $result = mysqli_query($connection, $query);
@@ -146,7 +140,6 @@
         }
     }
 
-    // mysqli_free_result($result);
     mysqli_close($connection);
 
     echo '<script language="javascript">';
