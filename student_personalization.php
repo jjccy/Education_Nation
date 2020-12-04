@@ -134,20 +134,17 @@
                       // echo every single course
                       echo "<div class=course-selection>";
                       echo "<label class='form-label'> Subjects of Interest </label> <br>";
+
+                      $courses = explode('_', $courses);
+
                       while ($row = mysqli_fetch_assoc($allCoursesOption))
                       {
                         $coursename = $row['subject_name'];
-                        // if(strpos($courses, $coursename) !== false){
-                        //   $checked = 'checked';
-                        // }
-                        // else{
-                        //   $checked = 'unchecked';
-                        // }
-
+                        
                         // prepopulating the state of the checkbox according to the personalization table
                         $checkboxHTML = "<label class='container'>$coursename
                                 <input type='checkbox' id='courses' name='courses[]' ";
-                                if(strpos($courses, $coursename) !== false){
+                                if(in_array($coursename, $courses)){
                                   $checkboxHTML .= "checked='checked' ";
                                 }
                                 $checkboxHTML .= "value='$coursename'>

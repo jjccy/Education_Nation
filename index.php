@@ -202,6 +202,21 @@
                 $showRecommended = false;
               }
 
+              // hiding buttons if less than 2 items appear
+              if (mysqli_num_rows($resultRecommended) <= 2) {
+                echo '<script>';
+                  echo 'var btns = document.getElementById("recommend-btns");';
+                  echo 'btns.style.visibility = "hidden";';
+                echo '</script>';
+              }
+
+              else {
+                echo '<script>';
+                  echo 'var btns = document.getElementById("recommend-btns");';
+                  echo 'btns.style.visibility = "visible";';
+                echo '</script>';
+              }
+
               // if no results are available hiding recommended
               if ($result && $showRecommended && mysqli_num_rows($resultRecommended) > 0) {
 
