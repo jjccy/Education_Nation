@@ -78,9 +78,25 @@ if (isset($_GET['sortby'])) {
     case "price-low":
       $query .= " ORDER BY course.price";
       break;
+
+    default:
+      break;
   }
 
 }
+
+$temp = mysqli_query($connection, $query);
+$totalItem = ($temp->num_rows);
+
+mysqli_free_result($temp);
+
+
+
+$itemPrePage = $_GET['itemPrePage'];
+$startFrom = ($_GET['currentPage'] - 1) * $itemPrePage;
+
+$query .= " LIMIT $startFrom, $itemPrePage";
+
 
 $courseList = mysqli_query($connection, $query);
 
@@ -149,11 +165,10 @@ $jsonText .= "<div class='max-flex-box-item'></div>";
 $jsonText .= "<div class='max-flex-box-item'></div>";
 $jsonText .= "<div class='max-flex-box-item'></div>";
 
-if (!isset($myObj))
-    $myObj = new stdClass();
+if (!isset($myObj)) $myObj = new stdClass();
 
 $myObj->newList = $jsonText;
-
+$myObj->totalPages = (floor($totalItem / $itemPrePage)) + 1;
 $myJSON = json_encode($myObj);
 
 echo $myJSON;

@@ -285,7 +285,7 @@
         <div class="list-buttons">
           <div class="max-flex-box-item"></div>
 
-          <a href="#" class="arrow-btn" id="left">
+          <a href="#" class="arrow-btn" id="left" onClick="pagination(-1)">
             <p>&#8592;</p>
           </a>
           <div class="page-number">
@@ -293,7 +293,7 @@
             <p class="body-text"> / </p>
             <p class="body-text" id="totalPage">04</p>
           </div>
-          <a href="#" class="arrow-btn active" id="right">
+          <a href="#" class="arrow-btn" id="right" onClick="pagination(1)">
             <p>&#8594;</p>
           </a>
 

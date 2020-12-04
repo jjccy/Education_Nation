@@ -35,6 +35,9 @@ $(document).ready(function() {
 
     return false;
   });
+
+  pagination(0);
+  courseSelect();
 });
 
 
@@ -77,8 +80,46 @@ $( function() {
 
 // AJAX for tutor listing cards
 var course = null;
-var grade = "";
+var grade = "0-12";
 var sortby = "";
+var currentPage = 1;
+var totalPage = 100;
+var itemPrePage = 10;
+
+// onClick="pagination()"
+function pagination(num) {
+  event.preventDefault();
+
+  currentPage += num;
+
+  if(!$('#right').hasClass('active'))
+  {
+    $('#right').addClass('active');
+  }
+
+  if(!$('#left').hasClass('active'))
+  {
+    $('#left').addClass('active');
+  }
+
+  console.log(currentPage);
+  if (currentPage >= totalPage) {
+    currentPage = totalPage;
+
+    $('#right').removeClass('active');
+  }
+  if (currentPage <= 1) {
+    currentPage = 1;
+
+    $('#left').removeClass('active');
+  }
+
+  sortAndFilter();
+
+
+  return false;
+}
+
 
 // call when sort link is clicked
 function sortBy(sort) {
@@ -113,6 +154,9 @@ function sortAndFilter() {
   let myRand = parseInt(Math.random() * 99999999999999999);
   let theURL = targetPage + "?rand=" + myRand;
 
+  theURL = theURL + "&itemPrePage=" + itemPrePage;
+  theURL = theURL + "&currentPage=" + currentPage;
+
   // add filter condition
   if (sortby != "") {
     theURL = theURL + "&sortby=" + sortby;
@@ -138,6 +182,10 @@ function theHTTPResponse() {
 
       var myObj = JSON.parse(myReq.responseText);
       document.getElementById("cardLists").innerHTML = myObj.newList;
+
+      totalPage = myObj.totalPages;
+      document.getElementById("totalPage").innerHTML = totalPage;
+      document.getElementById("currentPage").innerHTML = currentPage;
     }
   }
 }
