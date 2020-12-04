@@ -81,7 +81,7 @@
         //   die ("Connection failed: " . mysqli_error($connection));
         // }
         //insert tutor as a tutor class
-        $forForeignKey = "INSERT INTO tutor (tutor_id) VALUES(last_insert_id())";
+        $forForeignKey = "INSERT INTO tutor (tutor_id, balance, bio, primary_language, city, country) VALUES(last_insert_id(), 0.00, 'This is my bio', 'English', 'Vancouver', 'Canada')";
         $_SESSION["isTutor"] = true;
       }
       else {
