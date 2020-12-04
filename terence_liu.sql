@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2020 at 04:43 AM
+-- Generation Time: Dec 04, 2020 at 08:04 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -37,15 +37,7 @@ CREATE TABLE IF NOT EXISTS `cartadd` (
   PRIMARY KEY (`cart_id`),
   KEY `c_id` (`c_id`),
   KEY `student_id` (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cartadd`
---
-
-INSERT INTO `cartadd` (`c_id`, `student_id`, `cart_id`) VALUES
-(59, 272, 2),
-(60, 272, 3);
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -63,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `course` (
   `max_grade` decimal(2,0) DEFAULT NULL,
   PRIMARY KEY (`c_id`,`tutor_id`),
   KEY `tutor_id` (`tutor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `course`
@@ -79,7 +71,17 @@ INSERT INTO `course` (`c_id`, `tutor_id`, `price`, `subject_name`, `min_grade`, 
 (64, 267, '19.00', 'English', '8', '12'),
 (65, 266, '12.00', 'Biology', '0', '8'),
 (66, 267, '90.00', 'Computer Science', '0', '12'),
-(67, 264, '50.00', 'Math', '0', '12');
+(67, 264, '50.00', 'Math', '0', '12'),
+(69, 266, '233.00', 'English', '2', '12'),
+(70, 266, '23.00', 'Computer Science', '0', '12'),
+(72, 282, '90.00', 'Math', '2', '8'),
+(73, 283, '30.00', 'English', '0', '12'),
+(74, 284, '80.00', 'Chemistry', '6', '12'),
+(75, 285, '60.00', 'Calculus', '8', '12'),
+(76, 280, '50.00', 'Biology', '0', '12'),
+(77, 282, '150.00', 'Calculus', '11', '12'),
+(78, 282, '1.00', 'Science', '0', '12'),
+(79, 285, '100.00', 'English', '8', '12');
 
 -- --------------------------------------------------------
 
@@ -96,25 +98,30 @@ CREATE TABLE IF NOT EXISTS `member` (
   `profile_address` varchar(260) DEFAULT NULL,
   `lname` char(30) DEFAULT NULL,
   PRIMARY KEY (`m_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=286 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `member`
 --
 
 INSERT INTO `member` (`m_id`, `fname`, `email`, `password`, `profile_address`, `lname`) VALUES
-(264, 'Jimmy', 'jimmy_chu@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_1.png', 'Chu'),
-(265, 'David', 'david_cao@gmail.com', '$2y$10$5YM3N8OPcoqmuP94niSo1OlVZmQec3q0nuarA6MALhRBt8NphKktK', 'img/member/profile_picture_3.png', 'Cao'),
-(266, 'Terence', 'terence_liu@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_4.png', 'Liu'),
-(267, 'Sean', 'sean_jeong@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_5.png', 'Jeong'),
-(268, 'Justin', 'justin_wang@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', '', 'Wang'),
-(269, 'Tim', 'tim_tembo@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_12.png', 'Tembo'),
-(270, 'Victor', 'victor_hau@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', '', 'Hau'),
+(264, 'Jimmy', 'jimmy_chu@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_27.png', 'Chu'),
+(265, 'David', 'david_cao@gmail.com', '$2y$10$5YM3N8OPcoqmuP94niSo1OlVZmQec3q0nuarA6MALhRBt8NphKktK', 'img/member/profile_picture_25.png', 'Cao'),
+(266, 'Terence', 'terence_liu@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_26.png', 'Liu'),
+(267, 'Sean', 'sean_jeong@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_11.png', 'Jeong'),
+(268, 'Justin', 'justin_wang@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_5.png', 'Wang'),
+(269, 'Tim', 'tim_tembo@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_19.png', 'Tembo'),
+(270, 'Victor', 'victor_hau@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_24.png', 'Hau'),
 (271, 'Linsey', 'linsey_gong@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_13.png', 'Gong'),
-(272, 'Jone', 'jone_ko@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', '', 'Ko'),
+(272, 'Jone', 'jone_ko@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_4.png', 'Ko'),
 (273, 'Samuel', 'samuel_fung@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_14.png', 'Fung'),
-(274, 'Allen', 'allen_chen@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', '', 'Chen'),
-(275, 'Bobby', 'blee@gmail.com', '$2y$10$K4MjQiOjdNICsiwycfqnK.7HGsfc8ZIVNrlc1Bw35RX/tFvKqriPu', NULL, 'Lee');
+(274, 'Allen', 'allen_chen@gmail.com', '$2y$10$oGBrwTVTTPemSjrl/wuDMujT9gu8a/Hy0DOfTgD4.o.Wg2RdnpF0.', 'img/member/profile_picture_10.png', 'Chen'),
+(275, 'Bobby', 'blee@gmail.com', '$2y$10$K4MjQiOjdNICsiwycfqnK.7HGsfc8ZIVNrlc1Bw35RX/tFvKqriPu', NULL, 'Lee'),
+(280, 'Howard', 'howard_chu@gmail.com', '$2y$10$HuXDlFoxXzqS5IsVzRiu1OhSIy2qHttJdBCCPBapkkdSpENvXus3S', 'img/member/profile_picture_23.png', 'Chu'),
+(282, 'Theo', 'theo_tang@gmail.com', '$2y$10$vvr71UQlG.2Hc29eDaSabugrXIoIC0dudUB5HeZsyq.l5793slgZe', 'img/member/profile_picture_3.png', 'Tang'),
+(283, 'John', 'john_doe@gmail.com', '$2y$10$gCZzhNWiEM0sD27QN75qTeII9wGwqQngynMWlDqecExuFJF3HWaja', 'img/member/profile_picture_2.png', 'Doe'),
+(284, 'Jane', 'jane_smith@gmail.com', '$2y$10$wAa3gyBkrcLyj25SH.7sJ.6Nyo3ZF2w1ktpEL7rMShdwOaQG/2Jk2', 'img/member/profile_picture_22.png', 'Smith'),
+(285, 'Justin', 'justin_li@gmail.com', '$2y$10$NJZdPmzgoaIHduVaAWbg7ezhEeQ0zsTpIQfbUlaY/BiRQYpm3dzLa', 'img/member/profile_picture_18.png', 'Li');
 
 -- --------------------------------------------------------
 
@@ -137,7 +144,8 @@ CREATE TABLE IF NOT EXISTS `personalization` (
 --
 
 INSERT INTO `personalization` (`student_id`, `grade`, `city`, `lang`, `courses`) VALUES
-(269, 12, 'Burnaby', 'English, Cantonese', 'Biology_Calculus_Chemistry_Computer Science_English_Math_Science');
+(269, 12, 'Burnaby', 'English, Cantonese', 'Biology_Calculus_Chemistry_Computer Science_English_Math_Science_Spatial Design'),
+(272, 11, '', 'English', 'Computer Science');
 
 -- --------------------------------------------------------
 
@@ -158,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   KEY `student_id` (`student_id`),
   KEY `tutor_id` (`tutor_id`),
   KEY `c_id` (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `review`
@@ -178,7 +186,20 @@ INSERT INTO `review` (`r_id`, `student_id`, `tutor_id`, `c_id`, `date_posted`, `
 (43, 269, 264, 60, '2020-11-20 23:09:44', '5.0', 'Great course!'),
 (44, 272, 265, 58, '2020-11-20 23:37:58', '5.0', 'Great tutor!'),
 (45, 272, 264, 60, '2020-11-21 00:40:54', '5.0', 'Great guy. solid class!'),
-(46, 269, 265, 58, '2020-11-30 07:31:20', '5.0', 'Great guy!');
+(46, 269, 265, 58, '2020-11-30 07:31:20', '5.0', 'Great guy!'),
+(47, 272, 265, 58, '2020-12-04 04:52:03', '5.0', 'Great math course!'),
+(48, 272, 264, 67, '2020-12-04 05:04:03', '5.0', 'Jimmy is very good at adding.'),
+(49, 272, 266, 69, '2020-12-04 05:16:34', '2.0', 'This is a very hard course. But Terence is very knowledgable in this field.'),
+(50, 272, 266, 70, '2020-12-04 05:28:54', '5.0', 'Great Course!'),
+(53, 272, 285, 75, '2020-12-04 06:49:46', '5.0', 'Great'),
+(54, 272, 285, 79, '2020-12-04 06:49:55', '4.0', 'Its ok'),
+(55, 272, 284, 74, '2020-12-04 06:51:20', '5.0', 'doesnt know anything about h20'),
+(56, 272, 283, 73, '2020-12-04 06:53:22', '5.0', 'Doesnt know anything about English'),
+(57, 272, 282, 72, '2020-12-04 06:53:47', '5.0', 'His knowledge in math is very solid'),
+(58, 272, 282, 77, '2020-12-04 06:54:12', '4.0', 'His understand of logs are meh'),
+(59, 272, 282, 78, '2020-12-04 06:54:34', '3.0', 'General science knowledge is good! But for the rate its kind of expensive'),
+(60, 272, 280, 76, '2020-12-04 06:54:56', '1.0', 'Very expensive!!!!'),
+(61, 272, 268, 63, '2020-12-04 06:55:35', '5.0', 'Great guy! Okay teaching ability');
 
 -- --------------------------------------------------------
 
@@ -232,7 +253,12 @@ INSERT INTO `tutor` (`tutor_id`, `balance`, `bio`, `primary_language`, `city`, `
 (265, '150.40', 'This is the biography for David. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'English', 'Vancouver', 'Canada'),
 (266, '350.47', 'UPDATE: This is the biography for Terence. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.                ', 'English, Cantonese', 'Burnaby', 'Canada'),
 (267, '58.98', 'This is the biography for Sean. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'English, Korean', 'Mapleridge', 'Canada'),
-(268, '888.88', 'This is the biography for Justin. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'Mandarin', 'Vancouver', 'Canada');
+(268, '888.88', 'This is the biography for Justin. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.', 'Mandarin', 'Vancouver', 'Canada'),
+(280, '0.00', 'I am Howard!                ', 'English', 'Vancouver', 'Canada'),
+(282, '0.00', 'I am Theo!', 'English', 'Vancouver', 'Canada'),
+(283, '0.00', 'This is my bio', 'English', 'Vancouver', 'Canada'),
+(284, '0.00', 'This is my bio', 'English', 'Vancouver', 'Canada'),
+(285, '0.00', 'This is my bio', 'English', 'Vancouver', 'Canada');
 
 --
 -- Constraints for dumped tables
@@ -281,7 +307,6 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-
 GRANT RELOAD, SHUTDOWN, PROCESS, REFERENCES, SHOW DATABASES, SUPER, LOCK TABLES, REPLICATION SLAVE, REPLICATION CLIENT, CREATE USER ON *.* TO `login`@`localhost` WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON `terence_liu`.* TO `login`@`localhost` WITH GRANT OPTION;
 
@@ -319,3 +344,18 @@ GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `samuel_fung@gmail.com`@`loca
 
 GRANT USAGE ON *.* TO `allen_chen@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
 GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `allen_chen@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `howard_chu@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `howard_chu@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `theo_tang@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `theo_tang@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `jane_smith@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `jane_smith@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `justin_li@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `justin_li@gmail.com`@`localhost`;
+
+GRANT USAGE ON *.* TO `john_doe@gmail.com`@`localhost` IDENTIFIED BY PASSWORD '*E56A114692FE0DE073F9A1DD68A00EEB9703F3F1';
+GRANT SELECT, INSERT, UPDATE ON `terence_liu`.* TO `john_doe@gmail.com`@`localhost`;
