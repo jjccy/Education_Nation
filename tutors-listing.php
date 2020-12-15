@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Tutor List</title>
 
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/tutorListing.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 

@@ -43,6 +43,13 @@
     padding-bottom: 5em;
   }
 
+  .tutor-list {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 8em;
+    padding-bottom: 0;
+  }
+
   /* Adjust flex ratio for title */
   .slider-title-section>* {
     flex: 1 1 100%;
@@ -119,6 +126,13 @@
     padding-bottom: 1em;
   }
 
+  .tutor-list {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 5em;
+    padding-bottom: 0;
+  }
+
   /* Adjust flex ratio for title */
   .slider-title-section>* {
     flex: 1 1 100%;
@@ -154,5 +168,15 @@
   /* Remove Image from About Page */
   .about-title-item:nth-child(2) {
     display: none;
+  }
+
+  /* Remove margin from tutor listing cards */
+  .cards-wrapper>.card-container {
+    margin: 1em 0;
+  }
+
+  /* Sort and filter button on a separate line than title */
+  .list-title {
+    flex-direction: column;
   }
 }
