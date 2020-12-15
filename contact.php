@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contact Us</title>
 
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
   </head>
 
@@ -73,7 +75,7 @@
           <p class="body-text">Fill up the form and our Team will get back to you within 2 business days.</p>
           <p class="title-with-icon heading-3 icon-phone">+1 123.456.7890</p>
           <p class="title-with-icon heading-3 icon-email">help@educationnation.com</p>
-          <p class="title-with-icon heading-3 icon-location">123 4th Avenue Vancouver, Canada</p>
+          <p class="title-with-icon heading-3 icon-location">123 4th Ave.</p>
           <div class="contact-page-filler"></div>
           <div class="social-media">
             <a href="#"><img src="img/Facebook.svg" alt="Facebook Logo">
