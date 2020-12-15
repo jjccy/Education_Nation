@@ -45,3 +45,24 @@ body {
 }
 
 /* end title section for about page  */
+/* Tablet Mode*/
+@media only screen and (max-width:1024px) and (min-width:426px) {
+  body {
+    background: url('../img/About_Background.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right top;
+    background-size: auto 45%;
+  }
+}
+
+/* Mobile Phone Mode*/
+@media only screen and (max-width:425px) {
+  body {
+    background: url('../img/About_Background.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right top;
+    background-size: auto 25%;
+  }
+}
