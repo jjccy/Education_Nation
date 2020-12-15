@@ -26,7 +26,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  flex: 1 1 auto;
+  flex: 1 1 60%;
   min-height: 75vh;
 }
 
@@ -49,7 +49,7 @@ body {
 }
 
 #contact-form {
-  width: 90%;
+  width: 80%;
   margin-top: 1em;
   margin-bottom: 1em;
 }
@@ -158,9 +158,9 @@ body {
 
 /*Contact info background*/
 .contact-info {
-  position: fixed;
+  /* position: fixed;
   right: 5%;
-  top: 15%;
+  top: 15%; */
   min-height: 60vh;
   flex: 1 1 auto;
   background: #FFFFFF;

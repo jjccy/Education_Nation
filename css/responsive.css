@@ -1,0 +1,230 @@
+/* Computer Mode */
+/* Tablet Mode*/
+@media only screen and (max-width:1024px) and (min-width:426px) {
+
+  /* Change Font sizes */
+  * {
+    font-size: 16px;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  .heading-1 {
+    font-size: 1.3rem;
+  }
+
+  .body-text {
+    font-size: 1rem;
+  }
+
+  /* Hide navigation menu */
+  .side-nav {
+    display: none;
+  }
+
+  .top-nav {
+    display: none;
+  }
+
+  /* Adjust padding of page content */
+  .home-page {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 8em;
+    padding-bottom: 0;
+  }
+
+  .about-page {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 8em;
+    padding-bottom: 5em;
+  }
+
+  .tutor-list {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 8em;
+    padding-bottom: 0;
+  }
+
+  .contact-page {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 8em;
+    padding-bottom: 5em;
+    flex-direction: column;
+  }
+
+  /* Adjust flex ratio for title */
+  .slider-title-section>* {
+    flex: 1 1 100%;
+  }
+
+  .slider-title-section {
+    flex-direction: column;
+  }
+
+  .slider-button {
+    align-self: flex-end;
+  }
+
+  .home-slider {
+    margin-top: 4em;
+    margin-bottom: 0;
+  }
+
+  /* Set card container size */
+  .card-container {
+    width: 40%;
+  }
+
+  #inner {
+    padding-right: 1.5em;
+  }
+
+  .about-title-item {
+    height: auto;
+  }
+
+  /* Remove Image from About Page */
+  .about-title-item:nth-child(2) {
+    display: none;
+  }
+
+  /* Contact page form width */
+  .contact-page-item {
+    flex: 1 1 100%;
+    width: 100%;
+    min-height: 0;
+    margin-bottom: 2em;
+  }
+
+  #contact-form {
+    width: 100%;
+  }
+}
+
+/* Mobile Phone Mode*/
+@media only screen and (max-width:425px) {
+
+  /* Change Font sizes */
+  * {
+    font-size: 16px;
+  }
+
+  .heading-1 {
+    font-size: 1.3rem;
+  }
+
+  .body-text {
+    font-size: 1rem;
+  }
+
+  /* Hide navigation menu */
+  .side-nav {
+    display: none;
+  }
+
+  .top-nav {
+    display: none;
+  }
+
+  /* Adjust padding of page content */
+  .home-page {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 5em;
+  }
+
+  .about-page {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 5em;
+    padding-bottom: 1em;
+  }
+
+  .tutor-list {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 5em;
+    padding-bottom: 0;
+  }
+
+  .contact-page {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 5em;
+    padding-bottom: 0;
+    flex-direction: column;
+  }
+
+  /* Adjust flex ratio for title */
+  .slider-title-section>* {
+    flex: 1 1 100%;
+  }
+
+  .slider-title-section {
+    flex-direction: column;
+  }
+
+  .slider-button {
+    align-self: flex-end;
+  }
+
+  .home-slider {
+    margin-top: 4em;
+    margin-bottom: 0;
+  }
+
+  /* Set card container size */
+  .card-container {
+    width: 100%;
+  }
+
+  #inner {
+    padding-right: 1.5em;
+  }
+
+  /* Set Icon max height */
+  .icon-award {
+    max-height: 1.3em;
+  }
+
+  /* Remove Image from About Page */
+  .about-title-item:nth-child(2) {
+    display: none;
+  }
+
+  /* Remove margin from tutor listing cards */
+  .cards-wrapper>.card-container {
+    margin: 1em 0;
+  }
+
+  /* Sort and filter button on a separate line than title */
+  .list-title {
+    flex-direction: column;
+  }
+
+  /* Contact page form width */
+  .contact-page-item {
+    flex: 1 1 100%;
+    width: 100%;
+    min-height: 0;
+    margin-bottom: 2em;
+  }
+
+  #contact-form {
+    width: 100%;
+  }
+
+  .contact-info {
+    padding: 3em 2em;
+  }
+
+  .social-media a {
+    margin-right: 1em;
+  }
+}

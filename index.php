@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Home</title>
 
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
@@ -118,7 +120,7 @@
 
             // looking for current user's row in the personalization table
             $query = "SELECT * FROM personalization WHERE personalization.student_id = '$currentUser'";
-            
+
             // get result from database;
             $result = mysqli_query($connection, $query);
             if(!$result) {
