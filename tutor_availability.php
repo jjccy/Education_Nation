@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <?php include('shared/responsive-nav.php'); ?>
     <!-- prevents page from being fully loaded and tells users a page is not ready yet -->
     <?php include('shared/underConstruction.php'); ?>
     <?php include('shared/checkLogin.php'); ?>

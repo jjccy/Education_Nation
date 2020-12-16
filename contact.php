@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    <?php include('shared/responsive-nav.php'); ?>
     <!-- start body wrapper -->
     <div class="body-wrapper">
 

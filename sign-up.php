@@ -13,6 +13,9 @@
   </head>
 
   <body>
+
+    <?php include('shared/responsive-nav.php'); ?>
+    
     <div class="background"></div>
 
     <!-- start of chat module -->

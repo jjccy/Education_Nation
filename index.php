@@ -16,6 +16,8 @@
   </head>
 
   <body>
+    <?php include('shared/responsive-nav.php'); ?>
+
     <!-- background of site -->
     <div class="background"></div>
 
