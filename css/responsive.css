@@ -66,6 +66,14 @@
     flex-direction: column-reverse;
   }
 
+  .login-page {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 8em;
+    padding-bottom: 5em;
+    flex-direction: column-reverse;
+  }
+
   /* Adjust flex ratio for title */
   .slider-title-section>* {
     flex: 1 1 100%;
@@ -130,6 +138,22 @@
   #register-form {
     width: 100%;
   }
+
+  /* Remove min width from login message */
+  .login-message {
+    margin-left: 0;
+    min-width: 0;
+    margin-top: 3em;
+  }
+
+  #login-form {
+    width: 100%;
+  }
+
+  .login-page-item {
+    margin-top: 10em;
+    min-height: 0;
+  }
 }
 
 /* Mobile Phone Mode*/
@@ -187,6 +211,14 @@
   }
 
   .signup-page {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 5em;
+    padding-bottom: 0;
+    flex-direction: column-reverse;
+  }
+
+  .login-page {
     padding-left: 3em;
     padding-right: 3em;
     padding-top: 5em;
@@ -276,5 +308,21 @@
 
   #register-form {
     width: 100%;
+  }
+
+  /* Remove min width from login message */
+  .login-message {
+    margin-left: 0;
+    min-width: 0;
+    margin-top: 1em;
+  }
+
+  #login-form {
+    width: 100%;
+  }
+
+  .login-page-item {
+    margin-top: 5em;
+    min-height: 0;
   }
 }
