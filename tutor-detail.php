@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Tutor Detail</title>
 
@@ -9,6 +10,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/tutorDetail.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
   </head>
 
   <body>
@@ -370,25 +373,26 @@
              ?>
 
             <!-- course info text -->
-            <div class="course-info-text">
-              <p class="heading-2">Price</p>
-              <p id='course-price'><?php echo $price ?></p>
-            </div>
+            <div class="course-detail-info">
+              <div class="course-info-text">
+                <p class="heading-2">Price</p>
+                <p id='course-price'><?php echo $price ?></p>
+              </div>
 
-            <div class="course-info-text">
-              <p class="heading-2">Language</p>
-              <?php
-              foreach ($language as &$lang) {
-                  echo "<p class='body-text'>$lang</p>";
-              }
-               ?>
-            </div>
+              <div class="course-info-text">
+                <p class="heading-2">Language</p>
+                <?php
+                foreach ($language as &$lang) {
+                    echo "<p class='body-text'>$lang</p>";
+                }
+                 ?>
+              </div>
 
-            <div class="course-info-text">
-              <p class="heading-2">Location</p>
-              <p class='body-text'><?php echo $location ?></p>
+              <div class="course-info-text">
+                <p class="heading-2">Location</p>
+                <p class='body-text'><?php echo $location ?></p>
+              </div>
             </div>
-
           </div>
 
 
