@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <?php include('shared/responsive-nav.php'); ?>
     <?php include('shared/checkLogin.php'); ?>
     <div class="background"></div>
 

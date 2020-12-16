@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <?php include('shared/responsive-nav.php'); ?>
     <!-- start of background -->
     <div class="cart-detail-background">
     </div>
