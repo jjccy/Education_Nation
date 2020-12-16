@@ -58,6 +58,14 @@
     flex-direction: column;
   }
 
+  .signup-page {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 8em;
+    padding-bottom: 5em;
+    flex-direction: column-reverse;
+  }
+
   /* Adjust flex ratio for title */
   .slider-title-section>* {
     flex: 1 1 100%;
@@ -103,6 +111,23 @@
   }
 
   #contact-form {
+    width: 100%;
+  }
+
+  /* Signup page hand image shift down */
+  .hand-img {
+    margin-top: 0;
+    margin-right: 3em;
+  }
+
+  .signup-message {
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #register-form {
     width: 100%;
   }
 }
@@ -159,6 +184,14 @@
     padding-top: 5em;
     padding-bottom: 0;
     flex-direction: column;
+  }
+
+  .signup-page {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 5em;
+    padding-bottom: 0;
+    flex-direction: column-reverse;
   }
 
   /* Adjust flex ratio for title */
@@ -226,5 +259,22 @@
 
   .social-media a {
     margin-right: 1em;
+  }
+
+  /* Signup page hand image shift down */
+  .hand-img {
+    margin-top: 0;
+    margin-right: 2em;
+  }
+
+  .signup-message {
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #register-form {
+    width: 100%;
   }
 }
