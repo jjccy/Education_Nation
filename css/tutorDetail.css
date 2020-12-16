@@ -201,7 +201,29 @@ body {
   padding-top: 1em;
 }
 
-.card-info > .heading-4 {
+.card-info>.heading-4 {
   font-family: SF Pro Display !important;
   font-weight: 600;
+}
+
+/* Tablet Mode*/
+@media only screen and (max-width:1024px) and (min-width:426px) {
+  body {
+    background: url('../img/Aqua_Bottom_Right.png');
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+    background-size: 45% auto;
+  }
+}
+
+/* Mobile Phone Mode*/
+@media only screen and (max-width:425px) {
+  body {
+    background: url('../img/Aqua_Bottom_Right.png');
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+    background-size: 45% auto;
+  }
 }

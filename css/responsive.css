@@ -74,6 +74,14 @@
     flex-direction: column-reverse;
   }
 
+  .tutor-detail {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 8em;
+    padding-bottom: 5em;
+    flex-direction: column;
+  }
+
   /* Adjust flex ratio for title */
   .slider-title-section>* {
     flex: 1 1 100%;
@@ -154,6 +162,36 @@
     margin-top: 10em;
     min-height: 0;
   }
+
+  /* Adjust tutor details flex direction */
+  .detail-info {
+    flex-direction: column-reverse;
+  }
+
+  .course-info {
+    flex-direction: row;
+    margin: 2em 0;
+  }
+
+  .course-detail-info {
+    flex-direction: column;
+  }
+
+  /* Adjust tutor detail image size */
+  .image-holder .card-container {
+    width: 100%;
+    margin-right: 2em;
+  }
+
+  /* Resizing buttons */
+  .info-btn {
+    padding: 3.8em 3.2em;
+    height: auto;
+  }
+
+  .info-btn>img {
+    margin-bottom: 0;
+  }
 }
 
 /* Mobile Phone Mode*/
@@ -170,6 +208,10 @@
 
   .body-text {
     font-size: 1rem;
+  }
+
+  #course-price {
+    font-size: 1.2rem;
   }
 
   /* Hide navigation menu */
@@ -224,6 +266,18 @@
     padding-top: 5em;
     padding-bottom: 0;
     flex-direction: column-reverse;
+  }
+
+  .tutor-detail {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 4em;
+    padding-bottom: 0;
+    flex-direction: column;
+  }
+
+  .tutor-detail-container {
+    padding: 2em;
   }
 
   /* Adjust flex ratio for title */
@@ -324,5 +378,53 @@
   .login-page-item {
     margin-top: 5em;
     min-height: 0;
+  }
+
+  /* Adjust tutor details flex direction */
+  .detail-info {
+    flex-direction: column-reverse;
+  }
+
+  .course-info {
+    flex-direction: row;
+    margin: 2em 0;
+  }
+
+  .course-detail-info {
+    flex-direction: column;
+  }
+
+  /* Adjust tutor detail image size */
+  .image-holder .card-container {
+    width: 100%;
+    margin-right: 2em;
+  }
+
+  .image-holder {
+    width: 50%;
+    margin-right: 1em;
+  }
+
+  /* Remove tutor container background */
+  .tutor-detail-container {
+    box-shadow: none;
+    border-radius: 0;
+    background: none;
+    padding: 0;
+  }
+
+  /* Tutor add to cart button padding */
+  .card-info {
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+  }
+
+  /* Resizing buttons */
+  .info-btn {
+    padding: 2.2em 2em;
+    height: auto;
+    margin-right: 1em;
+    white-space: nowrap;
   }
 }
