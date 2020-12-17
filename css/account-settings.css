@@ -194,11 +194,12 @@ display: -ms-flex; */
 .account-setting-about textarea {
   width: 100%;
   resize: vertical;
-  min-height: 10em;
+  min-height: 14em;
   padding: 1em;
   border-radius: 15px;
   border-color: #776FC4;
   overflow: visible;
+  font-family: 'SF Pro Display';
 }
 
 .account-setting-about {
@@ -524,4 +525,26 @@ display: -ms-flex; */
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+/* Tablet Mode*/
+@media only screen and (max-width:1024px) and (min-width:426px) {
+  body {
+    background: url('../img/Purple_Bottom_Right.png');
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+    background-size: 45% auto;
+  }
+}
+
+/* Mobile Phone Mode*/
+@media only screen and (max-width:425px) {
+  body {
+    background: url('../img/Purple_Bottom_Right.png');
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+    background-size: 45% auto;
+  }
 }
