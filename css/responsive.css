@@ -99,6 +99,14 @@
     min-height: 0;
   }
 
+  .account-settings {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 4em;
+    padding-bottom: 0;
+    flex-direction: column;
+  }
+
   /* Adjust flex ratio for title */
   .slider-title-section>* {
     flex: 1 1 100%;
@@ -218,6 +226,60 @@
   .cart-item .card-container {
     width: 100%;
   }
+
+  /* Adjust icon sizes for account setting */
+  .icon-setting {
+    max-height: 1.5rem;
+  }
+
+  .icon-clock {
+    max-height: 1.5rem;
+  }
+
+  .icon-booking-history {
+    max-height: 1.5rem;
+  }
+
+  .icon-customize {
+    max-height: 1.5rem;
+  }
+
+  /* Account setting spacing */
+  .account-menu, .heading-spacer {
+    margin-left: 0;
+  }
+
+  .account-setting-menu {
+    margin-right: 1em;
+  }
+
+  .account-settings-container {
+    padding: 2em;
+    min-height: 0;
+  }
+
+  .account-content-current {
+    padding: 0 1em;
+  }
+
+  /* Personalization width */
+  .personalization {
+    min-width: 70%;
+  }
+
+  /* Add margin to card image */
+  .list-card .card-img {
+    margin-right: 1em;
+  }
+
+  /* Adjust width of list */
+  .account-setting-list {
+    width: 80%;
+  }
+
+  .courses-detail-wrapper {
+    flex: auto;
+  }
 }
 
 /* Mobile Phone Mode*/
@@ -321,6 +383,14 @@
     border-radius: 0;
     padding: 0;
     min-height: 0;
+  }
+
+  .account-settings {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 5em;
+    padding-bottom: 0;
+    flex-direction: column;
   }
 
   /* Adjust flex ratio for title */
@@ -478,5 +548,43 @@
 
   .info-wrapper .card-info {
     text-align: left;
+  }
+
+  /* Adjust icon sizes for account setting */
+  .icon-setting {
+    max-height: 1.5rem;
+  }
+
+  .icon-clock {
+    max-height: 1.5rem;
+  }
+
+  .icon-booking-history {
+    max-height: 1.5rem;
+  }
+
+  .icon-customize {
+    max-height: 1.5rem;
+  }
+
+  /* Account setting spacing */
+  .account-menu, .heading-spacer {
+    margin-left: 0;
+  }
+
+  .account-setting-menu {
+    margin-right: 1em;
+  }
+
+  .account-settings-container {
+    padding: 0;
+    min-height: 0;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .account-content-current {
+    padding: 0 1em;
   }
 }
