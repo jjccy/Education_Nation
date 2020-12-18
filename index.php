@@ -57,7 +57,7 @@
 
           <div class="home-title-item">
             <p class="title-with-icon heading-1 icon-announcement">Announcements</p>
-            <img src="img/Announcement_Banner.svg" alt="Announcements">
+            <img id="home-banner" src="img/Announcement_Banner.svg" alt="Announcements">
           </div>
 
           <div class="max-flex-box-item"></div>
