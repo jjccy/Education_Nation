@@ -1,3 +1,9 @@
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+?>
+
 <div class="responsive-nav-bar">
     <div class="nav-item">
         <img id="mobile-hamburger" src="img/menu.svg" alt="Hamburger Icon">
@@ -10,9 +16,13 @@
     </div>
 
     <div class="nav-item">
-        <a href="#">
-            <img id="mobile-cart" src="img/Cart.svg" alt="Cart Icon">
-        </a>
+        <?php
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && (!isset($_SESSION['isTutor']) || !$_SESSION['isTutor'])) {
+                echo '<a href="cart.php">';
+                    echo '<img id="mobile-cart" src="img/Cart.svg" alt="Cart Icon">';
+                echo '</a>';
+            }
+        ?>
     </div>
 </div>
 
@@ -43,13 +53,35 @@
         <div class="menu-spacer"></div>
     </div>
 
-    <div class="responsive-menu-item">
-        <a href="sign-up.php" class="heading-3">Sign up</a>
-    </div>
+    <?php
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
+        <div class="responsive-menu-item">
+            <a href="account-settings.php" class="heading-3">Account Settings</a>
+        </div>
 
-    <div class="responsive-menu-item">
-        <a href="login.php" class="heading-3">Login</a>
-    </div>
+        <?php
+        if ($_SESSION['isTutor']) {
+            echo '<div class="responsive-menu-item">';
+            echo '<a href="tutor_courses-create.php" class="heading-3">Create new course</a>';
+            echo '</div>';
+        }
+        ?>
+
+        <div class="responsive-menu-item">
+            <a href="logOut.php" class="heading-3">Logout</a>
+        </div>
+    <?php
+    }   else { ?>
+        <div class="responsive-menu-item">
+            <a href="sign-up.php" class="heading-3">Sign up</a>
+        </div>
+
+        <div class="responsive-menu-item">
+            <a href="login.php" class="heading-3">Login</a>
+        </div>
+    <?php
+    }
+    ?>
 </div>
 
 <script src=" js/responsive-nav.js "></script>
