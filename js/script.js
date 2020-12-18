@@ -68,3 +68,19 @@ if (document.getElementById("iframeHelp") != null) {
     document.getElementById("iframeHelp").addEventListener("load", setFrame);
     // console.log("loading setframe");
 }
+
+function updateBanner() {
+    var w = window.screen.width;
+    var banner = document.getElementById('home-banner');
+
+    if (w > 425) {
+        banner.src = "img/Announcement_Banner.svg";
+    } else {
+        banner.src = "img/Mobile_Announcement_Banner.svg";
+        banner.style.borderRadius = "8px";
+        banner.style.width = "100%";
+    }
+}
+
+window.addEventListener('DOMContentLoaded', updateBanner);
+window.addEventListener('resize', updateBanner);
